@@ -4,6 +4,16 @@ Web site for www.moelholm.com.
 
 == Run locally
 
-To run locally:
+After checkout:
+
+    bundle install
+
+Then, to serve on port `4000`:
 
     bundle exec jekyll serve
+    
+    # Now browse to: http://127.0.0.1:4000
+
+Once in a while:
+
+    bundle update
