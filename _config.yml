@@ -1,3 +1,4 @@
 name: Nicky Moelholm
 title: www.moelholm.com
 markdown: kramdown
+permalink: /blog/:year/:month/:day/:title
