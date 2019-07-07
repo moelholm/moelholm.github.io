@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Spring Boot: Controlling timezones with Hibernate"
-description: "How you can control database timezones"
+description: "Controlling the timezone used by Hibernate when it communicates timestamps with the database"
 date: 2016-11-09
 ---
 
