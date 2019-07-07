@@ -11,11 +11,23 @@ title: Nicky Moelholm
   </div>
 </div>
 
-<h5>Latest blog posts</h5>
-
-<ul class="posts">
+<div class="row">
   {% for post in site.posts %}
-  <li><span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}"
-      title="{{ post.title }}">{{ post.title }}</a></li>
+
+  <div class="col-lg-3 col-md-4 col-sm-6">
+    <div class="blog-item">
+      <div class="card">
+        <div class="card-body">
+          <div class="text-right"><small>{{ post.date | date_to_string }}</small></div>
+          <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+          <p class="card-text">{{ post.description }}</p>
+          <div class="text-right">
+            <a href="{{ post.url }}" title="{{ post.title }}" class="btn">Read more...</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   {% endfor %}
-</ul>
+</div>
