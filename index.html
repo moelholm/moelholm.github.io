@@ -2,13 +2,20 @@
 layout: default
 title: Nicky Moelholm
 ---
-<div class="blurb">
-  <h1>www.moelholm.com</h1>
-  <p>Welcome 🙂 - I'm Nicky Moelholm and this is my personal web site.</p>
 
-  <p><i>This page is currently under construction: I am currently moving my blog posts
-      from their previous location.</i></p>
+<p class="lead"> <i> &raquo; Java, JavaScript, NodeJS, Kotlin, Spring Boot, testing and much more &laquo; </i> </p>
 
-  <p>You'll find my blog containing posts about super cool software development subjects
-    such as: Java, JavaScript, NodeJS, Kotlin, Spring Boot, testing and much more.</p>
-</div><!-- /.blurb -->
+<div class="card text-white bg-dark mb-3 text-center" style="max-width: 18rem;">
+  <div class="card-body">
+    <p class="card-text">This site is currently under construction. My previous blog posts will soon re-appear here.</p>
+  </div>
+</div>
+
+<p>Latest blog posts:</p>
+
+<ul class="posts">
+  {% for post in site.posts %}
+  <li><span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}"
+      title="{{ post.title }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>
