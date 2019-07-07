@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Spring Boot and Gradle: Separating tests"
-description: "4 different approaches to separating unit tests from integration tests"
+description: "Approaches for separating unit tests from integration tests"
 date: 2016-10-22
 ---
 
