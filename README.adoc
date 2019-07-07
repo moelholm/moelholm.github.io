@@ -17,3 +17,15 @@ Then, to serve on port `4000`:
 Once in a while:
 
     bundle update
+
+== TODO
+
+- Pagination
+- Comments
+- Analytics
+- Sitemap
+
+== Reference
+
+[Creating and Hosting a Personal Site on GitHub](http://jmcglone.com/guides/github-pages/)
+This is the awesome guide I used for starting this site.
