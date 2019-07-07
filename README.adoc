@@ -27,5 +27,5 @@ Once in a while:
 
 == Reference
 
-[Creating and Hosting a Personal Site on GitHub](http://jmcglone.com/guides/github-pages/)
+link:http://jmcglone.com/guides/github-pages/[Creating and Hosting a Personal Site on GitHub]
 This is the awesome guide I used for starting this site.
