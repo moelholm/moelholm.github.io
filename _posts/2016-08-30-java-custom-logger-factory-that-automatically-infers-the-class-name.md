@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Java: Custom logger factory that automatically infers the class name"
+description: "How to declare loggers like this: Logger LOG = MyLoggerFactory.getLogger()"
 date: 2016-08-30
 ---
 

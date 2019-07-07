@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Spring Boot: Enhance your logging"
+description: "Using MDC data to get more out the application logs"
 date: 2016-08-16
 ---
 

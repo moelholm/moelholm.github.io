@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Spring Boot: Prometheus actuator endpoint"
+description: "How you can expose a Prometheus endpoint"
 date: 2017-02-06
 ---
 

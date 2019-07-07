@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Spring Boot: UI for the dump endpoint"
+description: "Creating your own 'dump' endpoint ... for humans!"
 date: 2016-08-12
 ---
 

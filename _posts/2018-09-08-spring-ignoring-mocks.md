@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Spring: Ignoring mocks"
+description: "How you can make Spring ignore your test mocks"
 date: 2018-09-08
 ---
 

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Hello World"
+description: "A greeting from my new GitHub/Jekyll site"
 date: 2019-07-06
 ---
 

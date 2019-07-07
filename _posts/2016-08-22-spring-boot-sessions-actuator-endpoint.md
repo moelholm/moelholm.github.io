@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Spring Boot: Sessions actuator endpoint"
+description: "Implementing a custom actuator endpoint that prints information about all active HTTP sessions"
 date: 2016-08-22
 ---
 

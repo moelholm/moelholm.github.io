@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Spring 4.3: Custom annotations"
+description: "How to bend the Spring Framework - rolling out your own custom annotations"
 date: 2016-10-15
 ---
 

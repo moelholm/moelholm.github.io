@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Spring 4.3: Introducing the InjectionPoint class"
+description: "Spring 4.3's hidden gem: @InjectionPoint"
 date: 2016-10-09
 ---
 
