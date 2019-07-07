@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Spring 4.3: Using a TaskDecorator to copy MDC data to @Async threads"
+description: "How to pass MDC data to asynchronous threads"
 date: 2017-07-24
 ---
 

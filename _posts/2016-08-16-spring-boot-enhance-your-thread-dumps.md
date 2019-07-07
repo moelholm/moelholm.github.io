@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Spring Boot: Enhance your thread dumps"
+description: "Adding extra information to your applications' thread dumps"
 date: 2016-08-16
 ---
 

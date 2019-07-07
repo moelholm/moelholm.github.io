@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Spring 5: Gets reactive"
+description: "A peek into Spring's reactive future"
 date: 2016-08-10
 ---
 

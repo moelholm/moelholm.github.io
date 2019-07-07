@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Kotlin: Understanding properties"
+description: "How Kotlin properties look like at the JVM bytecode level"
 date: 2017-03-26
 ---
 

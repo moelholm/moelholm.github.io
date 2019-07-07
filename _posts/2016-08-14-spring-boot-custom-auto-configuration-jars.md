@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Spring Boot: Custom auto-configuration JARs"
+description: "Creating a utility project that magically enhance your application"
 date: 2016-08-14
 ---
 

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Spring: Bean qualification"
+description: "Handling the situation where multiple beans qualifies for an injection point"
 date: 2016-10-23
 ---
 

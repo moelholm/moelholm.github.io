@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Spring Boot: Show all logging events for one Web request only"
+description: "How you can trigger TRACE logging for selected HTTP requests"
 date: 2016-08-24
 ---
 

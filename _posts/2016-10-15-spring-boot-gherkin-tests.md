@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Spring Boot: Gherkin tests"
+description: "How to implement Gherkin tests for Spring Boot"
 date: 2016-10-15
 ---
 

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Arquillian: Testing legacy applications"
+description: "A trick demonstrating how you can test legacy Java EE 7 applications"
 date: 2016-08-12
 ---
 

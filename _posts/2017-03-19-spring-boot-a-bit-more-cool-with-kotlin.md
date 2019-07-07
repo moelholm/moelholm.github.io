@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Spring Boot: A bit more cool with Kotlin"
+description: "Using Kotlin for your Spring Boot applications"
 date: 2017-03-19
 ---
 

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Spring Boot: Introduce your own insight endpoints"
+description: "Implementing a custom actuator endpoint"
 date: 2016-08-18
 ---
 

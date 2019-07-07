@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "Spring Boot: Hello World ,Kotlin"
+title: "Spring Boot: Hello World, Kotlin"
+description: "Introduction to using Kotlin in a Spring Boot application"
 date: 2017-03-12
 ---
 

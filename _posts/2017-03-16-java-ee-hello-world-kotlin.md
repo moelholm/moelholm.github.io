@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Java EE: Hello World, Kotlin"
+description: "Using Kotlin for your Java EE applications"
 date: 2017-03-16
 ---
 
