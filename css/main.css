@@ -16,3 +16,13 @@
 .card-body a:hover {
     color: rgba(0,0,0,.7);
 }
+
+.post-metadata a {
+    text-decoration: none;
+    background-color: transparent;
+    color: rgba(0,0,0,.5);
+}
+
+.post-metadata a:hover {
+    color: rgba(0,0,0,.7);
+}
