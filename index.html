@@ -14,13 +14,13 @@ title: Nicky Moelholm
 <div class="row">
   {% for post in site.posts %}
 
-  <div class="col-lg-3 col-md-4 col-sm-6">
+  <div class="col-lg-4 col-md-6">
     <div class="blog-item">
       <div class="card">
         <div class="card-body">
           <div class="text-right"><small>{{ post.date | date_to_string }}</small></div>
-          <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-          <p class="card-text">{{ post.description }}</p>
+          <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title | truncate: 35 }}</a>
+          <p class="card-text">{{ post.content | strip_html | truncate: 150 }}</p>
           <div class="text-right">
             <a href="{{ post.url }}" title="{{ post.title }}" class="btn">Read more...</a>
           </div>
