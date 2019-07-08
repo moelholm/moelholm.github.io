@@ -1,4 +1,5 @@
 name: Nicky Moelholm
 title: www.moelholm.com
+google_analytics: UA-7400692-1
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title
