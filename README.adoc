@@ -21,8 +21,6 @@ Once in a while:
 == TODO
 
 - Pagination
-- Comments
-- Analytics
 - Sitemap
 
 == Reference
