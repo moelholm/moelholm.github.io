@@ -3,6 +3,14 @@ layout: default
 title: Nicky Moelholm
 ---
 
+{% highlight ruby %}
+def print_hi(name)
+  puts "Hi, #{name}"
+end
+print_hi('Tom')
+#=> prints 'Hi, Tom' to STDOUT.
+{% endhighlight %}
+
 ```ruby
 require 'redcarpet'
 markdown = Redcarpet.new("Hello World!")
