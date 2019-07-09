@@ -18,6 +18,7 @@ I have created an example application <a href="https://github.com/moelholm/smal
 When you mock a Spring bean in your non-Spring Boot tests, and if the mock is based on a class and not an interface, then Spring attempts to autowire any dependencies it may have. Spring also attempts to invoke any <em>@PostConstruct</em> initializers that it may have. But …​ you just want to mock that d**n bean, right?
 
 Consider the following bean that we want to test (our SUT):
+
 ```java
 public class GreeterService {
 
@@ -32,6 +33,7 @@ public class GreeterService {
 ```
 
 And this bean that we want to mock in our test:
+
 ```java
 public class GreeterDao {
 
@@ -50,6 +52,7 @@ public class GreeterDao {
 ```
 
 Here is a test that attempts to mock it:
+
 ```java
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes = BadTestConfig.class)
@@ -97,6 +100,7 @@ So there it is: spring treats the mock as any other bean.
 
 ### Solution: Spring Boot based code
 If you are using Spring Boot and have these kind of problems, then it is very likely just because you are not creating the mocks using Spring Boots awesome <em>@MockBean</em> annotation:
+
 ```java
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {GreeterService.class, GreeterDao.class})
@@ -123,6 +127,7 @@ public class SpringBootPoweredGreeterServiceTests {
 
 }
 ```
+
 The <em>@MockBean</em> injection here ensures that Spring Boot correctly produces a mock that doesn't get post processed.
 
 Spring Boot: simple as always :).
@@ -179,6 +184,7 @@ public class SolutionWithoutSpringBootGreeterServiceTests {
   }
 }
 ```
+
 Notice how <em>AwesomeTestConfig::greeterDao()</em> returns a bean factory instead of the mock directly. This test runs without error.
 
 If you are going to use this trick, then make sure that you hide this ugly functionality away. You could, for example, invent a utility method with a nice signature. For example: <em>my.MockitoFactoryBean.create(Class clazzToMock)</em>. 

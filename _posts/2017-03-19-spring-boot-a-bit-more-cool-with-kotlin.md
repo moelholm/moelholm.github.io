@@ -3,15 +3,14 @@ layout: post
 title: "Spring Boot: A bit more cool with Kotlin"
 description: "Using Kotlin for your Spring Boot applications"
 date: 2017-03-19
+comments: true
 ---
 
 In the context of my favorite framework, Spring Boot, I have recently started to explore the effect of using the Kotlin 1.1 programming language (as an alternative to Java 8). This post describes a few language features that may be interesting to a typical Java 8 developer. Also, I hope you will see that:
 
 <blockquote>
-Spring Boot is a bit more cool with Kotlin
+Spring Boot is a bit more cool with Kotlin 😀
 </blockquote>
-
-:)
 
 I have created an example application <a href="https://github.com/nickymoelholm/smallexamples/tree/master/springboot-kotlin-playground" target="_blank">on GitHub</a>. That application contains all the code that you see here. It is based on Spring Boot 2.0 and Kotlin 1.1.
 
@@ -19,29 +18,35 @@ The example contains: a JPA entity, a JPA repository, a REST controller, a REST 
 
 It is going to get messy now: I'll just pick and choose Kotlin features, in the context of that example, that I find interesting. Hang tight :)
 
-<h3>JPA - Kotlin style</h3>
+### JPA - Kotlin style
 Here's the JPA entity:
-[code language="java"]
+
+```kotlin
 import javax.persistence.Entity
 import javax.persistence.Id
 import javax.validation.constraints.NotNull
 
 @Entity
 class Message(@Id val id: String, @NotNull val text: String)
-[/code]
+```
+
 A one liner. It has two properties: <em>id</em> and <em>text</em>. It uses standard JPA annotations. So that's one of Kotlin's nice features: <em>properties</em> - see [kotlin-reference]. Another, is the possibility to develop extremely compact class definitions.
 
 A JPA repository that can be used to perform CRUD operations on the entity:
-[code language="java"]
+
+```kotlin
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 
 @Repository
 interface MessageRepository : JpaRepository<Message, String>
-[/code]
-This is a Spring Data powered JPA repository in action. To be honest it's quite similar to the same if it was written Java. Just wanted to show it for completeness. 
-<h3>REST controller - Kotlin style</h3>
-[code language="java"]
+```
+
+This is a Spring Data powered JPA repository in action. To be honest it's quite similar to the same if it was written Java. Just wanted to show it for completeness.
+
+### REST controller - Kotlin style
+
+```kotlin
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
@@ -63,7 +68,8 @@ class MessageController(val messageRepository: MessageRepository) {
     fun get(@PathVariable id: String) = messageRepository.findOne(id)
 
 }
-[/code]
+```
+
 This is a normal Spring MVC REST controller. It uses constructor injection (see the class header), defines two HTTP GET methods and a lifecycle method. 
 
 The methods are one liners: In Kotlin, functions doesn't have to supply a body.  
@@ -72,9 +78,10 @@ Notice that the methods doesn't explicitly declare any return types. That's an e
 
 Together these features reduce the typical Java ceremonies a lot.
 
-<h3>REST client - Kotlin style</h3>
+### REST client - Kotlin style<
 Here's a rather funny REST client (it's just a client to the controller you saw above):
-[code language="java"]
+
+```kotlin
 import kotlinx.coroutines.experimental.CommonPool
 import kotlinx.coroutines.experimental.async
 import kotlinx.coroutines.experimental.runBlocking
@@ -102,7 +109,8 @@ class MessageClient(templateBuilder: RestTemplateBuilder, @Value("\${server.port
     }
 
 }
-[/code]
+```
+
 This class has two properties: <em>port</em> and <em>restTemplate</em>. The latter is initialized in the class body. Take a look at that initialization code: it uses Kotlin's string template support for string interpolation [kotlin-stringtemplates]. I know it's small stuff - but thats really a neat little feature. Also - you know what? Kotlin even supports multiline strings :)
 
 Take a close look at the <em>getMessages</em> function. It has a nested function called <em>asyncGetForObject</em>. At first this may seem nasty to a Java developer. But to be honest, after having given it a bit of thought, I think it <em>can</em> be okay. In this case I think it is, because: the function is only supposed to be used from within the <em>getMessages</em> function <em>and</em> it is rather small. 
@@ -113,9 +121,10 @@ There is a lot more to the coroutine story. And remember it is experimental in K
 
 Did you notice the collection map functionality?? The <em>messages.map { it.await() }</em> code. (We pass a lambda to the <em>List.map()</em> method). In Kotlin single-argument lambdas, we can just reference the <em>it</em> variable. Also, no <em>collect()</em> call there. That's a really nice lambda functionality in Kotlin, right? :)
 
-<h3>Tests - Kotlin style</h3>
+### Tests - Kotlin style
 Here's a Spring Boot integration test of the REST client:
-[code language="java"]
+
+```kotlin
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -150,7 +159,8 @@ class MessageClientIntegrationTests {
     }
 
 }
-[/code]
+```
+
 The test function name is more pleasant to read than a typical Java based test. 
 
 Notice Kotlin's <em>measureTimeMillis</em> function. For Java developers that may look like a build in language construct. Like the Java <em>synchronized( this ) {}</em> blocks fx. It is a function actually: In Kotlin, when a lambda is the <u>last</u> argument, then it may be supplied after the function call (<em>measureTimeMillis() {}</em> or <em>measureTimeMillis {}</em>). 
@@ -161,13 +171,10 @@ There are many more cool features in Kotlin. That's subject for another post tho
 
 I told you it was going to get messy :)
 
-<h3>References</h3>
-<em>[kotlin-reference] : Kotlin Reference</em>
-https://kotlinlang.org/docs/reference/
+### References
+[kotlin-reference] [Kotlin Reference](https://kotlinlang.org/docs/reference/)
 
-<em>[kotlin-coroutines] : Kotlin Reference : Coroutines</em>
-https://kotlinlang.org/docs/reference/coroutines.html
+[kotlin-coroutines] [Kotlin Reference : Coroutines](https://kotlinlang.org/docs/reference/coroutines.html)
 
-<em>[kotlin-stringtemplates] : Kotlin Reference : String templates</em>
-https://kotlinlang.org/docs/reference/basic-types.html#string-templates
+[kotlin-stringtemplates] [Kotlin Reference : String templates](https://kotlinlang.org/docs/reference/basic-types.html#string-templates)
 

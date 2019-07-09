@@ -20,6 +20,7 @@ Read on to see how that can be achieved. All the code presented here can be foun
 The example project is based on Spring Boot 2. The logging API used here is SLF4J over Logback (use of <em>Logger, LoggerFactory and MDC</em>).
 
 If you take a look at the example project you will find this <em>@RestController</em>:
+
 ```java
 @RestController
 public class MessageRestController {
@@ -39,9 +40,11 @@ public class MessageRestController {
   }
 }
 ```
+
 Notice that it logs <em>RestController in action</em>. Also notice that it has this weird call to the repository: <em>messageRepository.findAll().get()</em>. That's because it executes an <em>asynchronous</em> method, receives a <em>Future</em>, and waits for it until it returns. So a Web thread invoking an <em>@Async</em> method. This is obviously a rather contrived example (I guess you use asynchronous methods for something sane in your projects).
 
 This is the repository:
+
 ```java
 @Repository
 class MessageRepository {
@@ -55,9 +58,11 @@ class MessageRepository {
   }
 }
 ```
+
 Notice that the method logs <em>Repository in action</em>.
 
 Just for completeness, let me show you how the MDC data is setup for Web threads:
+
 ```java
 @Component
 public class MdcFilter extends GenericFilterBean {
@@ -74,10 +79,12 @@ public class MdcFilter extends GenericFilterBean {
   }
 }
 ```
+
 If we don't do anything else, then we have MDC data properly configured for Web threads. But we cannot "follow" a Web request when it transfers into <em>@Async</em> method invocations: The MDC data's (hidden) <em>ThreadLocal</em> data is simply not copied automatically. The good news is that this is super easy to fix...
 
 ### Solution part 1 of 2: Configure the @Async ThreadPool
 Firstly, customize the asynchronous functionality. I did it like this:
+
 ```java
 @EnableAsync(proxyTargetClass = true)
 @SpringBootApplication
@@ -96,12 +103,14 @@ public class Application extends AsyncConfigurerSupport {
   }
 }
 ```
+
 The interesting part is that we extend <em>AsyncConfigurerSupport</em> in order to customize the thread pool.
 
 More precisely: <em>executor.setTaskDecorator(new MdcTaskDecorator())</em>. This is how we enable the custom <em>TaskDecorator</em>.
 
 ### Solution part 2 of 2: Implement the TaskDecorator
 Now to the custom <em>TaskDecorator</em>:
+
 ```java
 class MdcTaskDecorator implements TaskDecorator {
 
@@ -123,6 +132,7 @@ class MdcTaskDecorator implements TaskDecorator {
   }
 }
 ```
+
 The <em>decorate()</em> method takes one <em>Runnable</em> and returns another one. 
 
 Here, I basically wrap the original <em>Runnable</em> and maintain the MDC data around a delegation to its <em>run()</em> method. 
