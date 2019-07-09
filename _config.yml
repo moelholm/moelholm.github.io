@@ -9,3 +9,5 @@ kramdown:
   syntax_highlighter_opts:
     block:
     line_numbers: true
+plugins:
+  - jekyll-sitemap    
