@@ -41,7 +41,7 @@ It is much like a normal Spring MVC controller. It is only the return type (<e
 
 Clearly, Pivotal believe in this model. And so do Oracle: who will include reactive types into Java 9 [2] that adheres to the Reactive Streams Specification [3]. Vert.x is another framework that is fully based on reactive programming. And there are many other languages and frameworks that supports it. So it seems like this model is here to stay.
 
-#### Reasons for adapting this model
+#### Reasons for adopting this model
 A rather pervasive promise that I have encountered is that reactive applications can exhibit superior performance. They can scale extremely well - apparently only to be limited by the networking capabilities of the underlying platform.
 
 Thats all fine. But we're not all Google, Facebook or Twitter. So to be honest I'm pretty satisfied with the juice that I can get out of the typical non-reactive Web application. But surely, there must be other wins too...
