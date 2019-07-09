@@ -18,6 +18,14 @@ Once in a while:
 
     bundle update
 
+== About
+
+=== Markdown
+
+==== Syntax highlighting
+
+    Download syntax highlight CSS from: link:https://github.com/richleland/pygments-css[pygments-css]
+
 == TODO
 
 - Pagination
