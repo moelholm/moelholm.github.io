@@ -4,3 +4,8 @@ url: https://moelholm.com
 google_analytics: UA-7400692-1
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title
+kramdown:
+  highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+    line_numbers: true
