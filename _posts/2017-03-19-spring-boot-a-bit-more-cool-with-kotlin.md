@@ -16,7 +16,7 @@ I have created an example application <a href="https://github.com/nickymoelholm
 
 The example contains: a JPA entity, a JPA repository, a REST controller, a REST client and 2 x integration tests. The database is H2 and the schema is created using a single Flyway migration.
 
-It is going to get messy now: I'll just pick and choose Kotlin features, in the context of that example, that I find interesting. Hang tight :)
+It is going to get messy now: I'll just pick and choose Kotlin features, in the context of that example, that I find interesting. Hang tight 😀
 
 ### JPA - Kotlin style
 Here's the JPA entity:
@@ -78,7 +78,7 @@ Notice that the methods doesn't explicitly declare any return types. That's an e
 
 Together these features reduce the typical Java ceremonies a lot.
 
-### REST client - Kotlin style<
+### REST client - Kotlin style
 Here's a rather funny REST client (it's just a client to the controller you saw above):
 
 ```kotlin
