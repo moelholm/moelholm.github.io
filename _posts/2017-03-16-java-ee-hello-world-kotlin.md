@@ -3,6 +3,7 @@ layout: post
 title: "Java EE: Hello World, Kotlin"
 description: "Using Kotlin for your Java EE applications"
 date: 2017-03-16
+comments: true
 ---
 
 Are you a savvy Java EE 7 application developer? My bet is then, that you are using Java 7/8 for developing your favorite components (EJBs, CDI beans etc). In this post I am going to show how you can develop a Java EE 7 application using Kotlin 1.1 instead. It is very very (!) easy: leverage your existing Java EE 7 knowledge while learning one of the most powerful and beautiful JVM languages we have right now. Very opinionated of course ;)
@@ -12,8 +13,10 @@ The example code in this post can be found in its entirety and real context <a 
 The application consists of the following: an EJB, a JAX-RS resource, two arquillian integration tests and a Gradle script. CDI is used - but only for injecting the EJB into the JAX-RS resource. Everything is fuelled by a WildFly 10.1 application server. Not WildFly Swarm; vanilla Java EE 7 here. 
 
 Just want to see the code?
-<h3>1 of 4: The EJB</h3>
-[code language="java"]
+
+### 1 of 4: The EJB
+
+```kotlin
 import javax.ejb.Stateless
 
 @Stateless
@@ -22,7 +25,7 @@ class HelloBean {
     fun sayHello(caller: String) = "Hello, $caller"
 
 }
-[/code]
+```
 
 This is a stateless session bean with a "no-interface" view.
 
@@ -32,8 +35,9 @@ Are you wondering about the weird method syntax? It looks like a variable assign
 
 No semicolons :).
 
-<h3>2 of 4: The JAX-RS resource</h3>
-[code language="java"]
+### 2 of 4: The JAX-RS resource
+
+```kotlin
 import javax.inject.Inject
 import javax.ws.rs.GET
 import javax.ws.rs.Path
@@ -47,7 +51,7 @@ class HelloResource @Inject constructor(val helloBean: HelloBean) {
     fun get(@PathParam("caller") caller: String) = helloBean.sayHello(caller)
 
 }
-[/code]
+```
 
 A bit weird :). But awesome when your synapses start to learn what it means. 
 
@@ -58,7 +62,8 @@ In short: <em>HelloResource</em> uses CDI to perform "constructor injection" in 
 The JAX-RS resource defines a single method that responds to "HTTP GET" requests: <em>get(...)</em>. Notice how the JAX-RS annotations are used as you are used to from Java.
 
 Before the resource is deployed in the application server, recall that in Java EE 7, you need to wrap up the trivial JAX-RS Application as well:
-[code language="java"]
+
+```kotlin
 import javax.ws.rs.ApplicationPath
 import javax.ws.rs.core.Application
 
@@ -68,7 +73,7 @@ class HelloJaxRsApplication : Application() {
     override fun getClasses() = mutableSetOf(HelloResource::class.java)
 
 }
-[/code]
+```
 
 Kotlin inheritance right there! In Kotlin you use ":" for covering the typical Java <em>extends</em> and <em>implements</em> keywords. 
 
@@ -76,9 +81,11 @@ Take a look at the <em>getClasses</em> method: it uses the <em>mutableSetOf</em>
 
 Well, in Kotlin you can have package level functions - functions that don't live in a class. Some functions, such as <em>mutableSetOf</em>, is visible to you without the need for importing them. Just like you can use <em>java.lang.*</em> in Java land. 
 
-<h3>3 of 4: The Arquillian integration tests</h3>
+### 3 of 4: The Arquillian integration tests
+
 An integration test of the EJB:
-[code language="java"]
+
+```kotlin
 import org.jboss.arquillian.container.test.api.Deployment
 import org.jboss.arquillian.junit.Arquillian
 import org.jboss.shrinkwrap.api.ShrinkWrap
@@ -123,7 +130,8 @@ class HelloBeanIntegrationTests {
     }
 
 }
-[/code]
+```
+
 Notice the injection of <em>helloBean</em>: Keyword <em>var</em>. Properties declared like this are mutable - you can change them at will in your code. Kotlin also offers <em>val</em>. This is like using the <em>final</em> modifier in Java: you can only set them once. 
 
 In this case we are forced to use the <em>val</em> keyword because Arquillian performs dependency injection of the <em>helloBean</em> field, <em>after</em> the class has been constructed. For that to work we also need to use Kotlin's <em>lateinit</em> modifier. Without it the code wouldn't compile. You may find it overly annoying here. But you will probably be happy to hear that it is caused by another Kotlin feature that is insanely cool: Kotlin offers null safety [kotlin-nullsafety].
@@ -135,7 +143,8 @@ In Java, Arquillian needs a static method annotated with <em>@Deployment</em> th
 Notice the library being added to the Arquillian archive: We need to bundle some Kotlin runtime classes with the application. What you see in this example, is a good old dirty Java trick allowing you to locate the actual JAR file from which the specified class is loaded. Perhaps you can find a Shrinkwrap Gradle/Maven resolver for a more viable alternative [shrinkwrap-resolver]. 
 
 A <b>client-side</b> integration test of the JAX-RS resource:
-[code language="java"]
+
+```kotlin
 import org.jboss.arquillian.container.test.api.Deployment
 import org.jboss.arquillian.container.test.api.RunAsClient
 import org.jboss.arquillian.junit.Arquillian
@@ -186,7 +195,7 @@ class HelloResourceIntegrationTests {
     }
 
 }
-[/code]
+```
 
 Kotlin-wise, not so much to remark.
 
@@ -194,9 +203,10 @@ The test is an Arquillian client side test. That is enforced via the <em>@RunAsC
 
 Also, I thought it could be fun to use the JAX-RS client side API to test the resource. So that's what you see there: Vanilla Java EE API use.
 
-<h3>4 of 4: The Gradle script</h3>
+### 4 of 4: The Gradle script
 Many Java EE developers are happy Maven users. I have been so too for years. Today I am a happy Gradle user. So for this example, I have used Gradle to take care of the build, packaging and dependency management:
-[code language="groovy"]
+
+```groovy
 buildscript {
     ext {
         kotlinVersion = '1.1.1'
@@ -270,7 +280,7 @@ task unzipWildFlyAppServer(type: Copy) {
     into file("${buildDir}/unpacked/dist")
     tasks.test.dependsOn unzipWildFlyAppServer
 }
-[/code]
+```
 
 To build Kotlin source code you need the Gradle "kotlin" plugin. You apply that as with the normal "java" plugin. 
 
@@ -282,7 +292,7 @@ In addition to that, don't forget to add the <em>kotlin-stdlib</em> and <em>kotl
 
 Sidetrack: The <em>unzipWildFlyAppServer</em> Gradle task has nothing to do with Kotlin. It just ensures that WildFly AS 10.1 is downloaded and extracted - so that it can be used from the Arquillian tests.
 
-<h3>Conclusion</h3>
+### Conclusion
 I haven't even shown all the cool Kotlin language features in this post. There are many many super cool features that Kotlin offers you. Fx <em>properties, default parameter values, named parameters, data classes (!!), extension functions</em> and much more. 
 
 But I hope that I succeeded in showing you how to use Kotlin with Java EE. I feel that it is largely painless. There are a few interoperability tricks that we need to perform - but I guess they become "the usual suspects". 
@@ -293,20 +303,15 @@ At the time of writing this post I haven't adopted Kotlin on real-world projects
 
 You can wait for Java to adopt modern programming language features. Or you can use Kotlin right now. A little flirt with Kotlin doesn't mean you are divorcing Java :)
 
-<h3>References</h3>
+### References
 
-<em>[kotlin-primaryconstructor] Kotlin Reference : Constructors</em>
-https://kotlinlang.org/docs/reference/classes.html#constructors
+[kotlin-primaryconstructor] [Kotlin Reference : Constructors](https://kotlinlang.org/docs/reference/classes.html#constructors)
 
-<em>[kotlin-nullsafety]  Kotlin Reference : Null safety</em>
-https://kotlinlang.org/docs/reference/null-safety.html
+[kotlin-nullsafety] [Kotlin Reference : Null safety](https://kotlinlang.org/docs/reference/null-safety.html)
 
-<em>[kotlin-companionobjects] Kotlin Reference : Companion objects</em>
-https://kotlinlang.org/docs/reference/classes.html#companion-objects
+[kotlin-companionobjects] [Kotlin Reference : Companion objects](https://kotlinlang.org/docs/reference/classes.html#companion-objects)
 
-<em>[kotlin-jvmstatic] Kotlin Reference : Generating REAL static methods</em>
-<a href="https://kotlinlang.org/docs/reference/java-to-kotlin-interop.html#static-methods" target="_blank">https://kotlinlang.org/docs/reference/java-to-kotlin-interop.html#static-methods</a>
+[kotlin-jvmstatic] [Kotlin Reference : Generating REAL static methods](https://kotlinlang.org/docs/reference/java-to-kotlin-interop.html#static-methods)
 
-<em>[shrinkwrap-resolver] Shrinkwrap Resolvers</em>
-<a href="https://github.com/shrinkwrap/resolver" target="_blank">https://github.com/shrinkwrap/resolver</a>
+[shrinkwrap-resolver] [Shrinkwrap Resolvers](https://github.com/shrinkwrap/resolver)
 
