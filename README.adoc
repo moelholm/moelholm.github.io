@@ -28,8 +28,8 @@ Once in a while:
 
 == TODO
 
+- Search/replace on 'em' html tags - replace with inline `code` 
 - Pagination
-- Sitemap
 
 == Reference
 
