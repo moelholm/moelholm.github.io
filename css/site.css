@@ -1,5 +1,9 @@
 body .container {
-    background-color:whitesmoke;
+    background-color:#efecec;
+}
+
+#site-body {
+    background-color:#efecec;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -7,8 +11,10 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .main-content {
-    padding-top: 1em;
     font-family: Palatino, 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', Georgia, serif;
+    background-color: white;
+    margin:0.5em;
+    padding:1em;
 }
 
 .blog-item {
