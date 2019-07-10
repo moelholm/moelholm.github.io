@@ -1,0 +1,68 @@
+---
+---
+
+$page-background-color: #efecec;
+$link-color: rgba(0, 0, 0, 0.5);
+$link-hover-color: rgba(0, 0, 0, 0.7);
+
+body .container {
+  background-color: $page-background-color;
+}
+
+#site-body {
+  background-color: $page-background-color;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.main-content {
+  font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+  background-color: white;
+  margin: 0.5em;
+  padding: 1em;
+}
+
+.blog-item {
+  padding-bottom: 1em;
+}
+
+.card-body {
+  a {
+    text-decoration: none;
+    background-color: transparent;
+    color: $link-color;
+  }
+  a:hover {
+    color: $link-hover-color;
+  }
+}
+
+.post-metadata {
+  a {
+    text-decoration: none;
+    background-color: transparent;
+    color: $link-color;
+  }
+  a:hover {
+    color: $link-hover-color;
+  }
+}
+
+.post pre.highlight {
+  padding-top: 0.8em;
+  padding-left: 0.8em;
+  font-size: 100%;
+}
+
+.lineno {
+  color: rgba(255, 255, 255, 0.425);
+  margin-right: 0.3em;
+}
