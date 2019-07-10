@@ -3,6 +3,7 @@ layout: default
 title: Nicky Moelholm
 ---
 
+# Welcome
 Welcome, I'm Nicky Moelholm and this is my personal web site. Here you find my blog containing
 posts about super cool software development subjects.
 
