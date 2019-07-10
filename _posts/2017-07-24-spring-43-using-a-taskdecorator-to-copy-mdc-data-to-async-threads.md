@@ -6,20 +6,20 @@ date: 2017-07-24
 comments: true
 ---
 
-In this post I am going to show how to copy MDC data from Web threads to @Async threads using a brand new Spring Framework 4.3 feature: <em>ThreadPoolTaskExecutor#setTaskDecorator()</em> [set-task-decorator]. 
+In this post I am going to show how to copy MDC data from Web threads to @Async threads using a brand new Spring Framework 4.3 feature: `ThreadPoolTaskExecutor#setTaskDecorator()` [set-task-decorator]. 
 
 This is the end result:
 
 <img src="/img/2017-07-24-taskdecorator.png" width="663" height="172" />
 
-Notice the third and second last log lines: they have <em>[userId:Duke]</em> just left of the log level. The first line is emitted from a Web thread (a <em>@RestController</em>) and the second line is emitted from an <em>@Async</em> method thread. Essentially MDC data was copied from the Web thread onto the <em>@Async</em> thread (That was the cool part 😏). 
+Notice the third and second last log lines: they have `[userId:Duke]` just left of the log level. The first line is emitted from a Web thread (a `@RestController`) and the second line is emitted from an `@Async` method thread. Essentially MDC data was copied from the Web thread onto the `@Async` thread (That was the cool part 😏). 
 
 Read on to see how that can be achieved. All the code presented here can be found in the example project <a href="https://github.com/moelholm/smallexamples/tree/master/spring43-async-taskdecorator" target="_blank">on GitHub</a>. Consult that to see all the details if necessary.
 
 <h3>About the example project</h3>
 The example project is based on Spring Boot 2. The logging API used here is SLF4J over Logback (use of <em>Logger, LoggerFactory and MDC</em>).
 
-If you take a look at the example project you will find this <em>@RestController</em>:
+If you take a look at the example project you will find this `@RestController`:
 
 ```java
 @RestController
@@ -41,7 +41,7 @@ public class MessageRestController {
 }
 ```
 
-Notice that it logs <em>RestController in action</em>. Also notice that it has this weird call to the repository: <em>messageRepository.findAll().get()</em>. That's because it executes an <em>asynchronous</em> method, receives a <em>Future</em>, and waits for it until it returns. So a Web thread invoking an <em>@Async</em> method. This is obviously a rather contrived example (I guess you use asynchronous methods for something sane in your projects).
+Notice that it logs `RestController in action`. Also notice that it has this weird call to the repository: `messageRepository.findAll().get()`. That's because it executes an `asynchronous` method, receives a `Future`, and waits for it until it returns. So a Web thread invoking an `@Async` method. This is obviously a rather contrived example (I guess you use asynchronous methods for something sane in your projects).
 
 This is the repository:
 
@@ -59,7 +59,7 @@ class MessageRepository {
 }
 ```
 
-Notice that the method logs <em>Repository in action</em>.
+Notice that the method logs `Repository in action`.
 
 Just for completeness, let me show you how the MDC data is setup for Web threads:
 
@@ -80,7 +80,7 @@ public class MdcFilter extends GenericFilterBean {
 }
 ```
 
-If we don't do anything else, then we have MDC data properly configured for Web threads. But we cannot "follow" a Web request when it transfers into <em>@Async</em> method invocations: The MDC data's (hidden) <em>ThreadLocal</em> data is simply not copied automatically. The good news is that this is super easy to fix...
+If we don't do anything else, then we have MDC data properly configured for Web threads. But we cannot "follow" a Web request when it transfers into `@Async` method invocations: The MDC data's (hidden) `ThreadLocal` data is simply not copied automatically. The good news is that this is super easy to fix...
 
 ### Solution part 1 of 2: Configure the @Async ThreadPool
 Firstly, customize the asynchronous functionality. I did it like this:
@@ -104,12 +104,12 @@ public class Application extends AsyncConfigurerSupport {
 }
 ```
 
-The interesting part is that we extend <em>AsyncConfigurerSupport</em> in order to customize the thread pool.
+The interesting part is that we extend `AsyncConfigurerSupport` in order to customize the thread pool.
 
-More precisely: <em>executor.setTaskDecorator(new MdcTaskDecorator())</em>. This is how we enable the custom <em>TaskDecorator</em>.
+More precisely: `executor.setTaskDecorator(new MdcTaskDecorator())`. This is how we enable the custom `TaskDecorator`.
 
 ### Solution part 2 of 2: Implement the TaskDecorator
-Now to the custom <em>TaskDecorator</em>:
+Now to the custom `TaskDecorator`:
 
 ```java
 class MdcTaskDecorator implements TaskDecorator {
@@ -133,14 +133,14 @@ class MdcTaskDecorator implements TaskDecorator {
 }
 ```
 
-The <em>decorate()</em> method takes one <em>Runnable</em> and returns another one. 
+The `decorate()` method takes one `Runnable` and returns another one. 
 
-Here, I basically wrap the original <em>Runnable</em> and maintain the MDC data around a delegation to its <em>run()</em> method. 
+Here, I basically wrap the original `Runnable` and maintain the MDC data around a delegation to its `run()` method. 
 
 ### Conclusion
 It is actually quite easy to copy MDC data from a Web thread context onto the asynchronous threads' context. 
 
-The technique shown here isn't limited to copying MDC data. You can use it to copy other <em>ThreadLocal</em> data as well. You can also use the <em>TaskDecorator</em> for something completely different. Logging, measure asynchronous method durations, swallowing exceptions, exiting the JVM - whatever makes you happy.
+The technique shown here isn't limited to copying MDC data. You can use it to copy other `ThreadLocal` data as well. You can also use the `TaskDecorator` for something completely different. Logging, measure asynchronous method durations, swallowing exceptions, exiting the JVM - whatever makes you happy.
 
 A big thank you to Joris Kuipers (<a href="https://twitter.com/jkuipers" target="_new">@jkuipers</a>) for making me aware of this new functionality in Spring Framework 4.3. An awesome tip 🤗. 
 
