@@ -7,7 +7,9 @@ permalink: /blog/:year/:month/:day/:title
 kramdown:
   highlighter: rouge
   syntax_highlighter_opts:
+    span:
+      line_numbers: false  
     block:
-    line_numbers: true
+      line_numbers: true
 plugins:
   - jekyll-sitemap    
