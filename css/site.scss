@@ -28,41 +28,32 @@ h6 {
   background-color: white;
   margin: 0.5em;
   padding: 1em;
+  a {
+    text-decoration: none;
+    background-color: transparent;
+    color: $link-color;
+  }
+  a:hover {
+    color: $link-hover-color;
+  }
 }
 
 .blog-item {
   padding-bottom: 1em;
 }
 
-.card-body {
-  a {
-    text-decoration: none;
-    background-color: transparent;
-    color: $link-color;
-  }
-  a:hover {
-    color: $link-hover-color;
-  }
-}
-
-.post-metadata {
-  a {
-    text-decoration: none;
-    background-color: transparent;
-    color: $link-color;
-  }
-  a:hover {
-    color: $link-hover-color;
+.post {
+  pre.highlight {
+    padding-top: 0.8em;
+    padding-left: 0.8em;
+    font-size: 100%;
+    .lineno {
+      color: rgba(255, 255, 255, 0.425);
+      margin-right: 0.3em;
+    }
   }
 }
 
-.post pre.highlight {
-  padding-top: 0.8em;
-  padding-left: 0.8em;
-  font-size: 100%;
-}
-
-.lineno {
-  color: rgba(255, 255, 255, 0.425);
-  margin-right: 0.3em;
+code.highlighter-rouge {
+  color: firebrick;
 }
