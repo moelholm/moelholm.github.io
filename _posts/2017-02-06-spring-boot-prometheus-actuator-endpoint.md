@@ -74,7 +74,7 @@ I searched (a bit) and did find another nice starter by Thomas Darimont [1]. The
 
 I also found another starter by Oleg Vyukov [2]. But I found the implementation a bit complicated - at least compared with other material on how to manually activate a Prometheus endpoint. That made me a bit nervous... 
 
-So I figured: why not...create another starter myself :). That is the one you see referenced in the above example. You can find the source code for it on [GitHub](https://github.com/moelholm/prometheus-spring-boot-starter).
+So I figured: why not...create another starter myself 🙂. That is the one you see referenced in the above example. You can find the source code for it on [GitHub](https://github.com/moelholm/prometheus-spring-boot-starter).
 
 ### References
 [1] [Thomas Darimont's starter](https://github.com/thomasdarimont/prometheus-spring-boot-starter)

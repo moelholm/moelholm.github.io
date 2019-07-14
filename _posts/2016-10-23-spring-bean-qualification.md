@@ -195,7 +195,7 @@ This may seem like a weird solution. And in production code - using it like thi
 OR:
 
 The @Primary bean feature is interesting when used for testing purposes.</blockquote>
-If you haven't thought about this before, then now is the time to read that again :).
+If you haven't thought about this before, then now is the time to read that again 🙂.
 
 For testing purposes you can use `@Primary` to make a test bean "win" over a business bean. Take a look at Baeldung's article for further inspiration [1]. In that article `@Primary` is used with a `@Bean` factory method and `@Profile` to make a test bean have precedence over a business bean. `@Profile` for this scenario isn't necessary - _unless_ the test bean also gets picked up when you run the application normally. That is typically an IDE configuration issue: when your test `*.class` files are colocated with the normal business `*.class` files (I've seen that in Eclipse once or twice).
 
@@ -257,7 +257,7 @@ I haven't included:
 - Standards based qualification examples (JSR330 standard annotations [2])
 - `@Bean` examples
 
-They do provide some further alternatives to fulfil the mission. That is an exercise for the motivated reader :).
+They do provide some further alternatives to fulfil the mission. That is an exercise for the motivated reader 🙂.
 
 I would love to hear from you, if you believe that I have forgotten some other obvious techniques. Just leave a comment before you leave.
 

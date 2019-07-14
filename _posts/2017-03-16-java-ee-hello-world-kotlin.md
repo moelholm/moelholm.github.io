@@ -33,7 +33,7 @@ It has a single method: <em>sayHello</em>. Kotlin can infer the return type here
 
 Are you wondering about the weird method syntax? It looks like a variable assignment perhaps? Well, in Kotlin, a method (or function) may or may not have a body. If it doesn't have a body, then you use the "=" character and specify the <em>return</em> value directly. If you do provide a body...then it will look much like traditional Java code.
 
-No semicolons :).
+No semicolons 🙂.
 
 ### 2 of 4: The JAX-RS resource
 
@@ -53,11 +53,11 @@ class HelloResource @Inject constructor(val helloBean: HelloBean) {
 }
 ```
 
-A bit weird :). But awesome when your synapses start to learn what it means. 
+A bit weird 🙂. But awesome when your synapses start to learn what it means. 
 
 Class <em>HelloResource</em> is a JAX-RS resource that has a <em>primary</em> constructor [kotlin-primaryconstructor] and a property: <em>helloBean</em>. It's part of the class header. Normally you wouldn't write <em>constructor</em> in the class header. But when you want to apply an annotation to it...then it becomes mandatory. The annotation used here, is the CDI <em>@Inject</em> annotation.
 
-In short: <em>HelloResource</em> uses CDI to perform "constructor injection" in order to obtain a reference to the <em>HelloBean</em> EJB. You can also do field injection etc. - but that's for your own exercise :)
+In short: <em>HelloResource</em> uses CDI to perform "constructor injection" in order to obtain a reference to the <em>HelloBean</em> EJB. You can also do field injection etc. - but that's for your own exercise 🙂
 
 The JAX-RS resource defines a single method that responds to "HTTP GET" requests: <em>get(...)</em>. Notice how the JAX-RS annotations are used as you are used to from Java.
 
@@ -138,7 +138,7 @@ In this case we are forced to use the <em>val</em> keyword because Arquillian pe
 
 The actual <em>@Test</em> method itself: Not much to say here. It's the ordinary <b>server-side</b> Arquillian test. When executed, then it runs inside the application server process.
 
-In Java, Arquillian needs a static method annotated with <em>@Deployment</em> that produces a Java EE archive (EAR, JAR or WAR) containing the components to be tested. Kotlin doesn't have <em>static</em> methods at all - so that's a problem. Luckily Kotlin offers companion objects [kotlin-companionobjects] and the <em>@JvmStatic</em> annotation [kotlin-jvmstatic]. Suffice to say: This cocktail solves the Java interoperability "issue" without further ado. Arquillian cannot tell the difference :)
+In Java, Arquillian needs a static method annotated with <em>@Deployment</em> that produces a Java EE archive (EAR, JAR or WAR) containing the components to be tested. Kotlin doesn't have <em>static</em> methods at all - so that's a problem. Luckily Kotlin offers companion objects [kotlin-companionobjects] and the <em>@JvmStatic</em> annotation [kotlin-jvmstatic]. Suffice to say: This cocktail solves the Java interoperability "issue" without further ado. Arquillian cannot tell the difference 🙂
 
 Notice the library being added to the Arquillian archive: We need to bundle some Kotlin runtime classes with the application. What you see in this example, is a good old dirty Java trick allowing you to locate the actual JAR file from which the specified class is loaded. Perhaps you can find a Shrinkwrap Gradle/Maven resolver for a more viable alternative [shrinkwrap-resolver]. 
 
@@ -301,7 +301,7 @@ You can use this new modern language right now. But you don't have to switch par
 
 At the time of writing this post I haven't adopted Kotlin on real-world projects (on the job). But it is very likely to happen on the next.
 
-You can wait for Java to adopt modern programming language features. Or you can use Kotlin right now. A little flirt with Kotlin doesn't mean you are divorcing Java :)
+You can wait for Java to adopt modern programming language features. Or you can use Kotlin right now. A little flirt with Kotlin doesn't mean you are divorcing Java 🙂
 
 ### References
 

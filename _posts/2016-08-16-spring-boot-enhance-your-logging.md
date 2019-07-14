@@ -32,7 +32,7 @@ This is better:
 
 Here we have the same 3 log lines as before. But this time we can see that they belong to the same HTTP request: the request with id `3e21b7f3-xxxxx`. We can also see that it is the user `tux` that caused these log lines.
 
-The naive solution would be for you to prepend the `userId` and `requestId` to all log lines. But that's never going to happen. You will forget it. If not you - then your colleague. And it can even be difficult to get such information from subcomponents - for example the `GreetingRepository`: how does it know about the `requestId`? Don't even consider using `ThreadLocal`'s now :).
+The naive solution would be for you to prepend the `userId` and `requestId` to all log lines. But that's never going to happen. You will forget it. If not you - then your colleague. And it can even be difficult to get such information from subcomponents - for example the `GreetingRepository`: how does it know about the `requestId`? Don't even consider using `ThreadLocal`'s now 🙂.
 
 The solution to get such "omni present" logging data is: _Mapped Diagnostic Context (MDC)_. MDC is a feature that is supported in the most modern Java logging frameworks, for example: _Log4j_, _Log4j2_, _Logback_ and more.
 

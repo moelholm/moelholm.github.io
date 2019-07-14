@@ -10,7 +10,7 @@ In this post I am going to look into Kotlin properties [1] from a Java developer
 
 I have created an example project <a href="https://github.com/nickymoelholm/smallexamples/tree/master/javadevelopers-understanding-kotlin-properties" target="_blank">on GitHub</a>. You will find a few examples of how to declare properties - and for each of them, also identical unit tests in Java and Kotlin. 
 
-Let's demystify those properties :)
+Let's demystify those properties 🙂
 
 ### Example: mutable and read-only properties
 
