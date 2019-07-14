@@ -6,7 +6,7 @@ date: 2017-03-16
 comments: true
 ---
 
-Are you a savvy Java EE 7 application developer? My bet is then, that you are using Java 7/8 for developing your favorite components (EJBs, CDI beans etc). In this post I am going to show how you can develop a Java EE 7 application using Kotlin 1.1 instead. It is very very (!) easy: leverage your existing Java EE 7 knowledge while learning one of the most powerful and beautiful JVM languages we have right now. Very opinionated of course ;)
+Are you a savvy Java EE 7 application developer? My bet is then, that you are using Java 7/8 for developing your favorite components (EJBs, CDI beans etc). In this post I am going to show how you can develop a Java EE 7 application using Kotlin 1.1 instead. It is very very (!) easy: leverage your existing Java EE 7 knowledge while learning one of the most powerful and beautiful JVM languages we have right now. Very opinionated of course 😉
 
 The example code in this post can be found in its entirety and real context <a href="https://github.com/nickymoelholm/smallexamples/tree/master/javaee7-kotlin-helloworld" target="_blank">on GitHub</a>.
 

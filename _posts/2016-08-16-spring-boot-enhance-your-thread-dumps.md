@@ -51,6 +51,6 @@ It is a Spring Boot application that exposes a single REST endpoint that you can
 
 There is really no magic here. Just modify the thread name with whatever information you can imagine. Don't forget to reset the name in a finally block (so that the information belonging to a certain request doesn't accidentally survive to another request).
 
-In fact, since this is an ordinary Servlet `Filter`: you can take this recipe directly to your Java EE application as well. If you are using another stack: I bet you can find a similar "single point of entry" where you can place the functionality. Otherwise consider upgrading to Spring Boot ;).
+In fact, since this is an ordinary Servlet `Filter`: you can take this recipe directly to your Java EE application as well. If you are using another stack: I bet you can find a similar "single point of entry" where you can place the functionality. Otherwise consider upgrading to Spring Boot 😉.
 
 Do you know why I prepended _and_ appended the original thread name to the modified name? I appended the name so that it still appears in the Spring Boot console output (otherwise we would only see the last part of the thread name: which is the extra information we have added). And I prepended it - so that it is still the first thing you see in the thread dumps.

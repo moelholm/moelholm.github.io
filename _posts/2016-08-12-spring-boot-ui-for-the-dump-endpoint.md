@@ -19,4 +19,4 @@ I have added this plugin to the Maven Central. Find it <a href="http://mvnrepo
 
 The code is OSS - find it at <a href="https://github.com/nickymoelholm/tools/tree/master/actuator-ui-dump" target="_blank">GitHub</a>. It is also here that you will find some extra documentation on how you can configure the plugin - so check it out if you want to give it a spin.
 
-By the way: It was very interesting to make such a Spring Boot plugin. It uses auto configuration and other cool stuff. If you think that sounds interesting, then look at the code: it is really simple ;).
+By the way: It was very interesting to make such a Spring Boot plugin. It uses auto configuration and other cool stuff. If you think that sounds interesting, then look at the code: it is really simple 😉.
