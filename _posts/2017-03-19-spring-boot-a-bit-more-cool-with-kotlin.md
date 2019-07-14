@@ -111,15 +111,15 @@ class MessageClient(templateBuilder: RestTemplateBuilder, @Value("\${server.port
 }
 ```
 
-This class has two properties: <em>port</em> and <em>restTemplate</em>. The latter is initialized in the class body. Take a look at that initialization code: it uses Kotlin's string template support for string interpolation [kotlin-stringtemplates]. I know it's small stuff - but thats really a neat little feature. Also - you know what? Kotlin even supports multiline strings :)
+This class has two properties: <em>port</em> and <em>restTemplate</em>. The latter is initialized in the class body. Take a look at that initialization code: it uses Kotlin's string template support for string interpolation [kotlin-stringtemplates]. I know it's small stuff - but thats really a neat little feature. Also - you know what? Kotlin even supports multiline strings 🙂
 
 Take a close look at the <em>getMessages</em> function. It has a nested function called <em>asyncGetForObject</em>. At first this may seem nasty to a Java developer. But to be honest, after having given it a bit of thought, I think it <em>can</em> be okay. In this case I think it is, because: the function is only supposed to be used from within the <em>getMessages</em> function <em>and</em> it is rather small. 
 
-Also, <em>getMessages</em> uses the Kotlin 1.1 experimental "coroutine" functionality [kotlin-coroutines]. The coroutine is the <em>async(CommonPool){}</em> block. Invoking that, as we do twice in the <em>val messages = ...</em> line is non-blocking (hence the <em>async</em> hint :)). At that very moment 2 x REST requests run in parallel. The last block <em>runBlocking{}</em> is where we await the results and return them when they are ready.
+Also, <em>getMessages</em> uses the Kotlin 1.1 experimental "coroutine" functionality [kotlin-coroutines]. The coroutine is the <em>async(CommonPool){}</em> block. Invoking that, as we do twice in the <em>val messages = ...</em> line is non-blocking (hence the <em>async</em> hint 🙂). At that very moment 2 x REST requests run in parallel. The last block <em>runBlocking{}</em> is where we await the results and return them when they are ready.
 
-There is a lot more to the coroutine story. And remember it is experimental in Kotlin 1.1. But still: That's damn interesting in my opinion :).
+There is a lot more to the coroutine story. And remember it is experimental in Kotlin 1.1. But still: That's damn interesting in my opinion 🙂.
 
-Did you notice the collection map functionality?? The <em>messages.map { it.await() }</em> code. (We pass a lambda to the <em>List.map()</em> method). In Kotlin single-argument lambdas, we can just reference the <em>it</em> variable. Also, no <em>collect()</em> call there. That's a really nice lambda functionality in Kotlin, right? :)
+Did you notice the collection map functionality?? The <em>messages.map { it.await() }</em> code. (We pass a lambda to the <em>List.map()</em> method). In Kotlin single-argument lambdas, we can just reference the <em>it</em> variable. Also, no <em>collect()</em> call there. That's a really nice lambda functionality in Kotlin, right? 🙂
 
 ### Tests - Kotlin style
 Here's a Spring Boot integration test of the REST client:
@@ -169,7 +169,7 @@ The <em>measureTimeMillis</em> function itself - that's not bad at all either I 
 
 There are many more cool features in Kotlin. That's subject for another post though.
 
-I told you it was going to get messy :)
+I told you it was going to get messy 🙂
 
 ### References
 [kotlin-reference] [Kotlin Reference](https://kotlinlang.org/docs/reference/)

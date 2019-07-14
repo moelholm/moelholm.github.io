@@ -31,7 +31,7 @@ Notice that we activate Spring Boot using the normal `@SpringBootApplication` an
 
 The `main` method in Kotlin is a package level function (it is not embedded inside a class).
 
-We pass `Application::class<strong>.java</strong>` to the `run` method. That is not a typo - and it is not a Java source file reference :). It is still the `Class` object that represents class `Application. `If you just pass `Application::class` - then you would pass an object of type `KClass` - that is Kotlins own representation of what you know as the `Class` type from Java!
+We pass `Application::class<strong>.java</strong>` to the `run` method. That is not a typo - and it is not a Java source file reference 🙂. It is still the `Class` object that represents class `Application. `If you just pass `Application::class` - then you would pass an object of type `KClass` - that is Kotlins own representation of what you know as the `Class` type from Java!
 
 The weird `*args` is not a pointer - but rather Kotlins `spread` operator (the `run` method declares a vararg parameter).
 
@@ -102,7 +102,7 @@ Another interesting element is the `@Test` function name: I actually started wit
 
 In the @Test itself: notice the use of `val`. It's like Java's `final` modifier (in context of variables). Kotlin's type inference means that we aren't forced to write down the type (`String`).
 
-So.... I think this seems super nice. The code is not overly verbose with type information. And at least for this Hello World case I think it is perfectly fine. I'm also pretty happy with the string interpolation again :) ... (in Java land I tend to use `String.format("stuff...%s", varhere)` - rather annoying).
+So.... I think this seems super nice. The code is not overly verbose with type information. And at least for this Hello World case I think it is perfectly fine. I'm also pretty happy with the string interpolation again 🙂 ... (in Java land I tend to use `String.format("stuff...%s", varhere)` - rather annoying).
 
 ### 4 of 4: The Gradle script
 I have been using Gradle as a drop-in replacement for Maven for the last 1.5 year. For that period I've always used Groovy as the programming language in my Gradle scripts. And I kind of like that - but also, I must admit that the IDE assistance isn't super optimal (even in IntelliJ which I use now).

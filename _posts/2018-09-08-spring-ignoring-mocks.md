@@ -9,7 +9,7 @@ comments: true
 If you are using the core Spring Framework (that is, not Spring Boot), then you may have encountered a problem where Spring doesn't seem to completely ignore mocked beans in your tests: Perhaps Spring attempts to inject beans into them or run your `@PostConstruct` lifecycle methods. In this post I present that problem together with a solution for it.
 
 <blockquote class="blockquote">
-If you are using Spring Boot and have this behavior. Then there is a big chance that you are holding it wrong. There is a note on how to hold it right for you too :).
+If you are using Spring Boot and have this behavior. Then there is a big chance that you are holding it wrong. There is a note on how to hold it right for you too 🙂.
 </blockquote>
 
 I have created an example application <a href="https://github.com/moelholm/smallexamples/tree/master/spring-please-ignore-my-mocks" target="_blank">on GitHub</a>. That application contains all the code that you see here. It is based on Spring Boot 2.0 and Java 8.
@@ -130,7 +130,7 @@ public class SpringBootPoweredGreeterServiceTests {
 
 The `@MockBean` injection here ensures that Spring Boot correctly produces a mock that doesn't get post processed.
 
-Spring Boot: simple as always :).
+Spring Boot: simple as always 🙂.
 
 ### Solution: Core Spring Framework based code
 The trick is here to ensure that Spring won't post process your mock. It just happens to be, that `FactoryBean`s have that behaviour:
