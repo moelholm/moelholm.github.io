@@ -12,9 +12,11 @@ Here's an example. Imagine a call to:
 The `trace` query parameter is completely unknown to the actual `GreetingController`. But it instructs your application to log everything related to that request:
 
 <img src="/img/2016-08-24-logevents.png" class="w-100 pl-2 pr-2" />
+
 With this amount of information you can go ahead and troubleshoot those hard to understand production issues! Compare that to what you will get without the trace support:
 
 <img src="/img/2016-08-24-logevents-2.png" class="w-100 pl-2 pr-2" />
+
 The best thing: once you have implemented support for the `trace` query parameter, you can use it on `any` Web request to your application: Servlets, JSP's, SOAP endpoints, REST endpoints and so on. In fact: they don't even know about it.
 
 ### Spring Boot implementation
