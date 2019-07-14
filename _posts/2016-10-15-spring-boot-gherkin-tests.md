@@ -7,24 +7,26 @@ date: 2016-10-15
 
 In this post I show how you can implement Gherkin tests for Spring Boot 1.4.1. Here is an example of a Gherkin based test script:
 
-<img class="alignnone size-full wp-image-2431" src="https://moelholm.files.wordpress.com/2016/10/screen-shot-2016-10-15-at-20-53-08.png" alt="screen-shot-2016-10-15-at-20-53-08" width="894" height="572" />
+<img src="/img/2016-10-15-gherkin-tests.png" class="w-100 pl-2 pr-2" />
 
-The <em>Feature</em>, <em>Scenario</em>, <em>Scenario Outline</em>, <em>Given</em>, <em>When</em>, <em>Then</em> and <em>And</em> constructs are part of the Gherkin test language [1]. Such tests are popular in Behavior-driven development (BDD) and is meant as a common tool between users from the business and users from the development team [2].
+The `Feature`, `Scenario`, `Scenario Outline`, `Given`, `When`, `Then` and `And` constructs are part of the Gherkin test language [1]. Such tests are popular in Behavior-driven development (BDD) and is meant as a common tool between users from the business and users from the development team [2].
 <blockquote>The idea is that you can execute such a Gherkin script and get a test result (did it work or not?)</blockquote>
-Notice the Gherkin language, there is nothing that prevents you from writing such tests even before the real business code exists. In fact it is a BDD best practice to write the tests <em>before</em> the feature gets implemented:
+Notice the Gherkin language, there is nothing that prevents you from writing such tests even before the real business code exists. In fact it is a BDD best practice to write the tests `before` the feature gets implemented:
 <blockquote>Imagine if you and the business wrote Gherkin tests as part of a User Story's acceptance criteria...</blockquote>
 I haven't done this yet. But I bet there are a lot of BDD practitioners that have.
-<h3>About the Spring Boot 1.4 example</h3>
-I have prepared a Spring Boot 1.4.1 based example <a href="https://github.com/nickymoelholm/smallexamples/tree/master/hello-springboot-cucumber/" target="_blank">on GitHub</a>. Consult that to see the code in its entirety and true surroundings. The example consists of:
-<ul>
-	<li>The Gherkin test script you saw at the beginning of this post: It's a script that tests a "greetings" RESTful(<span style="text-decoration:underline;">ish</span>) resource.</li>
-	<li>The greetings resource: A super simple Spring MVC <em>@RestController</em> that accepts a caller name as input and emits a greeting message as output. This is the resource being tested.</li>
-</ul>
+
+### About the Spring Boot 1.4 example
+I have prepared a Spring Boot 1.4.1 based example [on GitHub](https://github.com/nickymoelholm/smallexamples/tree/master/hello-springboot-cucumber/). Consult that to see the code in its entirety and true surroundings. The example consists of:
+
+- The Gherkin test script you saw at the beginning of this post: It's a script that tests a "greetings" RESTful(<span style="text-decoration:underline;">ish</span>) resource.
+- The greetings resource: A super simple Spring MVC `@RestController` that accepts a caller name as input and emits a greeting message as output. This is the resource being tested.
+
 I have used a 5 step recipe for making this work....
-<h3>Step 1 of 5: Configure the build script</h3>
+
+### Step 1 of 5: Configure the build script
 The example uses Gradle as it's build technology. The Gherkin test support comes via the Cucumber-JVM test framework [3] and the Gradle Cucumber Plugin [4]. Here's the Gradle script:
 
-[code language="groovy"]
+```grovy
 buildscript {
     repositories {
         mavenCentral()
@@ -65,34 +67,37 @@ cucumber {
     // So that you can run all features/scenarios except for those annotated with @Ignore:
     tags = ['~@Ignore']
 }
-[/code]
+```
+
 Notice the comments in the buildscript. They highlight what parts of the Gradle script are particularly interesting.
 
 By using the Gradle Cucumber Plugin you now have the support for a new source folder structure:
 
-[code]
+```code
 src/cucumber
 |--- java
 |--- resources
-[/code]
+```
 
-You put the Gherkin step implementations in the <em>src/cucumber/java</em> directory and the Gherkin scripts under the <em>src/cucumber/resources</em> directory.
-<h3>Step 2 of 5: Write the Gherkin tests</h3>
-The Gherkin tests are written in a <em>.feature</em> file. In the example I put the following contents into <em>src/cucumber/resources/greetingsResource.feature</em>:
+You put the Gherkin step implementations in the `src/cucumber/java` directory and the Gherkin scripts under the `src/cucumber/resources` directory.
 
-<img class="alignnone size-full wp-image-2431" src="https://moelholm.files.wordpress.com/2016/10/screen-shot-2016-10-15-at-20-53-08.png" alt="screen-shot-2016-10-15-at-20-53-08" width="894" height="572" />
+### Step 2 of 5: Write the Gherkin tests
+The Gherkin tests are written in a `.feature` file. In the example I put the following contents into `src/cucumber/resources/greetingsResource.feature`:
+
+<img src="/img/2016-10-15-gherkin-tests-2.png" class="w-100 pl-2 pr-2" />
 
 This script contains 3 test scenarios.
 
-The two first tests are based on the <em>Scenario Outline</em> and uses data from the <em>Examples</em> block. First column is the input we send to the <em>greetings</em> resource. Second and third columns are the expected outputs given that input. So: If we send in <em>Duke</em> to the <em>greetings</em> resource then we expect an HTTP status code <em>200</em> and a body with the message <em>Hello World, Duke</em>.
+The two first tests are based on the `Scenario Outline` and uses data from the `Examples` block. First column is the input we send to the `greetings` resource. Second and third columns are the expected outputs given that input. So: If we send in `Duke` to the `greetings` resource then we expect an HTTP status code `200` and a body with the message `Hello World, Duke`.
 
-The third test is a <em>Scenario</em> that is not based on example input data. This test is just for fun ;) [5].
+The third test is a `Scenario` that is not based on example input data. This test is just for fun ;) [5].
 
 In the real world you would cover error conditions as well. So if you are testing a RESTful resource, like in this example, you would test for client errors 4xx etc.
-<h3>Step 3 of 5: Implement the Gherkin steps test code</h3>
+
+### Step 3 of 5: Implement the Gherkin steps test code
 Here's the step implementations for the Gherkin script:
 
-[code language="java"]
+```java
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ContextConfiguration // Don't ask
 public class GreetingsResourceSteps {
@@ -126,23 +131,24 @@ public class GreetingsResourceSteps {
   }
 
 }
-[/code]
+```
 
-Take a look at the class definition: this is where we tell the cucumber test framework to kickstart the Spring container. In fact it's just like you would do in a typical Spring Boot 1.4 integration test: using the <em>@SpringBootTest</em> annotation. Said in another way: The Spring <em>ApplicationContext</em> will be launched prior to executing the Gherkin test scenarios.
+Take a look at the class definition: this is where we tell the cucumber test framework to kickstart the Spring container. In fact it's just like you would do in a typical Spring Boot 1.4 integration test: using the `@SpringBootTest` annotation. Said in another way: The Spring `ApplicationContext` will be launched prior to executing the Gherkin test scenarios.
 
-Now take a look at lines 5+6: Here we inject Springs <em>TestRestTemplate</em>. We use this to send HTTP requests for our RESTful resource. Again, this is just like you would do in a typical Spring Boot 1.4 integration test.
+Now take a look at lines 5+6: Here we inject Springs `TestRestTemplate`. We use this to send HTTP requests for our RESTful resource. Again, this is just like you would do in a typical Spring Boot 1.4 integration test.
 
-Now take a look at the <em>@Given</em>, <em>@When</em>, <em>@Then</em>, and <em>@And</em> annotations: These define the methods implementing the steps. You can track them right back to the <em>src/cucumber/resources/greetingsResource.feature</em> file. Notice how we use simple regular expressions to map step input (fx <em>caller</em> values) to method parameters.
+Now take a look at the `@Given`, `@When`, `@Then`, and `@And` annotations: These define the methods implementing the steps. You can track them right back to the `src/cucumber/resources/greetingsResource.feature` file. Notice how we use simple regular expressions to map step input (fx `caller` values) to method parameters.
 
-In case of errors, the steps throws ordinary <em>java.lang.AssertionError</em>s via the awesome AssertJ library [6].
+In case of errors, the steps throws ordinary `java.lang.AssertionError`s via the awesome AssertJ library [6].
 
-See? It <em>almost</em> looks like a normal Spring Boot integration test. One major difference is the need for storing intermediate state in the class itself (or somewhere else: fx a shared class). Well rest in the knowledge that any involved step classes, here <em>GreetingsResourceSteps</em>, are disposed after each Scenario. Said in another way: you have a fresh "steps" instance for each scenario.
+See? It `almost` looks like a normal Spring Boot integration test. One major difference is the need for storing intermediate state in the class itself (or somewhere else: fx a shared class). Well rest in the knowledge that any involved step classes, here `GreetingsResourceSteps`, are disposed after each Scenario. Said in another way: you have a fresh "steps" instance for each scenario.
 
-You may also want to take a look at the <em>@Before</em> and <em>@After</em> cucumber annotations. They resemble the same from JUnit.
-<h3>Step 4 of 5: Implement the feature being tested</h3>
-Lastly, we get to the actual feature. It's just the ordinary <em>@RestController</em>:
+You may also want to take a look at the `@Before` and `@After` cucumber annotations. They resemble the same from JUnit.
 
-[code language="java"]
+### Step 4 of 5: Implement the feature being tested
+Lastly, we get to the actual feature. It's just the ordinary `@RestController`:
+
+```java
 @RestController
 public class GreetingsController {
 
@@ -159,44 +165,42 @@ public class GreetingsController {
   }
 
 }
-[/code]
+```
+
 Ahem ... I obviously wrote this controller after the Gherkin tests.
-<h3>Step 5 of 5: Run the Gherkin tests and get the result</h3>
+
+### Step 5 of 5: Run the Gherkin tests and get the result
 Thanks to the Gradle Cucumber Plugin, running the tests is a matter of:
 
-[code]
+```code
 ./gradlew clean cucumber
-[/code]
+```
 
 Here is an example output:
 
-<img class="alignnone size-full wp-image-2432" src="https://moelholm.files.wordpress.com/2016/10/screen-shot-2016-10-15-at-20-52-46.png" alt="screen-shot-2016-10-15-at-20-52-46" width="1928" height="556" />
+<img src="/img/2016-10-15-gherkin-tests-3.png" class="w-100 pl-2 pr-2" />
 
-And here is an example output from the HTML generated report at <em>./build/cucumber/html/index.html</em>:
+And here is an example output from the HTML generated report at `./build/cucumber/html/index.html`:
 
-<img class="alignnone size-full wp-image-2433" src="https://moelholm.files.wordpress.com/2016/10/screen-shot-2016-10-15-at-20-54-36.png" alt="screen-shot-2016-10-15-at-20-54-36" width="996" height="938" />
+<img src="/img/2016-10-15-gherkin-tests-4.png" class="w-100 pl-2 pr-2" />
 
-Using Jenkins as a CI server? You can find a bunch of cucumber plugins for that. Just point the plugins to your <em>build/cucumber</em> directory and you are good to go.
-<h3>In retrospective</h3>
+Using Jenkins as a CI server? You can find a bunch of cucumber plugins for that. Just point the plugins to your `build/cucumber` directory and you are good to go.
+
+### In retrospective
 This example was all about testing a RESTful resource. But Gherkin style tests are not limited to that:
 <blockquote>The Gherkin step implemention code could test anything</blockquote>
-You could drive Selenium tests if you want to. Or Spring <em>@Service</em> beans. You decide.
+You could drive Selenium tests if you want to. Or Spring `@Service` beans. You decide.
 <blockquote>The important thing is that it helps you and the business drive the right solution</blockquote>
-<h3>References</h3>
-[1] Gherkin language:
-<a href="https://cucumber.io/docs/reference" target="_blank">https://cucumber.io/docs/reference</a>
 
-[2] Behavior-driven development (BDD) on Wikipedia:
-<a href="https://en.wikipedia.org/wiki/Behavior-driven_development" target="_blank">https://en.wikipedia.org/wiki/Behavior-driven_development</a>
+### References
+[1] [Gherkin language](https://cucumber.io/docs/reference)
 
-[3] Cucumber-JVM:
-<a href="https://cucumber.io/docs/reference/jvm" target="_blank">https://cucumber.io/docs/reference/jvm</a>
+[2] [Behavior-driven development (BDD) on Wikipedia](https://en.wikipedia.org/wiki/Behavior-driven_development)
 
-[4] Gradle Cucumber Plugin
-<a href="https://github.com/samueltbrown/gradle-cucumber-plugin" target="_blank">https://github.com/samueltbrown/gradle-cucumber-plugin</a>
+[3] [Cucumber-JVM](https://cucumber.io/docs/reference/jvm)
 
-[5] 418
-<a href="https://sitesdoneright.com/blog/2013/03/what-is-418-im-a-teapot-status-code-error" target="_blank">https://sitesdoneright.com/blog/2013/03/what-is-418-im-a-teapot-status-code-error</a>
+[4] [Gradle Cucumber Plugin](https://github.com/samueltbrown/gradle-cucumber-plugin)
 
-[6] AssertJ
-<a href="http://joel-costigliola.github.io/assertj/" target="_blank">http://joel-costigliola.github.io/assertj/</a>
+[5] [418](https://sitesdoneright.com/blog/2013/03/what-is-418-im-a-teapot-status-code-error)
+
+[6] [AssertJ](http://joel-costigliola.github.io/assertj/)
