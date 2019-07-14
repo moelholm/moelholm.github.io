@@ -10,7 +10,7 @@ In this post I am going to show how to copy MDC data from Web threads to @Async 
 
 This is the end result:
 
-<img src="/img/2017-07-24-taskdecorator.png" width="663" height="172" />
+<img src="/img/2017-07-24-taskdecorator.png" class="w-100 pl-2 pr-2" />
 
 Notice the third and second last log lines: they have `[userId:Duke]` just left of the log level. The first line is emitted from a Web thread (a `@RestController`) and the second line is emitted from an `@Async` method thread. Essentially MDC data was copied from the Web thread onto the `@Async` thread (That was the cool part 😏). 
 
