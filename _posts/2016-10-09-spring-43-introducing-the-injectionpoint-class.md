@@ -5,7 +5,7 @@ description: "Spring 4.3's hidden gem: @InjectionPoint"
 date: 2016-10-09
 ---
 
-Did you know that Spring Framework 4.3 comes with a "hidden" gem: the `InjectionPoint` class ?
+Did you know that Spring Framework 4.3 comes with a "hidden" gem: the `InjectionPoint` class?
 
 At the time of writing this post, `InjectionPoint` is nowhere to be found in the Spring Framework Reference Documentation [2].
 
