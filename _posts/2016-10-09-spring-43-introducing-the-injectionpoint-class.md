@@ -56,7 +56,7 @@ Notice how this `@Bean` method uses the `InjectionPoint` to get access to the a
 
 In addition to the annotations on the dependency injection target field (/method/constructor...) you can also get the class object of the containing class (`GreeterService` in the above example). Take a look at the JavaDoc for further information [1].
 
-That's it! Now, imagine what you can do with it ;) ...
+That's it! Now, imagine what you can do with it 😉 ...
 
 ### Relation to scope
 I propose that `InjectionPoint` is specifically designed to work with `prototype` scoped beans. You may think that's weird - but think about it this way:

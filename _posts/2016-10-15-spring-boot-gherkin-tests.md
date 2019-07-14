@@ -90,7 +90,7 @@ This script contains 3 test scenarios.
 
 The two first tests are based on the `Scenario Outline` and uses data from the `Examples` block. First column is the input we send to the `greetings` resource. Second and third columns are the expected outputs given that input. So: If we send in `Duke` to the `greetings` resource then we expect an HTTP status code `200` and a body with the message `Hello World, Duke`.
 
-The third test is a `Scenario` that is not based on example input data. This test is just for fun ;) [5].
+The third test is a `Scenario` that is not based on example input data. This test is just for fun 😉 [5].
 
 In the real world you would cover error conditions as well. So if you are testing a RESTful resource, like in this example, you would test for client errors 4xx etc.
 
