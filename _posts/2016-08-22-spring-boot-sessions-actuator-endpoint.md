@@ -5,24 +5,26 @@ description: "Implementing a custom actuator endpoint that prints information a
 date: 2016-08-22
 ---
 
-This post shows how you can implement a custom Spring Boot Actuator endpoint that prints information about all active <em>HttpSession</em>s:
+This post shows how you can implement a custom Spring Boot Actuator endpoint that prints information about all active `HttpSession`s:
 
-<img class="alignnone size-full wp-image-1406" src="https://moelholm.files.wordpress.com/2016/08/screen-shot-2016-08-22-at-22-23-45.png" alt="Screen Shot 2016-08-22 at 22.23.45" width="1176" height="836" />
+<img src="/img/2016-08-22-sessions.png" class="w-100 pl-2 pr-2" />
 
-<em>HttpSession</em> meta data is prefixed with @ signs: id, creation time and last accessed time. The other values are a raw dump of all the <em>HttpSession</em> attributes.
+`HttpSession` meta data is prefixed with @ signs: id, creation time and last accessed time. The other values are a raw dump of all the `HttpSession` attributes.
 
 You can use this endpoint during development to inspect active sessions. Or you can use it on production systems when troubleshooting customer issues. Whatever you choose, make sure that you secure such an endpoint appropriately: You could expose some very sensitive data.
 
 For an introduction to custom Spring Boot Actuator endpoints, refer to my previous post: <a href="http://moelholm.com/2016/08/18/spring-boot-introduce-your-own-insight-endpoints/" target="_blank">Spring Boot: Introduce your own insight endpoints</a>.
-<h3>Implementation</h3>
-I have prepared a GitHub example based on Spring Boot 1.4 - <a href="https://github.com/nickymoelholm/smallexamples/tree/master/springboot-actuator-sessionsmvcendpoint" target="_blank">find it here</a>. Consult that to see the code in it's entirety and full context. Here's the main principles that makes this possible:
-<ul>
-	<li>Create a class to act as a registry of all active <em>HttpSession</em>s</li>
-	<li>Create an <em>HttpSession</em> listener that registers and de-registers the <em>HttpSession</em>s</li>
-	<li>Create a Spring Boot Actuator endpoint that dumps the internal state of all of the <em>HttpSession</em>s</li>
-</ul>
-<h4>Step 1 of 3: Class SessionRegistry</h4>
-[code language="java"]
+
+### Implementation
+I have prepared a GitHub example based on Spring Boot 1.4 - [find it here](https://github.com/nickymoelholm/smallexamples/tree/master/springboot-actuator-sessionsmvcendpoint). Consult that to see the code in it's entirety and full context. Here's the main principles that makes this possible:
+
+- Create a class to act as a registry of all active `HttpSession`s
+- Create an `HttpSession` listener that registers and de-registers the `HttpSession`s
+- Create a Spring Boot Actuator endpoint that dumps the internal state of all of the `HttpSession`s
+
+#### Step 1 of 3: Class SessionRegistry
+
+```java
 @Service
 public class SessionRegistry {
 
@@ -40,10 +42,13 @@ public class SessionRegistry {
         return new ArrayList<>(httpSessionMap.values());
     }
 }
-[/code]
-The <em>httpSessionMap</em> is a concurrent version of <em>Map</em>: to avoid <em>ConcurrentModificationExceptions</em>.
-<h4>Step 2 of 3: Class SessionListener</h4>
-[code language="java"]
+```
+
+The `httpSessionMap` is a concurrent version of `Map`: to avoid `ConcurrentModificationExceptions`.
+
+#### Step 2 of 3: Class SessionListener
+
+```java
 @Component
 public class SessionListener implements HttpSessionListener {
 
@@ -60,12 +65,14 @@ public class SessionListener implements HttpSessionListener {
         sessionRegistry.removeSession(se.getSession());
     }
 }
-[/code]
-This is a Spring'ified version of a traditional Servlet container component: <em>HttpSessionListener</em>. This class maintains the registry.
-<h4>Step 3 of 3: Class SessionActuatorEndpoint</h4>
+```
+
+This is a Spring'ified version of a traditional Servlet container component: `HttpSessionListener`. This class maintains the registry.
+
+#### Step 3 of 3: Class SessionActuatorEndpoint
 This is the interesting part - where we create a Spring Boot Actuator endpoint:
 
-[code language="java"]
+```java
 @Component
 public class SessionsActuatorEndpoint extends AbstractMvcEndpoint {
 
@@ -124,9 +131,10 @@ public class SessionsActuatorEndpoint extends AbstractMvcEndpoint {
     }
 
 }
-[/code]
-The thing that makes this a Spring Boot Actuator endpoint is that it declares <em>AbstractMvcEndpoint</em> as its superclass. Also take note of the constructor: this is where you register the path at which this endpoint can be found ('<em>/sessions</em>').
+```
 
-The inner class <em>SessionStateActuatorEndpointResponse</em> represents the JSON response structure. I've selected some meta data that I find interesting and added that in the output - prefixed with '@' characters. Other than that, it simply dumps all <em>HttpSession</em> attributes. Notice that it uses commons <em>ReflectionToStringBuilder</em> for object structures other than <em>String</em>s and <em>Number</em>s.
+The thing that makes this a Spring Boot Actuator endpoint is that it declares `AbstractMvcEndpoint` as its superclass. Also take note of the constructor: this is where you register the path at which this endpoint can be found (`/sessions`).
+
+The inner class `SessionStateActuatorEndpointResponse` represents the JSON response structure. I've selected some meta data that I find interesting and added that in the output - prefixed with '@' characters. Other than that, it simply dumps all `HttpSession` attributes. Notice that it uses commons `ReflectionToStringBuilder` for object structures other than `String`s and `Number`s.
 
  
