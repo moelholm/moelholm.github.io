@@ -4,6 +4,7 @@ title: "Hello World"
 description: "A greeting from this new GitHub/Jekyll site"
 date: 2019-07-06
 comments: true
+tags: github jekyll
 ---
 
 Hello World. 

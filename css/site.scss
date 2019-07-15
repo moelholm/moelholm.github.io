@@ -36,6 +36,13 @@ h6 {
   a:hover {
     color: $link-hover-color;
   }
+
+  .tag-list {
+    display: block;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    font-size: 85%;
+  }
 }
 
 .blog-item {
