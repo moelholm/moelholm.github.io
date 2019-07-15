@@ -4,6 +4,7 @@ title: "Spring Boot: Enhance your logging"
 description: "Using MDC data to get more out the application logs"
 date: 2016-08-16
 comments: true
+tags: java spring spring-boot logging mdc slf4j
 ---
 
 In this post I show how you can tune your Spring Boot application's logging output - such that it has even more information when you need to troubleshoot. The method is actually so generic that you can apply it to other types of Java applications as well - for example Java EE applications.

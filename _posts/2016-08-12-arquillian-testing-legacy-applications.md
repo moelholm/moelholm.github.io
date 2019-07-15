@@ -4,6 +4,7 @@ title: "Arquillian: Testing legacy applications"
 description: "A trick demonstrating how you can test legacy Java EE 7 applications"
 date: 2016-08-12
 comments: true
+tags: java javaee ejb integration-test arquillian legacy-app
 ---
 
 This post describes a technique that my previous colleagues and I successfully used for integration testing a large and complex legacy Java EE 7 application (EAR file). The tests were successfully implemented using Arquillian along with a few WildFly tricks.

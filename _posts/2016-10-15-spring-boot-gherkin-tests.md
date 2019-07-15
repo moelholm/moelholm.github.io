@@ -4,6 +4,7 @@ title: "Spring Boot: Gherkin tests"
 description: "Implement Gherkin tests for Spring Boot"
 date: 2016-10-15
 comments: true
+tags: java spring spring-boot unit-test integration-test gherkin-test bdd
 ---
 
 In this post I show how you can implement Gherkin tests for Spring Boot 1.4.1. Here is an example of a Gherkin based test script:

@@ -4,6 +4,7 @@ title: "Spring Boot: Custom auto-configuration JARs"
 description: "Creating a utility project that magically enhance your application"
 date: 2016-08-14
 comments: true
+tags: java spring spring-boot spring-boot-autoconfiguration
 ---
 
 <blockquote class="blockquote">Custom auto-configuration JAR:

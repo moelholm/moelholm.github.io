@@ -4,6 +4,7 @@ title: "Spring Boot: Show all logging events for one Web request only"
 description: "How to trigger TRACE logging for selected HTTP requests"
 date: 2016-08-24
 comments: true
+tags: java spring spring-boot logging trace http-request
 ---
 
 In this post I show how you _for a single Web request_ can make your Spring Boot application dump _all_ log statements on all categories (`TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`). Everything - but only for the specific Web request that you care about. I show the technique using Spring Boot 1.4. 

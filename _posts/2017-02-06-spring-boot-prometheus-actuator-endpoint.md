@@ -4,6 +4,7 @@ title: "Spring Boot: Prometheus actuator endpoint"
 description: "How you can expose a Prometheus endpoint"
 date: 2017-02-06
 comments: true
+tags: java spring spring-boot prometheus spring-boot-actuator
 ---
 
 In this post I show how you can add support for Prometheus in Spring Boot applications.

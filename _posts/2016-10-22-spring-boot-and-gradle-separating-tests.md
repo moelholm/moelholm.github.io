@@ -4,6 +4,7 @@ title: "Spring Boot and Gradle: Separating tests"
 description: "Approaches for separating unit tests from integration tests"
 date: 2016-10-22
 comments: true
+tags: java spring unit-test integration-test gradle
 ---
 
 In this post I will present 4 different approaches to separating unit tests from integration tests, so that they can be run independently of each other. Here's the 4 different approaches:

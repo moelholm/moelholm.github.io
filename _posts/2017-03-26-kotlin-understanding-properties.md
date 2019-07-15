@@ -4,11 +4,12 @@ title: "Kotlin: Understanding properties"
 description: "How Kotlin properties look like at the JVM bytecode level"
 date: 2017-03-26
 comments: true
+tags: kotlin
 ---
 
 In this post I am going to look into Kotlin properties [1] from a Java developers perspective. By a few examples and by looking into the generated code.
 
-I have created an example project <a href="https://github.com/nickymoelholm/smallexamples/tree/master/javadevelopers-understanding-kotlin-properties" target="_blank">on GitHub</a>. You will find a few examples of how to declare properties - and for each of them, also identical unit tests in Java and Kotlin. 
+I have created an example project <a href="https://github.com/moelholm/smallexamples/tree/master/javadevelopers-understanding-kotlin-properties" target="_blank">on GitHub</a>. You will find a few examples of how to declare properties - and for each of them, also identical unit tests in Java and Kotlin. 
 
 Let's demystify those properties 🙂
 

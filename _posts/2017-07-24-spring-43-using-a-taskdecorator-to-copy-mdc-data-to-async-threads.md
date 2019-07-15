@@ -4,6 +4,7 @@ title: "Spring 4.3: Using a TaskDecorator to copy MDC data to @Async threads"
 description: "How to pass MDC data to asynchronous threads"
 date: 2017-07-24
 comments: true
+tags: java spring spring-boot @async mdc logging
 ---
 
 In this post I am going to show how to copy MDC data from Web threads to @Async threads using a brand new Spring Framework 4.3 feature: `ThreadPoolTaskExecutor#setTaskDecorator()` [set-task-decorator]. 

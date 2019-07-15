@@ -4,6 +4,7 @@ title: "Spring Boot: Controlling timezones with Hibernate"
 description: "Controlling the timezone used by Hibernate when it communicates timestamps with the database"
 date: 2016-11-09
 comments: true
+tags: java spring spring-boot hibernate jpa
 ---
 
 In this post I show how you, from a Spring Boot application, can control the timezone used by Hibernate when it communicates timestamps with the database.

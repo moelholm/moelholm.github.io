@@ -4,6 +4,7 @@ title: "Spring 5: Gets reactive"
 description: "A peek into Spring's reactive future"
 date: 2016-08-10
 comments: true
+tags: java spring reactive-programming
 ---
 
 Spring 5 is going to include support for the reactive programming model [1].
