@@ -24,7 +24,7 @@ But we had to give up:
 </ul>
 </li>
 	<li>Additionally, the application components required generic expensive bootstrapping that was impractical to impose on every test archive. Especially for running tests against existing database configurations.</li>
-	<li>But the worst thing in, my opinion, was that _the test archives ended up testing a false reality_ : our system wasn't bundled the same way, class loader wise and structure wise. Despite our best attempts we ended up with test archives that wasn't anything like what we were actually running in production.</li>
+	<li>But the worst thing in, my opinion, was that <i>the test archives ended up testing a false reality</i> : our system wasn't bundled the same way, class loader wise and structure wise. Despite our best attempts we ended up with test archives that wasn't anything like what we were actually running in production.</li>
 </ul>
 Now, one may argue that the system wasn't really well designed - since we had to bundle so many dependencies with our test archives. And this is likely true. But recall that we are talking about an existing extremely complex legacy application - so that was simply our reality. And redesigning the application wasn't practical at all - not in polynomial time at least.
 
@@ -32,9 +32,9 @@ Now, one may argue that the system wasn't really well designed - since we had to
 We realised that we couldn't introduce vanilla Arquillian integration tests successfully in our system. So we came up with the following solution:
 <ul>
 	<li>Deploy the application EAR file as if it where a normal production deployment</li>
-	<li>Deploy socalled _privileged anemic test archives_ (Arquillian):
+	<li>Deploy socalled <i>privileged anemic test archives</i> (Arquillian):
 <ul>
-	<li>Anemic because the test archives only contains the test classes itself (including any support classes). Not the business component under test - no business code at all. Note that this is very much _unlike_ the traditional Arquillian integration tests.</li>
+	<li>Anemic because the test archives only contains the test classes itself (including any support classes). Not the business component under test - no business code at all. Note that this is very much <i>unlike</i> the traditional Arquillian integration tests.</li>
 	<li>Privileged because the test archives, ClassLoader wise, can use any class or resource from the EAR file</li>
 </ul>
 </li>
@@ -90,7 +90,7 @@ Despite any immediate and potential drawbacks - it did solve our problem. And, a
 I think the biggest take away was this:
 <blockquote class="blockquote">We ended up introducing integration tests to our legacy Java EE 7 application.
 
-And even better: we tested the real thing - components in the _actual_ application EAR file.</blockquote>
+And even better: we tested the real thing - components in the <i>actual</i> application EAR file.</blockquote>
 
 ### Your experience
 What about you? Have you had the same problems with introducing Arquillian tests in legacy applications? What solution did you come up with?
