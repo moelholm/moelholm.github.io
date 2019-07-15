@@ -8,7 +8,7 @@ comments: true
 
 In the context of my favorite framework, Spring Boot, I have recently started to explore the effect of using the Kotlin 1.1 programming language (as an alternative to Java 8). This post describes a few language features that may be interesting to a typical Java 8 developer. Also, I hope you will see that:
 
-<blockquote>
+<blockquote class="blockquote">
 Spring Boot is a bit more cool with Kotlin 😀
 </blockquote>
 
@@ -30,7 +30,7 @@ import javax.validation.constraints.NotNull
 class Message(@Id val id: String, @NotNull val text: String)
 ```
 
-A one liner. It has two properties: <em>id</em> and <em>text</em>. It uses standard JPA annotations. So that's one of Kotlin's nice features: <em>properties</em> - see [kotlin-reference]. Another, is the possibility to develop extremely compact class definitions.
+A one liner. It has two properties: `id` and `text`. It uses standard JPA annotations. So that's one of Kotlin's nice features: `properties` - see [kotlin-reference]. Another, is the possibility to develop extremely compact class definitions.
 
 A JPA repository that can be used to perform CRUD operations on the entity:
 
@@ -111,15 +111,15 @@ class MessageClient(templateBuilder: RestTemplateBuilder, @Value("\${server.port
 }
 ```
 
-This class has two properties: <em>port</em> and <em>restTemplate</em>. The latter is initialized in the class body. Take a look at that initialization code: it uses Kotlin's string template support for string interpolation [kotlin-stringtemplates]. I know it's small stuff - but thats really a neat little feature. Also - you know what? Kotlin even supports multiline strings 🙂
+This class has two properties: `port` and `restTemplate`. The latter is initialized in the class body. Take a look at that initialization code: it uses Kotlin's string template support for string interpolation [kotlin-stringtemplates]. I know it's small stuff - but thats really a neat little feature. Also - you know what? Kotlin even supports multiline strings 🙂
 
-Take a close look at the <em>getMessages</em> function. It has a nested function called <em>asyncGetForObject</em>. At first this may seem nasty to a Java developer. But to be honest, after having given it a bit of thought, I think it <em>can</em> be okay. In this case I think it is, because: the function is only supposed to be used from within the <em>getMessages</em> function <em>and</em> it is rather small. 
+Take a close look at the `getMessages` function. It has a nested function called `asyncGetForObject`. At first this may seem nasty to a Java developer. But to be honest, after having given it a bit of thought, I think it _can_ be okay. In this case I think it is, because: the function is only supposed to be used from within the `getMessages` function _and_ it is rather small. 
 
-Also, <em>getMessages</em> uses the Kotlin 1.1 experimental "coroutine" functionality [kotlin-coroutines]. The coroutine is the <em>async(CommonPool){}</em> block. Invoking that, as we do twice in the <em>val messages = ...</em> line is non-blocking (hence the <em>async</em> hint 🙂). At that very moment 2 x REST requests run in parallel. The last block <em>runBlocking{}</em> is where we await the results and return them when they are ready.
+Also, `getMessages` uses the Kotlin 1.1 experimental "coroutine" functionality [kotlin-coroutines]. The coroutine is the `async(CommonPool){}` block. Invoking that, as we do twice in the `val messages = ...` line is non-blocking (hence the `async` hint 🙂). At that very moment 2 x REST requests run in parallel. The last block `runBlocking{}` is where we await the results and return them when they are ready.
 
 There is a lot more to the coroutine story. And remember it is experimental in Kotlin 1.1. But still: That's damn interesting in my opinion 🙂.
 
-Did you notice the collection map functionality?? The <em>messages.map { it.await() }</em> code. (We pass a lambda to the <em>List.map()</em> method). In Kotlin single-argument lambdas, we can just reference the <em>it</em> variable. Also, no <em>collect()</em> call there. That's a really nice lambda functionality in Kotlin, right? 🙂
+Did you notice the collection map functionality?? The `messages.map { it.await() }` code. (We pass a lambda to the `List.map()` method). In Kotlin single-argument lambdas, we can just reference the `it` variable. Also, no `collect()` call there. That's a really nice lambda functionality in Kotlin, right? 🙂
 
 ### Tests - Kotlin style
 Here's a Spring Boot integration test of the REST client:
@@ -163,9 +163,9 @@ class MessageClientIntegrationTests {
 
 The test function name is more pleasant to read than a typical Java based test. 
 
-Notice Kotlin's <em>measureTimeMillis</em> function. For Java developers that may look like a build in language construct. Like the Java <em>synchronized( this ) {}</em> blocks fx. It is a function actually: In Kotlin, when a lambda is the <u>last</u> argument, then it may be supplied after the function call (<em>measureTimeMillis() {}</em> or <em>measureTimeMillis {}</em>). 
+Notice Kotlin's `measureTimeMillis` function. For Java developers that may look like a build in language construct. Like the Java `synchronized( this ) {}` blocks fx. It is a function actually: In Kotlin, when a lambda is the <u>last</u> argument, then it may be supplied after the function call (`measureTimeMillis() {}` or `measureTimeMillis {}`). 
 
-The <em>measureTimeMillis</em> function itself - that's not bad at all either I think. Here it is super handy and nevertheless easy to use.
+The `measureTimeMillis` function itself - that's not bad at all either I think. Here it is super handy and nevertheless easy to use.
 
 There are many more cool features in Kotlin. That's subject for another post though.
 

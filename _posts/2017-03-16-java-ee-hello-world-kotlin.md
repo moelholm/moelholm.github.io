@@ -29,9 +29,9 @@ class HelloBean {
 
 This is a stateless session bean with a "no-interface" view.
 
-It has a single method: <em>sayHello</em>. Kotlin can infer the return type here from the expression: an ordinary <em>String</em>. Also note how Kotlin offers string interpolation - the <em>caller</em> parameter is seamlessly used in the message: No <em>String.format("Hello, %s", caller)</em> necessary anymore. 
+It has a single method: `sayHello`. Kotlin can infer the return type here from the expression: an ordinary `String`. Also note how Kotlin offers string interpolation - the `caller` parameter is seamlessly used in the message: No `String.format("Hello, %s", caller)` necessary anymore. 
 
-Are you wondering about the weird method syntax? It looks like a variable assignment perhaps? Well, in Kotlin, a method (or function) may or may not have a body. If it doesn't have a body, then you use the "=" character and specify the <em>return</em> value directly. If you do provide a body...then it will look much like traditional Java code.
+Are you wondering about the weird method syntax? It looks like a variable assignment perhaps? Well, in Kotlin, a method (or function) may or may not have a body. If it doesn't have a body, then you use the "=" character and specify the `return` value directly. If you do provide a body...then it will look much like traditional Java code.
 
 No semicolons 🙂.
 
@@ -55,11 +55,11 @@ class HelloResource @Inject constructor(val helloBean: HelloBean) {
 
 A bit weird 🙂. But awesome when your synapses start to learn what it means. 
 
-Class <em>HelloResource</em> is a JAX-RS resource that has a <em>primary</em> constructor [kotlin-primaryconstructor] and a property: <em>helloBean</em>. It's part of the class header. Normally you wouldn't write <em>constructor</em> in the class header. But when you want to apply an annotation to it...then it becomes mandatory. The annotation used here, is the CDI <em>@Inject</em> annotation.
+Class `HelloResource` is a JAX-RS resource that has a `primary` constructor [kotlin-primaryconstructor] and a property: `helloBean`. It's part of the class header. Normally you wouldn't write `constructor` in the class header. But when you want to apply an annotation to it...then it becomes mandatory. The annotation used here, is the CDI `@Inject` annotation.
 
-In short: <em>HelloResource</em> uses CDI to perform "constructor injection" in order to obtain a reference to the <em>HelloBean</em> EJB. You can also do field injection etc. - but that's for your own exercise 🙂
+In short: `HelloResource` uses CDI to perform "constructor injection" in order to obtain a reference to the `HelloBean` EJB. You can also do field injection etc. - but that's for your own exercise 🙂
 
-The JAX-RS resource defines a single method that responds to "HTTP GET" requests: <em>get(...)</em>. Notice how the JAX-RS annotations are used as you are used to from Java.
+The JAX-RS resource defines a single method that responds to "HTTP GET" requests: `get(...)`. Notice how the JAX-RS annotations are used as you are used to from Java.
 
 Before the resource is deployed in the application server, recall that in Java EE 7, you need to wrap up the trivial JAX-RS Application as well:
 
@@ -75,11 +75,11 @@ class HelloJaxRsApplication : Application() {
 }
 ```
 
-Kotlin inheritance right there! In Kotlin you use ":" for covering the typical Java <em>extends</em> and <em>implements</em> keywords. 
+Kotlin inheritance right there! In Kotlin you use ":" for covering the typical Java `extends` and `implements` keywords. 
 
-Take a look at the <em>getClasses</em> method: it uses the <em>mutableSetOf</em> function. What's up with that?
+Take a look at the `getClasses` method: it uses the `mutableSetOf` function. What's up with that?
 
-Well, in Kotlin you can have package level functions - functions that don't live in a class. Some functions, such as <em>mutableSetOf</em>, is visible to you without the need for importing them. Just like you can use <em>java.lang.*</em> in Java land. 
+Well, in Kotlin you can have package level functions - functions that don't live in a class. Some functions, such as `mutableSetOf`, is visible to you without the need for importing them. Just like you can use `java.lang.*` in Java land. 
 
 ### 3 of 4: The Arquillian integration tests
 
@@ -132,13 +132,13 @@ class HelloBeanIntegrationTests {
 }
 ```
 
-Notice the injection of <em>helloBean</em>: Keyword <em>var</em>. Properties declared like this are mutable - you can change them at will in your code. Kotlin also offers <em>val</em>. This is like using the <em>final</em> modifier in Java: you can only set them once. 
+Notice the injection of `helloBean`: Keyword `var`. Properties declared like this are mutable - you can change them at will in your code. Kotlin also offers `val`. This is like using the `final` modifier in Java: you can only set them once. 
 
-In this case we are forced to use the <em>val</em> keyword because Arquillian performs dependency injection of the <em>helloBean</em> field, <em>after</em> the class has been constructed. For that to work we also need to use Kotlin's <em>lateinit</em> modifier. Without it the code wouldn't compile. You may find it overly annoying here. But you will probably be happy to hear that it is caused by another Kotlin feature that is insanely cool: Kotlin offers null safety [kotlin-nullsafety].
+In this case we are forced to use the `val` keyword because Arquillian performs dependency injection of the `helloBean` field, `after` the class has been constructed. For that to work we also need to use Kotlin's `lateinit` modifier. Without it the code wouldn't compile. You may find it overly annoying here. But you will probably be happy to hear that it is caused by another Kotlin feature that is insanely cool: Kotlin offers null safety [kotlin-nullsafety].
 
-The actual <em>@Test</em> method itself: Not much to say here. It's the ordinary <b>server-side</b> Arquillian test. When executed, then it runs inside the application server process.
+The actual `@Test` method itself: Not much to say here. It's the ordinary <b>server-side</b> Arquillian test. When executed, then it runs inside the application server process.
 
-In Java, Arquillian needs a static method annotated with <em>@Deployment</em> that produces a Java EE archive (EAR, JAR or WAR) containing the components to be tested. Kotlin doesn't have <em>static</em> methods at all - so that's a problem. Luckily Kotlin offers companion objects [kotlin-companionobjects] and the <em>@JvmStatic</em> annotation [kotlin-jvmstatic]. Suffice to say: This cocktail solves the Java interoperability "issue" without further ado. Arquillian cannot tell the difference 🙂
+In Java, Arquillian needs a static method annotated with `@Deployment` that produces a Java EE archive (EAR, JAR or WAR) containing the components to be tested. Kotlin doesn't have `static` methods at all - so that's a problem. Luckily Kotlin offers companion objects [kotlin-companionobjects] and the `@JvmStatic` annotation [kotlin-jvmstatic]. Suffice to say: This cocktail solves the Java interoperability "issue" without further ado. Arquillian cannot tell the difference 🙂
 
 Notice the library being added to the Arquillian archive: We need to bundle some Kotlin runtime classes with the application. What you see in this example, is a good old dirty Java trick allowing you to locate the actual JAR file from which the specified class is loaded. Perhaps you can find a Shrinkwrap Gradle/Maven resolver for a more viable alternative [shrinkwrap-resolver]. 
 
@@ -199,7 +199,7 @@ class HelloResourceIntegrationTests {
 
 Kotlin-wise, not so much to remark.
 
-The test is an Arquillian client side test. That is enforced via the <em>@RunAsClient</em> annotation on the test method. 
+The test is an Arquillian client side test. That is enforced via the `@RunAsClient` annotation on the test method. 
 
 Also, I thought it could be fun to use the JAX-RS client side API to test the resource. So that's what you see there: Vanilla Java EE API use.
 
@@ -284,16 +284,16 @@ task unzipWildFlyAppServer(type: Copy) {
 
 To build Kotlin source code you need the Gradle "kotlin" plugin. You apply that as with the normal "java" plugin. 
 
-In Kotlin, classes are per default "final" (in Java terminology). But the Java EE application server vendor needs to subclass our components in order to provide security, transaction support, threadsafety, scope management and much more. You could write "open" in front of all your Kotlin classes. But the Kotlin guys have made us an offer we cannot refuse: the <em>kotlin-allopen</em> compiler plugin. It is declared in the <em>buildscript{}</em> block - and used in the <em>allOpen{}</em> block: simply list the standard Java EE annotations (or your own custom ones) that should trigger a class to be "open" (meaning that it can be inherited from by another class).
+In Kotlin, classes are per default "final" (in Java terminology). But the Java EE application server vendor needs to subclass our components in order to provide security, transaction support, threadsafety, scope management and much more. You could write "open" in front of all your Kotlin classes. But the Kotlin guys have made us an offer we cannot refuse: the `kotlin-allopen` compiler plugin. It is declared in the `buildscript{}` block - and used in the `allOpen{}` block: simply list the standard Java EE annotations (or your own custom ones) that should trigger a class to be "open" (meaning that it can be inherited from by another class).
 
-Some Java frameworks wants a noarg constructor in Java classes. JAX-RS resources must provide one as well. But recall the example code: there isn't one. Because we use CDI to perform constructor injection of the EJB. Again, Kotlin comes with another compiler plugin: <em>kotlin-noarg</em>. In the <em>noArg{}</em> block we list those annotations that should trigger classes to always have a noarg constructor. So, basically the same as for the allopen functionality.
+Some Java frameworks wants a noarg constructor in Java classes. JAX-RS resources must provide one as well. But recall the example code: there isn't one. Because we use CDI to perform constructor injection of the EJB. Again, Kotlin comes with another compiler plugin: `kotlin-noarg`. In the `noArg{}` block we list those annotations that should trigger classes to always have a noarg constructor. So, basically the same as for the allopen functionality.
 
-In addition to that, don't forget to add the <em>kotlin-stdlib</em> and <em>kotlin-reflect</em> Kotlin libraries to the compile classpath.
+In addition to that, don't forget to add the `kotlin-stdlib` and `kotlin-reflect` Kotlin libraries to the compile classpath.
 
-Sidetrack: The <em>unzipWildFlyAppServer</em> Gradle task has nothing to do with Kotlin. It just ensures that WildFly AS 10.1 is downloaded and extracted - so that it can be used from the Arquillian tests.
+Sidetrack: The `unzipWildFlyAppServer` Gradle task has nothing to do with Kotlin. It just ensures that WildFly AS 10.1 is downloaded and extracted - so that it can be used from the Arquillian tests.
 
 ### Conclusion
-I haven't even shown all the cool Kotlin language features in this post. There are many many super cool features that Kotlin offers you. Fx <em>properties, default parameter values, named parameters, data classes (!!), extension functions</em> and much more. 
+I haven't even shown all the cool Kotlin language features in this post. There are many many super cool features that Kotlin offers you. Fx _properties, default parameter values, named parameters, data classes (!!), extension functions_ and much more. 
 
 But I hope that I succeeded in showing you how to use Kotlin with Java EE. I feel that it is largely painless. There are a few interoperability tricks that we need to perform - but I guess they become "the usual suspects". 
 

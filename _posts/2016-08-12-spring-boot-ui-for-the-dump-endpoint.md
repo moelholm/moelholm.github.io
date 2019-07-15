@@ -3,10 +3,12 @@ layout: post
 title: "Spring Boot: UI for the dump endpoint"
 description: "Creating your own 'dump' endpoint ... for humans!"
 date: 2016-08-12
+comments: true
 ---
 
 I am really happy with the `actuator` functionality in Spring Boot applications. It offers some fantastic tools for gaining insight into your application. Some of the REST endpoints that you get - such as `health` and `metrics` - are easy to read. Despite the fact that they render as JSON, my guess is that your human eyes still can comprehend it.
-<blockquote>But have you ever taken a look at the output from Spring Boot's dump endpoint?</blockquote>
+
+<blockquote class="blockquote">But have you ever taken a look at the output from Spring Boot's dump endpoint?</blockquote>
 That's really not so friendly to read. At least not for my kind of eyes. And perhaps thats okay - if you got some tooling that can parse the thread stack info and show it nicely to you. But chances are that you don't have that - like I didn't.
 
 So, a while back,  I decided to create a Spring Boot plugin that you just include on the application classpath. Like you do with the Spring Boot starters. This is what you get:

@@ -3,6 +3,7 @@ layout: post
 title: "Spring Boot: Enhance your thread dumps"
 description: "Adding extra information to your applications' thread dumps"
 date: 2016-08-16
+comments: true
 ---
 
 In this post I show how you can add extra information to your applications' thread dumps.
