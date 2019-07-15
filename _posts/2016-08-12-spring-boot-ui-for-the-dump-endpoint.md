@@ -4,6 +4,7 @@ title: "Spring Boot: UI for the dump endpoint"
 description: "Creating your own 'dump' endpoint ... for humans!"
 date: 2016-08-12
 comments: true
+tags: java spring spring-boot spring-boot-actuator dump-endpoint thread-dump
 ---
 
 I am really happy with the `actuator` functionality in Spring Boot applications. It offers some fantastic tools for gaining insight into your application. Some of the REST endpoints that you get - such as `health` and `metrics` - are easy to read. Despite the fact that they render as JSON, my guess is that your human eyes still can comprehend it.

@@ -4,6 +4,7 @@ title: "Spring: Ignoring mocks"
 description: "How you can make Spring ignore your test mocks"
 date: 2018-09-08
 comments: true
+tags: java spring spring-boot unit-test
 ---
 
 If you are using the core Spring Framework (that is, not Spring Boot), then you may have encountered a problem where Spring doesn't seem to completely ignore mocked beans in your tests: Perhaps Spring attempts to inject beans into them or run your `@PostConstruct` lifecycle methods. In this post I present that problem together with a solution for it.

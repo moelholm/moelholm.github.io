@@ -4,6 +4,7 @@ title: "Spring Boot: Introduce your own insight endpoints"
 description: "Implementing a custom actuator endpoint"
 date: 2016-08-18
 comments: true
+tags: java spring spring-boot spring-boot-actuator
 ---
 
 In this post I show how you can develop custom Spring Boot Actuator HTTP endpoints for obtaining detailed insight into your Spring Boot application's runtime behavior.

@@ -4,6 +4,7 @@ title: "Spring Boot: Enhance your thread dumps"
 description: "Adding extra information to your applications' thread dumps"
 date: 2016-08-16
 comments: true
+tags: java spring spring-boot spring-boot-actuator thread-dump
 ---
 
 In this post I show how you can add extra information to your applications' thread dumps.

@@ -4,6 +4,7 @@ title: "Spring Boot: Hello World, Kotlin"
 description: "Introduction to using Kotlin in a Spring Boot application"
 date: 2017-03-12
 comments: true
+tags: kotlin spring spring-boot
 ---
 
 In this post I show how you can create a Spring Boot 1.5 application using Kotlin 1.1 (as opposed to typically Java 8 in these times).

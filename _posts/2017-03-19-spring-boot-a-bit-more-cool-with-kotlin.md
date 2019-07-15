@@ -4,6 +4,7 @@ title: "Spring Boot: A bit more cool with Kotlin"
 description: "Using Kotlin for your Spring Boot applications"
 date: 2017-03-19
 comments: true
+tags: kotlin spring spring-boot
 ---
 
 In the context of my favorite framework, Spring Boot, I have recently started to explore the effect of using the Kotlin 1.1 programming language (as an alternative to Java 8). This post describes a few language features that may be interesting to a typical Java 8 developer. Also, I hope you will see that:

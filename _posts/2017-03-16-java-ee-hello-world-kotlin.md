@@ -4,11 +4,12 @@ title: "Java EE: Hello World, Kotlin"
 description: "Using Kotlin for your Java EE applications"
 date: 2017-03-16
 comments: true
+tags: java javaee ejb kotlin jax-rs arquillian integration-test
 ---
 
 Are you a savvy Java EE 7 application developer? My bet is then, that you are using Java 7/8 for developing your favorite components (EJBs, CDI beans etc). In this post I am going to show how you can develop a Java EE 7 application using Kotlin 1.1 instead. It is very very (!) easy: leverage your existing Java EE 7 knowledge while learning one of the most powerful and beautiful JVM languages we have right now. Very opinionated of course 😉
 
-The example code in this post can be found in its entirety and real context <a href="https://github.com/nickymoelholm/smallexamples/tree/master/javaee7-kotlin-helloworld" target="_blank">on GitHub</a>.
+The example code in this post can be found in its entirety and real context <a href="https://github.com/moelholm/smallexamples/tree/master/javaee7-kotlin-helloworld" target="_blank">on GitHub</a>.
 
 The application consists of the following: an EJB, a JAX-RS resource, two arquillian integration tests and a Gradle script. CDI is used - but only for injecting the EJB into the JAX-RS resource. Everything is fuelled by a WildFly 10.1 application server. Not WildFly Swarm; vanilla Java EE 7 here. 
 

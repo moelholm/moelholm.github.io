@@ -4,6 +4,7 @@ title: "Spring 4.3: Custom annotations"
 description: "How to bend the Spring Framework - rolling out your own custom annotations"
 date: 2016-10-15
 comments: true
+tags: java spring spring-stereotype annotation
 ---
 
 In this post I will show you how to bend the Spring Framework a little bit. In particular I will show you how you can make code like this:
