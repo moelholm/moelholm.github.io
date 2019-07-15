@@ -3,6 +3,7 @@ layout: post
 title: "Spring: Bean qualification"
 description: "Handling the situation where multiple beans qualifies for an injection point"
 date: 2016-10-23
+comments: true
 ---
 
 In this post I present how you can control a situation in which there are multiple beans that qualifies for an injection point in Spring.
@@ -188,9 +189,9 @@ public class WebServiceBusinessEventLogger implements BusinessEventLogger {
 This will make the `WebServiceBusinessEventLogger` bean "win".
 
 Notice the difference from the previous solutions:
-<blockquote>Using Spring's @Primary annotation on a bean is a global decision: every injection point will get the chosen bean.</blockquote>
+<blockquote class="blockquote">Using Spring's @Primary annotation on a bean is a global decision: every injection point will get the chosen bean.</blockquote>
 This may seem like a weird solution. And in production code - using it like this - perhaps it is. But this is not where `@Primary` shines. Rather:
-<blockquote>The @Primary bean feature is interesting when used together with @Profile to activate the primary bean at runtime.
+<blockquote class="blockquote">The @Primary bean feature is interesting when used together with @Profile to activate the primary bean at runtime.
 
 OR:
 

@@ -21,9 +21,9 @@ class First {
 }
 ```
 
-Keyword <em>var</em> is what makes <em>messageOne</em> mutable. It is also nullable (the question mark). Keyword <em>val</em> is what makes <em>messageTwo</em> read-only. 
+Keyword `var` is what makes `messageOne` mutable. It is also nullable (the question mark). Keyword `val` is what makes `messageTwo` read-only. 
 
-Running <em>./gradlew build javap</em> in the example project compiles the code, runs the Kotlin/Java tests and ends up with the following <em>javap</em> dump:
+Running `./gradlew build javap` in the example project compiles the code, runs the Kotlin/Java tests and ends up with the following `javap` dump:
 
 ```kotlin
 public final class com.moelholm.First {
@@ -41,9 +41,9 @@ public final class com.moelholm.First {
 
 This is how it looks like from Java land. 
 
-The <em>val</em> modifier in Kotlin is basically syntactic sugar for generating a <em>final</em> field plus a getter method. So that's how <em>val</em>s become read-only.
+The `val` modifier in Kotlin is basically syntactic sugar for generating a `final` field plus a getter method. So that's how `val`s become read-only.
 
-The <em>var</em> modifier in Kotlin ensures that we get a field plus a getter method and a setter method. So that's how <em>var</em>s become mutable.
+The `var` modifier in Kotlin ensures that we get a field plus a getter method and a setter method. So that's how `var`s become mutable.
 
 The following two tests shows how we can use the properties from unit tests in Java...:
 
@@ -87,14 +87,14 @@ class FirstTests {
 }
 ```
 
-It is very visible from the Java unit test why you cannot update <em>messageTwo</em>: there is simply no setter method. 
+It is very visible from the Java unit test why you cannot update `messageTwo`: there is simply no setter method. 
 
-Regarding <em>nullability</em>: You cannot see how that works by looking at the javap output above. But if you add a <em>-v</em> flag to it, then you will see that the bytecode comes with the following Constant Pool declarations: <em>Lorg/jetbrains/annotations/Nullable;</em> and <em>Lorg/jetbrains/annotations/NotNull;</em>. The Kotlin compiler uses these to annotate members with the desired <em>nullability</em> behavior.
+Regarding _nullability_: You cannot see how that works by looking at the javap output above. But if you add a `-v` flag to it, then you will see that the bytecode comes with the following Constant Pool declarations: `Lorg/jetbrains/annotations/Nullable;` and `Lorg/jetbrains/annotations/NotNull;`. The Kotlin compiler uses these to annotate members with the desired _nullability_ behavior.
 
 ### There is much more...
 There is more to Kotlin properties than shown in this post. 
 
-For example Kotlin also has <em>delegated properties</em> and <em>late initialized properties</em>. And it is possible to provide custom getter/setter functionality in the property declaration as well. 
+For example Kotlin also has _delegated properties_ and _late initialized properties_. And it is possible to provide custom getter/setter functionality in the property declaration as well. 
 
 Very interesting topics; subject for another post.
 

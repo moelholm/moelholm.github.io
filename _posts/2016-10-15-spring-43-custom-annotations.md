@@ -3,6 +3,7 @@ layout: post
 title: "Spring 4.3: Custom annotations"
 description: "How to bend the Spring Framework - rolling out your own custom annotations"
 date: 2016-10-15
+comments: true
 ---
 
 In this post I will show you how to bend the Spring Framework a little bit. In particular I will show you how you can make code like this:
@@ -26,7 +27,7 @@ public class GreeterService {
 `@LocalizedMessage` is a perfectly valid injection capable annotation. Here we use that to inject a `Message` bean. This bean is context aware - it knows about the `@LocalizedMessage` annotation's value attribute. With this information, `Message` is used from method `sayHello` to return `Locale` aware messages. ( AWESOME TIP UNLOCKED ).
 
 Please note that:
-<blockquote>just because you can doesn't mean you should</blockquote>
+<blockquote class="blockquote">Just because you can doesn't mean you should</blockquote>
 Be careful about how creative you get when bending the Spring Framework. It could easily contribute to a codebase where only a few specialized authors understand what is really going on.
 
 The next sections jumps right into the solution. I have prepared a working example [at GitHub](https://github.com/nickymoelholm/smallexamples/tree/master/spring43-custom-annotations). Consult that to see the source code in it's entirety and true surroundings. The example is based in Spring Boot 1.4.1 and Spring Framework 4.3.3.

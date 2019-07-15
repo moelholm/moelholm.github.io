@@ -3,9 +3,10 @@ layout: post
 title: "Spring Boot: Custom auto-configuration JARs"
 description: "Creating a utility project that magically enhance your application"
 date: 2016-08-14
+comments: true
 ---
 
-<blockquote>Custom auto-configuration JAR:
+<blockquote class="blockquote">Custom auto-configuration JAR:
 
 A shared JAR module containing Spring beans that can be automatically activated in one or more Spring Boot applications.</blockquote>
 Auto-configuration JARs are extensively used by the official Spring Boot starter modules you are using in your every-day Spring Boot applications. But did you know that you easily can create such functionality yourself too?

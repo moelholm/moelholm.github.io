@@ -3,6 +3,7 @@ layout: post
 title: "Spring Boot: Enhance your logging"
 description: "Using MDC data to get more out the application logs"
 date: 2016-08-16
+comments: true
 ---
 
 In this post I show how you can tune your Spring Boot application's logging output - such that it has even more information when you need to troubleshoot. The method is actually so generic that you can apply it to other types of Java applications as well - for example Java EE applications.
@@ -65,7 +66,7 @@ public class RequestFilter implements Filter {
 
 Here we maintain the MDC data in a Servlet `Filter`. That is an excellent place to maintain it - if we work with HTTP requests (REST, SOAP, JSP, Servlet, Thymeleaf, ...). If you have JMS listeners in your application - then you'll need to maintain the MDC data there too. Same applies with Quartz Jobs. And so on.
 
-<blockquote>You decide what you want in the MDC data.
+<blockquote class="blockquote">You decide what you want in the MDC data.
 
 Anything goes: URL, session id, request id, user id, ip address, ...</blockquote>
 

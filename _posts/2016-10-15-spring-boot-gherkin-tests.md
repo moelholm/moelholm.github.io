@@ -3,6 +3,7 @@ layout: post
 title: "Spring Boot: Gherkin tests"
 description: "Implement Gherkin tests for Spring Boot"
 date: 2016-10-15
+comments: true
 ---
 
 In this post I show how you can implement Gherkin tests for Spring Boot 1.4.1. Here is an example of a Gherkin based test script:
@@ -10,9 +11,9 @@ In this post I show how you can implement Gherkin tests for Spring Boot 1.4.1. 
 <img src="/img/2016-10-15-gherkin-tests.png" class="w-100 pl-2 pr-2" />
 
 The `Feature`, `Scenario`, `Scenario Outline`, `Given`, `When`, `Then` and `And` constructs are part of the Gherkin test language [1]. Such tests are popular in Behavior-driven development (BDD) and is meant as a common tool between users from the business and users from the development team [2].
-<blockquote>The idea is that you can execute such a Gherkin script and get a test result (did it work or not?)</blockquote>
+<blockquote class="blockquote">The idea is that you can execute such a Gherkin script and get a test result (did it work or not?)</blockquote>
 Notice the Gherkin language, there is nothing that prevents you from writing such tests even before the real business code exists. In fact it is a BDD best practice to write the tests `before` the feature gets implemented:
-<blockquote>Imagine if you and the business wrote Gherkin tests as part of a User Story's acceptance criteria...</blockquote>
+<blockquote class="blockquote">Imagine if you and the business wrote Gherkin tests as part of a User Story's acceptance criteria...</blockquote>
 I haven't done this yet. But I bet there are a lot of BDD practitioners that have.
 
 ### About the Spring Boot 1.4 example
@@ -188,9 +189,9 @@ Using Jenkins as a CI server? You can find a bunch of cucumber plugins for that.
 
 ### In retrospective
 This example was all about testing a RESTful resource. But Gherkin style tests are not limited to that:
-<blockquote>The Gherkin step implemention code could test anything</blockquote>
-You could drive Selenium tests if you want to. Or Spring `@Service` beans. You decide.
-<blockquote>The important thing is that it helps you and the business drive the right solution</blockquote>
+The Gherkin step implemention code could test anything. You could drive Selenium tests if you want to. Or Spring `@Service` beans. You decide.
+
+The important thing is that it helps you and the business drive the right solution.
 
 ### References
 [1] [Gherkin language](https://cucumber.io/docs/reference)

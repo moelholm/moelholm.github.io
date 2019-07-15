@@ -3,10 +3,11 @@ layout: post
 title: "Spring Boot: Controlling timezones with Hibernate"
 description: "Controlling the timezone used by Hibernate when it communicates timestamps with the database"
 date: 2016-11-09
+comments: true
 ---
 
 In this post I show how you, from a Spring Boot application, can control the timezone used by Hibernate when it communicates timestamps with the database.
-<blockquote>This post is inspired by a very similar recent post by Vlad Mihalcea [1], Hibernate Developer Advocate at Redhat.
+<blockquote class="blockquote">This post is inspired by a very similar recent post by Vlad Mihalcea [1], Hibernate Developer Advocate at Redhat.
 
 It's basically the same subject - but with a Spring Boot focus. So read on, if you want to get a "ready-to-use" recipe for controlling the timezones used by JPA/Hibernate in your Spring Boot applications.</blockquote>
 I will show the technique in the context of a Spring Boot 1.4.2 application.
@@ -46,7 +47,7 @@ public class Application {
 You could also put the `TimeZone` code into the `main` method. But putting the `TimeZone` code into a `@PostConstruct` callback like this, ensures that it is also effective when you run tests or wrap up the application as a Web ARchive (WAR). Be careful about competing with other initializer methods that use JPA during startup.
 
 In fact, as of writing this post (November 2016), setting the default timezone is the only truly portable solution for vanilla JPA solutions. JPA doesn't allow you to control this.
-<blockquote>If you use another JPA provider (than Hibernate) then this is still the way to go.</blockquote>
+<blockquote class="blockquote">If you use another JPA provider (than Hibernate) then this is still the way to go.</blockquote>
 
 This solution works. But it is very invasive and has a few potential drawbacks. 
 
@@ -56,7 +57,7 @@ Secondly, what if you need to access different databases - and they, for whateve
 
 ### Solution 2: Configuring Hibernate to control the timezone
 The previous solution is like solving the problem with a bazooka. Luckily, Vlad Mihalcea recently updated Hibernate itself to support this usecase. Even better:
-<blockquote>The Hibernate specific configuration solution is a much more powerful solution</blockquote>
+<blockquote class="blockquote">The Hibernate specific configuration solution is a much more powerful solution</blockquote>
 It is more powerful because you can choose to configure a specific `SessionFactory` (think JPA `EntityManagerFactory`) and even a specific `Session` (think JPA `EntityManager`). What a fantastic update! Find more details in Vlad Mihalcea's post [1].
 
 I have prepared a working Spring Boot example <a href="https://github.com/nickymoelholm/smallexamples/tree/master/springboot-hibernate-timezones" target="_blank">on GitHub</a> - consult that to see the code in its entirety and true surroundings. These are the 2 steps you need to complete...
