@@ -26,11 +26,6 @@ Once in a while:
 
     Download syntax highlight CSS from: link:https://github.com/richleland/pygments-css[pygments-css]
 
-== TODO
-
-- Search/replace on 'em' html tags - replace with inline `code` 
-- Pagination
-
 == Reference
 
 link:http://jmcglone.com/guides/github-pages/[Creating and Hosting a Personal Site on GitHub]
