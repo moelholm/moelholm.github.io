@@ -13,7 +13,7 @@ title: moelholm.com
       <div class="card">
         <div class="card-body">
           <div class="text-right"><small>{{ post.date | date_to_string }}</small></div>
-          <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title | truncate: 35 }}</a>
+          <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
           <p class="card-text">
             <span class="tag-list">
               {% if post.tags != empty %}
@@ -25,7 +25,7 @@ title: moelholm.com
               {% endfor %}
               ]
               {% endif %}
-              </span>
+            </span>
             {{ post.content | strip_html | truncate: 250 }}
           </p>
           <div class="text-right">
