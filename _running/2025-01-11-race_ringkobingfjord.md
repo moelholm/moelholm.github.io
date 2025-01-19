@@ -24,6 +24,18 @@ Roughly a week ago (January 11th) I ran `LNBK Ringkøbing Fjord Winter Edition 2
   </table>
 </div>
 
+This is how it looked like on Strava after my race:
+
+{% capture table_content %}
+|------------|------------|
+| <img src="/img_running/2025-01-11/2025-01-11_2_small.jpg" alt="" class="w-100 pl-2 pr-2" /> | <img src="/img_running/2025-01-11/2025-01-11_1_small.jpg" alt="" class="w-100 pl-2 pr-2" /> |
+{% endcapture %}
+<div class="table-responsive">
+  <table class="table table-striped table-bordered">
+    {{ table_content | markdownify }}
+  </table>
+</div>
+
 We were super lucky with the weather: it was sunny but chilly - and almost windstill. The first 50 kilometers down the fjord was practically windstill. The next 50 kilometers, however, up the fjord (back again to Ringkøbing) was windy. The typical west wind near Denmarks west coast. 
 
 I started out harder than I planned for, because I kept up with the leading group of runners (well we were leading the race except from a single runner that was way in front of us quickly). That also meant that my first half was faster than my second half (a positive split). In fact this race was generally so fast for me that I set a:
@@ -38,8 +50,15 @@ Besides all this "PB" focus: I also actually had a very great day. The good weat
 
 Had a blast out there. I don't think this was the last time I showed up at the starting line for this race 👍🏻.
 
-
-
-
-
-
+{% capture table_content %}
+|------------|------------|
+| <img src="/img_running/2025-01-11/2025-01-11_3_small.jpg" alt="" class="w-100 pl-2 pr-2" />  | <img src="/img_running/2025-01-11/2025-01-11_10_small.jpg" alt="" class="w-100 pl-2 pr-2" />
+| <img src="/img_running/2025-01-11/2025-01-11_5_small.jpg" alt="" class="w-100 pl-2 pr-2" /> | <img src="/img_running/2025-01-11/2025-01-11_6_small.jpg" alt="" class="w-100 pl-2 pr-2" /> |
+| <img src="/img_running/2025-01-11/2025-01-11_7_small.jpg" alt="" class="w-100 pl-2 pr-2" /> | <img src="/img_running/2025-01-11/2025-01-11_8_small.jpg" alt="" class="w-100 pl-2 pr-2" /> |
+| <img src="/img_running/2025-01-11/2025-01-11_4_small.jpg" alt="" class="w-100 pl-2 pr-2" /> | <img src="/img_running/2025-01-11/2025-01-11_9_small.jpg" alt="" class="w-100 pl-2 pr-2" /> |
+{% endcapture %}
+<div class="table-responsive">
+  <table class="table table-striped table-bordered">
+    {{ table_content | markdownify }}
+  </table>
+</div>

@@ -18,6 +18,10 @@ Once in a while:
 
     bundle update
 
+Image conversion:
+
+    convert 2025-01-11_10.heic -resize 400x400 -quality 100 2025-01-11/2025-01-11_10_small.jpg
+
 == About
 
 === Markdown
