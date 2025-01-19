@@ -12,7 +12,7 @@ I live in Billund, Denmark, with my wonderful family. Teresa and our 3 children:
 
 ## Running
 
-I run a lot these days. In fact it may be borderline crazy to most folks; I am a primarily trail and ultra runner. Trail runs are just everything besides normal road running. Ultra running is the crazy part; they begin after the Marathon distance: a 43 kilometer run is an ultra run. Typically they are longer though - popular distances are: 50 kilometers, 80 kilometers (50 miles), 100 kilometers and 160 kilometers (100 miles). 
+I run a lot these days. In fact it may be borderline crazy to most folks; I am primarily a trail and ultra runner. Trail runs are just everything besides normal road running. Ultra running is the crazy part; they begin after the Marathon distance: a 43 kilometer run is an ultra run. Typically they are longer though - popular distances are: 50 kilometers, 80 kilometers (50 miles), 100 kilometers and 160 kilometers (100 miles).
 
 ## Software Engineer at The LEGO Group
 
