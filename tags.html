@@ -3,21 +3,49 @@ layout: default
 title: moelholm.com
 ---
 
+<h1>Running Tags</h1>
 <div class="row">
-  {% capture tags %}
-  {% for tag in site.tags %}
-  {{ tag[0] }}
+  {% assign tags = "" %}
+  {% for post in site.running %}
+    {% for tag in post.tags %}
+      {% assign tags = tags | append: tag | append: " " %}
+    {% endfor %}
   {% endfor %}
-  {% endcapture %}
-  {% assign sortedtags = tags | split:' ' | sort %}
+  {% assign sortedtags = tags | split:' ' | uniq | sort %}
 
   {% for tag in sortedtags %}
   <div class="col-12">
-
     <h3 id="{{ tag }}">{{ tag }}</h3>
     <ul>
-      {% for post in site.tags[tag] %}
-      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+      {% for post in site.running %}
+        {% if post.tags contains tag %}
+          <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+  {% endfor %}
+</div>
+
+
+<h1>Software Engineering Tags</h1>
+<div class="row">
+  {% assign tags = "" %}
+  {% for post in site.software_engineering %}
+    {% for tag in post.tags %}
+      {% assign tags = tags | append: tag | append: " " %}
+    {% endfor %}
+  {% endfor %}
+  {% assign sortedtags = tags | split:' ' | uniq | sort %}
+
+  {% for tag in sortedtags %}
+  <div class="col-12">
+    <h3 id="{{ tag }}">{{ tag }}</h3>
+    <ul>
+      {% for post in site.software_engineering %}
+        {% if post.tags contains tag %}
+          <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+        {% endif %}
       {% endfor %}
     </ul>
   </div>

@@ -1,0 +1,47 @@
+---
+layout: default
+title: moelholm.com
+---
+
+<blockquote class="blockquote"><small>
+⚠️ 2025-01-19: A comment about this page.
+<p></p><p></p>
+Consider the below posts an ARCHIVE of my software engineering blog posts. It has been years
+since I last wrote about software engineering. You know ... live happens. I am still a software
+engineer, but I have not been having the time to keep writing about it. I hope to get back to it
+one day. </small>
+</blockquote>
+
+<div class="row">
+  {% for post in site.software_engineering %}
+
+  <div class="col-xl-12">
+    <div class="blog-item">
+      <div class="card">
+        <div class="card-body">
+          <div class="text-right"><small>{{ post.date | date_to_string }}</small></div>
+          <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+          <p class="card-text">
+            <span class="tag-list">
+              {% if post.tags != empty %}
+              [
+              {% for tag in post.tags %}
+              {% capture tag_name %}{{ tag }}{% endcapture %}
+              <a href="/tags#{{ tag_name }}"><code
+                  class="highlighter-rouge"><nobr>{{ tag_name }}</nobr></code></a>&nbsp;
+              {% endfor %}
+              ]
+              {% endif %}
+            </span>
+            {{ post.content | strip_html | truncate: 250 }}
+          </p>
+          <div class="text-right">
+            <a href="{{ post.url }}" title="{{ post.title }}" class="btn">Read more...</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% endfor %}
+</div>

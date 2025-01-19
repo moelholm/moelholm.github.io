@@ -3,7 +3,6 @@ title: moelholm.com
 url: https://moelholm.com
 google_analytics: UA-7400692-1
 markdown: kramdown
-permalink: /blog/:year/:month/:day/:title
 kramdown:
   highlighter: rouge
   syntax_highlighter_opts:
@@ -11,5 +10,14 @@ kramdown:
       line_numbers: false  
     block:
       line_numbers: true
+collections:
+  running:
+    output: true
+    permalink: /blog/:collection/:year/:month/:day/:title
+    tags: true
+  software_engineering:
+    output: true
+    permalink: /blog/:collection/:year/:month/:day/:title
+    tags: true
 plugins:
-  - jekyll-sitemap    
+  - jekyll-sitemap

@@ -4,18 +4,18 @@ title: Nicky Moelholm
 ---
 
 # Welcome
-Welcome, I'm Nicky Moelholm and this is my personal web site. Here you find my blog containing
-posts about super cool software development subjects.
+Welcome, I'm Nicky Moelholm and this is my personal web site. Here you find my blog containing posts about everything from software engineering to running.
 
-##### About me
+## About me
 
-I live in Billund, Denmark, with my wonderful family. Teresa and our 3 children: Isabella, Noah and Casper.
+I live in Billund, Denmark, with my wonderful family. Teresa and our 3 children: Isabella, Noah and Casper. Oh ... and our cute dog: Nala (she's a Jack Russel Terrier).
 
-##### My job
+## Running
 
-I currently work for LEGO System A/S as a Senior Application Engineer on the B2B eCommerce team.
+I run a lot these days. In fact it may be borderline crazy to most folks; I am a primarily trail and ultra runner. Trail runs are just everything besides normal road running. Ultra running is the crazy part; they begin after the Marathon distance: a 43 kilometer run is an ultra run. Typically they are longer though - popular distances are: 50 kilometers, 80 kilometers (50 miles), 100 kilometers and 160 kilometers (100 miles). 
 
-On this team, I function as product architect, backend developer and to some degree also as an infrastructure
-engineer. Needless to say, this is not a huge team. We are lucky to get to work with microservices hosted on AWS. And
-we actively use FaaS and container based services in our daily work. And of course a bunch of other super interesting
-technologies.
+## Software Engineer at The LEGO Group
+
+I currently work for The LEGO Group as a Software Engineer on the ILSP product team.
+
+The ILSP team is responsible for sending and receiving data from The LEGO Group's third party logistics service providers (those that operate our Distribution Centers / warehouses). My role on the team is development of application services as well as infrastructure etc. So technologies include stuff like; AWS Web Services (RDS, SQS, S3, IAM, ...), Kubernetes (Helm, ArgoCD, ...), Terraform IaC, GitHub Actions CI/CD, Java code, TypeScript code and C# code. We build and integrate with APIs using OpenAPIs and AsyncAPIs primarily.
