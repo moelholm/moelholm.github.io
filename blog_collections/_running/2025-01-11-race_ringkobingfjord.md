@@ -51,60 +51,15 @@ Besides all this "PB" focus: I also actually had a very great day. The good weat
 
 Had a blast out there. I don't think this was the last time I showed up at the starting line for this race 👍🏻
 
-
-<div class="row">
-    <div class="col-md-3">
-    </div>
-    <div class="col-md-6">
-    <div class="d-flex justify-content-center">
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="false" data-ride="false">
-              <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="7"></li>
-              </ol>
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img src="/img_running/2025-01-11/2025-01-11_3_small.jpg" alt="" class="carousel-image" />
-                </div>
-                <div class="carousel-item">
-                  <img src="/img_running/2025-01-11/2025-01-11_10_small.jpg" alt="" class="carousel-image" />
-                </div>
-                <div class="carousel-item">
-                  <img src="/img_running/2025-01-11/2025-01-11_5_small.jpg" alt="" class="carousel-image" />
-                </div>
-                <div class="carousel-item">
-                  <img src="/img_running/2025-01-11/2025-01-11_6_small.jpg" alt="" class="carousel-image" />
-                </div>
-                <div class="carousel-item">
-                  <img src="/img_running/2025-01-11/2025-01-11_7_small.jpg" alt="" class="carousel-image" />
-                </div>
-                <div class="carousel-item">
-                  <img src="/img_running/2025-01-11/2025-01-11_8_small.jpg" alt="" class="carousel-image" />
-                </div>
-                <div class="carousel-item">
-                  <img src="/img_running/2025-01-11/2025-01-11_4_small.jpg" alt="" class="carousel-image" />
-                </div>
-                <div class="carousel-item">
-                  <img src="/img_running/2025-01-11/2025-01-11_9_small.jpg" alt="" class="carousel-image" />
-                </div>
-              </div>
-              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-              </a>
-            </div>
-          </div>            
-    </div>
-    <div class="col-md-3">
-    </div>
-</div>  
+{% capture table_content %}
+|------------|------------|
+| <img src="/img_running/2025-01-11/2025-01-11_3_small.jpg" alt="" class="w-100 pl-2 pr-2" />  | <img src="/img_running/2025-01-11/2025-01-11_10_small.jpg" alt="" class="w-100 pl-2 pr-2" />
+| <img src="/img_running/2025-01-11/2025-01-11_5_small.jpg" alt="" class="w-100 pl-2 pr-2" /> | <img src="/img_running/2025-01-11/2025-01-11_6_small.jpg" alt="" class="w-100 pl-2 pr-2" /> |
+| <img src="/img_running/2025-01-11/2025-01-11_7_small.jpg" alt="" class="w-100 pl-2 pr-2" /> | <img src="/img_running/2025-01-11/2025-01-11_8_small.jpg" alt="" class="w-100 pl-2 pr-2" /> |
+| <img src="/img_running/2025-01-11/2025-01-11_4_small.jpg" alt="" class="w-100 pl-2 pr-2" /> | <img src="/img_running/2025-01-11/2025-01-11_9_small.jpg" alt="" class="w-100 pl-2 pr-2" /> |
+{% endcapture %}
+<div class="table-responsive">
+  <table class="table table-striped table-bordered">
+    {{ table_content | markdownify }}
+  </table>
+</div>
