@@ -303,6 +303,7 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
+  jemoji
 
 BUNDLED WITH
    2.6.3
