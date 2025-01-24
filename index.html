@@ -37,37 +37,4 @@ title: moelholm.com
 </div>
 
 {% include atom_feed_link.html feed_url="/feed/running.xml" collection="Running" %}
-
-<div class="row">  
-  {% for post in site.running %}
-
-  <div class="col-md-12">
-    <div class="blog-item">
-      <div class="card">
-        <div class="card-body">
-          <div class="text-right"><small>{{ post.date | date_to_string }}</small></div>
-          <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-          <p class="card-text">
-            <span class="tag-list">
-              {% if post.tags != empty %}
-              [
-              {% for tag in post.tags %}
-              {% capture tag_name %}{{ tag }}{% endcapture %}
-              <a href="/tags#{{ tag_name }}"><code
-                  class="highlighter-rouge"><nobr>{{ tag_name }}</nobr></code></a>&nbsp;
-              {% endfor %}
-              ]
-              {% endif %}
-            </span>
-            {{ post.content | strip_html | truncate: 250 }}
-          </p>
-          <div class="text-right">
-            <a href="{{ post.url }}" title="{{ post.title }}" class="btn">Read more...</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  {% endfor %}
-</div>
+{% include collection_posts.html posts=site.running %}

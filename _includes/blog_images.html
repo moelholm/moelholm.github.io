@@ -1,0 +1,10 @@
+
+{% assign images = include.images | split: "|" %}
+
+<div class="row justify-content-center">
+  {% for image in images %}
+    <div class="col-6 mb-4 text-center">
+      <img src="{{ image }}" alt="" class="img-fluid w-100 pl-2 pr-2" style="max-width: 350px">
+    </div>
+  {% endfor %}
+</div>

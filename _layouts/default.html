@@ -19,14 +19,16 @@
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <!-- Atom feed -->
+  {% if page.path contains "index" %}
   <link rel="alternate" type="application/atom+xml" title="{{ site.title }} | Running" href="/feed/running.xml">
-  <link rel="alternate" type="application/atom+xml" title="{{ site.title }} | Software Engineering" href="/feed/software_engineering.xml">
+  {% elsif page.path contains "software_engineering" %}
+    <link rel="alternate" type="application/atom+xml" title="{{ site.title }} | Software Engineering" href="/feed/software_engineering.xml">
+  {% endif %}
 </head>
 
 <body id="site-body">
   <div class="container">
     {% include header.html %}
-
     <div class="row">
       <div class="col-sm-12">
         <div class="main-content rounded">

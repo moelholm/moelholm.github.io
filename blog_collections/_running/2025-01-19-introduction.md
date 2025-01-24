@@ -2,7 +2,7 @@
 layout: post
 title: "Introduction"
 description: "Introduction to this blog"
-date: 2025-01-19
+date: 2025-01-19 12:00:00 +0100
 comments: true
 tags: running ultrarunning trailrunning utmb
 ---
