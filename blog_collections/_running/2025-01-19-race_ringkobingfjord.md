@@ -22,10 +22,12 @@ Duration|10h 18m 29s
 
 {% include blog_race_summary.html rows=rows_array %}
 
-
 This is how it looked like on Strava after my race:
-
-{% include blog_images.html images="/img_running/2025-01-11/2025-01-11_2_small.jpg|/img_running/2025-01-11/2025-01-11_1_small.jpg" %}
+{% capture table_content %}
+|------------|------------|
+| <img src="/img_running/2025-01-11/2025-01-11_2_small.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-01-11/2025-01-11_1_small.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+{% endcapture %}
+{{ table_content | markdownify }}
 
 We were super lucky with the weather: it was sunny but chilly - and almost windstill. The first 50 kilometers down the fjord was practically windstill. The next 50 kilometers, however, up the fjord (back again to Ringkøbing) was windy. The typical west wind near Denmarks west coast. 
 
@@ -41,4 +43,11 @@ Besides all this "PB" focus: I also actually had a very great day. The good weat
 
 Had a blast out there. I don't think this was the last time I showed up at the starting line for this race 👍🏻
 
-{% include blog_images.html images="/img_running/2025-01-11/2025-01-11_3_small.jpg|/img_running/2025-01-11/2025-01-11_10_small.jpg|/img_running/2025-01-11/2025-01-11_5_small.jpg|/img_running/2025-01-11/2025-01-11_6_small.jpg|/img_running/2025-01-11/2025-01-11_7_small.jpg|/img_running/2025-01-11/2025-01-11_8_small.jpg|/img_running/2025-01-11/2025-01-11_4_small.jpg|/img_running/2025-01-11/2025-01-11_9_small.jpg" %}
+{% capture table_content %}
+|------------|------------|
+| <img src="/img_running/2025-01-11/2025-01-11_3_small.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-01-11/2025-01-11_10_small.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-01-11/2025-01-11_5_small.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-01-11/2025-01-11_6_small.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-01-11/2025-01-11_7_small.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-01-11/2025-01-11_8_small.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-01-11/2025-01-11_4_small.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-01-11/2025-01-11_9_small.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+{% endcapture %}
+{{ table_content | markdownify }}
