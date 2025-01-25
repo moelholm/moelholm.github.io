@@ -1,15 +1,15 @@
 
 <div>
-  <table class="row justify-content-center no-gutters">
+  <table style="max-width: 80%; margin: 0 auto; table-layout: fixed;">
     <colgroup>
-      <col style="width: 20%;">
-      <col style="width: 80%;">
+      <col style="width: 30%;">
+      <col style="width: 70%;">
     </colgroup>    
     {% for row in include.rows %}
     {% assign columns = row | split: "|" %}
     <tr>
-      <td>{{ columns[0] | markdownify }}</td>
-      <td>{{ columns[1] | markdownify }}</td>
+      <td style="word-wrap: break-word; word-break: break-word; overflow-wrap: break-word;">{{ columns[0] | markdownify }}</td>
+      <td style="word-wrap: break-word; word-break: break-word; overflow-wrap: break-word;">{{ columns[1] | markdownify }}</td>
     </tr>
     {% endfor %}
   </table>
