@@ -1,0 +1,4 @@
+---
+render_style: feed
+---
+{% include feed.xml posts=site.running collection="running" render_style=page.render_style %}

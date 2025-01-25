@@ -1,6 +1,9 @@
 name: moelholm.com
 title: moelholm.com
 url: https://moelholm.com
+post_author:
+  name: Nicky Bass Moelholm
+  email: moelholm@gmail.com
 description: Blog by Nicky Bass Moelholm
 google_analytics: UA-7400692-1
 markdown: kramdown

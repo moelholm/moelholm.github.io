@@ -1,0 +1,4 @@
+---
+render_style: feed
+---
+{% include feed.xml posts=site.software_engineering collection="software engineering" %}
