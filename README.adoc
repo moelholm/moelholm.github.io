@@ -24,6 +24,12 @@ Image conversion:
 
 == About
 
+=== Photos
+
+For the running blogs; 400x400 jpg. Converted and downscaled with imagemagick.
+
+TODO Consider GHA workflow that does this automatically.
+
 === Markdown
 
 ==== Syntax highlighting
