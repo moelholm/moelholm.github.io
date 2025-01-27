@@ -68,11 +68,10 @@ A few photos from that race:
 {{ table_content | markdownify }}
 
 ## Pace based PBs
-All PBs have been captured on my Strava profile. Except for the distances 80M, 100K and 100M as they are not part of the Best Efforts tracking. By the way `100M` means 100 miles wheres `100K` means 100 kilometers.
+All PBs have been captured on my Strava profile. Except for the 100K and 100M distances as they are not part of the Best Efforts tracking. By the way `100M` means 100 miles wheres `100K` means 100 kilometers.
 
 - 100M `23h50m02s` (`08:49 /km`) - [Race: Kullamannen by UTMB](https://strava.app.link/guWy5FgXrQb) 
 - 100K `9h56m41s` (`06:00 /km`) - [Race: LNBK Ringkøbing Fjord Winter Edition](https://strava.app.link/vQuj4YWWrQb) 
-- 50M `8h44m07s` (`06:23 /km`) - [Race: Cold Hawaii Ultra](https://strava.app.link/IixOJrG5sQb) 
 - 50K `4h19m20s` (`05:11 /km`) - [Race: LNBK Ringkøbing Fjord Winter Edition](https://strava.app.link/vQuj4YWWrQb) 
 - Marathon `3h24m21s` (`04:51 /km`) - [Training: PB attempt day: 42K🏎️](https://strava.app.link/yy0DhmQWrQb) 
 - 30K `2h16m45s` (`04:34 /km`) - [Training: Morning Run](https://strava.app.link/2Jm2B9JWrQb) 
@@ -84,4 +83,4 @@ All PBs have been captured on my Strava profile. Except for the distances 80M, 1
 - 5K `20m20s` (`04:04 /km`) - [Race: Bestseller Aarhus City Halfmarathon](https://strava.app.link/Rq7lvDbWrQb) 
 - 2M `13m04s` (`04:04 /km`) - [Race: Bestseller Aarhus City Halfmarathon](https://strava.app.link/Rq7lvDbWrQb) 
 
-The 50 and 100 miler PBs are there because it was also the first time I ran those race distances 😉. And as is evident I set most of my PBs in a Halfmarathon race. That was tough ... but also a race where everything clicked. The PBs set in that race will be very difficult for me to get near again.
+The 100 miler PB is there because it was also the first time I ran that race distance 😉. And as is evident I set most of my PBs in a Halfmarathon race. That was tough ... but also a race where everything clicked. The PBs set in that race will be very difficult for me to get near again.
