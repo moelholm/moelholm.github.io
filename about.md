@@ -20,6 +20,15 @@ I live in Billund, Denmark, with my wonderful family: Teresa and our 3 children,
 
 I run a lot these days. In fact it may be borderline crazy to most folks; I am primarily a trail and ultra runner. Trail runs are just everything besides normal road running. Ultra running is the crazy part; they begin after the Marathon distance: a 43 kilometer run is an ultra run. Typically they are longer though - popular distances are: 50 kilometers, 80 kilometers (50 miles), 100 kilometers and 160 kilometers (100 miles).
 
+<div class="row justify-content-center mb-4">
+    <div class="col-6">
+        <img src="/img/about/me_running_1.jpg" alt="Me at a mountain in Germany - taken during running" class="w-100" />
+    </div>
+    <div class="col-6">
+        <img src="/img/about/me_running_2.jpg" alt="Me at a mountain in Germany - taken during running" class="w-100" />
+    </div>
+</div>
+
 ## Software Engineer at The LEGO Group
 
 I currently work for The LEGO Group as a Software Engineer on the ILSP product team.
