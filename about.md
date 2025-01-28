@@ -8,7 +8,13 @@ Welcome, I'm Nicky Moelholm and this is my personal web site. Here you find my b
 
 ## About me
 
-I live in Billund, Denmark, with my wonderful family. Teresa and our 3 children: Isabella, Noah and Casper. Oh ... and our cute dog: Nala (she's a Jack Russel Terrier).
+I live in Billund, Denmark, with my wonderful family: Teresa and our 3 children, Isabella, Noah, and Casper. Oh ... and our cute dog, Nala (she's a Jack Russel Terrier).
+
+<div class="row justify-content-center mb-4">
+    <div class="col-6">
+        <img src="/img/about/me_and_nala.jpg" alt="Me and Nala (our Jack Russel Terrier)" class="w-100" />
+    </div>
+</div>
 
 ## Running
 
@@ -17,5 +23,14 @@ I run a lot these days. In fact it may be borderline crazy to most folks; I am p
 ## Software Engineer at The LEGO Group
 
 I currently work for The LEGO Group as a Software Engineer on the ILSP product team.
+
+<div class="row justify-content-center mb-4">
+    <div class="col-6">
+        <img src="/img/about/lego_minifig.jpg" alt="LEGO Campus during Christmas" class="w-100" />
+    </div>
+    <div class="col-6">
+        <img src="/img/about/me_and_fox.jpg" alt="Me and a LEGO fox at LEGO Campus" class="w-100" />
+    </div>
+</div>
 
 The ILSP team is responsible for sending and receiving data from The LEGO Group's third party logistics service providers (those that operate our Distribution Centers / warehouses). My role on the team is development of application services as well as infrastructure etc. So technologies include stuff like; AWS Web Services (RDS, SQS, S3, IAM, ...), Kubernetes (Helm, ArgoCD, ...), Terraform IaC, GitHub Actions CI/CD, Java code, TypeScript code and C# code. We build and integrate with APIs using OpenAPIs and AsyncAPIs primarily.
