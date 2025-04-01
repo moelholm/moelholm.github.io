@@ -16,7 +16,7 @@ Www|[https://www.sportstiming.dk/event/14528](https://www.sportstiming.dk/event/
 Type|Backyard Ultra / Trail;
 Strava|[https://www.strava.com/activities/14021305451](https://www.strava.com/activities/14021305451);
 Position|13 # 163 starters;
-Duration|20h
+Duration|20h;
 Distance|134k
 {% endcapture %}
 {% assign rows_array = rows | split: ";" %}
