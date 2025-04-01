@@ -17,12 +17,13 @@ Type|Backyard Ultra / Trail;
 Strava|[https://www.strava.com/activities/14021305451](https://www.strava.com/activities/14021305451);
 Position|13 # 163 starters;
 Duration|20h
+Distance|134k
 {% endcapture %}
 {% assign rows_array = rows | split: ";" %}
 
 {% include blog_race_summary.html rows=rows_array %}
 
-First things first: I completed 20 hours of running. Or 20 "yards" (/rounds/loops). Last year, same race, I completed 17 - so this time I added 3 more to that. This makes it my record within Backyard Ultras - longest time and distance covered in this kind of run.
+First things first: I completed 20 hours of running. Or 20 "yards" (/rounds/loops). Resulting in 134 kilometers. Last year, same race, I completed 17 rounds - so this time I added 3 more to that. This makes it my record within Backyard Ultras - longest time and distance covered in this kind of run.
 
 The race took place in Fort Østerlund, a bit outside Silkeborg city. Since I didn't really know when I would finish this race I had prepared my car such that I could sleep in it if the need should come (it didn't); a sleeping bag, pillow, changing clothes etc. Ahem ... sorry ... the car wasn't super vacuum cleaned before 😬. Anyways - parked that and picked up my race bib:
 
