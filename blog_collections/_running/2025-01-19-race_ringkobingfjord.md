@@ -16,7 +16,8 @@ Www|[https://my.raceresult.com/309269/](https://my.raceresult.com/309269/);
 Type|Normal roads, cycle paths and gravel paths (no trails);
 Strava|[https://strava.app.link/aXNTApYGhQb](https://strava.app.link/aXNTApYGhQb);
 Position|7 # 34 finishers;
-Duration|10h 18m 29s
+Duration|10h 18m 29s;
+Distance|100k
 {% endcapture %}
 {% assign rows_array = rows | split: ";" %}
 

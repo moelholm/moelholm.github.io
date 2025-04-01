@@ -16,7 +16,8 @@ Www|[https://thyrace.dk/loeb-2/thy-trail-marathon/](https://thyrace.dk/loeb-2/th
 Type|Trail;
 Strava|[https://strava.app.link/sAv1gRhbjRb](https://strava.app.link/sAv1gRhbjRb);
 Position|39 # 211 finishers;
-Duration|4h 12m 14s
+Duration|4h 12m 14s;
+Distance|42k
 {% endcapture %}
 {% assign rows_array = rows | split: ";" %}
 

@@ -16,7 +16,8 @@ Www|[https://www.sportstiming.dk/event/14964](https://www.sportstiming.dk/event/
 Type|Trail;
 Strava|[https://strava.app.link/PErlp8AOGQb](https://strava.app.link/PErlp8AOGQb);
 Position|27 # 218 finishers;
-Duration|2h 43m 07s
+Duration|2h 43m 07s;
+Distance|28k
 {% endcapture %}
 {% assign rows_array = rows | split: ";" %}
 
