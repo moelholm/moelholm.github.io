@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Wayout Backyard Ultra"
+title: "Wayout Backyard Ultra 2025"
 description: "Race notes for Wayout Backyard Ultra 2025"
 date: 2025-04-01 19:30:00 +0200
 comments: true

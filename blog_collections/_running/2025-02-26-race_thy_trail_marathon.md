@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Thy Trail Marathon"
+title: "Thy Trail Marathon 2025"
 description: "Race notes Thy Trail Marathon 2025"
 date: 2025-02-26 19:20:00 +0100
 comments: true
