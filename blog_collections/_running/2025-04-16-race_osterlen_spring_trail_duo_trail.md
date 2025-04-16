@@ -11,7 +11,7 @@ This weekend I ran `Österlen Spring Trail 2025` in Sweden - more specifically t
 
 {% capture rows %}
 Race|Österlen Spring Trail 2025;
-Date|2025-03-28;
+Date|2025-04-12;
 Www|[https://www.sportstiming.dk/event/15015](https://www.sportstiming.dk/event/15015);
 Type|Trail / Relay;
 Strava|[https://www.strava.com/activities/14153889098](https://www.strava.com/activities/14153889098);
@@ -76,7 +76,7 @@ It re-powered me to give it a go for the remaining 10-14K 🤩. So fast forward 
 {% endcapture %}
 {{ table_content | markdownify }}
 
-That was my race. After that I went home with my family to take a bath an rest a bit. We barely made it back to see Bo reach and successfully cross the finish line! Luckily we did:
+That was my race. After that I went home with my family to take a bath and rest a bit. We barely made it back to see Bo reach and successfully cross the finish line! Luckily we did:
 
 {% capture table_content %}
 |------------|------------|
@@ -84,9 +84,9 @@ That was my race. After that I went home with my family to take a bath an rest a
 {% endcapture %}
 {{ table_content | markdownify }}
 
-Bo ran really well. In fact he downplayed his performance before the race so much that I almost believed him (that he would be rather slow). But shame on that ... he was really turbo fast. And afterwards tired - like me 🤣.
+Bo ran super well. I bet he surprised himself positively a bit (although he said that after the 20K ish ... it got signficantly harder to keep on the hard effort). Afterwards he was tired - as was I (still) 🤣. Luckily, at the finish line, we got to relax a bit with a free non-alcoholic beer. And a cup-cake 🧁. And coffee ☕️. Wonderful 😆.
 
-But now comes the best thing. We actually ran so good that we ended up on the podium. Well to be fair we ended up on a 4th place of all the `Duo Trail` teams. However, a ceremony was held for each of the 3 categories: females, males and mixed. And for the male teams we got a nice 3rd place. So podium time it was (and this was my first one ... celebrated at least 🤩).
+But now comes the best thing. We actually ran so good that we ended up on the podium. Well to be fair we ended up on a 4th place of all the `Duo Trail` teams. However, a ceremony was held for each of the 3 categories: females, males and mixed. And for the male teams we got a nice 3rd place. So podium time it was (and this was my first one 🤩 ... I was and am still really proud 😎).
 
 {% capture table_content %}
 |------------|------------|
