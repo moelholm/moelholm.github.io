@@ -23,7 +23,7 @@ Distance|21k
 
 {% include blog_race_summary.html rows=rows_array %}
 
-The race was actually starting very close to our vacation home in Gudhjem in the east: at the art museum in Rø. Then the route went via paved roads and gravel rounds crossing the Island (Bornholm) to the city in west, Rønne - at the stadium. 
+The race was actually starting very close to our vacation home in Gudhjem in the east: at the art museum in Rø. Then the route went via paved roads and gravel roads crossing the Island (Bornholm) to the city in west, Rønne - at the stadium. 
 
 {% capture table_content %}
 |------------|------------|
