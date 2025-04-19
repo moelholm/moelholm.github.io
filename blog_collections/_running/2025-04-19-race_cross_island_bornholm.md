@@ -7,7 +7,7 @@ comments: true
 tags: race running bornholm halfmarathon
 ---
 
-My family and I have been enjoying the Easter vacation on Bornholm this year. While being there my wife found out that the half marathon Cross Island Bornholm 2025 was about to be held. She nudged me to run it - so that’s exactly what I did. Didn’t need much push 🤭😂.
+My family and I have been enjoying the Easter vacation on Bornholm this year. While being there my wife found out that the half marathon `Cross Island Bornholm 2025` was about to be held. She nudged me to run it - so that’s exactly what I did. Didn’t need much push 🤭😂.
 
 {% capture rows %}
 Race|Cross Island Bornholm 2025;
