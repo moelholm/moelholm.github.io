@@ -23,7 +23,13 @@ Distance|21k
 
 {% include blog_race_summary.html rows=rows_array %}
 
-The race was actually starting very close to our vacation home in Gudhjem in the east: at the art museum in Rø. Then the route went via paved roads and gravel roads crossing the Island (Bornholm) to the city in west, Rønne - at the stadium. 
+The race was starting very close to our vacation home in Gudhjem in the east: at the art museum in Rø. Then the route went via paved roads and gravel roads crossing the Island (Bornholm) to the city in west, Rønne - at the stadium. This is how the route looked like on Strava after I ran it:
+
+<div style="text-align: center; margin-bottom: 1em;">
+ <img src="/img_running/2025-04-19/Route.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" />
+</div>
+
+A few photos from the starting area at the art museum:
 
 {% capture table_content %}
 |------------|------------|
