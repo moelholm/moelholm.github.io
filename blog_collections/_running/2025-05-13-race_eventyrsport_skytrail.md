@@ -35,7 +35,7 @@ The race starts and ends at _Himmelbjerget_ (crude English translation "Sky Moun
 
 This was a special race to me as I consider it the race that started my running obsession back in 2022. Back then I entered for the 7K distance with 455m EG. One loop up, down and around Himmelbjerget. I was so motivated from that race that I continued with longer and longer distances since then. It is essentially why I am an ultra runner today. 
 
-Fast forward to this year - 2025 - I now signed up to the longest distance: the 42K race (6 loops). These 42K are no ordinary kilometers - they include a staggering 2730m EG according to the race organization 🤯. In little Denmark 🇩🇰 🤯. It’s an average 6% grade; same as for my UTMB CCC race in 2023! Very impressive race in Denmark - rightfully - I think - deserving its SkyTrail title.
+Fast forward to this year - 2025 - I now signed up to the longest distance: the 42K race (6 loops). These 42K are no ordinary kilometers - they include a staggering 2730m EG according to the race organization 🤯. In little Denmark 🇩🇰 🤯. It’s an average 6% grade; same as for my UTMB CCC race in 2024! Very impressive race in Denmark - rightfully - I think - deserving its SkyTrail title.
 
 {% capture table_content %}
 |------------|------------|
