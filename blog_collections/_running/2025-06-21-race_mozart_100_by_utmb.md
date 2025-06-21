@@ -15,7 +15,7 @@ Date|2025-06-07;
 Www|[https://mozart.utmb.world/races/mozart100](https://mozart.utmb.world/races/mozart100);
 Type|Trail;
 Strava|[https://www.strava.com/activities/14727969242](https://www.strava.com/activities/14727969242);
-Position|165 of 368 finishers (518 startes/150 DNF);
+Position|177 of 368 finishers (518 startes/150 DNF);
 Duration|18h47m44s;
 Distance|120k
 {% endcapture %}
