@@ -7,7 +7,7 @@ comments: true
 tags: race running halfmarathon
 ---
 
-Earlier this month I participated in a half marathon in Aarhus, Denmark 🇩🇰: Aarhus Bestseller City Half (or BACH). I ran this a year ago - and that was a huuuge personal success because it was where I ran my lifetime Strava PBs for almost all distances up to the half 🤣. So naturally I had to run again this year 🤠👏🏻.
+Earlier this month I participated in a half marathon in Aarhus, Denmark 🇩🇰: Bestseller Aarhus City Half (or BACH). I ran this a year ago - and that was a huuuge personal success because it was where I ran my lifetime Strava PBs for almost all distances up to the half 🤣. So naturally I had to run again this year 🤠👏🏻.
 
 {% capture rows %}
 Race|Bestseller Aarhus City Half 2025;
