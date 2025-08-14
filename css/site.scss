@@ -782,14 +782,7 @@ tbody + tbody {
       }
       
       // Highlight the longest race
-      &.longest-race {
-        background: linear-gradient(90deg, rgba(255, 215, 0, 0.08) 0%, rgba(255, 215, 0, 0.03) 100%);
-        border-left: 3px solid #ffd700;
-        
-        &:hover {
-          background: linear-gradient(90deg, rgba(255, 215, 0, 0.12) 0%, rgba(255, 215, 0, 0.06) 100%);
-        }
-        
+      &.longest-race {        
         .distance-value {
           color: #b8860b !important; // Darker gold color
           font-weight: 700 !important;
@@ -801,6 +794,40 @@ tbody + tbody {
           content: "📏";
           font-size: 0.7rem;
           margin-left: 0.3rem;
+          opacity: 0.7;
+        }
+      }
+      
+      // Highlight the highest elevation race
+      &.highest-elevation {        
+        .elevation-value {
+          color: #1b5e20 !important; // Dark green color
+          font-weight: 700 !important;
+          text-shadow: 0 0 1px rgba(27, 94, 32, 0.3);
+        }
+        
+        // Add a goat icon for highest elevation
+        .distance-cell::before {
+          content: "🐐";
+          font-size: 0.7rem;
+          margin-right: 0.3rem;
+          opacity: 0.7;
+        }
+      }
+      
+      // If a race has both longest distance AND highest elevation
+      &.longest-race.highest-elevation {        
+        .distance-cell::before {
+          content: "🐐";
+          font-size: 0.7rem;
+          margin-right: 0.2rem;
+          opacity: 0.7;
+        }
+        
+        .distance-cell::after {
+          content: "📏";
+          font-size: 0.7rem;
+          margin-left: 0.2rem;
           opacity: 0.7;
         }
       }
@@ -840,10 +867,24 @@ tbody + tbody {
       &.distance-cell {
         text-align: center;
         
+        .distance-info {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 0.1rem;
+        }
+        
         .distance-value {
           font-size: 0.9rem;
           font-weight: 600;
           color: $trail-green;
+          font-variant-numeric: tabular-nums;
+        }
+        
+        .elevation-value {
+          font-size: 0.75rem;
+          font-weight: 500;
+          color: $text-muted;
           font-variant-numeric: tabular-nums;
         }
         
@@ -967,8 +1008,14 @@ tbody + tbody {
           font-size: 0.8rem;
         }
         
-        &.distance-cell .distance-value {
-          font-size: 0.8rem;
+        &.distance-cell {
+          .distance-value {
+            font-size: 0.8rem;
+          }
+          
+          .elevation-value {
+            font-size: 0.65rem;
+          }
         }
         
         &.tags-cell .race-tag {
@@ -1017,8 +1064,14 @@ tbody + tbody {
           font-size: 0.8rem;
         }
         
-        &.distance-cell .distance-value {
-          font-size: 0.8rem;
+        &.distance-cell {
+          .distance-value {
+            font-size: 0.8rem;
+          }
+          
+          .elevation-value {
+            font-size: 0.65rem;
+          }
         }
         
         &.tags-cell {
@@ -1086,8 +1139,14 @@ tbody + tbody {
           font-size: 0.7rem;
         }
         
-        &.distance-cell .distance-value {
-          font-size: 0.7rem;
+        &.distance-cell {
+          .distance-value {
+            font-size: 0.7rem;
+          }
+          
+          .elevation-value {
+            font-size: 0.6rem;
+          }
         }
         
         &.tags-cell {

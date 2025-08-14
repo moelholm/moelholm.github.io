@@ -60,21 +60,30 @@ Parameters:
         <tr>
           <th scope="col" class="date-col">Date</th>
           <th scope="col" class="race-col">Race</th>
-          <th scope="col" class="distance-col">Distance (km)</th>
+          <th scope="col" class="distance-col">Dist / Vert</th>
           <th scope="col" class="tags-col">Type</th>
         </tr>
       </thead>
       <tbody>
         {% assign race_posts = site.running | where_exp: "post", "post.tags contains 'race'" | sort: "date" | reverse %}
         
-        {% comment %} Find the maximum distance for highlighting {% endcomment %}
+        {% comment %} Find the maximum distance and elevation gain for highlighting {% endcomment %}
         {% assign max_distance = 0 %}
+        {% assign max_elevation = 0 %}
         {% for post in race_posts %}
           {% assign post_year = post.date | date: "%Y" %}
-          {% if post_year == calendar_year and post.distance_km %}
-            {% assign current_distance = post.distance_km | plus: 0 %}
-            {% if current_distance > max_distance %}
-              {% assign max_distance = current_distance %}
+          {% if post_year == calendar_year %}
+            {% if post.distance_km %}
+              {% assign current_distance = post.distance_km | plus: 0 %}
+              {% if current_distance > max_distance %}
+                {% assign max_distance = current_distance %}
+              {% endif %}
+            {% endif %}
+            {% if post.elevation_gain_m %}
+              {% assign current_elevation = post.elevation_gain_m | plus: 0 %}
+              {% if current_elevation > max_elevation %}
+                {% assign max_elevation = current_elevation %}
+              {% endif %}
             {% endif %}
           {% endif %}
         {% endfor %}
@@ -83,11 +92,23 @@ Parameters:
           {% assign post_year = post.date | date: "%Y" %}
           {% if post_year == calendar_year %}
           {% assign current_distance = post.distance_km | plus: 0 %}
+          {% assign current_elevation = post.elevation_gain_m | plus: 0 %}
           {% assign is_longest_race = false %}
+          {% assign is_highest_elevation = false %}
           {% if current_distance == max_distance and current_distance > 0 %}
             {% assign is_longest_race = true %}
           {% endif %}
-          <tr{% if is_longest_race %} class="longest-race"{% endif %}>
+          {% if current_elevation == max_elevation and current_elevation > 0 %}
+            {% assign is_highest_elevation = true %}
+          {% endif %}
+          {% assign row_classes = '' %}
+          {% if is_longest_race %}
+            {% assign row_classes = row_classes | append: 'longest-race ' %}
+          {% endif %}
+          {% if is_highest_elevation %}
+            {% assign row_classes = row_classes | append: 'highest-elevation ' %}
+          {% endif %}
+          <tr{% if row_classes != '' %} class="{{ row_classes | strip }}"{% endif %}>
             <td class="date-cell">
               <span class="race-date">{{ post.date | date: "%b-%d" }}</span>
             </td>
@@ -96,7 +117,12 @@ Parameters:
             </td>
             <td class="distance-cell">
               {% if post.distance_km %}
-                <span class="distance-value">{{ post.distance_km }}</span>
+                <div class="distance-info">
+                  <span class="distance-value">{{ post.distance_km }} km</span>
+                  {% if post.elevation_gain_m %}
+                    <span class="elevation-value">{{ post.elevation_gain_m }} m</span>
+                  {% endif %}
+                </div>
               {% else %}
                 <span class="distance-unknown">—</span>
               {% endif %}
