@@ -119,17 +119,40 @@ footer.bg-dark {
     left: 50%;
     width: 0;
     height: 2px;
-  background: linear-gradient(90deg, $trail-green, $trail-accent);
+    background: linear-gradient(90deg, $trail-green, $trail-accent);
     transition: all 0.3s ease;
     transform: translateX(-50%);
   }
   
   &:hover {
-  color: $link-color !important;
+    color: $link-color !important;
     transform: translateY(-2px);
     
     &::before {
-      width: 80%;
+      width: 60%; // Reduced from 80% for better appearance
+    }
+  }
+  
+  // Mobile and tablet responsive navigation styling
+  @media (max-width: 991px) { // Extended from 767px to include tablets
+    display: inline-block; // Prevent full-width stretching
+    width: auto;
+    
+    &:hover {
+      &::before {
+        width: 40%; // Even more conservative on medium screens
+        max-width: 100px; // Reduced max-width for better proportion
+      }
+    }
+  }
+  
+  // Extra small mobile screens
+  @media (max-width: 480px) {
+    &:hover {
+      &::before {
+        width: 50%; // Slightly wider on very small screens
+        max-width: 80px;
+      }
     }
   }
 }
@@ -990,6 +1013,65 @@ tbody + tbody {
             border-radius: 2px;
             white-space: nowrap; // Prevent text wrapping within tags
             margin-bottom: 0.1rem;
+          }
+        }
+      }
+    }
+  }
+  
+  // Extra small screens (iPhone portrait) - below 480px
+  @media (max-width: 479px) {
+    .races-table {
+      font-size: 0.8rem;
+      
+      thead th {
+        padding: 0.6rem 0.3rem;
+        font-size: 0.7rem;
+        
+        // More aggressive column width adjustments for iPhone
+        &.date-col {
+          width: 16%;
+          min-width: 60px;
+        }
+        
+        &.race-col {
+          width: 44%;
+          min-width: 120px;
+        }
+        
+        &.distance-col {
+          width: 12%;
+          min-width: 40px;
+        }
+        
+        &.tags-col {
+          width: 28%;
+          min-width: 90px;
+        }
+      }
+      
+      tbody td {
+        padding: 0.6rem 0.3rem;
+        
+        &.race-cell .race-link {
+          font-size: 0.8rem;
+          line-height: 1.2;
+        }
+        
+        &.date-cell .race-date {
+          font-size: 0.7rem;
+        }
+        
+        &.distance-cell .distance-value {
+          font-size: 0.7rem;
+        }
+        
+        &.tags-cell {
+          .race-tag {
+            font-size: 0.45rem;
+            padding: 0.08rem 0.15rem;
+            border-radius: 2px;
+            margin-bottom: 0.08rem;
           }
         }
       }
