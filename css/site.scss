@@ -553,6 +553,73 @@ tbody + tbody {
   color: $text-muted; // Use centralized muted text color
 }
 
+// Custom styling for intro bullet lists - running theme
+.blog-item.intro ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 1em 0;
+  
+  li {
+    position: relative;
+    padding-left: 1.8em;
+    margin-bottom: 0.8em;
+    
+    // Cross-browser transition
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    
+    &::before {
+      content: ">";
+      position: absolute;
+      left: 0;
+      color: $trail-green;
+      font-size: 0.9em;
+      
+      // Subtle animation
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+    }
+    
+    &:hover {
+      padding-left: 2em;
+      color: $heading-secondary;
+      
+      &::before {
+        color: $heading-primary;
+        
+        // Cross-browser transform
+        -webkit-transform: translateX(3px);
+        -moz-transform: translateX(3px);
+        -ms-transform: translateX(3px);
+        -o-transform: translateX(3px);
+        transform: translateX(3px);
+      }
+    }
+    
+    // Mobile optimization
+    @media (max-width: 767px) {
+      padding-left: 1.5em;
+      margin-bottom: 0.6em;
+      
+      &:hover {
+        padding-left: 1.7em;
+        
+        &::before {
+          -webkit-transform: translateX(2px);
+          -moz-transform: translateX(2px);
+          -ms-transform: translateX(2px);
+          -o-transform: translateX(2px);
+          transform: translateX(2px);
+        }
+      }
+    }
+  }
+}
+
 // Frontpage: remove spacing/borders between list posts
 .front-list .blog-item {
   margin-bottom: 1em;
