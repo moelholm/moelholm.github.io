@@ -5,9 +5,10 @@ description: "Race notes for Eventyrsport VinterTrail Mols Bjerge 2025"
 date: 2025-02-03 17:00:00 +0100
 comments: true
 tags: race running trailrunning
+distance_km: 28
 ---
 
-Yesterday I ran `Eventyrsport VinterTrail Mols Bjerge 2025` - a 28 kilometer trail race in Mols Bjerge National Park.
+Yesterday I ran `Eventyrsport VinterTrail Mols Bjerge 2025` - a {{ page.distance_km }} kilometer trail race in Mols Bjerge National Park.
 
 {% capture rows %}
 Race|Eventyrsport VinterTrail Mols Bjerge;
@@ -17,7 +18,7 @@ Type|Trail;
 Strava|[https://strava.app.link/PErlp8AOGQb](https://strava.app.link/PErlp8AOGQb);
 Position|27 # 218 finishers;
 Duration|2h 43m 07s;
-Distance|28k
+Distance|{{ page.distance_km }}k
 {% endcapture %}
 {% assign rows_array = rows | split: ";" %}
 

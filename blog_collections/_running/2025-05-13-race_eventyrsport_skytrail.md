@@ -5,9 +5,10 @@ description: "Race notes for Eventyrsport SkyTrail 2025"
 date: 2025-05-13 17:50:00 +0200
 comments: true
 tags: race running trailrunning
+distance_km: 42
 ---
 
-This weekend I just ran a 42K trail race, called SkyTrail, in Ry - Jylland (Denmark 🇩🇰). 
+This weekend I just ran a {{ page.distance_km }}K trail race, called SkyTrail, in Ry - Jylland (Denmark 🇩🇰). 
 
 {% capture rows %}
 Race|Eventyrsport SkyTrail 2025;
@@ -17,7 +18,7 @@ Type|Trail;
 Strava|[https://www.strava.com/activities/14435126055](https://www.strava.com/activities/14435126055);
 Position|15 of 52 starters (44 finishers);
 Duration|6h06m38s;
-Distance|42k
+Distance|{{ page.distance_km }}k
 {% endcapture %}
 {% assign rows_array = rows | split: ";" %}
 

@@ -5,9 +5,10 @@ description: "Race notes for Thy Trail Marathon 2025"
 date: 2025-02-26 19:20:00 +0100
 comments: true
 tags: race running trailrunning
+distance_km: 42
 ---
 
-This weekend I ran `Thy Trail Marathon 2025` - a 42 kilometer trail race in Thy National Park.
+This weekend I ran `Thy Trail Marathon 2025` - a {{ page.distance_km }} kilometer trail race in Thy National Park.
 
 {% capture rows %}
 Race|Thy Trail Marathon 2025;
@@ -17,7 +18,7 @@ Type|Trail;
 Strava|[https://strava.app.link/sAv1gRhbjRb](https://strava.app.link/sAv1gRhbjRb);
 Position|39 # 211 finishers;
 Duration|4h 12m 14s;
-Distance|42k
+Distance|{{ page.distance_km }}k
 {% endcapture %}
 {% assign rows_array = rows | split: ";" %}
 

@@ -5,9 +5,10 @@ description: "Race notes for LNBK Ringkøbing Fjord Winter Edition 2025"
 date: 2025-01-19 14:00:00 +0100
 comments: true
 tags: race running ultrarunning
+distance_km: 100
 ---
 
-A week ago I ran `LNBK Ringkøbing Fjord Winter Edition 2025` - a 100 kilometer race around Ringkøbing Fjord in Denmark.
+A week ago I ran `LNBK Ringkøbing Fjord Winter Edition 2025` - a {{ page.distance_km }} kilometer race around Ringkøbing Fjord in Denmark.
 
 {% capture rows %}
 Race|LNBK Ringkøbing Fjord Winter Edition 2025;
@@ -17,7 +18,7 @@ Type|Normal roads, cycle paths and gravel paths (no trails);
 Strava|[https://strava.app.link/aXNTApYGhQb](https://strava.app.link/aXNTApYGhQb);
 Position|7 # 34 finishers;
 Duration|10h 18m 29s;
-Distance|100k
+Distance|{{ page.distance_km }}k
 {% endcapture %}
 {% assign rows_array = rows | split: ";" %}
 

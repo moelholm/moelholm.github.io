@@ -5,6 +5,7 @@ description: "Race notes for Odense City Half 2025"
 date: 2025-05-21 18:45:00 +0200
 comments: true
 tags: race running halfmarathon
+distance_km: 21
 ---
 
 This weekend I just ran a half marathon in Odense, Denmark 🇩🇰: Odense City Half.
@@ -17,7 +18,7 @@ Type|Road;
 Strava|[https://www.strava.com/activities/14517098165](https://www.strava.com/activities/14517098165);
 Position|47 of 577 finishers;
 Duration|1h31m00s;
-Distance|21k
+Distance|{{ page.distance_km }}k
 {% endcapture %}
 {% assign rows_array = rows | split: ";" %}
 

@@ -5,6 +5,7 @@ description: "Race notes for mozart 100 by UTMB 2025"
 date: 2025-06-21 13:30:00 +0200
 comments: true
 tags: race running trailrunning ultrarunning
+distance_km: 120
 ---
 
 Salzburg, Austria 🇦🇹 - I was just there in the beginning of June to race mozart 100 by UTMB. 
@@ -17,7 +18,7 @@ Type|Trail;
 Strava|[https://www.strava.com/activities/14727969242](https://www.strava.com/activities/14727969242);
 Position|177 of 368 finishers (518 startes/150 DNF);
 Duration|18h47m44s;
-Distance|120k
+Distance|{{ page.distance_km }}k
 {% endcapture %}
 {% assign rows_array = rows | split: ";" %}
 

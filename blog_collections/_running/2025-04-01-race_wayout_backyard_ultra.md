@@ -5,6 +5,7 @@ description: "Race notes for Wayout Backyard Ultra 2025"
 date: 2025-04-01 19:30:00 +0200
 comments: true
 tags: race running trailrunning backyard-ultra ultrarunning
+distance_km: 134
 ---
 
 This weekend I ran `Wayout Backyard Ultra 2025` - a backyard ultra trail race at Fort Østerlund in Silkeborg.
@@ -17,7 +18,7 @@ Type|Backyard Ultra / Trail;
 Strava|[https://www.strava.com/activities/14021305451](https://www.strava.com/activities/14021305451);
 Position|13 # 163 starters;
 Duration|20h;
-Distance|134k
+Distance|{{ page.distance_km }}k
 {% endcapture %}
 {% assign rows_array = rows | split: ";" %}
 
