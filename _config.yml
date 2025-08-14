@@ -29,3 +29,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-feed
   - jemoji
+
+# Feature toggles
+features:
+  show_software_engineering: false

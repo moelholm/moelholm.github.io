@@ -1,59 +1,447 @@
 ---
 ---
 
-$page-background-color: #efecec;
-$link-color: rgba(0, 0, 0, 0.5);
-$link-hover-color: rgba(0, 0, 0, 0.7);
+// Cross-browser compatibility and device optimizations
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+// Improve font rendering across different platforms
+html {
+  -webkit-text-size-adjust: 100%; // Prevent iOS font size changes
+  -ms-text-size-adjust: 100%;     // Prevent Windows Phone font size changes
+}
+
+// Color palette - centralized theme configuration
+$page-background-color: #f7faff; // Soft blue-tinted background
+$link-color: #a8c8f0; // More visible blue (less transparent)
+$link-hover-color: #8fb5eb; // Deeper version with more color
+$nav-bg-color: #3b556d; // Blue-gray
+
+// Heading colors - blue theme aligned
+$heading-primary: #4a6ba8; // Deep blue for main headings (h1)
+$heading-secondary: #5a7bb5; // Medium blue for h2-h6
+$text-muted: #6b7280; // Gray for secondary text
+
+// Theme palette (keep variable names for compatibility)
+$trail-green: #a8c8f0;      // primary blue (aligned with links)
+$trail-forest: #8fb5eb;     // deep blue (aligned with link hover)
+$trail-accent: #dcebff;     // light sky accent
+
+// Running-themed animations and effects
+@keyframes pulse-run {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes trail-fade {
+  0% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+// Custom navigation styling - inspired by trail/outdoor aesthetic
+.navbar.bg-dark {
+  background: linear-gradient(135deg, $nav-bg-color 0%, #556b84 100%) !important;
+  border-bottom: 3px solid $trail-green;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  
+  // Add subtle trail pattern overlay
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(58, 118, 196, 0.08) 2px, transparent 2px),
+      radial-gradient(circle at 75% 75%, rgba(58, 118, 196, 0.08) 2px, transparent 2px);
+    background-size: 30px 30px;
+    pointer-events: none;
+  }
+}
+
+// Footer styling to match navigation bar
+footer.bg-dark {
+  background: linear-gradient(135deg, $nav-bg-color 0%, #556b84 100%) !important;
+  border-top: 3px solid $trail-green;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  
+  // Add subtle trail pattern overlay matching the navbar
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(58, 118, 196, 0.08) 2px, transparent 2px),
+      radial-gradient(circle at 75% 75%, rgba(58, 118, 196, 0.08) 2px, transparent 2px);
+    background-size: 30px 30px;
+    pointer-events: none;
+  }
+}
+
+.navbar-dark .navbar-brand {
+  color: #f9fafb !important;
+  font-weight: 700;
+  font-size: 1.22rem;
+  position: relative;
+  
+  &::after {
+    content: " 🏃‍♂️";
+    font-size: 0.8em;
+    animation: pulse-run 2s ease-in-out infinite;
+  }
+  
+  &:hover {
+  color: $trail-accent !important;
+    transform: translateY(-1px);
+    transition: all 0.3s ease;
+  }
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #d1d5db !important;
+  transition: all 0.3s ease-in-out;
+  font-weight: 500;
+  position: relative;
+  
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+  background: linear-gradient(90deg, $trail-green, $trail-accent);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+  
+  &:hover {
+  color: $link-color !important;
+    transform: translateY(-2px);
+    
+    &::before {
+      width: 80%;
+    }
+  }
+}
 
 body .container {
   background-color: $page-background-color;
 }
 
+// Site-wide default link colors
+a,
+a:visited {
+  color: $link-color;
+}
+
+a:hover,
+a:focus {
+  color: $link-hover-color;
+}
+
+// Global font sizing: responsive and cross-browser optimized
+body {
+  font-size: 1.0rem; // Base mobile size
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased; // Better font rendering on Mac
+  -moz-osx-font-smoothing: grayscale;  // Better font rendering on Mac Firefox
+  text-rendering: optimizeLegibility;   // Better text rendering
+}
+
+// Responsive typography breakpoints
+@media (min-width: 480px) {
+  body { font-size: 0.98rem; } // Small tablets
+}
+
+@media (min-width: 768px) {
+  body { font-size: 0.96rem; } // Tablets and small desktops
+}
+
+@media (min-width: 1024px) {
+  body { font-size: 0.95rem; } // Desktops
+}
+
+@media (min-width: 1200px) {
+  body { font-size: 0.94rem; } // Large desktops
+}
+
+/* RSS icon uses inline style and FA class per include; no additional CSS needed */
+
 #site-body {
   background-color: $page-background-color;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol";
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: $heading-primary;
+  font-weight: 600;
+}
+
+h1 {
+  color: $heading-primary; // Deeper blue for main headings
+  border-bottom: 2px solid #d1d5db;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  color: $heading-secondary; // Medium blue
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 .main-content {
-  font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
-  background-color: white;
+  font-family: 'Source Serif 4', Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+  background: linear-gradient(135deg, #ffffff 0%, #fbfdff 100%);
   margin: 0.5em;
-  padding: 1em;
+  padding: 1.5em; // Smaller padding on mobile
+  border-radius: 12px;
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.08),
+    0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+  position: relative;
+  
+  // Cross-browser box sizing
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  
+  // Mobile responsiveness
+  @media (max-width: 767px) {
+    margin: 0.25em;
+    padding: 1.2em;
+    border-radius: 8px;
+  }
+  
+  // Tablet and up
+  @media (min-width: 768px) {
+    margin: 0.5em;
+    padding: 2em;
+  }
+  
+  // Desktop and up
+  @media (min-width: 1024px) {
+    margin: 0.75em;
+    padding: 2.5em;
+  }
+  animation: trail-fade 0.8s ease-in;
+  
+  // Subtle trail dots pattern
+  &::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 100px;
+    height: 20px;
+    background-image: 
+  radial-gradient(circle, rgba(58, 118, 196, 0.15) 1px, transparent 1px);
+    background-size: 8px 8px;
+    background-repeat: repeat-x;
+  }
+  
   a {
     text-decoration: none;
     background-color: transparent;
     color: $link-color;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+  background: linear-gradient(90deg, $link-color, $trail-accent);
+      transition: width 0.3s ease;
+    }
   }
+  
   a:hover {
     color: $link-hover-color;
+    transform: translateY(-1px);
+    
+    &::after {
+      width: 100%;
+    }
   }
 
   .tag-list {
     display: block;
-    padding-top: 0.2em;
-    padding-bottom: 0.2em;
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
     font-size: 85%;
+    
+    &::before {
+      content: "\f02b "; // Font Awesome tag icon
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      color: $trail-green; // Use theme color
+      opacity: 0.8;
+      margin-right: 5px;
+    }
+    
+    .tag {
+      background: $trail-accent !important; // Force blue accent color
+      color: $heading-secondary !important; // Blue text to match theme
+      padding: 0.3rem 0.7rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      margin-right: 0.6rem;
+      margin-bottom: 0.3rem;
+      text-decoration: none !important;
+      border: 1px solid rgba(220, 235, 255, 0.3) !important; // Subtle blue border
+      
+      // Cross-browser transition support
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+      
+      display: inline-block;
+      position: relative;
+      
+      // Touch-friendly sizing for mobile
+      @media (max-width: 767px) {
+        padding: 0.4rem 0.8rem; // Slightly larger touch targets
+        font-size: 0.8rem;
+        margin-right: 0.4rem;
+        margin-bottom: 0.4rem;
+      }
+      
+      &:hover {
+        background: linear-gradient(135deg, #eaf3ff 0%, #cfe8ff 100%);
+        color: #0f3166;
+        
+        // Cross-browser transform with fallbacks
+        -webkit-transform: translateY(-2px) scale(1.03);
+        -moz-transform: translateY(-2px) scale(1.03);
+        -ms-transform: translateY(-2px) scale(1.03);
+        -o-transform: translateY(-2px) scale(1.03);
+        transform: translateY(-2px) scale(1.03);
+        
+        // Cross-browser box shadow
+        -webkit-box-shadow: 0 4px 10px rgba(58, 118, 196, 0.15);
+        -moz-box-shadow: 0 4px 10px rgba(58, 118, 196, 0.15);
+        box-shadow: 0 4px 10px rgba(58, 118, 196, 0.15);
+        
+        // Reduce effects on mobile for better performance
+        @media (max-width: 767px) {
+          -webkit-transform: translateY(-1px) scale(1.01);
+          -moz-transform: translateY(-1px) scale(1.01);
+          -ms-transform: translateY(-1px) scale(1.01);
+          -o-transform: translateY(-1px) scale(1.01);
+          transform: translateY(-1px) scale(1.01);
+          
+          -webkit-box-shadow: 0 2px 6px rgba(58, 118, 196, 0.12);
+          -moz-box-shadow: 0 2px 6px rgba(58, 118, 196, 0.12);
+          box-shadow: 0 2px 6px rgba(58, 118, 196, 0.12);
+        }
+        
+        &::before {
+          color: #0f3166;
+        }
+      }
+    }
   }
 }
 
 .blog-item {
-  padding-bottom: 1em;
+  padding-bottom: 2em;
+  border-bottom: 2px dashed rgba(58, 118, 196, 0.15);
+  margin-bottom: 2em;
+  position: relative;
+  transition: all 0.3s ease;
+  
+  &:hover {
+  /* No tile movement on hover */
+  transform: none;
+
+    &::before {
+      opacity: 1;
+    }
+  }
+  
+  // Trail marker effect: only for race-tagged posts
+  &.race::before {
+    content: "🏃‍♂️";
+    position: absolute;
+    left: -30px;
+    top: 10px;
+    font-size: 1.2em;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  &:last-child {
+    border-bottom: none;
+  }
+  
+  h2 {
+    margin-top: 0;
+    color: $heading-secondary; // Use centralized heading color
+    position: relative;
+    
+    &::before {
+      content: "▶";
+      color: $trail-green;
+      margin-right: 8px;
+      font-size: 0.8em;
+    }
+  }
+
+  // Inline race flag next to title
+  .race-flag {
+    margin-left: 8px;
+    font-size: 0.9em;
+    vertical-align: middle;
+    color: $trail-green; // Use theme color instead of default black
+  }
+}
+
+// Post title links on front page - use heading colors instead of link colors
+.post-title-link {
+  color: $heading-secondary !important;
+  font-weight: 700;
+  text-decoration: none !important;
+  
+  &:hover,
+  &:focus {
+    color: $heading-primary !important;
+    text-decoration: none !important;
+  }
+}
+
+// Homepage intro spacing tweak
+.blog-item.intro {
+  margin-bottom: 0.9em; // was 1.2em
+  padding-bottom: 0.9em; // was 1.2em
 }
 
 .post {
   blockquote {
-    border: 0.05em solid #b3b3b3;
-    border-left: 0.2em solid #b3b3b3;
-    padding: 0.5em;
+    border: 1px solid #d1d5db;
+  border-left: 4px solid $trail-green; // Blue accent
+    background-color: #fefdfb;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: #374151;
   }
   pre.highlight {
     padding-top: 0.8em;
@@ -67,11 +455,13 @@ h6 {
 }
 
 code.highlighter-rouge {
-  background-color: rgba(27, 31, 35, 0.05);
-  color: black;
+  background-color: #f9fafb;
+  color: #374151;
   font-size: 85%;
-  border-radius: 3px;
-  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  padding: 0.2em 0.5em;
+  border: 1px solid #e5e7eb;
+  font-family: 'SF Mono', Monaco, Inconsolata, 'Roboto Mono', Consolas, monospace;
 }
 
 blockquote {
@@ -106,4 +496,81 @@ tbody + tbody {
   object-fit: cover;
   width: 400px;
   height: 400px;
+}
+
+// Tags page styling
+.tags-index {
+  margin-bottom: 1rem;
+}
+
+.tag-badge {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background: $trail-accent !important; // Force blue accent color
+  color: $heading-secondary !important; // Blue text to match theme
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin: 0 0.4rem 0.4rem 0;
+  border: 1px solid rgba(220, 235, 255, 0.3) !important; // Subtle border in same tone
+  text-decoration: none;
+}
+
+.tag-badge:hover {
+  background: #eaf3ff; /* subtle sky tint */
+  border-color: #d6e8ff;
+  color: #285a99; /* deep blue text */
+}
+
+.tag-count {
+  color: $text-muted; // Use centralized muted text color
+}
+
+.tag-posts {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.tag-posts li a {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+  color: $link-color;
+  text-decoration: none;
+}
+
+.tag-posts li a:hover .title {
+  text-decoration: underline;
+}
+
+.tag-posts .arrow {
+  color: $trail-green;
+}
+
+.tag-posts .date {
+  color: $text-muted; // Use centralized muted text color
+}
+
+// Frontpage: remove spacing/borders between list posts
+.front-list .blog-item {
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid rgba(58, 118, 196, 0.12);
+}
+
+.front-list .blog-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+// Ensure a small visual gap between posts at the column level
+.front-list .row > .col-md-12 {
+  margin-bottom: 0.8rem;
+}
+
+.front-list .row > .col-md-12:last-child {
+  margin-bottom: 0;
 }

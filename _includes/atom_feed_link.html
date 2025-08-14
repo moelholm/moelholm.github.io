@@ -1,5 +1,11 @@
 <div class="row mb-3">
-    <div class="col-md-12 d-flex justify-content-end">
-      <a href="{{ include.feed_url }}" title="News Feed | {{ include.collection }}" target="_blank" style="color: orange;" class="fa-solid fa-rss"></a>
-    </div>
-</div>  
+  <div class="col-md-12 d-flex justify-content-end">
+    <a href="{{ include.feed_url }}"
+       title="News Feed | {{ include.collection }}"
+       target="_blank"
+       style="color: orange;"
+       aria-label="News Feed | {{ include.collection }}">
+      <i class="fa-solid fa-rss" aria-hidden="true"></i>
+    </a>
+  </div>
+</div>

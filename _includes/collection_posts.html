@@ -3,21 +3,21 @@
   {% for post in sorted_posts %}
 
   <div class="col-md-12">
-    <div class="blog-item">
+  <div class="blog-item{% if post.tags contains 'race' %} race{% endif %}">
       <div class="card">
         <div class="card-body">
           <div class="text-right"><small>{{ post.date | date_to_string }}</small></div>
-          <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+          <a href="{{ post.url }}" title="{{ post.title }}" class="post-title-link">{{ post.title }}</a>
+          {% if post.tags contains 'race' %}
+            <span class="race-flag" aria-label="Race post" title="Race"><i class="fa-solid fa-flag-checkered"></i></span>
+          {% endif %}
           <p class="card-text">
             <span class="tag-list">
               {% if post.tags != empty %}
-              [
               {% for tag in post.tags %}
               {% capture tag_name %}{{ tag }}{% endcapture %}
-              <a href="/tags#{{ tag_name }}"><code
-                  class="highlighter-rouge"><nobr>{{ tag_name }}</nobr></code></a>&nbsp;
+              <a href="/tags#{{ tag_name }}" class="tag"><nobr>{{ tag_name }}</nobr></a>
               {% endfor %}
-              ]
               {% endif %}
             </span>
             {{ post.content | strip_html | truncate: 250 }}

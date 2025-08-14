@@ -5,17 +5,14 @@ layout: default
 <p class="post-metadata">{{ page.date | date_to_string }} {% if page.comments %} • <a
     href="{{ site.url }}{{ page.url }}#disqus_thread">0 Comments</a>{% endif %}</p>
 
-<span class="tag-list">
-  {% if page.tags != empty %}
-  <p class="post-metadata">
-    [
-    {% for tag in page.tags %}
+{% if page.tags != empty %}
+<span class="tag-list post-metadata">
+  {% for tag in page.tags %}
     {% capture tag_name %}{{ tag }}{% endcapture %}
-    <a href="/tags#{{ tag_name }}"><code class="highlighter-rouge"><nobr>{{ tag_name }}</nobr></code></a>&nbsp;
-    {% endfor %}
-    ]</p>
-  {% endif %}
+    <a href="/tags#{{ tag_name }}" class="tag"><nobr>{{ tag_name }}</nobr></a>
+  {% endfor %}
 </span>
+{% endif %}
 
 <div class="post">
   {{ content }}
