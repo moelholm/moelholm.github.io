@@ -620,6 +620,205 @@ tbody + tbody {
   }
 }
 
+// 2025 Race Calendar - Simple View
+.race-calendar {
+  // Race Statistics
+  .race-stats {
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, rgba(168, 200, 240, 0.05) 0%, rgba(104, 159, 56, 0.05) 100%);
+    border-radius: 8px;
+    padding: 1rem;
+    border: 1px solid rgba(168, 200, 240, 0.1);
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1rem;
+      
+      @media (max-width: 767px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+      }
+      
+      @media (max-width: 480px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.6rem;
+      }
+    }
+    
+    .stat-item {
+      text-align: center;
+      
+      .stat-number {
+        display: block;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: $trail-green;
+        line-height: 1.2;
+        
+        @media (max-width: 767px) {
+          font-size: 1.3rem;
+        }
+        
+        @media (max-width: 480px) {
+          font-size: 1.2rem;
+        }
+      }
+      
+      .stat-label {
+        display: block;
+        font-size: 0.75rem;
+        color: $text-muted;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-top: 0.25rem;
+        font-weight: 500;
+        
+        @media (max-width: 767px) {
+          font-size: 0.7rem;
+        }
+        
+        @media (max-width: 480px) {
+          font-size: 0.65rem;
+        }
+      }
+    }
+  }
+  
+  .race-list {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+    margin-bottom: 1.5rem;
+    
+    li a {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 0.3rem 0;
+      color: $link-color;
+      text-decoration: none;
+      
+      // Cross-browser transition
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        color: $link-hover-color;
+        
+        .race-title {
+          text-decoration: underline;
+        }
+      }
+    }
+    
+    li {
+      margin-bottom: 0.2rem;
+    }
+    
+    .race-date {
+      color: $text-muted;
+      font-size: 0.9rem;
+      min-width: 85px;
+      font-weight: 500;
+    }
+    
+    .race-title-container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .race-title {
+      font-weight: 500;
+      font-size: 1rem;
+    }
+    
+    .race-tags {
+      display: flex;
+      gap: 0.3rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .race-tag {
+      font-size: 0.7rem;
+      padding: 0.15rem 0.4rem;
+      border-radius: 8px;
+      font-weight: 500;
+      text-transform: lowercase;
+      white-space: nowrap;
+      
+      // Default styling (fallback)
+      background: rgba(104, 159, 56, 0.1);
+      color: $trail-green;
+      border: 1px solid rgba(104, 159, 56, 0.2);
+      
+      // Pastel color variants for different race types
+      &.race-tag-trail {
+        background: rgba(152, 251, 152, 0.3); // Pale green
+        color: #228B22; // Forest green
+        border: 1px solid rgba(152, 251, 152, 0.5);
+      }
+      
+      &.race-tag-ultra {
+        background: rgba(255, 182, 193, 0.4); // Light pink
+        color: #DC143C; // Crimson
+        border: 1px solid rgba(255, 182, 193, 0.6);
+      }
+      
+      &.race-tag-half {
+        background: rgba(173, 216, 230, 0.4); // Light blue
+        color: #4682B4; // Steel blue
+        border: 1px solid rgba(173, 216, 230, 0.6);
+      }
+      
+      &.race-tag-marathon {
+        background: rgba(221, 160, 221, 0.4); // Plum
+        color: #8B008B; // Dark magenta
+        border: 1px solid rgba(221, 160, 221, 0.6);
+      }
+      
+      &.race-tag-backyard {
+        background: rgba(255, 218, 185, 0.4); // Peach
+        color: #FF8C00; // Dark orange
+        border: 1px solid rgba(255, 218, 185, 0.6);
+      }
+      
+      @media (max-width: 767px) {
+        font-size: 0.65rem;
+        padding: 0.1rem 0.3rem;
+      }
+      
+      @media (max-width: 480px) {
+        font-size: 0.6rem;
+        padding: 0.08rem 0.25rem;
+      }
+    }
+  }
+  
+  .race-calendar-footer {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(220, 235, 255, 0.3);
+    
+    .view-all-races {
+      color: $link-color;
+      font-weight: 500;
+      text-decoration: none;
+      
+      &:hover {
+        color: $link-hover-color;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
 // Frontpage: remove spacing/borders between list posts
 .front-list .blog-item {
   margin-bottom: 1em;
