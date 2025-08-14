@@ -6,6 +6,7 @@ date: 2025-06-21 13:30:00 +0200
 comments: true
 tags: race running trailrunning ultrarunning
 distance_km: 120
+elevation_gain_m: 5309
 ---
 
 Salzburg, Austria 🇦🇹 - I was just there in the beginning of June to race mozart 100 by UTMB. 

@@ -6,6 +6,7 @@ date: 2025-04-16 15:30:00 +0200
 comments: true
 tags: race running trailrunning sweden
 distance_km: 34
+elevation_gain_m: 406
 ---
 
 This weekend I ran `Österlen Spring Trail 2025` in Sweden - more specifically the `Duo Trail` race. In the south eastern part of Sweden 🇸🇪, in Scania (Da: Skåne).

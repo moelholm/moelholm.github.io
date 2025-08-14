@@ -6,6 +6,7 @@ date: 2025-02-03 17:00:00 +0100
 comments: true
 tags: race running trailrunning
 distance_km: 28
+elevation_gain_m: 883
 ---
 
 Yesterday I ran `Eventyrsport VinterTrail Mols Bjerge 2025` - a {{ page.distance_km }} kilometer trail race in Mols Bjerge National Park.

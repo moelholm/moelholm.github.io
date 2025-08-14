@@ -6,6 +6,7 @@ date: 2025-02-26 19:20:00 +0100
 comments: true
 tags: race running trailrunning
 distance_km: 42
+elevation_gain_m: 321
 ---
 
 This weekend I ran `Thy Trail Marathon 2025` - a {{ page.distance_km }} kilometer trail race in Thy National Park.

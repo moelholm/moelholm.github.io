@@ -6,6 +6,7 @@ date: 2025-05-13 17:50:00 +0200
 comments: true
 tags: race running trailrunning
 distance_km: 42
+elevation_gain_m: 2557
 ---
 
 This weekend I just ran a {{ page.distance_km }}K trail race, called SkyTrail, in Ry - Jylland (Denmark 🇩🇰). 
