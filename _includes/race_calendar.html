@@ -66,10 +66,28 @@ Parameters:
       </thead>
       <tbody>
         {% assign race_posts = site.running | where_exp: "post", "post.tags contains 'race'" | sort: "date" | reverse %}
+        
+        {% comment %} Find the maximum distance for highlighting {% endcomment %}
+        {% assign max_distance = 0 %}
+        {% for post in race_posts %}
+          {% assign post_year = post.date | date: "%Y" %}
+          {% if post_year == calendar_year and post.distance_km %}
+            {% assign current_distance = post.distance_km | plus: 0 %}
+            {% if current_distance > max_distance %}
+              {% assign max_distance = current_distance %}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+        
         {% for post in race_posts %}
           {% assign post_year = post.date | date: "%Y" %}
           {% if post_year == calendar_year %}
-          <tr>
+          {% assign current_distance = post.distance_km | plus: 0 %}
+          {% assign is_longest_race = false %}
+          {% if current_distance == max_distance and current_distance > 0 %}
+            {% assign is_longest_race = true %}
+          {% endif %}
+          <tr{% if is_longest_race %} class="longest-race"{% endif %}>
             <td class="date-cell">
               <span class="race-date">{{ post.date | date: "%b-%d" }}</span>
             </td>
