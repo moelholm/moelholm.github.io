@@ -6,6 +6,7 @@ date: 2025-01-19 14:00:00 +0100
 comments: true
 tags: race running ultrarunning
 distance_km: 100
+elevation_gain_m: 319
 ---
 
 A week ago I ran `LNBK Ringkøbing Fjord Winter Edition 2025` - a {{ page.distance_km }} kilometer race around Ringkøbing Fjord in Denmark.

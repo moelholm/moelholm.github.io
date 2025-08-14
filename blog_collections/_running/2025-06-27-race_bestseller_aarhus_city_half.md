@@ -6,6 +6,7 @@ date: 2025-06-27 18:55:00 +0200
 comments: true
 tags: race running halfmarathon
 distance_km: 21
+elevation_gain_m: 190
 ---
 
 Earlier this month I participated in a half marathon in Aarhus, Denmark 🇩🇰: Bestseller Aarhus City Half (or BACH). I ran this a year ago - and that was a huuuge personal success because it was where I ran my lifetime Strava PBs for almost all distances up to the half 🤣. So naturally I had to run again this year 🤠👏🏻.

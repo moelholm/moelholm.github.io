@@ -6,6 +6,7 @@ date: 2025-05-21 18:45:00 +0200
 comments: true
 tags: race running halfmarathon
 distance_km: 21
+elevation_gain_m: 90
 ---
 
 This weekend I just ran a half marathon in Odense, Denmark 🇩🇰: Odense City Half.
