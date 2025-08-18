@@ -1190,3 +1190,29 @@ tbody + tbody {
 .front-list .row > .col-md-12:last-child {
   margin-bottom: 0;
 }
+
+// Draft mode styling
+.badge-warning {
+  background-color: #ff9800 !important;
+  color: white !important;
+  font-weight: bold;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  margin-right: 0.5rem;
+  border-radius: 0.25rem;
+  animation: pulse-run 2s infinite;
+}
+
+.alert-warning {
+  background-color: #fff3cd;
+  border-color: #ffeaa7;
+  color: #856404;
+  border-left: 4px solid #ff9800;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+}
+
+.alert-warning strong {
+  color: #ff9800;
+}

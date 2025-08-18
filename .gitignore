@@ -1,2 +1,12 @@
 _site/
 .jekyll-metadata
+
+# Temporary photo directories
+_temp_photos/
+*_temp_photos/
+temp_conversion/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo

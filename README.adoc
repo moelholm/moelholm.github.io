@@ -8,27 +8,144 @@ After checkout:
 
     bundle install
 
-Then, to serve on port `4000`:
+=== Development vs Production Servers 🔧
 
-    bundle exec jekyll serve
+The site provides two convenient server scripts for different workflows:
+
+==== Development Server (Draft Mode)
+    ./dev-server.sh
+
+**Features:**
+* Shows **unpublished posts** (`published: false`)
+* Enables LiveReload for automatic browser refresh
+* Uses incremental builds for faster regeneration
+* Runs on all interfaces (0.0.0.0) for codespace access
+* **Perfect for:** Writing and previewing draft posts
+
+==== Production Server (Live Mode)
+    ./prod-server.sh
+
+**Features:**
+* **Hides unpublished posts** (production behavior)
+* Enables LiveReload for automatic browser refresh
+* Simulates exactly what GitHub Pages will show
+* **Perfect for:** Final testing before publishing
+
+=== Manual Jekyll Commands
+
+For advanced usage:
+
+    # Development with drafts
+    bundle exec jekyll serve --config _config.yml,_config_dev.yml
     
-    # Now browse to: http://127.0.0.1:4000
+    # Production mode
+    bundle exec jekyll serve --config _config.yml
+    
+    # Basic serve (production)
+    bundle exec jekyll serve
+
+== Draft Workflow 📝
+
+=== Creating Draft Posts
+
+1. **Create posts** in collections with `published: false`:
++
+----
+---
+layout: post
+title: "My Draft Race Report"
+published: false  # This makes it a draft
+date: 2025-08-16
+---
+----
+
+2. **Preview drafts** locally:
++
+    ./dev-server.sh
+
+3. **Test production** appearance:
++
+    ./prod-server.sh
+
+4. **Publish** by changing to `published: true`
+
+=== Draft Security
+
+**✅ Secure by Design:**
+* Jekyll automatically excludes `published: false` posts from production
+* GitHub Pages will **never show** unpublished posts
+* No custom filtering needed - it's built into Jekyll
+* RSS feeds automatically respect published status
+
+**Visual Indicators:**
+* Draft posts show orange "DRAFT" badges when visible
+* Warning banners appear on draft post pages
+* Clear visual distinction between published and draft content
+
+=== Maintenance
 
 Once in a while:
 
     bundle update
 
-Image conversion:
+== Photo Processing 📸
+
+=== Automatic HEIC to JPG Conversion
+
+Use the provided Python script to convert iPhone photos (HEIC format) to blog-ready JPGs:
+
+    python3 tools/convert_heic_photos.py <input_directory> [output_base_directory]
+
+**Examples:**
+
+    # Convert photos in _temp_photos directory (will auto-detect date from EXIF)
+    python3 tools/convert_heic_photos.py _temp_photos
+    
+    # Convert to custom output directory
+    python3 tools/convert_heic_photos.py _temp_photos img_running
+    
+    # Convert photos from any directory
+    python3 tools/convert_heic_photos.py ~/Desktop/race_photos
+
+**The script will:**
+
+* Extract the date from EXIF data automatically
+* Create directories like `img_running/2025-08-16/`
+* Resize photos to exactly 600x600 pixels (square format)
+* Convert to high-quality JPG format
+* Organize photos by date taken
+
+**Dependencies are automatically installed** when the codespace starts.
+
+=== Manual Image Conversion (Legacy)
+
+For reference, the old manual method:
 
     convert 2025-01-11_10.heic -resize 600x600 -quality 100 2025-01-11/2025-01-11_10_small.jpg
 
 == About
 
+=== Jekyll & GitHub Pages
+
+This site uses Jekyll 3.10.0 with GitHub Pages. The build process is fully automated:
+
+* **Local Development:** Use `./dev-server.sh` to preview with drafts
+* **Production Testing:** Use `./prod-server.sh` to test final output  
+* **GitHub Pages:** Automatically builds from `_config.yml` on push to master
+* **Collections:** Running and software engineering posts are organized as Jekyll collections
+* **Draft Management:** Uses Jekyll's built-in `published: false` support
+
 === Photos
 
-For the running blogs; 400x400 jpg. Converted and downscaled with imagemagick.
+For the running blogs; 600x600 jpg square format. Converted and downscaled automatically with the Python script in `tools/convert_heic_photos.py`.
 
-TODO Consider GHA workflow that does this automatically.
+The script automatically:
+* Extracts date from EXIF data
+* Creates date-based directories (YYYY-MM-DD format)
+* Resizes to exactly 600x600 pixels (square format)
+* Maintains high quality (95% JPEG quality)
+
+**Legacy method:** Manual conversion with imagemagick (see Photo Processing section above).
 
 === Markdown
 

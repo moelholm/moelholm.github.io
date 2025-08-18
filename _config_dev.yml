@@ -1,0 +1,14 @@
+# Local development configuration
+# This file extends _config.yml with development-specific settings
+
+# Enable unpublished posts for local development (published: false)
+unpublished: true
+
+# Development-specific settings
+host: 0.0.0.0
+port: 4000
+livereload: true
+incremental: true
+
+# Optional: Different base URL for local development
+# baseurl: ""
