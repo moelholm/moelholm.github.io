@@ -3,6 +3,7 @@ layout: post
 title: "LNBK Ringkøbing Fjord Winter Edition 2025"
 description: "Race notes for LNBK Ringkøbing Fjord Winter Edition 2025"
 date: 2025-01-19 14:00:00 +0100
+race_date: 2025-01-11
 comments: true
 tags: race running ultrarunning
 distance_km: 100
@@ -13,7 +14,7 @@ A week ago I ran `LNBK Ringkøbing Fjord Winter Edition 2025` - a {{ page.distan
 
 {% capture rows %}
 Race|LNBK Ringkøbing Fjord Winter Edition 2025;
-Date|2025-01-11;
+Date|{{ page.race_date }};
 Www|[https://my.raceresult.com/309269/](https://my.raceresult.com/309269/);
 Type|Normal roads, cycle paths and gravel paths (no trails);
 Strava|[https://strava.app.link/aXNTApYGhQb](https://strava.app.link/aXNTApYGhQb);

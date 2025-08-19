@@ -3,6 +3,7 @@ layout: post
 title: "Odense City Half 2025"
 description: "Race notes for Odense City Half 2025"
 date: 2025-05-21 18:45:00 +0200
+race_date: 2025-05-18
 comments: true
 tags: race running halfmarathon
 distance_km: 21
@@ -13,7 +14,7 @@ This weekend I just ran a half marathon in Odense, Denmark 🇩🇰: Odense City
 
 {% capture rows %}
 Race|Odense City Half 2025;
-Date|2025-05-18;
+Date|{{ page.race_date }};
 Www|[https://www.sportstiming.dk/event/14989](https://www.sportstiming.dk/event/14989);
 Type|Road;
 Strava|[https://www.strava.com/activities/14517098165](https://www.strava.com/activities/14517098165);

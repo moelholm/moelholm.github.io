@@ -3,6 +3,7 @@ layout: post
 title: "Eventyrsport SkyTrail 2025"
 description: "Race notes for Eventyrsport SkyTrail 2025"
 date: 2025-05-13 17:50:00 +0200
+race_date: 2025-05-10
 comments: true
 tags: race running trailrunning
 distance_km: 42
@@ -13,7 +14,7 @@ This weekend I just ran a {{ page.distance_km }}K trail race, called SkyTrail, i
 
 {% capture rows %}
 Race|Eventyrsport SkyTrail 2025;
-Date|2025-05-10;
+Date|{{ page.race_date }};
 Www|[https://www.sportstiming.dk/event/14971](https://www.sportstiming.dk/event/14971);
 Type|Trail;
 Strava|[https://www.strava.com/activities/14435126055](https://www.strava.com/activities/14435126055);

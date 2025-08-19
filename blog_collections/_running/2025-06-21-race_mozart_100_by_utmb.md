@@ -3,6 +3,7 @@ layout: post
 title: "mozart 100 by UTMB 2025"
 description: "Race notes for mozart 100 by UTMB 2025"
 date: 2025-06-21 13:30:00 +0200
+race_date: 2025-06-07
 comments: true
 tags: race running trailrunning ultrarunning
 distance_km: 120
@@ -13,7 +14,7 @@ Salzburg, Austria 🇦🇹 - I was just there in the beginning of June to race m
 
 {% capture rows %}
 Race|mozart 100 by UTMB 2025;
-Date|2025-06-07;
+Date|{{ page.race_date }};
 Www|[https://mozart.utmb.world/races/mozart100](https://mozart.utmb.world/races/mozart100);
 Type|Trail;
 Strava|[https://www.strava.com/activities/14727969242](https://www.strava.com/activities/14727969242);

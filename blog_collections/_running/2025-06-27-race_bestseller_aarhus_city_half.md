@@ -3,6 +3,7 @@ layout: post
 title: "Bestseller Aarhus City Half 2025"
 description: "Bestseller Aarhus City Half 2025"
 date: 2025-06-27 18:55:00 +0200
+race_date: 2025-06-15
 comments: true
 tags: race running halfmarathon
 distance_km: 21
@@ -13,7 +14,7 @@ Earlier this month I participated in a half marathon in Aarhus, Denmark 🇩🇰
 
 {% capture rows %}
 Race|Bestseller Aarhus City Half 2025;
-Date|2025-06-15;
+Date|{{ page.race_date }};
 Www|[https://www.aarhusmotion.dk/event/261/](https://www.aarhusmotion.dk/event/261/);
 Type|Road;
 Strava|[https://www.strava.com/activities/14804593798](https://www.strava.com/activities/14804593798);

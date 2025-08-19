@@ -3,6 +3,7 @@ layout: post
 title: "Thy Trail Marathon 2025"
 description: "Race notes for Thy Trail Marathon 2025"
 date: 2025-02-26 19:20:00 +0100
+race_date: 2025-02-22
 comments: true
 tags: race running trailrunning
 distance_km: 42
@@ -13,7 +14,7 @@ This weekend I ran `Thy Trail Marathon 2025` - a {{ page.distance_km }} kilomete
 
 {% capture rows %}
 Race|Thy Trail Marathon 2025;
-Date|2025-02-22;
+Date|{{ page.race_date }};
 Www|[https://thyrace.dk/loeb-2/thy-trail-marathon/](https://thyrace.dk/loeb-2/thy-trail-marathon/);
 Type|Trail;
 Strava|[https://strava.app.link/sAv1gRhbjRb](https://strava.app.link/sAv1gRhbjRb);

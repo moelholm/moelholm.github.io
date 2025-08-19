@@ -3,6 +3,7 @@ layout: post
 title: "Kolding Half 2025"
 description: "Race notes for Kolding Half 2025"
 date: 2025-06-12 06:45:00 +0200
+race_date: 2025-06-01
 comments: true
 tags: race running halfmarathon
 distance_km: 21
@@ -13,7 +14,7 @@ I recently ran a half marathon in Kolding, Denmark 🇩🇰: Kolding Half. Last 
 
 {% capture rows %}
 Race|Kolding Half 2025;
-Date|2025-06-01;
+Date|{{ page.race_date }};
 Www|[https://www.sportstiming.dk/event/14905](https://www.sportstiming.dk/event/14905);
 Type|Road;
 Strava|[https://www.strava.com/activities/14661381386](https://www.strava.com/activities/14661381386);

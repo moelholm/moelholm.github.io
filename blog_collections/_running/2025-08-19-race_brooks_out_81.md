@@ -3,6 +3,7 @@ layout: post
 title: "Brooks O.U.T.81 - 2025"
 description: "Race notes for Brooks O.U.T.81 - 2025"
 date: 2025-08-19 18:00:00 +0200
+race_date: 2025-08-16
 comments: true
 tags: race running trailrunning ultrarunning
 distance_km: 81
@@ -14,7 +15,7 @@ This Saturday I ran `Brooks O.U.T.81 - 2025` (Outdoor Ultra Trail 81 kilometers)
 
 {% capture rows %}
 Race|Brooks O.U.T.81 - 2025;
-Date|2025-08-16;
+Date|{{ page.race_date }};
 Www|[https://www.sportstiming.dk/event/15365](https://www.sportstiming.dk/event/15365);
 Type|Trail;
 Strava|[https://www.strava.com/activities/15479803505](https://www.strava.com/activities/15479803505);

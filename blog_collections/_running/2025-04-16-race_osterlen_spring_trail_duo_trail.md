@@ -3,6 +3,7 @@ layout: post
 title: "Österlen Spring Trail 2025 - Duo Trail"
 description: "Race notes for Österlen Spring Trail 2025 - Duo Trail"
 date: 2025-04-16 15:30:00 +0200
+race_date: 2025-04-12
 comments: true
 tags: race running trailrunning sweden
 distance_km: 34
@@ -13,7 +14,7 @@ This weekend I ran `Österlen Spring Trail 2025` in Sweden - more specifically t
 
 {% capture rows %}
 Race|Österlen Spring Trail 2025;
-Date|2025-04-12;
+Date|{{ page.race_date }};
 Www|[https://www.sportstiming.dk/event/15015](https://www.sportstiming.dk/event/15015);
 Type|Trail / Relay;
 Strava|[https://www.strava.com/activities/14153889098](https://www.strava.com/activities/14153889098);

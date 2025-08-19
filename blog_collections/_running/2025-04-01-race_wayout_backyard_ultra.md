@@ -3,6 +3,7 @@ layout: post
 title: "Wayout Backyard Ultra 2025"
 description: "Race notes for Wayout Backyard Ultra 2025"
 date: 2025-04-01 19:30:00 +0200
+race_date: 2025-03-28
 comments: true
 tags: race running trailrunning backyard-ultra ultrarunning
 distance_km: 134
@@ -13,7 +14,7 @@ This weekend I ran `Wayout Backyard Ultra 2025` - a backyard ultra trail race at
 
 {% capture rows %}
 Race|Wayout Backyard Ultra 2025;
-Date|2025-03-28;
+Date|{{ page.race_date }};
 Www|[https://www.sportstiming.dk/event/14528](https://www.sportstiming.dk/event/14528);
 Type|Backyard Ultra / Trail;
 Strava|[https://www.strava.com/activities/14021305451](https://www.strava.com/activities/14021305451);

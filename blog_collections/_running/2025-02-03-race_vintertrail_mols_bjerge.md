@@ -3,6 +3,7 @@ layout: post
 title: "Eventyrsport VinterTrail Mols Bjerge 2025"
 description: "Race notes for Eventyrsport VinterTrail Mols Bjerge 2025"
 date: 2025-02-03 17:00:00 +0100
+race_date: 2025-02-02
 comments: true
 tags: race running trailrunning
 distance_km: 28
@@ -13,7 +14,7 @@ Yesterday I ran `Eventyrsport VinterTrail Mols Bjerge 2025` - a {{ page.distance
 
 {% capture rows %}
 Race|Eventyrsport VinterTrail Mols Bjerge;
-Date|2025-02-02;
+Date|{{ page.race_date }};
 Www|[https://www.sportstiming.dk/event/14964](https://www.sportstiming.dk/event/14964);
 Type|Trail;
 Strava|[https://strava.app.link/PErlp8AOGQb](https://strava.app.link/PErlp8AOGQb);

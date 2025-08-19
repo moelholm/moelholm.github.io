@@ -19,7 +19,9 @@ Parameters:
 {% assign backyard_count = 0 %}
 
 {% for post in race_posts %}
-  {% assign post_year = post.date | date: "%Y" %}
+  {% comment %} Use race_date if available, otherwise fall back to post.date {% endcomment %}
+  {% assign race_date = post.race_date | default: post.date %}
+  {% assign post_year = race_date | date: "%Y" %}
   {% if post_year == calendar_year and post.distance_km %}
     {% assign race_count = race_count | plus: 1 %}
     {% assign total_km = total_km | plus: post.distance_km %}
@@ -110,7 +112,9 @@ Parameters:
         {% assign max_distance = 0 %}
         {% assign max_elevation = 0 %}
         {% for post in race_posts %}
-          {% assign post_year = post.date | date: "%Y" %}
+          {% comment %} Use race_date if available, otherwise fall back to post.date {% endcomment %}
+          {% assign race_date = post.race_date | default: post.date %}
+          {% assign post_year = race_date | date: "%Y" %}
           {% if post_year == calendar_year %}
             {% if post.distance_km %}
               {% assign current_distance = post.distance_km | plus: 0 %}
@@ -128,7 +132,9 @@ Parameters:
         {% endfor %}
         
         {% for post in race_posts %}
-          {% assign post_year = post.date | date: "%Y" %}
+          {% comment %} Use race_date if available, otherwise fall back to post.date {% endcomment %}
+          {% assign race_date = post.race_date | default: post.date %}
+          {% assign post_year = race_date | date: "%Y" %}
           {% if post_year == calendar_year %}
           {% assign current_distance = post.distance_km | plus: 0 %}
           {% assign current_elevation = post.elevation_gain_m | plus: 0 %}
@@ -149,7 +155,7 @@ Parameters:
           {% endif %}
           <tr{% if row_classes != '' %} class="{{ row_classes | strip }}"{% endif %}>
             <td class="date-cell">
-              <span class="race-date">{{ post.date | date: "%b-%d" }}</span>
+              <span class="race-date">{{ race_date | date: "%b-%d" }}</span>
             </td>
             <td class="race-cell">
               <a href="{{ post.url }}" class="race-link">{{ post.title }}</a>

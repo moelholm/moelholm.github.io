@@ -55,19 +55,32 @@ For advanced usage:
 layout: post
 title: "My Draft Race Report"
 published: false  # This makes it a draft
-date: 2025-08-16
+date: 2025-08-19     # Post publish date
+race_date: 2025-08-16  # Actual race date (for race posts)
+distance_km: 81
+elevation_gain_m: 1361
 ---
 ----
 
-2. **Preview drafts** locally:
+2. **Use race_date in race summaries**:
++
+----
+{% capture rows %}
+Race|My Amazing Race;
+Date|{{ page.race_date }};  # Uses actual race date
+Distance|{{ page.distance_km }}k
+{% endcapture %}
+----
+
+3. **Preview drafts** locally:
 +
     ./dev-server.sh
 
-3. **Test production** appearance:
+4. **Test production** appearance:
 +
     ./prod-server.sh
 
-4. **Publish** by changing to `published: true`
+5. **Publish** by changing to `published: true`
 
 === Draft Security
 
