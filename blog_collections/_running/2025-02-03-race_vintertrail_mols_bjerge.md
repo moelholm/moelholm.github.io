@@ -8,6 +8,7 @@ comments: true
 tags: race running trailrunning
 distance_km: 28
 elevation_gain_m: 883
+duration_formatted: '2h43m07s'
 ---
 
 Yesterday I ran `Eventyrsport VinterTrail Mols Bjerge 2025` - a {{ page.distance_km }} kilometer trail race in Mols Bjerge National Park.
@@ -19,7 +20,7 @@ Www|[https://www.sportstiming.dk/event/14964](https://www.sportstiming.dk/event/
 Type|Trail;
 Strava|[https://strava.app.link/PErlp8AOGQb](https://strava.app.link/PErlp8AOGQb);
 Position|27 # 218 finishers;
-Duration|2h 43m 07s;
+Duration|{{ page.duration_formatted }};
 Distance|{{ page.distance_km }}k
 {% endcapture %}
 {% assign rows_array = rows | split: ";" %}

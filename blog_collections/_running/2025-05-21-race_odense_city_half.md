@@ -8,6 +8,7 @@ comments: true
 tags: race running halfmarathon
 distance_km: 21
 elevation_gain_m: 90
+duration_formatted: '1h31m00s'
 ---
 
 This weekend I just ran a half marathon in Odense, Denmark 🇩🇰: Odense City Half.
@@ -19,7 +20,7 @@ Www|[https://www.sportstiming.dk/event/14989](https://www.sportstiming.dk/event/
 Type|Road;
 Strava|[https://www.strava.com/activities/14517098165](https://www.strava.com/activities/14517098165);
 Position|47 of 577 finishers;
-Duration|1h31m00s;
+Duration|{{ page.duration_formatted }};
 Distance|{{ page.distance_km }}k
 {% endcapture %}
 {% assign rows_array = rows | split: ";" %}

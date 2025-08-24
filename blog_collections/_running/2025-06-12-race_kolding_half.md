@@ -8,6 +8,7 @@ comments: true
 tags: race running halfmarathon
 distance_km: 21
 elevation_gain_m: 161
+duration_formatted: '1h32m58s'
 ---
 
 I recently ran a half marathon in Kolding, Denmark 🇩🇰: Kolding Half. Last year my wife participated in the 2024 edition of the event there and since there were some bus logistics issues she let the organizer now. As a token of gratitude the organizer handed her a free spot to the 2025 event, which she then donated to me 😀. So that’s how I ended up in Kolding’s half marathon 🤗🕺🏼.
@@ -19,7 +20,7 @@ Www|[https://www.sportstiming.dk/event/14905](https://www.sportstiming.dk/event/
 Type|Road;
 Strava|[https://www.strava.com/activities/14661381386](https://www.strava.com/activities/14661381386);
 Position|164 of 1420 finishers;
-Duration|1h32m58s;
+Duration|{{ page.duration_formatted }};
 Distance|{{ page.distance_km }}k
 {% endcapture %}
 {% assign rows_array = rows | split: ";" %}

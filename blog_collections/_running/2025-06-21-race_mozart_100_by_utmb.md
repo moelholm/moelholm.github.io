@@ -8,6 +8,7 @@ comments: true
 tags: race running trailrunning ultrarunning
 distance_km: 120
 elevation_gain_m: 5309
+duration_formatted: '18h47m44s'
 ---
 
 Salzburg, Austria 🇦🇹 - I was just there in the beginning of June to race mozart 100 by UTMB. 
@@ -19,7 +20,7 @@ Www|[https://mozart.utmb.world/races/mozart100](https://mozart.utmb.world/races/
 Type|Trail;
 Strava|[https://www.strava.com/activities/14727969242](https://www.strava.com/activities/14727969242);
 Position|177 of 368 finishers (518 startes/150 DNF);
-Duration|18h47m44s;
+Duration|{{ page.duration_formatted }};
 Distance|{{ page.distance_km }}k
 {% endcapture %}
 {% assign rows_array = rows | split: ";" %}

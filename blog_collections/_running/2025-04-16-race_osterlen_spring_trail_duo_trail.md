@@ -8,6 +8,7 @@ comments: true
 tags: race running trailrunning sweden
 distance_km: 34
 elevation_gain_m: 406
+duration_formatted: '2h54m34s'
 ---
 
 This weekend I ran `Österlen Spring Trail 2025` in Sweden - more specifically the `Duo Trail` race. In the south eastern part of Sweden 🇸🇪, in Scania (Da: Skåne).
@@ -19,7 +20,7 @@ Www|[https://www.sportstiming.dk/event/15015](https://www.sportstiming.dk/event/
 Type|Trail / Relay;
 Strava|[https://www.strava.com/activities/14153889098](https://www.strava.com/activities/14153889098);
 Position|3 # 16 male teams / 4 # 42 all teams;
-Duration|2h54m34s;
+Duration|{{ page.duration_formatted }};
 Distance|{{ page.distance_km }}k
 {% endcapture %}
 {% assign rows_array = rows | split: ";" %}

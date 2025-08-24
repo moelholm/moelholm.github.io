@@ -8,6 +8,7 @@ comments: true
 tags: race running ultrarunning
 distance_km: 100
 elevation_gain_m: 319
+duration_formatted: '10h18m29s'
 ---
 
 A week ago I ran `LNBK Ringkøbing Fjord Winter Edition 2025` - a {{ page.distance_km }} kilometer race around Ringkøbing Fjord in Denmark.
@@ -19,7 +20,7 @@ Www|[https://my.raceresult.com/309269/](https://my.raceresult.com/309269/);
 Type|Normal roads, cycle paths and gravel paths (no trails);
 Strava|[https://strava.app.link/aXNTApYGhQb](https://strava.app.link/aXNTApYGhQb);
 Position|7 # 34 finishers;
-Duration|10h 18m 29s;
+Duration|{{ page.duration_formatted }};
 Distance|{{ page.distance_km }}k
 {% endcapture %}
 {% assign rows_array = rows | split: ";" %}
