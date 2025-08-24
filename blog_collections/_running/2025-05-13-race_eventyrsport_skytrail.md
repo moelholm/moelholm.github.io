@@ -8,6 +8,7 @@ comments: true
 tags: race running trailrunning
 distance_km: 42
 elevation_gain_m: 2557
+duration_formatted: '6h06m38s'
 ---
 
 This weekend I just ran a {{ page.distance_km }}K trail race, called SkyTrail, in Ry - Jylland (Denmark 🇩🇰). 
@@ -19,7 +20,7 @@ Www|[https://www.sportstiming.dk/event/14971](https://www.sportstiming.dk/event/
 Type|Trail;
 Strava|[https://www.strava.com/activities/14435126055](https://www.strava.com/activities/14435126055);
 Position|15 of 52 starters (44 finishers);
-Duration|6h06m38s;
+Duration|{{ page.duration_formatted }};
 Distance|{{ page.distance_km }}k
 {% endcapture %}
 {% assign rows_array = rows | split: ";" %}

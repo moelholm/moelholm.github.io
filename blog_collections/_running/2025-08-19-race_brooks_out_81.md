@@ -8,6 +8,7 @@ comments: true
 tags: race running trailrunning ultrarunning
 distance_km: 81
 elevation_gain_m: 1361
+duration_formatted: '8h53m05s'
 published: true
 ---
 
@@ -20,7 +21,7 @@ Www|[https://www.sportstiming.dk/event/15365](https://www.sportstiming.dk/event/
 Type|Trail;
 Strava|[https://www.strava.com/activities/15479803505](https://www.strava.com/activities/15479803505);
 Position|5 of 39 finishers;
-Duration|8h53m05s;
+Duration|{{ page.duration_formatted }};
 Distance|{{ page.distance_km }}k
 {% endcapture %}
 {% assign rows_array = rows | split: ";" %}

@@ -1,0 +1,36 @@
+{% comment %}
+Duration to Seconds Converter
+Converts duration_formatted='8h53m05s' to seconds
+Usage: {% include duration_to_seconds.html duration='1h23m45s' %}
+Result: {{ duration_seconds }}
+{% endcomment %}
+
+{% assign duration_input = include.duration | downcase %}
+{% assign hours = 0 %}
+{% assign minutes = 0 %}
+{% assign seconds = 0 %}
+
+{% comment %} Extract hours {% endcomment %}
+{% if duration_input contains 'h' %}
+  {% assign h_parts = duration_input | split: 'h' %}
+  {% assign hours = h_parts[0] | plus: 0 %}
+{% endif %}
+
+{% comment %} Extract minutes {% endcomment %}
+{% if duration_input contains 'm' %}
+  {% assign temp = duration_input | split: 'h' | last %}
+  {% assign m_parts = temp | split: 'm' %}
+  {% assign minutes = m_parts[0] | plus: 0 %}
+{% endif %}
+
+{% comment %} Extract seconds {% endcomment %}
+{% if duration_input contains 's' %}
+  {% assign temp = duration_input | split: 'm' | last %}
+  {% assign s_parts = temp | split: 's' %}
+  {% assign seconds = s_parts[0] | plus: 0 %}
+{% endif %}
+
+{% comment %} Calculate total seconds {% endcomment %}
+{% assign hours_in_seconds = hours | times: 3600 %}
+{% assign minutes_in_seconds = minutes | times: 60 %}
+{% assign duration_seconds = hours_in_seconds | plus: minutes_in_seconds | plus: seconds %}

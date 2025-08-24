@@ -8,6 +8,7 @@ comments: true
 tags: race running road relay
 distance_km: 10
 elevation_gain_m: 129
+duration_formatted: '40m42s'
 published: true
 ---
 

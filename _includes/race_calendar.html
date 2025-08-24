@@ -14,6 +14,7 @@ Parameters:
 {% assign non_ultra_count = 0 %}
 {% assign race_count = 0 %}
 {% assign total_elevation = 0 %}
+{% assign total_duration = 0 %}
 {% assign trail_count = 0 %}
 {% assign non_trail_count = 0 %}
 {% assign backyard_count = 0 %}
@@ -39,6 +40,12 @@ Parameters:
       {% assign total_elevation = total_elevation | plus: post.elevation_gain_m %}
     {% endif %}
     
+    {% comment %} Total duration {% endcomment %}
+    {% if post.duration_formatted %}
+      {% include duration_to_seconds.html duration=post.duration_formatted %}
+      {% assign total_duration = total_duration | plus: duration_seconds %}
+    {% endif %}
+    
     {% comment %} Trail vs non-trail {% endcomment %}
     {% if post.tags contains "trailrunning" %}
       {% assign trail_count = trail_count | plus: 1 %}
@@ -57,7 +64,7 @@ Parameters:
   {% comment %} Race Statistics {% endcomment %}
   {% if race_count > 0 %}
   <div class="race-stats mb-4">
-    <div class="stats-grid">
+  <div class="stats-grid primary-stats">
       <div class="stat-item">
         <span class="stat-number">{{ total_km }}km</span>
         <span class="stat-label">Total Distance</span>
@@ -67,30 +74,69 @@ Parameters:
         <span class="stat-label">Total Elevation</span>
       </div>
       <div class="stat-item">
-        <span class="stat-number">{{ ultra_count }}</span>
-        <span class="stat-label">Ultras (≥50km)</span>
+        <span class="stat-number">{% include duration_format.html seconds=total_duration %}</span>
+        <span class="stat-label">Total Duration</span>
       </div>
-      <div class="stat-item">
-        <span class="stat-number">{{ non_ultra_count }}</span>
-        <span class="stat-label">Non-Ultras (<50km)</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-number">{{ trail_count }}</span>
-        <span class="stat-label">Trail Races</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-number">{{ non_trail_count }}</span>
-        <span class="stat-label">Road Races</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-number">{{ backyard_count }}</span>
-        <span class="stat-label">Backyard Ultras</span>
-      </div>
-      <div class="stat-item">
+  <div class="stat-item stat-count show-on-phone">
         <span class="stat-number">{{ race_count }}</span>
         <span class="stat-label">Total Races</span>
       </div>
     </div>
+
+    <!-- Desktop/tablet: secondary stats always visible -->
+    <div id="secondary-stats" class="stats-grid secondary-stats hide-on-phone">
+      <div class="stat-item stat-count">
+        <span class="stat-number">{{ race_count }}</span>
+        <span class="stat-label">Total Races</span>
+      </div>
+      <div class="stat-item stat-count">
+        <span class="stat-number">{{ ultra_count }}</span>
+        <span class="stat-label">Ultras (≥50km)</span>
+      </div>
+      <div class="stat-item stat-count">
+        <span class="stat-number">{{ non_ultra_count }}</span>
+        <span class="stat-label">Non-Ultras (<50km)</span>
+      </div>
+      <div class="stat-item stat-count">
+        <span class="stat-number">{{ trail_count }}</span>
+        <span class="stat-label">Trail Races</span>
+      </div>
+      <div class="stat-item stat-count">
+        <span class="stat-number">{{ non_trail_count }}</span>
+        <span class="stat-label">Road Races</span>
+      </div>
+      <div class="stat-item stat-count">
+        <span class="stat-number">{{ backyard_count }}</span>
+        <span class="stat-label">Backyard Ultras</span>
+      </div>
+    </div>
+
+    <!-- Mobile: collapsible secondary stats without JS -->
+    <details class="secondary-stats-mobile show-on-phone">
+      <summary class="stats-toggle">More stats</summary>
+      <div class="stats-grid secondary-stats">
+        <div class="stat-item stat-count">
+          <span class="stat-number">{{ ultra_count }}</span>
+          <span class="stat-label">Ultras (≥50km)</span>
+        </div>
+        <div class="stat-item stat-count">
+          <span class="stat-number">{{ non_ultra_count }}</span>
+          <span class="stat-label">Non-Ultras (<50km)</span>
+        </div>
+        <div class="stat-item stat-count">
+          <span class="stat-number">{{ trail_count }}</span>
+          <span class="stat-label">Trail Races</span>
+        </div>
+        <div class="stat-item stat-count">
+          <span class="stat-number">{{ non_trail_count }}</span>
+          <span class="stat-label">Road Races</span>
+        </div>
+        <div class="stat-item stat-count">
+          <span class="stat-number">{{ backyard_count }}</span>
+          <span class="stat-label">Backyard Ultras</span>
+        </div>
+      </div>
+    </details>
   </div>
   {% endif %}
   

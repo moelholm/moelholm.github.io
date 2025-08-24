@@ -1,0 +1,11 @@
+{% comment %}
+Duration Formatter Include
+Usage: {% include duration_format.html seconds=page.duration_seconds %}
+Converts seconds to "8h53m05s" format
+{% endcomment %}
+{% assign total_secs = include.seconds | times: 1 %}
+{% assign hours = total_secs | divided_by: 3600 | floor %}
+{% assign remaining = total_secs | modulo: 3600 %}
+{% assign minutes = remaining | divided_by: 60 | floor %}
+{% assign seconds = remaining | modulo: 60 %}
+{% if hours > 0 %}{{- hours -}}h{% endif %}{% if minutes > 0 %}{{- minutes -}}m{% endif %}{% if seconds > 0 %}{{- seconds -}}s{% endif %}
