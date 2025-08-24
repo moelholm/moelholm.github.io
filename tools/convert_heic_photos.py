@@ -17,7 +17,7 @@ The script will:
 1. Read all HEIC/HEIF files from the input directory
 2. Extract the date taken from EXIF data
 3. Create a directory like img_running/YYYY-MM-DD/
-4. Convert and resize photos to exactly 600x600 pixels (square format)
+4. Center-crop to a square and resize to exactly 600x600 pixels (no stretching)
 5. Save as high-quality JPG files
 
 Requirements:
@@ -76,7 +76,7 @@ def convert_heic_photos(input_dir, output_base_dir="img_running", max_size=600, 
     Args:
         input_dir (str): Directory containing HEIC files
         output_base_dir (str): Base directory for output (default: img_running)
-        max_size (int): Size for square resizing (default: 600 - creates 600x600 images)
+    max_size (int): Output square size (default: 600 - creates 600x600 images)
         quality (int): JPEG quality (default: 95)
     """
     
@@ -126,9 +126,20 @@ def convert_heic_photos(input_dir, output_base_dir="img_running", max_size=600, 
                 
                 # Open and convert
                 image = Image.open(input_path)
-                
-                # Resize to exactly 600x600 (square format)
-                image = image.resize((max_size, max_size), Image.Resampling.LANCZOS)
+
+                # Center-crop to square to avoid stretching
+                width, height = image.size
+                if width != height:
+                    side = min(width, height)
+                    left = (width - side) // 2
+                    upper = (height - side) // 2
+                    right = left + side
+                    lower = upper + side
+                    image = image.crop((left, upper, right, lower))
+
+                # Resize to target square size
+                if image.size != (max_size, max_size):
+                    image = image.resize((max_size, max_size), Image.Resampling.LANCZOS)
                 
                 # Convert to RGB if needed
                 if image.mode != 'RGB':

@@ -26,7 +26,7 @@ python3 tools/convert_heic_photos.py ~/Desktop/race_photos
 1. **Reads HEIC/HEIF files** from input directory
 2. **Extracts date taken** from photo EXIF data
 3. **Creates date directories** like `img_running/2025-08-16/`
-4. **Converts to JPG** with exact 600x600 square sizing
+4. **Center-crops to square** and then **resizes to 600x600** (no stretching)
 5. **Maintains quality** at 95% JPEG quality
 6. **Creates uniform format** for consistent blog layout
 
