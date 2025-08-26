@@ -21,7 +21,7 @@ Race|LNBK Ringkøbing Fjord Winter Edition 2025;
 Date|{{ page.race_date }};
 Www|[https://my.raceresult.com/309269/info](https://my.raceresult.com/309269/info);
 Type|Normal roads, cycle paths and gravel paths (no trails);
-Position|7 # 34 finishers;
+Position|7 of 34 finishers;
 Duration|{{ page.duration_formatted }};
 Distance|{{ page.distance_km }}k
 {% endcapture %}
