@@ -9,6 +9,8 @@ tags: race running trailrunning
 distance_km: 42
 elevation_gain_m: 321
 duration_formatted: '4h12m14s'
+race_results_official: "https://my.raceresult.com/310144/results#1_CCEE38"
+race_results_strava: "https://www.strava.com/activities/13695290889/overview"
 ---
 
 This weekend I ran `Thy Trail Marathon 2025` - a {{ page.distance_km }} kilometer trail race in Thy National Park.
@@ -16,10 +18,9 @@ This weekend I ran `Thy Trail Marathon 2025` - a {{ page.distance_km }} kilomete
 {% capture rows %}
 Race|Thy Trail Marathon 2025;
 Date|{{ page.race_date }};
-Www|[https://thyrace.dk/loeb-2/thy-trail-marathon/](https://thyrace.dk/loeb-2/thy-trail-marathon/);
+Www|[https://my.raceresult.com/310144/info](https://my.raceresult.com/310144/info);
 Type|Trail;
-Strava|[https://strava.app.link/sAv1gRhbjRb](https://strava.app.link/sAv1gRhbjRb);
-Position|39 # 211 finishers;
+Position|39 of 211 finishers;
 Duration|{{ page.duration_formatted }};
 Distance|{{ page.distance_km }}k
 {% endcapture %}

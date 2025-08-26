@@ -10,6 +10,8 @@ distance_km: 10
 elevation_gain_m: 129
 duration_formatted: '40m42s'
 published: true
+race_results_official: "https://www.aarhusmotion.dk/event/273/resultater?round=1261"
+race_results_strava: "https://www.strava.com/activities/15538435035/overview"
 ---
 
 Thursday last week I ran DHL Stafetten - a 5K relay race - together with my LEGO team: ILSP.
@@ -17,7 +19,7 @@ Thursday last week I ran DHL Stafetten - a 5K relay race - together with my LEGO
 {% capture rows %}
 Race|DHL Stafetten 2025;
 Date|{{ page.race_date }};
-Www|[https://www.aarhusmotion.dk/event/dhl-stafetten](https://www.aarhusmotion.dk/event/dhl-stafetten);
+Www|[https://www.aarhusmotion.dk/event/273](https://www.aarhusmotion.dk/event/273);
 Type|Road relay (5 x 5 km);
 Strava|[First 5K as runner 2](https://www.strava.com/activities/15538435035/overview)<br />[Second 5K as runner 5](https://www.strava.com/activities/15539545892/overview);
 Position|739 of 9678 (as runner 2) <br />916 of 9678 (as runner 5) <br />48 of 1987 (team position);
