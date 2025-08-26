@@ -20,7 +20,7 @@ Race|Wayout Backyard Ultra 2025;
 Date|{{ page.race_date }};
 Www|[https://www.sportstiming.dk/event/14528](https://www.sportstiming.dk/event/14528);
 Type|Backyard Ultra / Trail;
-Position|13 # 163 starters;
+Position|13 of 163 starters;
 Duration|{{ page.duration_formatted }};
 Distance|{{ page.distance_km }}k
 {% endcapture %}
