@@ -20,7 +20,7 @@ Race|Cross Island Bornholm 2025;
 Date|{{ page.race_date }};
 Www|[https://www.sportstiming.dk/event/16032](https://www.sportstiming.dk/event/16032);
 Type|Road;
-Position|10 # 234 finishers;
+Position|10 of 234 finishers;
 Duration|{{ page.duration_formatted }};
 Distance|{{ page.distance_km }}k
 {% endcapture %}
