@@ -9,6 +9,9 @@ tags: race running trailrunning
 distance_km: 42
 elevation_gain_m: 2557
 duration_formatted: '6h06m38s'
+race_results_official: "https://www.sportstiming.dk/event/14971/results?round=84209"
+race_results_utmb: "https://utmb.world/utmb-index/races/13979.adidasterrexskytrail42k.2025"
+race_results_itra: "https://itra.run/Races/RaceResults/45K/2025/104983"
 ---
 
 This weekend I just ran a {{ page.distance_km }}K trail race, called SkyTrail, in Ry - Jylland (Denmark 🇩🇰). 

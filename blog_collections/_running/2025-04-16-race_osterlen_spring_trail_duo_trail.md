@@ -9,6 +9,8 @@ tags: race running trailrunning sweden
 distance_km: 34
 elevation_gain_m: 406
 duration_formatted: '2h54m34s'
+race_results_official: "https://www.sportstiming.dk/event/15015/results?round=84443"
+race_results_utmb: "https://utmb.world/utmb-index/races/29955.osterlenspringtrailduotrail-relay1.2025"
 ---
 
 This weekend I ran `Österlen Spring Trail 2025` in Sweden - more specifically the `Duo Trail` race. In the south eastern part of Sweden 🇸🇪, in Scania (Da: Skåne).

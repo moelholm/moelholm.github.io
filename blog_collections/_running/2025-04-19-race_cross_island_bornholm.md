@@ -9,6 +9,7 @@ tags: race running bornholm halfmarathon
 distance_km: 21
 elevation_gain_m: 119
 duration_formatted: '1h30m10s'
+race_results_official: "https://www.sportstiming.dk/event/16032/results"
 ---
 
 My family and I have been enjoying the Easter vacation on Bornholm this year. While being there my wife found out that the half marathon `Cross Island Bornholm 2025` was about to be held. She nudged me to run it - so that’s exactly what I did. Didn’t need much push 🤭😂.

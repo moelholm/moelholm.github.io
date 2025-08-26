@@ -9,6 +9,7 @@ tags: race running trailrunning backyard-ultra ultrarunning
 distance_km: 134
 elevation_gain_m: 1637
 duration_formatted: '20h'
+race_results_official: "https://www.sportstiming.dk/event/14528/results"
 ---
 
 This weekend I ran `Wayout Backyard Ultra 2025` - a backyard ultra trail race at Fort Østerlund in Silkeborg.

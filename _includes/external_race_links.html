@@ -1,0 +1,29 @@
+{%- assign official = page.race_results_official -%}
+{%- assign utmb = page.race_results_utmb -%}
+{%- assign duv = page.race_results_duv -%}
+{%- assign itra = page.race_results_itra -%}
+{% if official or utmb or duv or itra %}
+<div class="external-race-links post-metadata mb-2">
+  <span class="text-muted">Results:</span>
+  {% if official %}
+    <a class="badge badge-light ml-1" href="{{ official }}" target="_new" rel="noopener">
+      <i class="fa-solid fa-globe"></i> Official
+    </a>
+  {% endif %}
+  {% if utmb %}
+    <a class="badge badge-light ml-1" href="{{ utmb }}" target="_new" rel="noopener">
+      <i class="fa-solid fa-mountain"></i> UTMB
+    </a>
+  {% endif %}
+  {% if duv %}
+    <a class="badge badge-light ml-1" href="{{ duv }}" target="_new" rel="noopener">
+      <i class="fa-solid fa-chart-line"></i> DUV
+    </a>
+  {% endif %}
+  {% if itra %}
+    <a class="badge badge-light ml-1" href="{{ itra }}" target="_new" rel="noopener">
+      <i class="fa-solid fa-shield"></i> ITRA
+    </a>
+  {% endif %}
+</div>
+{% endif %}

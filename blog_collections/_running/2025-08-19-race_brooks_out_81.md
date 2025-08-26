@@ -10,6 +10,9 @@ distance_km: 81
 elevation_gain_m: 1361
 duration_formatted: '8h53m05s'
 published: true
+race_results_official: "https://www.sportstiming.dk/event/15365/results"
+race_results_utmb: "https://utmb.world/utmb-index/races/41588.brooksoutdoortrailultra81k.2025"
+race_results_itra: "https://itra.run/Races/RaceResults/Brooks.O.U.T..81K/2025/108378"
 ---
 
 This Saturday I ran `Brooks O.U.T.81 - 2025` (Outdoor Ultra Trail 81 kilometers) - an ultra trail race that goes through the heart of Jutland, Denmark.

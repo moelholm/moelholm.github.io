@@ -9,6 +9,7 @@ tags: race running halfmarathon
 distance_km: 21
 elevation_gain_m: 90
 duration_formatted: '1h31m00s'
+race_results_official: "https://www.sportstiming.dk/event/14989/results?round=84303"
 ---
 
 This weekend I just ran a half marathon in Odense, Denmark 🇩🇰: Odense City Half.
