@@ -22,7 +22,7 @@ Race|Eventyrsport VinterTrail Mols Bjerge;
 Date|{{ page.race_date }};
 Www|[https://www.sportstiming.dk/event/14964](https://www.sportstiming.dk/event/14964);
 Type|Trail;
-Position|27 # 218 finishers;
+Position|27 of 218 finishers;
 Duration|{{ page.duration_formatted }};
 Distance|{{ page.distance_km }}k
 {% endcapture %}
