@@ -21,7 +21,7 @@ Race|Österlen Spring Trail 2025;
 Date|{{ page.race_date }};
 Www|[https://www.sportstiming.dk/event/15015](https://www.sportstiming.dk/event/15015);
 Type|Trail / Relay;
-Position|3 # 16 male teams / 4 # 42 all teams;
+Position|3 of 16 male teams / 4 of 42 all teams;
 Duration|{{ page.duration_formatted }};
 Distance|{{ page.distance_km }}k
 {% endcapture %}
