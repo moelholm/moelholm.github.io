@@ -20,7 +20,7 @@ Race|Thy Trail Marathon 2025;
 Date|{{ page.race_date }};
 Www|[https://my.raceresult.com/310144/info](https://my.raceresult.com/310144/info);
 Type|Trail;
-Position|39 # 211 finishers;
+Position|39 of 211 finishers;
 Duration|{{ page.duration_formatted }};
 Distance|{{ page.distance_km }}k
 {% endcapture %}
