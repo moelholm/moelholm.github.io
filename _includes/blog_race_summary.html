@@ -16,10 +16,10 @@
     {%- assign utmb = page.race_results_utmb -%}
     {%- assign duv = page.race_results_duv -%}
     {%- assign itra = page.race_results_itra -%}
-    {% if official or utmb or duv or itra %}
+  {%- assign strava = page.race_results_strava -%}
+  {% if official or utmb or duv or itra or strava %}
     <tr>
-      <td style="word-wrap: break-word; word-break: break-word; overflow-wrap: break-word;">Results</td>
-      <td style="word-wrap: break-word; word-break: break-word; overflow-wrap: break-word;">
+      <td colspan="2" style="word-wrap: break-word; word-break: break-word; overflow-wrap: break-word;">
         {% include external_race_links.html inline=true %}
       </td>
     </tr>

@@ -12,6 +12,7 @@ duration_formatted: '6h06m38s'
 race_results_official: "https://www.sportstiming.dk/event/14971/results?round=84209"
 race_results_utmb: "https://utmb.world/utmb-index/races/13979.adidasterrexskytrail42k.2025"
 race_results_itra: "https://itra.run/Races/RaceResults/45K/2025/104983"
+race_results_strava: "https://www.strava.com/activities/14435126055/overview"
 ---
 
 This weekend I just ran a {{ page.distance_km }}K trail race, called SkyTrail, in Ry - Jylland (Denmark 🇩🇰). 
@@ -21,7 +22,6 @@ Race|Eventyrsport SkyTrail 2025;
 Date|{{ page.race_date }};
 Www|[https://www.sportstiming.dk/event/14971](https://www.sportstiming.dk/event/14971);
 Type|Trail;
-Strava|[https://www.strava.com/activities/14435126055](https://www.strava.com/activities/14435126055);
 Position|15 of 52 starters (44 finishers);
 Duration|{{ page.duration_formatted }};
 Distance|{{ page.distance_km }}k

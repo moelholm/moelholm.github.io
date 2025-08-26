@@ -13,6 +13,7 @@ race_results_official: "https://utmb.world/utmb-index/races/1604.mozart100byutmb
 race_results_utmb: "https://utmb.world/utmb-index/races/1604.mozart100byutmbmozart100.2025"
 race_results_itra: "https://itra.run/Races/RaceResults/Mozart.100./2025/104767"
 race_results_duv: "https://statistik.d-u-v.org/getresultevent.php?event=108294"
+race_results_strava: "https://www.strava.com/activities/14727969242/overview"
 ---
 
 Salzburg, Austria 🇦🇹 - I was just there in the beginning of June to race mozart 100 by UTMB. 
@@ -22,7 +23,6 @@ Race|mozart 100 by UTMB 2025;
 Date|{{ page.race_date }};
 Www|[https://mozart.utmb.world/races/mozart100](https://mozart.utmb.world/races/mozart100);
 Type|Trail;
-Strava|[https://www.strava.com/activities/14727969242](https://www.strava.com/activities/14727969242);
 Position|177 of 368 finishers (518 startes/150 DNF);
 Duration|{{ page.duration_formatted }};
 Distance|{{ page.distance_km }}k

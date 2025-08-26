@@ -2,50 +2,61 @@
 {%- assign utmb = page.race_results_utmb -%}
 {%- assign duv = page.race_results_duv -%}
 {%- assign itra = page.race_results_itra -%}
+{%- assign strava = page.race_results_strava -%}
 {%- assign inline = include.inline | default: false -%}
-{% if official or utmb or duv or itra %}
+{% if official or utmb or duv or itra or strava %}
   {% if inline %}
+    {% if strava %}
+        <a class="badge result-badge result-badge--strava mr-1" href="{{ strava }}" target="_new" rel="noopener">
+          <i class="fa-brands fa-strava"></i> Strava
+        </a>
+    {% endif %}
     {% if official %}
-      <a class="badge badge-light mr-1" href="{{ official }}" target="_new" rel="noopener">
+      <a class="badge result-badge result-badge--official mr-1" href="{{ official }}" target="_new" rel="noopener">
         <i class="fa-solid fa-globe"></i> Official
       </a>
     {% endif %}
     {% if utmb %}
-      <a class="badge badge-light mr-1" href="{{ utmb }}" target="_new" rel="noopener">
+      <a class="badge result-badge result-badge--utmb mr-1" href="{{ utmb }}" target="_new" rel="noopener">
         <i class="fa-solid fa-mountain"></i> UTMB
       </a>
     {% endif %}
-    {% if duv %}
-      <a class="badge badge-light mr-1" href="{{ duv }}" target="_new" rel="noopener">
-        <i class="fa-solid fa-chart-line"></i> DUV
+    {% if itra %}
+      <a class="badge result-badge result-badge--itra mr-1" href="{{ itra }}" target="_new" rel="noopener">
+        <i class="fa-solid fa-shield"></i> ITRA
       </a>
     {% endif %}
-    {% if itra %}
-      <a class="badge badge-light mr-1" href="{{ itra }}" target="_new" rel="noopener">
-        <i class="fa-solid fa-shield"></i> ITRA
+    {% if duv %}
+      <a class="badge result-badge result-badge--duv mr-1" href="{{ duv }}" target="_new" rel="noopener">
+        <i class="fa-solid fa-chart-line"></i> DUV
       </a>
     {% endif %}
   {% else %}
     <div class="external-race-links post-metadata mb-2">
       <span class="text-muted">Results:</span>
+      {% if strava %}
+          <a class="badge result-badge result-badge--strava ml-1" href="{{ strava }}" target="_new" rel="noopener">
+            <i class="fa-brands fa-strava"></i> Strava
+          </a>
+      {% endif %}
       {% if official %}
-        <a class="badge badge-light ml-1" href="{{ official }}" target="_new" rel="noopener">
+        <a class="badge result-badge result-badge--official ml-1" href="{{ official }}" target="_new" rel="noopener">
           <i class="fa-solid fa-globe"></i> Official
         </a>
       {% endif %}
       {% if utmb %}
-        <a class="badge badge-light ml-1" href="{{ utmb }}" target="_new" rel="noopener">
+        <a class="badge result-badge result-badge--utmb ml-1" href="{{ utmb }}" target="_new" rel="noopener">
           <i class="fa-solid fa-mountain"></i> UTMB
         </a>
       {% endif %}
-      {% if duv %}
-        <a class="badge badge-light ml-1" href="{{ duv }}" target="_new" rel="noopener">
-          <i class="fa-solid fa-chart-line"></i> DUV
+      {% if itra %}
+        <a class="badge result-badge result-badge--itra ml-1" href="{{ itra }}" target="_new" rel="noopener">
+          <i class="fa-solid fa-shield"></i> ITRA
         </a>
       {% endif %}
-      {% if itra %}
-        <a class="badge badge-light ml-1" href="{{ itra }}" target="_new" rel="noopener">
-          <i class="fa-solid fa-shield"></i> ITRA
+      {% if duv %}
+        <a class="badge result-badge result-badge--duv ml-1" href="{{ duv }}" target="_new" rel="noopener">
+          <i class="fa-solid fa-chart-line"></i> DUV
         </a>
       {% endif %}
     </div>

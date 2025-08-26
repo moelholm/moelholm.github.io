@@ -12,6 +12,7 @@ duration_formatted: '2h43m07s'
 race_results_official: "https://www.sportstiming.dk/event/14964/results?round=84166"
 race_results_utmb: "https://utmb.world/utmb-index/races/53926.eventyrsportvintertrailmolsbjerge28k.2025"
 race_results_itra: "https://itra.run/Races/RaceResults/28K/2025/102031"
+race_results_strava: "https://www.strava.com/activities/13518120336/overview"
 ---
 
 Yesterday I ran `Eventyrsport VinterTrail Mols Bjerge 2025` - a {{ page.distance_km }} kilometer trail race in Mols Bjerge National Park.
@@ -21,7 +22,6 @@ Race|Eventyrsport VinterTrail Mols Bjerge;
 Date|{{ page.race_date }};
 Www|[https://www.sportstiming.dk/event/14964](https://www.sportstiming.dk/event/14964);
 Type|Trail;
-Strava|[https://strava.app.link/PErlp8AOGQb](https://strava.app.link/PErlp8AOGQb);
 Position|27 # 218 finishers;
 Duration|{{ page.duration_formatted }};
 Distance|{{ page.distance_km }}k

@@ -384,6 +384,52 @@ h2 {
   }
 }
 
+// Results badges theming
+.result-badge {
+  background: $trail-accent !important; // light blue base to fit theme
+  color: $heading-secondary !important;
+  border: 1px solid rgba(220, 235, 255, 0.6) !important;
+  font-weight: 600;
+  padding: 0.35rem 0.6rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  i { opacity: 0.95; }
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(58, 118, 196, 0.18);
+  }
+}
+
+// Site-specific accent hues (kept within palette harmony)
+.result-badge--strava {
+  background: linear-gradient(135deg, #ffe9e0 0%, #ffd6c8 100%) !important; // soft Strava orange tint
+  color: #cc4b00 !important;
+}
+
+.result-badge--official {
+  background: linear-gradient(135deg, #eef5ff 0%, #dcebff 100%) !important; // neutral site-blue
+  color: #355b8c !important;
+}
+
+.result-badge--utmb {
+  background: linear-gradient(135deg, #e8f4ff 0%, #cfe6ff 100%) !important; // UTMB deep blue vibe
+  color: #0f3166 !important;
+}
+
+.result-badge--itra {
+  background: linear-gradient(135deg, #e7f8ef 0%, #d5f2e5 100%) !important; // ITRA green-ish
+  color: #1e7b58 !important;
+}
+
+.result-badge--duv {
+  background: linear-gradient(135deg, #fff9e6 0%, #fff1c7 100%) !important; // warm stat yellow
+  color: #7a5b00 !important;
+}
+
 .blog-item {
   padding-bottom: 2em;
   border-bottom: 2px dashed rgba(58, 118, 196, 0.15);

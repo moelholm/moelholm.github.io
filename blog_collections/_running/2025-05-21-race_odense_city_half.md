@@ -10,6 +10,7 @@ distance_km: 21
 elevation_gain_m: 90
 duration_formatted: '1h31m00s'
 race_results_official: "https://www.sportstiming.dk/event/14989/results?round=84303"
+race_results_strava: "https://www.strava.com/activities/14517098165/overview"
 ---
 
 This weekend I just ran a half marathon in Odense, Denmark 🇩🇰: Odense City Half.
@@ -19,7 +20,6 @@ Race|Odense City Half 2025;
 Date|{{ page.race_date }};
 Www|[https://www.sportstiming.dk/event/14989](https://www.sportstiming.dk/event/14989);
 Type|Road;
-Strava|[https://www.strava.com/activities/14517098165](https://www.strava.com/activities/14517098165);
 Position|47 of 577 finishers;
 Duration|{{ page.duration_formatted }};
 Distance|{{ page.distance_km }}k

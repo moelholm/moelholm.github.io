@@ -11,6 +11,7 @@ elevation_gain_m: 319
 duration_formatted: '10h18m29s'
 race_results_official: "https://my.raceresult.com/309269/results"
 race_results_duv: "https://statistik.d-u-v.org/getresultevent.php?event=110733"
+race_results_strava: "https://www.strava.com/activities/13327773100/overview"
 ---
 
 A week ago I ran `LNBK Ringkøbing Fjord Winter Edition 2025` - a {{ page.distance_km }} kilometer race around Ringkøbing Fjord in Denmark.
@@ -20,7 +21,6 @@ Race|LNBK Ringkøbing Fjord Winter Edition 2025;
 Date|{{ page.race_date }};
 Www|[https://my.raceresult.com/309269/info](https://my.raceresult.com/309269/info);
 Type|Normal roads, cycle paths and gravel paths (no trails);
-Strava|[https://strava.app.link/aXNTApYGhQb](https://strava.app.link/aXNTApYGhQb);
 Position|7 # 34 finishers;
 Duration|{{ page.duration_formatted }};
 Distance|{{ page.distance_km }}k

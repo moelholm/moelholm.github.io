@@ -11,6 +11,7 @@ elevation_gain_m: 129
 duration_formatted: '40m42s'
 published: true
 race_results_official: "https://www.aarhusmotion.dk/event/273/resultater?round=1261"
+race_results_strava: "https://www.strava.com/activities/15538435035/overview"
 ---
 
 Thursday last week I ran DHL Stafetten - a 5K relay race - together with my LEGO team: ILSP.

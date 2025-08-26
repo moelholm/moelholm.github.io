@@ -10,6 +10,7 @@ distance_km: 21
 elevation_gain_m: 161
 duration_formatted: '1h32m58s'
 race_results_official: "https://www.sportstiming.dk/event/14905/results"
+race_results_strava: "https://www.strava.com/activities/14661381386/overview"
 ---
 
 I recently ran a half marathon in Kolding, Denmark 🇩🇰: Kolding Half. Last year my wife participated in the 2024 edition of the event there and since there were some bus logistics issues she let the organizer now. As a token of gratitude the organizer handed her a free spot to the 2025 event, which she then donated to me 😀. So that’s how I ended up in Kolding’s half marathon 🤗🕺🏼.
@@ -19,7 +20,6 @@ Race|Kolding Half 2025;
 Date|{{ page.race_date }};
 Www|[https://www.sportstiming.dk/event/14905](https://www.sportstiming.dk/event/14905);
 Type|Road;
-Strava|[https://www.strava.com/activities/14661381386](https://www.strava.com/activities/14661381386);
 Position|164 of 1420 finishers;
 Duration|{{ page.duration_formatted }};
 Distance|{{ page.distance_km }}k
