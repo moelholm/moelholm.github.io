@@ -5,11 +5,10 @@ Inputs:
 Outputs (assigned in parent scope):
 - totals for all, ultra, non-ultra, trail, road, backyard
 - counts: race_count, ultra_count, non_ultra_count, trail_count, non_trail_count, backyard_count
-- race_posts limited to year
+- race_posts_all: all posts tagged 'race' (table include will filter by year as needed)
 {% endcomment %}
 
 {% assign race_posts_all = site.running | where_exp: "post", "post.tags contains 'race'" | sort: "date" | reverse %}
-{% assign race_posts = race_posts_all %}
 {% assign total_km = 0 %}
 {% assign ultra_count = 0 %}
 {% assign non_ultra_count = 0 %}

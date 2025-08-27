@@ -14,7 +14,7 @@ Inputs:
       </tr>
     </thead>
     <tbody>
-      {% assign race_posts = site.running | where_exp: "post", "post.tags contains 'race'" | sort: "date" | reverse %}
+  {% assign race_posts = race_posts_all %}
       {% assign max_distance = 0 %}
       {% assign max_elevation = 0 %}
       {% for post in race_posts %}
