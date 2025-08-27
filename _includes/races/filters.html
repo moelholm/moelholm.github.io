@@ -1,0 +1,11 @@
+{% comment %}
+Render hidden radio filter controls for CSS-only filtering.
+Inputs:
+- calendar_year
+{% endcomment %}
+<input class="rf-hidden" type="radio" name="race-filter-{{ calendar_year }}" id="filter-all-{{ calendar_year }}" checked>
+<input class="rf-hidden" type="radio" name="race-filter-{{ calendar_year }}" id="filter-ultra-{{ calendar_year }}">
+<input class="rf-hidden" type="radio" name="race-filter-{{ calendar_year }}" id="filter-non-ultra-{{ calendar_year }}">
+<input class="rf-hidden" type="radio" name="race-filter-{{ calendar_year }}" id="filter-trail-{{ calendar_year }}">
+<input class="rf-hidden" type="radio" name="race-filter-{{ calendar_year }}" id="filter-road-{{ calendar_year }}">
+<input class="rf-hidden" type="radio" name="race-filter-{{ calendar_year }}" id="filter-backyard-{{ calendar_year }}">
