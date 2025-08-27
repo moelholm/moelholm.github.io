@@ -1,0 +1,93 @@
+{% comment %}
+Render stats area. Expects all totals from compute_stats include.
+Inputs:
+- calendar_year
+{% endcomment %}
+<div class="race-stats mb-4 race-stats-container">
+  <div class="stats-block stats-for-all">
+    <div class="stats-grid primary-stats">
+      <div class="stat-item">
+        <span class="stat-number">{{ total_km }}km</span>
+        <span class="stat-label">Total Distance</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">{{ total_elevation }}m</span>
+        <span class="stat-label">Total Elevation</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">{% include duration_format.html seconds=total_duration %}</span>
+        <span class="stat-label">Total Duration</span>
+      </div>
+      <div class="stat-item stat-count show-on-phone" title="Total races in {{ calendar_year }}">
+        <span class="stat-number">{{ race_count }}</span>
+        <span class="stat-label">Total Races</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-block stats-for-ultra">
+    <div class="stats-grid primary-stats">
+      <div class="stat-item"><span class="stat-number">{{ ultra_total_km }}km</span><span class="stat-label">Total Distance (Ultras)</span></div>
+      <div class="stat-item"><span class="stat-number">{{ ultra_total_elevation }}m</span><span class="stat-label">Total Elevation</span></div>
+      <div class="stat-item"><span class="stat-number">{% include duration_format.html seconds=ultra_total_duration %}</span><span class="stat-label">Total Duration</span></div>
+      <div class="stat-item stat-count show-on-phone"><span class="stat-number">{{ ultra_race_count }}</span><span class="stat-label">Races</span></div>
+    </div>
+  </div>
+
+  <div class="stats-block stats-for-non-ultra">
+    <div class="stats-grid primary-stats">
+      <div class="stat-item"><span class="stat-number">{{ non_ultra_total_km }}km</span><span class="stat-label">Total Distance (Non-ultra)</span></div>
+      <div class="stat-item"><span class="stat-number">{{ non_ultra_total_elevation }}m</span><span class="stat-label">Total Elevation</span></div>
+      <div class="stat-item"><span class="stat-number">{% include duration_format.html seconds=non_ultra_total_duration %}</span><span class="stat-label">Total Duration</span></div>
+      <div class="stat-item stat-count show-on-phone"><span class="stat-number">{{ non_ultra_race_count }}</span><span class="stat-label">Races</span></div>
+    </div>
+  </div>
+
+  <div class="stats-block stats-for-trail">
+    <div class="stats-grid primary-stats">
+      <div class="stat-item"><span class="stat-number">{{ trail_total_km }}km</span><span class="stat-label">Total Distance (Trail)</span></div>
+      <div class="stat-item"><span class="stat-number">{{ trail_total_elevation }}m</span><span class="stat-label">Total Elevation</span></div>
+      <div class="stat-item"><span class="stat-number">{% include duration_format.html seconds=trail_total_duration %}</span><span class="stat-label">Total Duration</span></div>
+      <div class="stat-item stat-count show-on-phone"><span class="stat-number">{{ trail_race_count }}</span><span class="stat-label">Races</span></div>
+    </div>
+  </div>
+
+  <div class="stats-block stats-for-road">
+    <div class="stats-grid primary-stats">
+      <div class="stat-item"><span class="stat-number">{{ road_total_km }}km</span><span class="stat-label">Total Distance (Road)</span></div>
+      <div class="stat-item"><span class="stat-number">{{ road_total_elevation }}m</span><span class="stat-label">Total Elevation</span></div>
+      <div class="stat-item"><span class="stat-number">{% include duration_format.html seconds=road_total_duration %}</span><span class="stat-label">Total Duration</span></div>
+      <div class="stat-item stat-count show-on-phone"><span class="stat-number">{{ road_race_count }}</span><span class="stat-label">Races</span></div>
+    </div>
+  </div>
+
+  <div class="stats-block stats-for-backyard">
+    <div class="stats-grid primary-stats">
+      <div class="stat-item"><span class="stat-number">{{ backyard_total_km }}km</span><span class="stat-label">Total Distance (Backyard)</span></div>
+      <div class="stat-item"><span class="stat-number">{{ backyard_total_elevation }}m</span><span class="stat-label">Total Elevation</span></div>
+      <div class="stat-item"><span class="stat-number">{% include duration_format.html seconds=backyard_total_duration %}</span><span class="stat-label">Total Duration</span></div>
+      <div class="stat-item stat-count show-on-phone"><span class="stat-number">{{ backyard_race_count }}</span><span class="stat-label">Races</span></div>
+    </div>
+  </div>
+
+  <div id="secondary-stats" class="stats-grid secondary-stats hide-on-phone">
+    <label class="stat-item stat-count stat-click-all" for="filter-all-{{ calendar_year }}" title="Show all races"><span class="stat-number">{{ race_count }}</span><span class="stat-label">Total Races</span></label>
+    <label class="stat-item stat-count stat-click-ultra" for="filter-ultra-{{ calendar_year }}" title="Filter: Ultras (≥50km)"><span class="stat-number">{{ ultra_count }}</span><span class="stat-label">Ultras (≥50km)</span></label>
+    <label class="stat-item stat-count stat-click-non-ultra" for="filter-non-ultra-{{ calendar_year }}" title="Filter: Non-Ultras (<50km)"><span class="stat-number">{{ non_ultra_count }}</span><span class="stat-label">Non-Ultras (<50km)</span></label>
+    <label class="stat-item stat-count stat-click-trail" for="filter-trail-{{ calendar_year }}" title="Filter: Trail races"><span class="stat-number">{{ trail_count }}</span><span class="stat-label">Trail Races</span></label>
+    <label class="stat-item stat-count stat-click-road" for="filter-road-{{ calendar_year }}" title="Filter: Road races"><span class="stat-number">{{ non_trail_count }}</span><span class="stat-label">Road Races</span></label>
+    <label class="stat-item stat-count stat-click-backyard" for="filter-backyard-{{ calendar_year }}" title="Filter: Backyard Ultras"><span class="stat-number">{{ backyard_count }}</span><span class="stat-label">Backyard Ultras</span></label>
+  </div>
+
+  <details class="secondary-stats-mobile show-on-phone">
+    <summary class="stats-toggle">More stats</summary>
+    <div class="stats-grid secondary-stats">
+      <label class="stat-item stat-count stat-click-all" for="filter-all-{{ calendar_year }}" title="Show all races"><span class="stat-number">{{ race_count }}</span><span class="stat-label">Total Races</span></label>
+      <label class="stat-item stat-count stat-click-ultra" for="filter-ultra-{{ calendar_year }}" title="Filter: Ultras (≥50km)"><span class="stat-number">{{ ultra_count }}</span><span class="stat-label">Ultras (≥50km)</span></label>
+      <label class="stat-item stat-count stat-click-non-ultra" for="filter-non-ultra-{{ calendar_year }}" title="Filter: Non-Ultras (<50km)"><span class="stat-number">{{ non_ultra_count }}</span><span class="stat-label">Non-Ultras (<50km)</span></label>
+      <label class="stat-item stat-count stat-click-trail" for="filter-trail-{{ calendar_year }}" title="Filter: Trail races"><span class="stat-number">{{ trail_count }}</span><span class="stat-label">Trail Races</span></label>
+      <label class="stat-item stat-count stat-click-road" for="filter-road-{{ calendar_year }}" title="Filter: Road races"><span class="stat-number">{{ non_trail_count }}</span><span class="stat-label">Road Races</span></label>
+      <label class="stat-item stat-count stat-click-backyard" for="filter-backyard-{{ calendar_year }}" title="Filter: Backyard Ultras"><span class="stat-number">{{ backyard_count }}</span><span class="stat-label">Backyard Ultras</span></label>
+    </div>
+  </details>
+</div>

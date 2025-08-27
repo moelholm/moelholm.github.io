@@ -1,0 +1,83 @@
+{% comment %}
+Scoped CSS for CSS-only filtering/highlights. Uses class-based selectors to avoid Liquid in CSS.
+Assumes the radios are direct siblings before .races-content inside .races-container.
+{% endcomment %}
+<style>
+  .rf-hidden { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+
+  /* Base stat tiles and interactive variants */
+  .races-content .stat-item.stat-count { border-radius: 12px; padding: .5rem; transition: background .2s ease, box-shadow .2s ease; }
+  .races-content .stat-item.stat-count.stat-click-all,
+  .races-content .stat-item.stat-count.stat-click-ultra,
+  .races-content .stat-item.stat-count.stat-click-non-ultra,
+  .races-content .stat-item.stat-count.stat-click-trail,
+  .races-content .stat-item.stat-count.stat-click-road,
+  .races-content .stat-item.stat-count.stat-click-backyard { cursor: pointer; }
+  .races-content .stat-item.stat-count.stat-click-all:hover,
+  .races-content .stat-item.stat-count.stat-click-ultra:hover,
+  .races-content .stat-item.stat-count.stat-click-non-ultra:hover,
+  .races-content .stat-item.stat-count.stat-click-trail:hover,
+  .races-content .stat-item.stat-count.stat-click-road:hover,
+  .races-content .stat-item.stat-count.stat-click-backyard:hover { background: rgba(59, 130, 246, 0.06); box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.12) inset; }
+
+  /* Default visible block */
+  .races-content .stats-block { display:none; }
+  .races-content .stats-for-all { display:block; }
+
+  /* Default table visibility */
+  .races-content .races-table tbody tr { display: table-row !important; }
+
+  /* Active highlight limited to secondary stats areas */
+  .races-container .rf-filter.filter-all:checked ~ .races-content .secondary-stats .stat-click-all,
+  .races-container .rf-filter.filter-ultra:checked ~ .races-content .secondary-stats .stat-click-ultra,
+  .races-container .rf-filter.filter-non-ultra:checked ~ .races-content .secondary-stats .stat-click-non-ultra,
+  .races-container .rf-filter.filter-trail:checked ~ .races-content .secondary-stats .stat-click-trail,
+  .races-container .rf-filter.filter-road:checked ~ .races-content .secondary-stats .stat-click-road,
+  .races-container .rf-filter.filter-backyard:checked ~ .races-content .secondary-stats .stat-click-backyard,
+  .races-container .rf-filter.filter-all:checked ~ .races-content details.secondary-stats-mobile .stat-click-all,
+  .races-container .rf-filter.filter-ultra:checked ~ .races-content details.secondary-stats-mobile .stat-click-ultra,
+  .races-container .rf-filter.filter-non-ultra:checked ~ .races-content details.secondary-stats-mobile .stat-click-non-ultra,
+  .races-container .rf-filter.filter-trail:checked ~ .races-content details.secondary-stats-mobile .stat-click-trail,
+  .races-container .rf-filter.filter-road:checked ~ .races-content details.secondary-stats-mobile .stat-click-road,
+  .races-container .rf-filter.filter-backyard:checked ~ .races-content details.secondary-stats-mobile .stat-click-backyard {
+    background: rgba(59, 130, 246, 0.12);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.22) inset;
+  }
+
+  /* Filtering rules */
+  .races-container .rf-filter.filter-ultra:checked ~ .races-content .races-table tbody tr { display:none !important; }
+  .races-container .rf-filter.filter-ultra:checked ~ .races-content .races-table tbody tr.tag-ultra { display:table-row !important; }
+
+  .races-container .rf-filter.filter-non-ultra:checked ~ .races-content .races-table tbody tr { display:none !important; }
+  .races-container .rf-filter.filter-non-ultra:checked ~ .races-content .races-table tbody tr.tag-non-ultra { display:table-row !important; }
+
+  .races-container .rf-filter.filter-trail:checked ~ .races-content .races-table tbody tr { display:none !important; }
+  .races-container .rf-filter.filter-trail:checked ~ .races-content .races-table tbody tr.tag-trail { display:table-row !important; }
+
+  .races-container .rf-filter.filter-road:checked ~ .races-content .races-table tbody tr { display:none !important; }
+  .races-container .rf-filter.filter-road:checked ~ .races-content .races-table tbody tr.tag-road { display:table-row !important; }
+
+  .races-container .rf-filter.filter-backyard:checked ~ .races-content .races-table tbody tr { display:none !important; }
+  .races-container .rf-filter.filter-backyard:checked ~ .races-content .races-table tbody tr.tag-backyard { display:table-row !important; }
+
+  /* Contextual stats */
+  .races-container .rf-filter.filter-ultra:checked ~ .races-content .stats-block { display:none !important; }
+  .races-container .rf-filter.filter-ultra:checked ~ .races-content .stats-for-ultra { display:block !important; }
+
+  .races-container .rf-filter.filter-non-ultra:checked ~ .races-content .stats-block { display:none !important; }
+  .races-container .rf-filter.filter-non-ultra:checked ~ .races-content .stats-for-non-ultra { display:block !important; }
+
+  .races-container .rf-filter.filter-trail:checked ~ .races-content .stats-block { display:none !important; }
+  .races-container .rf-filter.filter-trail:checked ~ .races-content .stats-for-trail { display:block !important; }
+
+  .races-container .rf-filter.filter-road:checked ~ .races-content .stats-block { display:none !important; }
+  .races-container .rf-filter.filter-road:checked ~ .races-content .stats-for-road { display:block !important; }
+
+  .races-container .rf-filter.filter-backyard:checked ~ .races-content .stats-block { display:none !important; }
+  .races-container .rf-filter.filter-backyard:checked ~ .races-content .stats-for-backyard { display:block !important; }
+
+  /* Mobile neutral primary tile */
+  @media (max-width: 991px) {
+    .races-content .primary-stats .show-on-phone { background: transparent !important; box-shadow: none !important; cursor: default !important; }
+  }
+</style>

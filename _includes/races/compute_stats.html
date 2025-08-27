@@ -1,0 +1,115 @@
+{% comment %}
+Compute all race stats for a given calendar_year.
+Inputs:
+- calendar_year (required): year string like "2025"
+Outputs (assigned in parent scope):
+- totals for all, ultra, non-ultra, trail, road, backyard
+- counts: race_count, ultra_count, non_ultra_count, trail_count, non_trail_count, backyard_count
+- race_posts_all: all posts tagged 'race' (table include will filter by year as needed)
+{% endcomment %}
+
+{% assign race_posts_all = site.running | where_exp: "post", "post.tags contains 'race'" | sort: "date" | reverse %}
+{% assign total_km = 0 %}
+{% assign ultra_count = 0 %}
+{% assign non_ultra_count = 0 %}
+{% assign race_count = 0 %}
+{% assign total_elevation = 0 %}
+{% assign total_duration = 0 %}
+{% assign trail_count = 0 %}
+{% assign non_trail_count = 0 %}
+{% assign backyard_count = 0 %}
+
+{% assign ultra_total_km = 0 %}
+{% assign ultra_total_elevation = 0 %}
+{% assign ultra_total_duration = 0 %}
+{% assign ultra_race_count = 0 %}
+
+{% assign non_ultra_total_km = 0 %}
+{% assign non_ultra_total_elevation = 0 %}
+{% assign non_ultra_total_duration = 0 %}
+{% assign non_ultra_race_count = 0 %}
+
+{% assign trail_total_km = 0 %}
+{% assign trail_total_elevation = 0 %}
+{% assign trail_total_duration = 0 %}
+{% assign trail_race_count = 0 %}
+
+{% assign road_total_km = 0 %}
+{% assign road_total_elevation = 0 %}
+{% assign road_total_duration = 0 %}
+{% assign road_race_count = 0 %}
+
+{% assign backyard_total_km = 0 %}
+{% assign backyard_total_elevation = 0 %}
+{% assign backyard_total_duration = 0 %}
+{% assign backyard_race_count = 0 %}
+
+{% for post in race_posts_all %}
+  {% assign race_date = post.race_date | default: post.date %}
+  {% assign post_year = race_date | date: "%Y" %}
+  {% if post_year == calendar_year and post.distance_km %}
+    {% assign race_count = race_count | plus: 1 %}
+    {% assign total_km = total_km | plus: post.distance_km %}
+    {% assign distance_num = post.distance_km | plus: 0 %}
+
+    {% if distance_num >= 50 %}
+      {% assign ultra_count = ultra_count | plus: 1 %}
+    {% else %}
+      {% assign non_ultra_count = non_ultra_count | plus: 1 %}
+    {% endif %}
+
+    {% if post.elevation_gain_m %}
+      {% assign total_elevation = total_elevation | plus: post.elevation_gain_m %}
+    {% endif %}
+
+    {% if post.duration_formatted %}
+      {% include duration_to_seconds.html duration=post.duration_formatted %}
+      {% assign total_duration = total_duration | plus: duration_seconds %}
+    {% endif %}
+
+    {% assign is_trail = false %}
+    {% if post.tags contains "trailrunning" %}
+      {% assign trail_count = trail_count | plus: 1 %}
+      {% assign is_trail = true %}
+    {% else %}
+      {% assign non_trail_count = non_trail_count | plus: 1 %}
+    {% endif %}
+
+    {% assign is_backyard = false %}
+    {% if post.tags contains "backyard-ultra" %}
+      {% assign backyard_count = backyard_count | plus: 1 %}
+      {% assign is_backyard = true %}
+    {% endif %}
+
+    {% if distance_num >= 50 %}
+      {% assign ultra_race_count = ultra_race_count | plus: 1 %}
+      {% assign ultra_total_km = ultra_total_km | plus: distance_num %}
+      {% if post.elevation_gain_m %}{% assign ultra_total_elevation = ultra_total_elevation | plus: post.elevation_gain_m %}{% endif %}
+      {% if post.duration_formatted %}{% include duration_to_seconds.html duration=post.duration_formatted %}{% assign ultra_total_duration = ultra_total_duration | plus: duration_seconds %}{% endif %}
+    {% else %}
+      {% assign non_ultra_race_count = non_ultra_race_count | plus: 1 %}
+      {% assign non_ultra_total_km = non_ultra_total_km | plus: distance_num %}
+      {% if post.elevation_gain_m %}{% assign non_ultra_total_elevation = non_ultra_total_elevation | plus: post.elevation_gain_m %}{% endif %}
+      {% if post.duration_formatted %}{% include duration_to_seconds.html duration=post.duration_formatted %}{% assign non_ultra_total_duration = non_ultra_total_duration | plus: duration_seconds %}{% endif %}
+    {% endif %}
+
+    {% if is_trail %}
+      {% assign trail_race_count = trail_race_count | plus: 1 %}
+      {% assign trail_total_km = trail_total_km | plus: distance_num %}
+      {% if post.elevation_gain_m %}{% assign trail_total_elevation = trail_total_elevation | plus: post.elevation_gain_m %}{% endif %}
+      {% if post.duration_formatted %}{% include duration_to_seconds.html duration=post.duration_formatted %}{% assign trail_total_duration = trail_total_duration | plus: duration_seconds %}{% endif %}
+    {% else %}
+      {% assign road_race_count = road_race_count | plus: 1 %}
+      {% assign road_total_km = road_total_km | plus: distance_num %}
+      {% if post.elevation_gain_m %}{% assign road_total_elevation = road_total_elevation | plus: post.elevation_gain_m %}{% endif %}
+      {% if post.duration_formatted %}{% include duration_to_seconds.html duration=post.duration_formatted %}{% assign road_total_duration = road_total_duration | plus: duration_seconds %}{% endif %}
+    {% endif %}
+
+    {% if is_backyard %}
+      {% assign backyard_race_count = backyard_race_count | plus: 1 %}
+      {% assign backyard_total_km = backyard_total_km | plus: distance_num %}
+      {% if post.elevation_gain_m %}{% assign backyard_total_elevation = backyard_total_elevation | plus: post.elevation_gain_m %}{% endif %}
+      {% if post.duration_formatted %}{% include duration_to_seconds.html duration=post.duration_formatted %}{% assign backyard_total_duration = backyard_total_duration | plus: duration_seconds %}{% endif %}
+    {% endif %}
+  {% endif %}
+{% endfor %}

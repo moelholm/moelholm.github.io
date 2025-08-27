@@ -746,8 +746,8 @@ tbody + tbody {
       }
     }
 
-    // Native mobile collapsible
-    details.secondary-stats-mobile {
+  // Native mobile collapsible
+  details.secondary-stats-mobile {
       margin-top: 0.25rem;
       summary.stats-toggle {
         list-style: none;
@@ -759,12 +759,11 @@ tbody + tbody {
         border-radius: 6px;
         font-size: 0.95rem;
         display: inline-block;
-        // Keyboard focus visibility
-        &:focus,
+        // Keyboard-only focus visibility (avoid sticky highlight on touch)
         &:focus-visible {
-          outline: 3px solid $trail-green;
+          outline: 2px solid rgba(168, 200, 240, 0.9);
           outline-offset: 2px;
-          border-color: $trail-green;
+          border-color: rgba(168, 200, 240, 0.9);
         }
       }
       summary::-webkit-details-marker { display: none; }
