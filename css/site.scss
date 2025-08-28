@@ -891,22 +891,15 @@ tbody + tbody {
         min-width: 80px;
       }
       
-      &.race-col {
-        width: 45%;
-        min-width: 200px;
+      &.race-details-col {
+        width: 85%;
+        min-width: 320px;
       }
-      
-      &.distance-col {
-        width: 20%;
-        min-width: 80px;
-        text-align: center;
-      }
-      
-      &.tags-col {
-        width: 20%;
-        min-width: 100px;
-        text-align: center;
-      }
+    }
+    
+    // No-header variant: visually hide header row but keep columns aligned
+    &.races-table--nohead {
+      thead { display: none; }
     }
     
     // Table rows
@@ -918,49 +911,7 @@ tbody + tbody {
         background-color: rgba(168, 200, 240, 0.03);
       }
       
-      // Highlight the longest race
-      &.longest-race {        
-        .distance-value {
-          color: #b8860b !important; // Darker gold color
-          font-weight: 700 !important;
-          text-shadow: 0 0 1px rgba(184, 134, 11, 0.3);
-        }
-        
-        // Add a subtle distance icon effect
-        .distance-cell::after {
-          content: "📏";
-          font-size: 0.7rem;
-          margin-left: 0.3rem;
-          opacity: 0.7;
-        }
-      }
-      
-      // Highlight the highest elevation race
-      &.highest-elevation {        
-        .elevation-value {
-          color: #1b5e20 !important; // Dark green color
-          font-weight: 700 !important;
-          text-shadow: 0 0 1px rgba(27, 94, 32, 0.3);
-        }
-        
-        // Add a goat icon for highest elevation - moved to after like the ruler
-        .distance-cell::after {
-          content: "🐐";
-          font-size: 0.7rem;
-          margin-left: 0.3rem;
-          opacity: 0.7;
-        }
-      }
-      
-      // If a race has both longest distance AND highest elevation
-      &.longest-race.highest-elevation {        
-        .distance-cell::after {
-          content: "📏🐐";
-          font-size: 0.7rem;
-          margin-left: 0.3rem;
-          opacity: 0.7;
-        }
-      }
+  // Row highlight classes intentionally neutral. Emoji badges convey the awards.
     }
     
     // Table cells
@@ -994,45 +945,84 @@ tbody + tbody {
         }
       }
       
+      &.race-details-cell {
+        .race-link {
+          color: $link-color;
+          text-decoration: none;
+          font-weight: 600;
+          display: inline-block;
+          margin-bottom: 0.25rem; // add space so badges don't sit over chips
+          line-height: 1.2;
+          
+          &:hover { color: $link-hover-color; text-decoration: none; }
+        }
+        .race-badges {
+          display: inline-flex;
+          gap: 0.2rem;
+          margin-left: 0.35rem;
+          vertical-align: middle;
+        }
+        .badge-emoji {
+          display: inline-block;
+          font-size: 0.8rem;
+          line-height: 1;
+          background: transparent !important;
+          border: 0;
+          transform: translateY(-1px); // nudge up a touch to align cap height
+          user-select: none;
+        }
+        .race-meta {
+          color: $text-muted;
+          font-size: 0.8rem;
+          display: flex;
+          flex-wrap: wrap;
+          align-items: baseline;
+          gap: 0.35rem;
+          
+          // Soft chip style for meta datapoints (distance/elevation/time)
+          .meta-item {
+            font-variant-numeric: tabular-nums;
+            background: transparent; // remove fill for neutral look
+            color: #5f6b7a; // neutral text color
+            border: 1px solid #E6EBF2; // subtle outline
+            border-radius: 6px;
+            padding: 0.08rem 0.32rem; // smaller chip footprint
+            line-height: 1.05;
+            display: inline-flex;
+            align-items: center;
+          }
+          .distance-value { background: transparent; color: inherit; border-color: #E6EBF2; font-weight: 600; }
+          .elevation-value { background: transparent; color: inherit; border-color: #E6EBF2; }
+          .duration-value { background: transparent; color: inherit; border-color: #E6EBF2; font-weight: 600; }
+          // No separators; spacing handled by gap
+          
+          .race-tags-inline { display: inline-flex; gap: 0.25rem; flex-wrap: wrap; align-items: baseline; }
+          .race-tags-group { margin-left: 0.4rem; }
+          .race-tags-inline .race-tag {
+            transform: translateY(0px);
+            padding-top: 0.12rem;
+            padding-bottom: 0.12rem;
+            line-height: 1.05; // match chip line-height for baseline harmony
+          }
+          // Remove pixel nudge; baseline alignment handles vertical positioning
+          .race-tags-inline .race-tag { position: static; top: auto; }
+        }
+        // Ensure emoji icon after the title aligns nicely
+  .race-link::after { content: none; }
+      }
+
       &.distance-cell {
         text-align: center;
-        
-        .distance-info {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 0.1rem;
-        }
-        
-        .distance-value {
-          font-size: 0.9rem;
-          font-weight: 600;
-          color: $trail-green;
-          font-variant-numeric: tabular-nums;
-        }
-        
-        .elevation-value {
-          font-size: 0.75rem;
-          font-weight: 500;
-          color: $text-muted;
-          font-variant-numeric: tabular-nums;
-        }
-        
-        .distance-unknown {
-          color: $text-muted;
-          font-size: 0.9rem;
-        }
+        .distance-info { display: flex; flex-direction: column; align-items: center; gap: 0.1rem; }
+        .distance-value { font-size: 0.9rem; font-weight: 600; color: $trail-green; font-variant-numeric: tabular-nums; }
+        .elevation-value { font-size: 0.75rem; font-weight: 500; color: $text-muted; font-variant-numeric: tabular-nums; }
+        .duration-value { font-size: 0.75rem; font-weight: 600; color: $text-muted; font-variant-numeric: tabular-nums; }
+        .distance-unknown { color: $text-muted; font-size: 0.9rem; }
       }
-      
+
       &.tags-cell {
         text-align: center;
-        
-        .race-tags-table {
-          display: flex;
-          justify-content: center;
-          gap: 0.25rem;
-          flex-wrap: wrap;
-        }
+        .race-tags-table { display: flex; justify-content: center; gap: 0.25rem; flex-wrap: wrap; }
       }
     }
     
@@ -1110,19 +1100,9 @@ tbody + tbody {
           min-width: 70px;
         }
         
-        &.race-col {
-          width: 50%;
-          min-width: 180px;
-        }
-        
-        &.distance-col {
-          width: 18%;
-          min-width: 60px;
-        }
-        
-        &.tags-col {
-          width: 20%;
-          min-width: 80px;
+        &.race-details-col {
+          width: 88%;
+          min-width: 260px;
         }
       }
       
@@ -1136,16 +1116,6 @@ tbody + tbody {
         
         &.date-cell .race-date {
           font-size: 0.8rem;
-        }
-        
-        &.distance-cell {
-          .distance-value {
-            font-size: 0.8rem;
-          }
-          
-          .elevation-value {
-            font-size: 0.65rem;
-          }
         }
         
         &.tags-cell .race-tag {
@@ -1171,19 +1141,9 @@ tbody + tbody {
           min-width: 70px;
         }
         
-        &.race-col {
-          width: 40%;
-          min-width: 150px;
-        }
-        
-        &.distance-col {
-          width: 15%;
-          min-width: 50px;
-        }
-        
-        &.tags-col {
-          width: 27%; // Increased from default to give more space for tags
-          min-width: 110px;
+        &.race-details-col {
+          width: 82%;
+          min-width: 200px;
         }
       }
       
@@ -1241,19 +1201,9 @@ tbody + tbody {
           min-width: 60px;
         }
         
-        &.race-col {
-          width: 44%;
-          min-width: 120px;
-        }
-        
-        &.distance-col {
-          width: 12%;
-          min-width: 40px;
-        }
-        
-        &.tags-col {
-          width: 28%;
-          min-width: 90px;
+        &.race-details-col {
+          width: 84%;
+          min-width: 160px;
         }
       }
       
