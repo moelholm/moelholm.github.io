@@ -1,0 +1,77 @@
+name: fetch-toots
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # every 6 hours
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Git user
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests html2text
+
+      - name: Fetch Mastodon toots
+        env:
+          MASTODON_TOKEN: ${{ secrets.MASTODON_TOKEN }}
+          MASTODON_INSTANCE: ${{ vars.MASTODON_INSTANCE }}
+          MASTODON_USER_ID: ${{ vars.MASTODON_USER_ID }}
+          MASTODON_TAGS: running,ultrarunning,trailrunning
+          MASTODON_LIMIT: 10
+          MASTODON_MODE: global
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euxo pipefail
+          # Ensure we base our PR branch on latest master
+          git fetch origin master
+          git checkout -B bot/mastodon-toots origin/master
+
+          # Generate files without committing
+          python fetch_toots.py
+
+          # If no changes in the toot collection, exit early (no PR)
+          if [ -z "$(git status --porcelain -- blog_collections/_toots)" ]; then
+            echo "No toot changes; nothing to do."
+            exit 0
+          fi
+
+          # Commit and push PR branch
+          git add -A blog_collections/_toots
+          git commit -m "chore(toots): refresh generated toot files"
+          git push -u origin bot/mastodon-toots
+
+          # Ensure 'toots' label exists (ignore if it already exists)
+          gh label create toots --color EDEDED --description "Automated Mastodon toot updates" || true
+
+          # Create PR if not exists; otherwise update labels
+          if ! gh pr list --head bot/mastodon-toots --state open --json number --jq '.[0].number' | grep -qE '^[0-9]+$'; then
+            gh pr create \
+              --title "Refresh toot files" \
+              --body "Automated update of Mastodon toot files (global LIMIT=${MASTODON_LIMIT})." \
+              --label toots \
+              --base master \
+              --head bot/mastodon-toots
+          else
+            pr_number=$(gh pr list --head bot/mastodon-toots --state open --json number --jq '.[0].number')
+            gh pr edit "$pr_number" --add-label toots
+          fi
