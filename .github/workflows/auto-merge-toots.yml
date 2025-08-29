@@ -1,29 +1,40 @@
 name: Auto-merge toot PRs
 
 on:
-  pull_request:
-    types: [opened, synchronize, reopened, labeled]
+  # Only run when the fetch-toots workflow completes successfully
+  workflow_run:
+    workflows: ["fetch-toots"]
+    types: [completed]
 
 permissions:
   contents: write
   pull-requests: write
 
 jobs:
-  automerge:
-    if: github.event.pull_request.base.ref == 'master'
+  automerge_from_run:
+    if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
-      - name: Check label and merge
+      - name: Merge open toot PR when fetch-toots completes
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
         run: |
           set -euo pipefail
-          pr_number=${{ github.event.pull_request.number }}
-          # If the PR doesn't have the 'toots' label, exit quietly
-          if ! gh pr view "$pr_number" --repo "$REPO" --json labels --jq '.labels[].name' | grep -qx toots; then
-            echo "PR #$pr_number has no 'toots' label; skipping."
+          # Only act for default branch workflow runs
+          if [ "${{ github.event.workflow_run.head_branch }}" != "master" ]; then
+            echo "Workflow run was for branch '${{ github.event.workflow_run.head_branch }}'; skipping."
             exit 0
           fi
-          # Try squash merge, allow auto-merge if branch protection requires checks
+          # Find an open PR from the bot branch
+          pr_number=$(gh pr list --repo "$REPO" --head bot/mastodon-toots --state open --json number --jq '.[0].number // empty')
+          if [ -z "${pr_number:-}" ]; then
+            echo "No open PR from bot/mastodon-toots; nothing to merge."
+            exit 0
+          fi
+          # Ensure it has the 'toots' label
+          if ! gh pr view "$pr_number" --repo "$REPO" --json labels --jq '.labels[].name' | grep -qx toots; then
+            echo "PR #$pr_number found but without 'toots' label; skipping."
+            exit 0
+          fi
           gh pr merge "$pr_number" --repo "$REPO" --squash --auto --delete-branch || gh pr merge "$pr_number" --repo "$REPO" --squash --delete-branch
