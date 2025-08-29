@@ -14,21 +14,25 @@ html {
   -ms-text-size-adjust: 100%;     // Prevent Windows Phone font size changes
 }
 
-// Color palette - centralized theme configuration
-$page-background-color: #f7faff; // Soft blue-tinted background
-$link-color: #a8c8f0; // More visible blue (less transparent)
-$link-hover-color: #8fb5eb; // Deeper version with more color
-$nav-bg-color: #3b556d; // Blue-gray
+// Color palette - centralized theme configuration (warm energetic + charcoal)
+$page-background-color: #fff9f4; // warm, light background
+$link-color: #ff6a33; // primary warm accent
+$link-hover-color: #ff4f12; // deeper warm on hover
+$nav-bg-color: #111827; // charcoal for strong contrast
 
-// Heading colors - blue theme aligned
-$heading-primary: #4a6ba8; // Deep blue for main headings (h1)
-$heading-secondary: #5a7bb5; // Medium blue for h2-h6
-$text-muted: #6b7280; // Gray for secondary text
+// Calmer colors for normal/content links (less saturated)
+$content-link-color: #374151; // slate 700
+$content-link-hover-color: #1f2937; // slate 800
+
+// Heading colors - neutral/dark for readability
+$heading-primary: #1f2937; // slate 800 for h1
+$heading-secondary: #374151; // slate 700 for h2-h6
+$text-muted: #6b7280; // gray for secondary text
 
 // Theme palette (keep variable names for compatibility)
-$trail-green: #a8c8f0;      // primary blue (aligned with links)
-$trail-forest: #8fb5eb;     // deep blue (aligned with link hover)
-$trail-accent: #dcebff;     // light sky accent
+$trail-green: #ff6a33;      // primary accent (warm)
+$trail-forest: #e4500c;     // deeper warm
+$trail-accent: #ffe9df;     // light warm tint
 
 // Running-themed animations and effects
 @keyframes pulse-run {
@@ -43,7 +47,7 @@ $trail-accent: #dcebff;     // light sky accent
 
 // Custom navigation styling - inspired by trail/outdoor aesthetic
 .navbar.bg-dark {
-  background: linear-gradient(135deg, $nav-bg-color 0%, #556b84 100%) !important;
+  background: linear-gradient(135deg, $nav-bg-color 0%, #1f2937 100%) !important;
   border-bottom: 3px solid $trail-green;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   position: relative;
@@ -57,8 +61,8 @@ $trail-accent: #dcebff;     // light sky accent
     right: 0;
     bottom: 0;
     background-image: 
-      radial-gradient(circle at 25% 25%, rgba(58, 118, 196, 0.08) 2px, transparent 2px),
-      radial-gradient(circle at 75% 75%, rgba(58, 118, 196, 0.08) 2px, transparent 2px);
+  radial-gradient(circle at 25% 25%, rgba(252, 76, 2, 0.08) 2px, transparent 2px),
+  radial-gradient(circle at 75% 75%, rgba(252, 76, 2, 0.08) 2px, transparent 2px);
     background-size: 30px 30px;
     pointer-events: none;
   }
@@ -66,7 +70,7 @@ $trail-accent: #dcebff;     // light sky accent
 
 // Footer styling to match navigation bar
 footer.bg-dark {
-  background: linear-gradient(135deg, $nav-bg-color 0%, #556b84 100%) !important;
+  background: linear-gradient(135deg, $nav-bg-color 0%, #1f2937 100%) !important;
   border-top: 3px solid $trail-green;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
   position: relative;
@@ -80,8 +84,8 @@ footer.bg-dark {
     right: 0;
     bottom: 0;
     background-image: 
-      radial-gradient(circle at 25% 25%, rgba(58, 118, 196, 0.08) 2px, transparent 2px),
-      radial-gradient(circle at 75% 75%, rgba(58, 118, 196, 0.08) 2px, transparent 2px);
+  radial-gradient(circle at 25% 25%, rgba(252, 76, 2, 0.08) 2px, transparent 2px),
+  radial-gradient(circle at 75% 75%, rgba(252, 76, 2, 0.08) 2px, transparent 2px);
     background-size: 30px 30px;
     pointer-events: none;
   }
@@ -111,6 +115,7 @@ footer.bg-dark {
   transition: all 0.3s ease-in-out;
   font-weight: 500;
   position: relative;
+  text-decoration: none !important; // prevent global underline on nav
   
   &::before {
     content: "";
@@ -161,15 +166,26 @@ body .container {
   background-color: $page-background-color;
 }
 
-// Site-wide default link colors
+// Site-wide default link colors (muted for normal links)
 a,
 a:visited {
-  color: $link-color;
+  color: $content-link-color;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  text-decoration-thickness: 0.08em;
+  text-decoration-color: rgba(55, 65, 81, 0.45);
 }
 
 a:hover,
 a:focus {
-  color: $link-hover-color;
+  color: $content-link-hover-color;
+  text-decoration: none;
+}
+
+// Stronger focus visibility for keyboard users
+a:focus-visible {
+  outline: 2px solid rgba(55, 65, 81, 0.35);
+  outline-offset: 2px;
 }
 
 // Global font sizing: responsive and cross-browser optimized
@@ -269,38 +285,26 @@ h2 {
     width: 100px;
     height: 20px;
     background-image: 
-  radial-gradient(circle, rgba(58, 118, 196, 0.15) 1px, transparent 1px);
+  radial-gradient(circle, rgba(252, 76, 2, 0.15) 1px, transparent 1px);
     background-size: 8px 8px;
     background-repeat: repeat-x;
   }
   
   a {
-    text-decoration: none;
+  text-decoration: underline;
     background-color: transparent;
-    color: $link-color;
+    color: $content-link-color;
     font-weight: 500;
-    transition: all 0.3s ease-in-out;
+  transition: color 0.2s ease-in-out, text-decoration-color 0.2s ease-in-out;
     position: relative;
-    
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 1px;
-  background: linear-gradient(90deg, $link-color, $trail-accent);
-      transition: width 0.3s ease;
-    }
+  text-underline-offset: 0.15em;
+  text-decoration-thickness: 0.08em;
+  text-decoration-color: rgba(55, 65, 81, 0.45);
   }
   
   a:hover {
-    color: $link-hover-color;
-    transform: translateY(-1px);
-    
-    &::after {
-      width: 100%;
-    }
+    color: $content-link-hover-color;
+  text-decoration: none;
   }
 
   .tag-list {
@@ -309,7 +313,7 @@ h2 {
     padding-bottom: 0.8em;
     font-size: 85%;
     
-    &::before {
+    &::before { // default: show icon
       content: "\f02b "; // Font Awesome tag icon
       font-family: "Font Awesome 6 Free";
       font-weight: 900;
@@ -328,7 +332,8 @@ h2 {
       margin-right: 0.6rem;
       margin-bottom: 0.3rem;
       text-decoration: none !important;
-      border: 1px solid rgba(220, 235, 255, 0.3) !important; // Subtle blue border
+  border: 1px solid rgba(255, 233, 223, 0.5) !important; // Warm subtle border to match theme
+  cursor: pointer;
       
       // Cross-browser transition support
       -webkit-transition: all 0.3s ease;
@@ -348,59 +353,36 @@ h2 {
       }
       
       &:hover {
-        background: linear-gradient(135deg, #eaf3ff 0%, #cfe8ff 100%);
-        color: #0f3166;
-        
-        // Cross-browser transform with fallbacks
-        -webkit-transform: translateY(-2px) scale(1.03);
-        -moz-transform: translateY(-2px) scale(1.03);
-        -ms-transform: translateY(-2px) scale(1.03);
-        -o-transform: translateY(-2px) scale(1.03);
-        transform: translateY(-2px) scale(1.03);
-        
-        // Cross-browser box shadow
-        -webkit-box-shadow: 0 4px 10px rgba(58, 118, 196, 0.15);
-        -moz-box-shadow: 0 4px 10px rgba(58, 118, 196, 0.15);
-        box-shadow: 0 4px 10px rgba(58, 118, 196, 0.15);
-        
-        // Reduce effects on mobile for better performance
-        @media (max-width: 767px) {
-          -webkit-transform: translateY(-1px) scale(1.01);
-          -moz-transform: translateY(-1px) scale(1.01);
-          -ms-transform: translateY(-1px) scale(1.01);
-          -o-transform: translateY(-1px) scale(1.01);
-          transform: translateY(-1px) scale(1.01);
-          
-          -webkit-box-shadow: 0 2px 6px rgba(58, 118, 196, 0.12);
-          -moz-box-shadow: 0 2px 6px rgba(58, 118, 196, 0.12);
-          box-shadow: 0 2px 6px rgba(58, 118, 196, 0.12);
-        }
-        
-        &::before {
-          color: #0f3166;
-        }
+        text-decoration: underline !important; // override global a:hover none
+        text-underline-offset: 0.12em;
+        text-decoration-thickness: 0.08em;
+        border-color: #ffdcca; // subtle accent on hover
       }
     }
   }
 }
 
+// On tags page, suppress the tag icon before tag lists
+.tags-page .tag-list::before { content: none !important; }
+
 // Results badges theming
 .result-badge {
-  background: $trail-accent !important; // light blue base to fit theme
+  background: $trail-accent !important; // light warm base to fit theme
   color: $heading-secondary !important;
-  border: 1px solid rgba(220, 235, 255, 0.6) !important;
+  border: 1px solid rgba(255, 233, 223, 0.6) !important;
   font-weight: 600;
   padding: 0.35rem 0.6rem;
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
+  text-decoration: none !important; // badges should not look like text links
 
   i { opacity: 0.95; }
 
   &:hover {
     transform: translateY(-1px);
-    box-shadow: 0 2px 8px rgba(58, 118, 196, 0.18);
+  box-shadow: 0 2px 8px rgba(252, 76, 2, 0.18);
   }
 }
 
@@ -411,8 +393,8 @@ h2 {
 }
 
 .result-badge--official {
-  background: linear-gradient(135deg, #eef5ff 0%, #dcebff 100%) !important; // neutral site-blue
-  color: #355b8c !important;
+  background: linear-gradient(135deg, #f5f5f4 0%, #e7e5e4 100%) !important; // neutral warm gray
+  color: #1f2937 !important;
 }
 
 .result-badge--utmb {
@@ -432,7 +414,7 @@ h2 {
 
 .blog-item {
   padding-bottom: 2em;
-  border-bottom: 2px dashed rgba(58, 118, 196, 0.15);
+  border-bottom: 2px dashed rgba(252, 76, 2, 0.15);
   margin-bottom: 2em;
   position: relative;
   transition: all 0.3s ease;
@@ -505,7 +487,7 @@ h2 {
 .post {
   blockquote {
     border: 1px solid #d1d5db;
-  border-left: 4px solid $trail-green; // Blue accent
+  border-left: 4px solid $trail-green; // Orange accent
     background-color: #fefdfb;
     padding: 1rem;
     margin: 1.5rem 0;
@@ -574,21 +556,23 @@ tbody + tbody {
 
 .tag-badge {
   display: inline-block;
-  padding: 0.25rem 0.6rem;
-  border-radius: 999px;
-  background: $trail-accent !important; // Force blue accent color
-  color: $heading-secondary !important; // Blue text to match theme
-  font-size: 0.8rem;
-  font-weight: 600;
+  padding: 0.3rem 0.7rem; // align with post tag chips
+  border-radius: 20px;    // align with post tag chips
+  background: $trail-accent !important; // Light warm accent
+  color: $heading-secondary !important; // Neutral text for contrast
+  font-size: 0.75rem;     // align with post tag chips
+  font-weight: 500;       // align with post tag chips
   margin: 0 0.4rem 0.4rem 0;
-  border: 1px solid rgba(220, 235, 255, 0.3) !important; // Subtle border in same tone
-  text-decoration: none;
+  border: 1px solid rgba(255, 233, 223, 0.5) !important; // Subtle border in same tone
+  text-decoration: none !important;
+  cursor: pointer;
 }
 
 .tag-badge:hover {
-  background: #eaf3ff; /* subtle sky tint */
-  border-color: #d6e8ff;
-  color: #285a99; /* deep blue text */
+  text-decoration: underline !important;
+  text-underline-offset: 0.12em;
+  text-decoration-thickness: 0.08em;
+  border-color: #ffdcca;
 }
 
 .tag-count {
@@ -606,13 +590,16 @@ tbody + tbody {
   align-items: baseline;
   gap: 0.5rem;
   padding: 0.25rem 0;
-  color: $link-color;
-  text-decoration: none;
+  color: $content-link-color;
+  text-decoration: none; // don't underline the whole row
 }
-
-.tag-posts li a:hover .title {
+.tag-posts li a .title {
   text-decoration: underline;
+  text-underline-offset: 0.15em;
+  text-decoration-thickness: 0.08em;
+  text-decoration-color: rgba(55, 65, 81, 0.45);
 }
+.tag-posts li a:hover .title { text-decoration: none; }
 
 .tag-posts .arrow {
   color: $trail-green;
@@ -694,10 +681,10 @@ tbody + tbody {
   // Race Statistics (keep existing)
   .race-stats {
     margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, rgba(168, 200, 240, 0.05) 0%, rgba(104, 159, 56, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(252, 76, 2, 0.05) 0%, rgba(255, 149, 0, 0.05) 100%);
     border-radius: 8px;
     padding: 1rem 1rem 0.75rem 1rem;
-    border: 1px solid rgba(168, 200, 240, 0.1);
+  border: 1px solid rgba(252, 76, 2, 0.12);
     
   .stats-grid {
       display: grid;
@@ -735,7 +722,7 @@ tbody + tbody {
     }
 
     .secondary-stats {
-      border-top: 1px dashed rgba(168, 200, 240, 0.2);
+  border-top: 1px dashed rgba(252, 76, 2, 0.12);
       padding-top: 0.5rem;
 
       &.collapsed { display: none; }
@@ -753,17 +740,17 @@ tbody + tbody {
         list-style: none;
         cursor: pointer;
         background: transparent;
-        color: $link-color;
-        border: 1px solid rgba(168, 200, 240, 0.4);
+    color: $link-color;
+  border: 1px solid rgba(252, 76, 2, 0.25);
         padding: 0.5rem 0.75rem;
         border-radius: 6px;
         font-size: 0.95rem;
         display: inline-block;
         // Keyboard-only focus visibility (avoid sticky highlight on touch)
         &:focus-visible {
-          outline: 2px solid rgba(168, 200, 240, 0.9);
+          outline: 2px solid rgba(252, 76, 2, 0.6);
           outline-offset: 2px;
-          border-color: rgba(168, 200, 240, 0.9);
+          border-color: rgba(252, 76, 2, 0.6);
         }
       }
       summary::-webkit-details-marker { display: none; }
@@ -830,7 +817,7 @@ tbody + tbody {
     .stats-toggle {
       background: transparent;
       color: $link-color;
-      border: 1px solid rgba(168, 200, 240, 0.4);
+  border: 1px solid rgba(252, 76, 2, 0.25);
       padding: 0.25rem 0.5rem;
       margin: 0.25rem 0 0.35rem 0;
       border-radius: 6px;
@@ -839,7 +826,7 @@ tbody + tbody {
       cursor: pointer;
       transition: all 0.2s ease;
 
-      &:hover { color: $link-hover-color; border-color: rgba(168, 200, 240, 0.8); }
+  &:hover { color: $link-hover-color; border-color: rgba(252, 76, 2, 0.5); }
 
       @media (min-width: 992px) { display: none; }
     }
@@ -907,17 +894,17 @@ tbody + tbody {
       border: none;
       transition: background-color 0.2s ease;
       
-      &:hover {
-        background-color: rgba(168, 200, 240, 0.03);
-      }
+    &:hover {
+  background-color: rgba(252, 76, 2, 0.03);
+    }
       
   // Row highlight classes intentionally neutral. Emoji badges convey the awards.
     }
     
     // Table cells
     tbody td {
-      border: none;
-      border-bottom: 1px solid rgba(168, 200, 240, 0.1);
+    border: none;
+  border-bottom: 1px solid rgba(252, 76, 2, 0.08);
       padding: 0.4rem 0.5rem; // Reduced from 1rem 0.75rem
       vertical-align: middle;
       
@@ -1042,10 +1029,10 @@ tbody + tbody {
     white-space: nowrap;
     display: inline-block;
     
-    // Default styling (fallback)
-    background: rgba(104, 159, 56, 0.1);
+    // Default styling (fallback) — align to warm theme
+  background: rgba(252, 76, 2, 0.08);
     color: $trail-green;
-    border: 1px solid rgba(104, 159, 56, 0.2);
+  border: 1px solid rgba(252, 76, 2, 0.2);
     
     // Pastel color variants for different race types
     &.race-tag-trail {
@@ -1250,7 +1237,7 @@ tbody + tbody {
       
       &:hover {
         color: $link-hover-color;
-        text-decoration: underline;
+  text-decoration: none;
       }
     }
   }
@@ -1260,7 +1247,7 @@ tbody + tbody {
 .front-list .blog-item {
   margin-bottom: 1em;
   padding-bottom: 1em;
-  border-bottom: 1px solid rgba(58, 118, 196, 0.12);
+  border-bottom: 1px solid rgba(252, 76, 2, 0.1);
 }
 
 .front-list .blog-item:last-child {

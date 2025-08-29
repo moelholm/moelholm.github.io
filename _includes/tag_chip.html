@@ -1,0 +1,4 @@
+{% assign href_prefix = include.href | default: '/tags#' %}
+<a class="tag" href="{{ href_prefix }}{{ include.name }}">
+  <nobr>{{ include.name }}</nobr>
+  </a>

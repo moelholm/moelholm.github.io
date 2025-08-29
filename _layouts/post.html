@@ -19,7 +19,7 @@ layout: default
 <span class="tag-list post-metadata">
   {% for tag in page.tags %}
     {% capture tag_name %}{{ tag }}{% endcapture %}
-    <a href="/tags#{{ tag_name }}" class="tag"><nobr>{{ tag_name }}</nobr></a>
+  {% include tag_chip.html name=tag_name href="/tags#" %}
   {% endfor %}
 </span>
 {% endif %}
