@@ -10,3 +10,6 @@ temp_conversion/
 __pycache__/
 *.pyc
 *.pyo
+
+# Local env for fetch-toots.sh
+.env.local

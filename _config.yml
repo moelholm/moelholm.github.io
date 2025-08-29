@@ -21,6 +21,8 @@ collections:
     output: true
     permalink: /blog/:collection/:year/:month/:day/:title
     tags: true
+  toots:
+    output: false
 feed:
   collections:
     - running
