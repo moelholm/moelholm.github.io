@@ -35,7 +35,7 @@ jobs:
         env:
           MASTODON_TOKEN: ${{ secrets.MASTODON_TOKEN }}
           MASTODON_INSTANCE: ${{ vars.MASTODON_INSTANCE }}
-          MASTODON_USER_ID: ${{ vars.MASTODON_USER_ID }}
+          MASTODON_USER_ID: ${{ secrets.MASTODON_USER_ID }}
           MASTODON_TAGS: running,ultrarunning,trailrunning
           MASTODON_LIMIT: 10
           MASTODON_MODE: global
