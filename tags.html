@@ -39,7 +39,7 @@ title: moelholm.com
       {% endif %}
     {% endfor %}
 
-  <h3 id="{{ tag }}"><span class="tag-list">{% include tag_chip.html name=tag href="/tags#" %}</span> <small class="tag-count">{{ tag_count }}</small></h3>
+  <h3 id="{{ tag }}">{% include tag_chip.html name=tag href="/tags#" %} <small class="tag-count">{{ tag_count }}</small></h3>
     <ul class="tag-posts">
       {% for post in site.running %}
         {% if post.tags contains tag %}
@@ -69,9 +69,9 @@ title: moelholm.com
     {% endfor %}
     {% assign sortedtags = tags | split:' ' | uniq | sort %}
 
-    <div class="mb-2">
+    <div class="mb-2 tag-list">
       {% for tag in sortedtags %}
-        <a href="#{{ tag }}" class="tag-badge">{{ tag }}</a>
+        {% include tag_chip.html name=tag href="/tags#" %}
       {% endfor %}
     </div>
   </div>
@@ -93,7 +93,7 @@ title: moelholm.com
       {% endif %}
     {% endfor %}
 
-    <h3 id="{{ tag }}"><span class="tag-badge">{{ tag }}</span> <small class="tag-count">{{ tag_count }}</small></h3>
+  <h3 id="{{ tag }}">{% include tag_chip.html name=tag href="/tags#" %} <small class="tag-count">{{ tag_count }}</small></h3>
     <ul class="tag-posts">
       {% for post in site.software_engineering %}
         {% if post.tags contains tag %}
