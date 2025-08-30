@@ -48,15 +48,26 @@ Below are my latest running toots (chat messages) from Mastodon.
 								{% endif %}
 								{% assign rendered = rendered | replace: '<a ', '<a target="_blank" rel="noopener" ' %}
 										{{ rendered }}
-										{% if toot.media and toot.media.size > 0 %}
-										  <div class="toot-media-grid mt-2">
-										  {% for m in toot.media %}
-										    <a class="toot-media-thumb" href="{{ m.url }}" target="_blank" rel="noopener" title="Open media">
-										      <img src="{{ m.thumb }}" alt="{{ m.alt }}" loading="lazy" />
-										    </a>
-										  {% endfor %}
-										  </div>
-										{% endif %}
+																														{% if toot.media and toot.media.size > 0 %}
+																															<div class="toot-media-grid mt-2">
+																															{% for m in toot.media %}
+																																{% assign lb_id = "lb-" | append: toot.id | append: "-" | append: forloop.index0 %}
+																																<label class="toot-media-thumb" for="{{ lb_id }}" title="View image">
+																																	<img src="{{ m.thumb }}" alt="{{ m.alt }}" loading="lazy" />
+																																</label>
+																															{% endfor %}
+																															</div>
+																															{%- comment -%} CSS-only lightboxes for each media item using checkbox/label (no history changes) {%- endcomment -%}
+																															{% for m in toot.media %}
+																																{% assign lb_id = "lb-" | append: toot.id | append: "-" | append: forloop.index0 %}
+																																<input id="{{ lb_id }}" class="toot-lightbox-toggle" type="checkbox" hidden />
+																																<div class="toot-lightbox" role="dialog" aria-label="Image viewer" aria-modal="true">
+																																	<label class="toot-lightbox__backdrop" for="{{ lb_id }}" aria-hidden="true"></label>
+																																	<img src="{{ m.url }}" alt="{{ m.alt }}" />
+																																	<label class="toot-lightbox__close" for="{{ lb_id }}" aria-label="Close">&times;</label>
+																																</div>
+																															{% endfor %}
+																														{% endif %}
 							</div>
 						</div>
 					</div>
