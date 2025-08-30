@@ -15,6 +15,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # Always fetch the latest master branch with full history to avoid stale state
+          ref: master
+          fetch-depth: 0
 
       - name: Configure Git user
         run: |
@@ -42,21 +46,25 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euxo pipefail
-          # Ensure we base our PR branch on latest master
-          git fetch origin master
+          # Ensure we base our PR branch on the absolute latest master from remote
+          git remote -v
+          git fetch --force --prune --tags origin +refs/heads/master:refs/remotes/origin/master
+          git rev-parse HEAD
+          git rev-parse origin/master
+          git log -1 --oneline origin/master
           git checkout -B bot/mastodon-toots origin/master
 
           # Generate files without committing
           python fetch_toots.py
 
-          # If no changes in the toot collection, exit early (no PR)
-          if [ -z "$(git status --porcelain -- blog_collections/_toots)" ]; then
-            echo "No toot changes; nothing to do."
+          # If no changes in toots nor media assets, exit early (no PR)
+          if [ -z "$(git status --porcelain -- blog_collections/_toots assets/toots_media)" ]; then
+            echo "No toot/media changes; nothing to do."
             exit 0
           fi
 
           # Commit and push PR branch
-          git add -A blog_collections/_toots
+          git add -A blog_collections/_toots assets/toots_media
           git commit -m "chore(toots): refresh generated toot files"
           git push -u origin bot/mastodon-toots
 
