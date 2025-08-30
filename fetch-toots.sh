@@ -13,7 +13,7 @@ usage() {
 Usage: ./fetch-toots.sh [options]
 
 Options:
-  --instance URL         Mastodon instance base URL (e.g., https://hachyderm.io)
+  --instance URL         Mastodon instance base URL (default: https://fosstodon.org)
   --user-id ID           Your Mastodon numeric account ID on that instance
   --limit N              Max number of toots to fetch (default: 10)
   --tags CSV             Comma-separated tags (default: running,ultrarunning,trailrunning)
@@ -48,12 +48,19 @@ fi
 : "${MASTODON_LIMIT:=10}"
 : "${MASTODON_TAGS:=running,ultrarunning,trailrunning}"
 : "${MASTODON_MODE:=global}"
+# Default Mastodon instance if not provided via env or CLI
+: "${MASTODON_INSTANCE:=https://fosstodon.org}"
 
 # Parse args
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --instance)
-      MASTODON_INSTANCE=${2:-}; shift 2 ;;
+      # Require a non-empty URL to override the default; don't blank it out
+      if [[ $# -lt 2 || -z "${2:-}" || "${2}" == --* ]]; then
+        echo "Error: --instance requires a URL (e.g., --instance https://fosstodon.org)" >&2
+        exit 2
+      fi
+      MASTODON_INSTANCE="$2"; shift 2 ;;
     --user-id)
       MASTODON_USER_ID=${2:-}; shift 2 ;;
     --limit)
@@ -94,11 +101,11 @@ PY
   python3 -m pip install --user --quiet --upgrade requests html2text
 fi
 
-echo "Running fetch_toots.py"
+echo "Running fetch_toots.py (instance: ${MASTODON_INSTANCE})"
 MASTODON_LIMIT=${MASTODON_LIMIT} \
 MASTODON_TAGS=${MASTODON_TAGS} \
 MASTODON_MODE=${MASTODON_MODE} \
-MASTODON_INSTANCE=${MASTODON_INSTANCE:-} \
+MASTODON_INSTANCE=${MASTODON_INSTANCE} \
 MASTODON_USER_ID=${MASTODON_USER_ID:-} \
 MASTODON_TOKEN=${MASTODON_TOKEN} \
 python3 fetch_toots.py
