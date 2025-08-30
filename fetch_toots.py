@@ -30,7 +30,6 @@ from pathlib import Path
 from typing import List, Dict, Any, Set
 from urllib.parse import urlparse
 from hashlib import sha1
-from pathlib import Path
 
 import requests
 import html2text
@@ -300,7 +299,6 @@ def main() -> int:
         debug("No toot files produced; keeping existing content and removing temp directory")
         shutil.rmtree(tmp_dir)
 
-    debug("Generation complete; CI will handle commit/PR if needed.")
     return 0
 
 
