@@ -29,6 +29,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import List, Dict, Any, Set
 from urllib.parse import urlparse
+from hashlib import sha1
+from pathlib import Path
 
 import requests
 import html2text
@@ -76,6 +78,30 @@ def to_markdown(html: str) -> str:
 
 
 # ----------------------
+# Media helpers (thumbnails)
+# ----------------------
+def _safe_filename_from_url(u: str, prefix: str = "thumb_") -> str:
+    try:
+        p = urlparse(u)
+        name = Path(p.path).name or "file"
+        ext = Path(name).suffix
+    except Exception:
+        ext = ""
+    digest = sha1(u.encode("utf-8")).hexdigest()[:12]
+    return f"{prefix}{digest}{ext}"
+
+
+def _download(url: str, dest: Path) -> None:
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    with requests.get(url, stream=True, timeout=30) as r:
+        r.raise_for_status()
+        with open(dest, "wb") as f:
+            for chunk in r.iter_content(chunk_size=8192):
+                if chunk:
+                    f.write(chunk)
+
+
+# ----------------------
 # Core logic
 # ----------------------
 def fetch_statuses(token: str, instance: str, user_id: str, tag: str, limit: int) -> List[Dict[str, Any]]:
@@ -95,7 +121,7 @@ def fetch_statuses(token: str, instance: str, user_id: str, tag: str, limit: int
     return data
 
 
-def write_toot_file(out_dir: Path, toot: Dict[str, Any], tag: str) -> Path:
+def write_toot_file(out_dir: Path, media_root: Path, toot: Dict[str, Any], tag: str) -> Path:
     toot_id = str(toot.get("id"))
     created_at = iso_utc(str(toot.get("created_at")))
     url = str(toot.get("url", ""))
@@ -124,6 +150,35 @@ def write_toot_file(out_dir: Path, toot: Dict[str, Any], tag: str) -> Path:
     ]
     for h in hashtags:
         fm_lines.append(f"  - {h}")
+    # Media attachments: download preview thumbnails into media_root/<id>/ and expose in front matter
+    attachments = toot.get("media_attachments") or []
+    media_items: list[dict] = []
+    if attachments:
+        media_dir = media_root / toot_id
+        for att in attachments:
+            thumb_url = str(att.get("preview_url") or att.get("url") or "").strip()
+            full_url = str(att.get("url") or "").strip()
+            alt = str(att.get("description") or "").strip()
+            if not thumb_url:
+                continue
+            fname = _safe_filename_from_url(thumb_url)
+            try:
+                _download(thumb_url, media_dir / fname)
+            except Exception:
+                continue
+            media_items.append({
+                "thumb": f"/assets/toots_media/{toot_id}/{fname}",
+                "url": full_url or thumb_url,
+                "alt": alt,
+            })
+    if media_items:
+        fm_lines.append("media:")
+        for m in media_items:
+            fm_lines.append(f"  - thumb: \"{m['thumb']}\"")
+            fm_lines.append(f"    url: \"{m['url']}\"")
+            if m.get("alt"):
+                fm_lines.append(f"    alt: \"{m['alt'].replace('\\"', "'")}\"")
+
     fm_lines += [
         "---",
         "",
@@ -146,11 +201,19 @@ def main() -> int:
     collections_root = repo_root / "blog_collections"
     out_dir = collections_root / "_toots"
     tmp_dir = collections_root / "_toots.tmp"
+    # Assets media directories (atomic swap as well)
+    assets_root = repo_root / "assets"
+    media_final_dir = assets_root / "toots_media"
+    media_tmp_dir = assets_root / "toots_media.tmp"
 
     # Prepare a clean temporary directory for safe generation
     if tmp_dir.exists():
         shutil.rmtree(tmp_dir)
     tmp_dir.mkdir(parents=True, exist_ok=True)
+    # Prepare media tmp dir
+    if media_tmp_dir.exists():
+        shutil.rmtree(media_tmp_dir)
+    media_tmp_dir.mkdir(parents=True, exist_ok=True)
 
     # Fetch and write
     total_written = 0
@@ -177,7 +240,7 @@ def main() -> int:
         )
         for st in sorted_statuses[:LIMIT]:
             tag = id_to_tag.get(str(st.get("id")), TAGS[0] if TAGS else "")
-            write_toot_file(tmp_dir, st, tag)
+            write_toot_file(tmp_dir, media_tmp_dir, st, tag)
             total_written += 1
     else:
         seen: Set[str] = set()
@@ -195,7 +258,7 @@ def main() -> int:
                 toot_id = str(st.get("id"))
                 if toot_id in seen:
                     continue
-                write_toot_file(tmp_dir, st, tag)
+                write_toot_file(tmp_dir, media_tmp_dir, st, tag)
                 seen.add(toot_id)
                 total_written += 1
                 count_for_tag += 1
@@ -223,6 +286,15 @@ def main() -> int:
             debug(f"Replacing existing directory {out_dir} with freshly generated content")
             shutil.rmtree(out_dir)
         tmp_dir.rename(out_dir)
+        # Swap media assets atomically
+        backup = assets_root / "toots_media.backup"
+        if backup.exists():
+            shutil.rmtree(backup)
+        if media_final_dir.exists():
+            media_final_dir.rename(backup)
+        media_tmp_dir.rename(media_final_dir)
+        if backup.exists():
+            shutil.rmtree(backup)
         debug(f"Wrote {total_written} toot files to {out_dir}")
     else:
         debug("No toot files produced; keeping existing content and removing temp directory")

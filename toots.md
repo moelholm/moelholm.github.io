@@ -47,7 +47,16 @@ Below are my latest running toots (chat messages) from Mastodon.
 									{% endfor %}
 								{% endif %}
 								{% assign rendered = rendered | replace: '<a ', '<a target="_blank" rel="noopener" ' %}
-								{{ rendered }}
+										{{ rendered }}
+										{% if toot.media and toot.media.size > 0 %}
+										  <div class="toot-media-grid mt-2">
+										  {% for m in toot.media %}
+										    <a class="toot-media-thumb" href="{{ m.url }}" target="_blank" rel="noopener" title="Open media">
+										      <img src="{{ m.thumb }}" alt="{{ m.alt }}" loading="lazy" />
+										    </a>
+										  {% endfor %}
+										  </div>
+										{% endif %}
 							</div>
 						</div>
 					</div>
