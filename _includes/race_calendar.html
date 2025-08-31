@@ -3,10 +3,13 @@ Races Include Template
 Usage: {% include race_calendar.html year="2025" %}
 Parameters:
 - year: The year to filter races (required)
-This refactored template delegates logic/markup into partials for maintainability.
 {% endcomment %}
 
 {% assign calendar_year = include.year | default: "2025" %}
+
+Below are the races I have run in {{ calendar_year }}. You can filter by category.
+
+<br/><br/>
 
 {% include races/compute_stats.html calendar_year=calendar_year %}
 

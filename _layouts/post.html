@@ -16,12 +16,12 @@ layout: default
 {% endif %}
 
 {% if page.tags != empty %}
-<span class="tag-list post-metadata">
+<div class="post-metadata mb-3">
   {% for tag in page.tags %}
     {% capture tag_name %}{{ tag }}{% endcapture %}
-  {% include tag_chip.html name=tag_name href="/tags#" %}
+    {% include tag_chip.html name=tag_name href="/tags#" size="md" %}
   {% endfor %}
-</span>
+  </div>
 {% endif %}
 
 <div class="post">

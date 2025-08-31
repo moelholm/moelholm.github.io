@@ -34,6 +34,20 @@ $trail-green: #ff6a33;      // primary accent (warm)
 $trail-forest: #e4500c;     // deeper warm
 $trail-accent: #ffe9df;     // light warm tint
 
+// Breakpoints (single source of truth)
+// Very small phones (iPhone SE and similar)
+$bp-compact: 480px;         // min-width for compact phones
+$bp-compact-max: 479px;     // max-width strictly below compact
+// Phones (portrait + landscape)
+$bp-phone-max: 767px;       // max-width for phones
+// iPad / Tablets (portrait + landscape)
+$bp-ipad-min: 768px;        // min-width for iPad/tablets
+$bp-ipad-max: 1023px;       // max-width for iPad/tablets
+// Desktops
+$bp-desktop-min: 1024px;    // min-width for desktops and up
+// Wide desktops
+$bp-wide-min: 1200px;       // min-width for large displays
+
 // Running-themed animations and effects
 @keyframes pulse-run {
   0%, 100% { transform: scale(1); }
@@ -139,7 +153,7 @@ footer.bg-dark {
   }
   
   // Mobile and tablet responsive navigation styling
-  @media (max-width: 991px) { // Extended from 767px to include tablets
+  @media (max-width: $bp-ipad-max) { // Phones + tablets (portrait/landscape)
     display: inline-block; // Prevent full-width stretching
     width: auto;
     
@@ -152,7 +166,7 @@ footer.bg-dark {
   }
   
   // Extra small mobile screens
-  @media (max-width: 480px) {
+  @media (max-width: $bp-compact) {
     &:hover {
       &::before {
         width: 50%; // Slightly wider on very small screens
@@ -174,6 +188,15 @@ a:visited {
   text-underline-offset: 0.15em;
   text-decoration-thickness: 0.08em;
   text-decoration-color: rgba(55, 65, 81, 0.45);
+}
+
+// Always show a pointer for clickable links across the site (even when window is narrow)
+a[href],
+.stretched-link,
+.navbar-dark .navbar-nav .nav-link,
+.post-title-link,
+.btn[href] {
+  cursor: pointer !important;
 }
 
 a:hover,
@@ -198,19 +221,19 @@ body {
 }
 
 // Responsive typography breakpoints
-@media (min-width: 480px) {
+@media (min-width: $bp-compact) {
   body { font-size: 0.98rem; } // Small tablets
 }
 
-@media (min-width: 768px) {
+@media (min-width: $bp-ipad-min) {
   body { font-size: 0.96rem; } // Tablets and small desktops
 }
 
-@media (min-width: 1024px) {
+@media (min-width: $bp-desktop-min) {
   body { font-size: 0.95rem; } // Desktops
 }
 
-@media (min-width: 1200px) {
+@media (min-width: $bp-wide-min) {
   body { font-size: 0.94rem; } // Large desktops
 }
 
@@ -232,6 +255,14 @@ h1 {
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
 }
+
+// Inline RSS icon next to H1/H2 titles
+.rss-link-inline {
+  margin-left: 0.4rem;
+  color: inherit !important;
+  text-decoration: none !important;
+}
+.rss-link-inline:hover { color: $link-color !important; }
 
 h2 {
   color: $heading-secondary; // Medium blue
@@ -321,44 +352,6 @@ h2 {
       opacity: 0.8;
       margin-right: 5px;
     }
-    
-    .tag {
-      background: $trail-accent !important; // Force blue accent color
-      color: $heading-secondary !important; // Blue text to match theme
-      padding: 0.3rem 0.7rem;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      font-weight: 500;
-      margin-right: 0.6rem;
-      margin-bottom: 0.3rem;
-      text-decoration: none !important;
-  border: 1px solid rgba(255, 233, 223, 0.5) !important; // Warm subtle border to match theme
-  cursor: pointer;
-      
-      // Cross-browser transition support
-      -webkit-transition: all 0.3s ease;
-      -moz-transition: all 0.3s ease;
-      -o-transition: all 0.3s ease;
-      transition: all 0.3s ease;
-      
-      display: inline-block;
-      position: relative;
-      
-      // Touch-friendly sizing for mobile
-      @media (max-width: 767px) {
-        padding: 0.4rem 0.8rem; // Slightly larger touch targets
-        font-size: 0.8rem;
-        margin-right: 0.4rem;
-        margin-bottom: 0.4rem;
-      }
-      
-      &:hover {
-        text-decoration: underline !important; // override global a:hover none
-        text-underline-offset: 0.12em;
-        text-decoration-thickness: 0.08em;
-        border-color: #ffdcca; // subtle accent on hover
-      }
-    }
   }
 
   // Toots page updated timestamp styling
@@ -394,13 +387,8 @@ h2 {
     }
   }
 
-  // Compact spacing for toot list
-  .toots-list {
-  .blog-item { margin-bottom: 0.25rem; }
-    .card { margin: 0; }
-  .card-body { padding-top: 0.35rem; padding-bottom: 0.4rem; }
-  .toot-content { margin-bottom: 0 !important; }
-  }
+  // Unify spacing with running compact list – rely on shared .blog-item--compact and py-1
+  // (no toot-specific spacing overrides here)
 }
 
 // On tags page, suppress the tag icon before tag lists
@@ -519,6 +507,15 @@ h2 {
   }
 }
 
+// Frontpage cards: try race table link colors for headings
+.home-post__title {
+  color: $link-color !important;
+  &:hover,
+  &:focus { color: $link-hover-color !important; }
+}
+
+// (intentionally no special color for homepage section headers; use default theme)
+
 // Homepage intro spacing tweak
 .blog-item.intro {
   margin-bottom: 0.9em; // was 1.2em
@@ -595,6 +592,18 @@ tbody + tbody {
   margin-bottom: 1rem;
 }
 
+// Legacy .tag chips (kept minimal) — prefer .race-tag
+.tag { background: transparent; color: $content-link-color; padding: 0.1rem 0.2rem; border-radius: 4px; font-size: 0.8rem; display: inline-block; }
+.tag:hover { text-decoration: underline !important; }
+
+// Make tags larger on the tags page (index row and headers) – legacy only
+.tags-page .tag { font-size: 0.9rem; padding: 0.2rem 0.4rem; }
+.tags-page h3 .tag { margin-right: 0.4rem; vertical-align: middle; }
+
+// Ensure race-tag chips have comfortable vertical spacing on the tags page
+.tags-page .race-tag { margin: 0.22rem 0.28rem 0.22rem 0; }
+.tags-page h3 .race-tag { margin-right: 0.4rem; vertical-align: middle; }
+
 .tag-badge {
   display: inline-block;
   padding: 0.3rem 0.7rem; // align with post tag chips
@@ -635,12 +644,10 @@ tbody + tbody {
   text-decoration: none; // don't underline the whole row
 }
 .tag-posts li a .title {
-  text-decoration: underline;
-  text-underline-offset: 0.15em;
-  text-decoration-thickness: 0.08em;
-  text-decoration-color: rgba(55, 65, 81, 0.45);
+  color: $link-color; // align with card titles and race links
+  text-decoration: none;
 }
-.tag-posts li a:hover .title { text-decoration: none; }
+.tag-posts li a:hover .title { color: $link-hover-color; }
 
 .tag-posts .arrow {
   color: $trail-green;
@@ -732,12 +739,12 @@ tbody + tbody {
       grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
       gap: 1.2rem 1rem;
       
-      @media (max-width: 767px) {
+  @media (max-width: $bp-phone-max) {
         grid-template-columns: repeat(2, 1fr);
         gap: 0.6rem;
       }
       
-      @media (max-width: 480px) {
+  @media (max-width: $bp-compact) {
         grid-template-columns: repeat(2, 1fr);
         gap: 0.5rem;
       }
@@ -746,7 +753,7 @@ tbody + tbody {
   // Do NOT override display for grid containers on desktop
   .show-on-phone { display: none; }
     // Phones and tablets: show extra primary tile, hide desktop-only blocks
-    @media (max-width: 991px) {
+  @media (max-width: $bp-ipad-max) {
       .show-on-phone { display: block; }
   .hide-on-phone { display: none !important; }
     }
@@ -754,10 +761,10 @@ tbody + tbody {
     
     .primary-stats {
       margin-bottom: 0.25rem;
-      @media (min-width: 992px) {
+  @media (min-width: $bp-desktop-min) {
   grid-template-columns: repeat(3, 1fr);
       }
-      @media (min-width: 768px) and (max-width: 991px) {
+  @media (min-width: $bp-ipad-min) and (max-width: $bp-ipad-max) {
         grid-template-columns: repeat(2, 1fr);
       }
     }
@@ -768,7 +775,7 @@ tbody + tbody {
 
       &.collapsed { display: none; }
 
-      @media (min-width: 992px) {
+  @media (min-width: $bp-desktop-min) {
         // Max 3 columns on desktop so 5 items become 3 + 2
         grid-template-columns: repeat(3, minmax(140px, 1fr));
       }
@@ -798,7 +805,7 @@ tbody + tbody {
       &[open] summary.stats-toggle { color: $link-hover-color; }
 
       // Phone: make toggle full-width and ensure a 44px+ tap target
-      @media (max-width: 767px) {
+  @media (max-width: $bp-phone-max) {
         summary.stats-toggle {
           display: flex;
           align-items: center;
@@ -818,11 +825,11 @@ tbody + tbody {
         color: $trail-green;
         line-height: 1.2;
         
-        @media (max-width: 767px) {
+  @media (max-width: $bp-phone-max) {
           font-size: 1.3rem;
         }
         
-        @media (max-width: 480px) {
+  @media (max-width: $bp-compact) {
           font-size: 1.2rem;
         }
       }
@@ -837,11 +844,11 @@ tbody + tbody {
         font-weight: 500;
         line-height: 1.2;
         
-        @media (max-width: 767px) {
+  @media (max-width: $bp-phone-max) {
           font-size: 0.68rem;
         }
         
-        @media (max-width: 480px) {
+  @media (max-width: $bp-compact) {
           font-size: 0.62rem;
         }
       }
@@ -869,7 +876,7 @@ tbody + tbody {
 
   &:hover { color: $link-hover-color; border-color: rgba(252, 76, 2, 0.5); }
 
-      @media (min-width: 992px) { display: none; }
+  @media (min-width: $bp-desktop-min) { display: none; }
     }
   }
   
@@ -879,7 +886,7 @@ tbody + tbody {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     border: none !important;
     
-    @media (min-width: 768px) and (max-width: 991px) {
+  @media (min-width: $bp-ipad-min) and (max-width: $bp-ipad-max) {
       // Ensure table doesn't scroll horizontally on medium screens
       overflow-x: visible;
     }
@@ -1060,62 +1067,12 @@ tbody + tbody {
     }
   }
   
-  // Race tags in table
-  .race-tag {
-    font-size: 0.65rem;
-    padding: 0.2rem 0.4rem;
-    border-radius: 6px;
-    font-weight: 500;
-    text-transform: lowercase;
-    white-space: nowrap;
-    display: inline-block;
-    
-    // Default styling (fallback) — align to warm theme
-  background: rgba(252, 76, 2, 0.08);
-    color: $trail-green;
-  border: 1px solid rgba(252, 76, 2, 0.2);
-    
-    // Pastel color variants for different race types
-    &.race-tag-trail {
-      background: rgba(152, 251, 152, 0.3); // Pale green
-      color: #228B22; // Forest green
-      border: 1px solid rgba(152, 251, 152, 0.5);
-    }
-    
-    &.race-tag-ultra {
-      background: rgba(255, 182, 193, 0.4); // Light pink
-      color: #DC143C; // Crimson
-      border: 1px solid rgba(255, 182, 193, 0.6);
-    }
-    
-    &.race-tag-half {
-      background: rgba(173, 216, 230, 0.4); // Light blue
-      color: #4682B4; // Steel blue
-      border: 1px solid rgba(173, 216, 230, 0.6);
-    }
-    
-    &.race-tag-marathon {
-      background: rgba(221, 160, 221, 0.4); // Plum
-      color: #8B008B; // Dark magenta
-      border: 1px solid rgba(221, 160, 221, 0.6);
-    }
-    
-    &.race-tag-backyard {
-      background: rgba(255, 218, 185, 0.4); // Peach
-      color: #FF8C00; // Dark orange
-      border: 1px solid rgba(255, 218, 185, 0.6);
-    }
-    
-    @media (max-width: 767px) {
-      font-size: 0.6rem;
-      padding: 0.15rem 0.3rem;
-    }
-  }
+  // Race tags in table – rely on global .race-tag styles
   
   // Responsive adjustments
   
-  // Medium screens (tablets, small laptops) - 768px to 991px
-  @media (min-width: 768px) and (max-width: 991px) {
+  // Tablet screens (portrait + small laptops) - 768px to 1023px
+  @media (min-width: $bp-ipad-min) and (max-width: $bp-ipad-max) {
     .races-table {
       font-size: 0.85rem;
       
@@ -1155,7 +1112,7 @@ tbody + tbody {
   }
   
   // Small screens (mobile) - below 768px
-  @media (max-width: 767px) {
+  @media (max-width: $bp-phone-max) {
     .races-table {
       font-size: 0.9rem;
       
@@ -1215,7 +1172,7 @@ tbody + tbody {
   }
   
   // Extra small screens (iPhone portrait) - below 480px
-  @media (max-width: 479px) {
+  @media (max-width: $bp-compact-max) {
     .races-table {
       font-size: 0.8rem;
       
@@ -1339,7 +1296,7 @@ tbody + tbody {
   gap: 8px; // more space between tiles
   margin-top: 8px;
 }
-@media (min-width: 768px) { // tablet and up: 4 columns
+@media (min-width: $bp-ipad-min) { // tablet and up: 4 columns
   .toot-media-grid { grid-template-columns: repeat(4, 1fr); gap: 10px; }
 }
 /* Fancy, broadly compatible gradient border using layered backgrounds */
@@ -1375,7 +1332,7 @@ tbody + tbody {
 }
 
 // CSS-only lightbox for toot media using checkbox/label (no URL hash)
-.toot-lightbox {
+.lightbox {
   position: fixed;
   inset: 0;
   z-index: 9999;
@@ -1386,15 +1343,15 @@ tbody + tbody {
   overscroll-behavior: contain; // avoid background scroll chaining
   touch-action: none; // prevent scroll/pinch gestures bleeding through
 }
-.toot-lightbox-toggle:checked + .toot-lightbox { display: flex; }
-.toot-lightbox__backdrop {
+.lightbox-toggle:checked + .lightbox { display: flex; }
+.lightbox__backdrop {
   position: absolute;
   inset: 0;
   background: rgba(0,0,0,0.75);
   backdrop-filter: blur(1px);
   cursor: pointer;
 }
-.toot-lightbox img {
+.lightbox img {
   position: relative;
   max-width: 95vw;
   max-height: 90vh;
@@ -1403,7 +1360,7 @@ tbody + tbody {
   border-radius: 8px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.35);
 }
-.toot-lightbox__close {
+.lightbox__close {
   position: absolute;
   top: 10px;
   right: 12px;
@@ -1415,7 +1372,236 @@ tbody + tbody {
   cursor: pointer;
 }
 
+// Make the image itself clickable to close
+.lightbox__image { cursor: pointer; display: inline-block; }
+
+// Generic lightbox trigger: indicate clickability without altering site visuals
+.lightbox-trigger { cursor: pointer; display: inline-block; }
+
 // Reduce motion respect
 @media (prefers-reduced-motion: reduce) {
   .toot-media-thumb { transition: none; }
+}
+
+// Home hero and grid (frontpage redesign)
+.home-hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  align-items: start;
+  
+  .home-hero__img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 2px 14px rgba(0,0,0,0.08);
+    object-fit: cover;
+    max-height: 340px;
+  }
+  .home-hero__text {
+    h1 { margin: 0 0 0.25rem 0; }
+    p { margin: 0 0 0.75rem 0; color: $text-muted; }
+  }
+  .home-hero__cta { margin-top: 0.25rem; }
+
+  @media (min-width: $bp-desktop-min) {
+    grid-template-columns: 5fr 4fr; // image + text
+    .home-hero__img { max-height: 420px; }
+  }
+}
+
+// Tablets (iPad portrait + landscape): keep side-by-side but tweak proportions and type
+@media (min-width: $bp-ipad-min) and (max-width: $bp-ipad-max) {
+  .home-hero { grid-template-columns: 6fr 5fr; gap: 0.75rem; }
+  .home-hero .home-hero__img { max-height: 380px; }
+  .home-hero .home-hero__text h1 { font-size: 2.25rem; line-height: 1.15; }
+}
+
+/* Keep front-page badges tidy on tablets (portrait + landscape): 2 x 2 grid */
+@media (min-width: $bp-ipad-min) and (max-width: $bp-ipad-max) {
+  .home-hero .external-race-links {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    gap: 0.5rem 0.6rem;
+    align-items: center;
+  }
+  .home-hero .external-race-links .result-badge { margin: 0 !important; }
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: 1fr; // each category owns a full row
+  gap: 1rem;
+
+  .home-post { margin-bottom: 0.5rem; }
+}
+
+// Compact variants for homepage
+.home-post--compact .card-body {
+  padding: 0.6rem 0.75rem; // tighter spacing
+}
+
+.blog-item--compact {
+  margin-bottom: 0.6rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(252, 76, 2, 0.08);
+  .home-post__title { font-size: 1.05rem; }
+}
+
+// Ensure toot list uses the same compact spacing as running list
+.list-cards .blog-item {
+  margin-bottom: 0.6rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(252, 76, 2, 0.08);
+}
+
+// Normalize spacing inside compact cards (only within toot/running lists)
+.list-cards .blog-item--compact .card-body {
+  // Prevent extra space at bottom when last child has margin
+  padding-bottom: 0.6rem; // ensure consistent inner bottom padding
+}
+.list-cards .blog-item--compact .toot-content:last-child,
+.list-cards .blog-item--compact .toot-media-grid:last-child,
+.list-cards .blog-item--compact .race-tag:last-child,
+.list-cards .blog-item--compact .card-extra:last-child {
+  margin-bottom: 0; // remove trailing margins from last element
+}
+.list-cards .blog-item--compact .card-extra { margin-top: 0.4rem; }
+.list-cards .blog-item--compact .race-tag { margin-right: 0.35rem; margin-bottom: 0.35rem; }
+
+// Grid of samples (posts, updates, results) shared layout
+.home-samples {
+  display: grid;
+  grid-template-columns: 1fr; // default: stack on phones
+  gap: 0.6rem;
+  align-items: stretch; // equal height rows
+  // Allow items to shrink within grid tracks (prevents min-content from forcing uneven columns)
+  > * { min-width: 0; }
+
+  // default two columns at desktop and up
+  @media (min-width: $bp-desktop-min) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  // four-up variant for updates
+  &.home-samples--four { @media (min-width: $bp-desktop-min) { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+  // two-up explicit variant (race results)
+  &.home-samples--two { @media (min-width: $bp-desktop-min) { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+}
+
+// Make cards equal height inside sample grids
+.home-samples .card { height: 100%; }
+.home-samples .home-post .card-body { display: flex; flex-direction: column; }
+// Only push the bottom action row to the bottom – not the top timestamp
+.home-samples .home-post .card-body .text-right:last-child { margin-top: auto; }
+// Normalize header row alignment across cards (avoid baseline quirks with emoji/icons)
+.home-samples .home-post .d-flex.align-items-baseline { align-items: center !important; }
+// Make whole cards feel clickable on desktop and narrow widths
+.home-samples .home-post.position-relative .stretched-link { z-index: 1; }
+.home-samples .home-post { cursor: pointer; }
+// Ensure long URLs or unbroken text don't force column growth
+.home-samples .home-post .card-text,
+.home-samples .home-post .home-post__title {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+// RSS link styles
+.rss-link-block { text-align: right; }
+.rss-link,
+.rss-link-inline {
+  color: $link-color; // heading-accent orange
+  text-decoration: none;
+}
+.rss-link:hover,
+.rss-link-inline:hover { color: $link-hover-color; text-decoration: none; }
+
+// Float variant: make the RSS icon float to the right so following text wraps
+.rss-link--float {
+  float: right;
+  margin: 0.15rem 0 0.35rem 0.6rem; // space between icon and text
+  line-height: 1; // keep it tight
+}
+
+// Avoid awkward float on very narrow screens
+@media (max-width: $bp-compact) {
+  .rss-link--float { float: none; display: inline-block; margin-left: 0.25rem; }
+}
+
+.emoji-badge { font-size: 0.95rem; line-height: 1; }
+
+
+// Meta chips used in race results samples
+.home-sample-meta {
+  display: inline-flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+  margin-top: 0.15rem;
+  .meta-item {
+    font-variant-numeric: tabular-nums;
+    background: transparent;
+    color: #5f6b7a;
+    border: 1px solid #E6EBF2;
+    border-radius: 6px;
+    padding: 0.08rem 0.32rem;
+    line-height: 1.05;
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.8rem;
+  }
+}
+
+// Thin separator used inside compact home cards
+.home-card-sep {
+  margin: 0.35rem 0 0.45rem 0;
+  border: 0;
+  border-top: 1px solid rgba(252, 76, 2, 0.08);
+}
+
+// Inline race tags for home cards (reuse table styles)
+.home-sample-tags { margin-top: 0.25rem; }
+.home-sample-tags .race-tags-inline { display: inline-flex; gap: 0.25rem; flex-wrap: wrap; }
+
+// Global race tag styles (mirror races table chips) so they work outside .races-container
+.race-tag {
+  font-size: 0.65rem;
+  padding: 0.2rem 0.4rem;
+  border-radius: 6px;
+  font-weight: 500;
+  text-transform: lowercase;
+  white-space: nowrap;
+  display: inline-block;
+  background: rgba(252, 76, 2, 0.08);
+  color: $trail-green;
+  border: 1px solid rgba(252, 76, 2, 0.2);
+}
+.race-tag.race-tag--sm { font-size: 0.6rem; padding: 0.15rem 0.3rem; }
+.race-tag.race-tag--md { font-size: 0.7rem; padding: 0.2rem 0.4rem; }
+.race-tag.race-tag--lg { font-size: 0.9rem; padding: 0.35rem 0.6rem; }
+.race-tag.race-tag-trail {
+  background: rgba(152, 251, 152, 0.3);
+  color: #228B22;
+  border: 1px solid rgba(152, 251, 152, 0.5);
+}
+.race-tag.race-tag-ultra {
+  background: rgba(255, 182, 193, 0.4);
+  color: #DC143C;
+  border: 1px solid rgba(255, 182, 193, 0.6);
+}
+.race-tag.race-tag-half {
+  background: rgba(173, 216, 230, 0.4);
+  color: #4682B4;
+  border: 1px solid rgba(173, 216, 230, 0.6);
+}
+.race-tag.race-tag-marathon {
+  background: rgba(221, 160, 221, 0.4);
+  color: #8B008B;
+  border: 1px solid rgba(221, 160, 221, 0.6);
+}
+.race-tag.race-tag-backyard {
+  background: rgba(255, 218, 185, 0.4);
+  color: #FF8C00;
+  border: 1px solid rgba(255, 218, 185, 0.6);
+}
+@media (max-width: $bp-phone-max) {
+  .race-tag { font-size: 0.6rem; padding: 0.15rem 0.3rem; }
 }

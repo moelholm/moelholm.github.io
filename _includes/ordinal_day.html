@@ -1,0 +1,13 @@
+{% comment %}
+Returns the day of month with ordinal suffix (e.g., 1st, 2nd, 3rd, 4th, ...).
+Input: date (include.date)
+{% endcomment %}
+{% assign d_str = include.date | date: "%d" %}
+{% assign d = d_str | plus: 0 %}
+{% assign mod100 = d | modulo: 100 %}
+{% assign mod10 = d | modulo: 10 %}
+{% assign suffix = 'th' %}
+{% if mod100 != 11 and mod10 == 1 %}{% assign suffix = 'st' %}{% endif %}
+{% if mod100 != 12 and mod10 == 2 %}{% assign suffix = 'nd' %}{% endif %}
+{% if mod100 != 13 and mod10 == 3 %}{% assign suffix = 'rd' %}{% endif %}
+{{ d }}{{ suffix }}

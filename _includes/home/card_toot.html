@@ -1,0 +1,32 @@
+{%- comment -%}
+Render a toot card for homepage.
+Input: toot
+{%- endcomment -%}
+<div class="blog-item blog-item--compact">
+  <div class="card home-post home-post--compact position-relative">
+    <div class="card-body py-2">
+  <div class="text-right"><small>{{ include.toot.date | date: "%Y-%m-%d %H:%M"| append: " UTC" }}</small></div>
+      <div class="d-flex align-items-baseline justify-content-between">
+        {%- assign src = include.toot.remote_url | default: include.toot.url -%}
+        {%- assign parts = src | split: '/' -%}
+        {%- assign rev = parts | reverse -%}
+        {%- assign toot_anchor = '' -%}
+        {%- for p in rev -%}
+          {%- if p != '' and toot_anchor == '' -%}{%- assign toot_anchor = p -%}{%- endif -%}
+        {%- endfor -%}
+  {%- assign toot_link = '/toots/#toot-' | append: toot_anchor -%}
+  {%- assign external_href = include.toot.remote_url | default: include.toot.url -%}
+  {%- capture day_ordinal -%}{% include ordinal_day.html date=include.toot.date %}{%- endcapture -%}
+  {%- assign month_part = include.toot.date | date: "%B " -%}
+  {%- assign time_part = include.toot.date | date: "%a %H:%M" -%}
+  {%- assign title_text = month_part | append: day_ordinal | append: " · " | append: time_part -%}
+  {%- capture emoji_suffix -%}{% include toot_title_emojis.html hashtags=include.toot.hashtags %}{%- endcapture -%}
+  {%- assign title_text = title_text | append: emoji_suffix -%}
+  <a href="{{ toot_link }}" class="post-title-link home-post__title stretched-link">{{ title_text }}</a>
+        <span class="emoji-badge" title="Update">🐘</span>
+      </div>
+      {% include home/card_separator.html %}
+  <p class="card-text mb-2">{{ include.toot.content | strip_html | truncate: 140 }}</p>
+    </div>
+  </div>
+</div>

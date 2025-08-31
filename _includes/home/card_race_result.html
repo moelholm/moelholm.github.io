@@ -1,0 +1,24 @@
+{%- comment -%}
+Render a race result card for homepage.
+Input: p (post)
+{%- endcomment -%}
+<div class="blog-item blog-item--compact race">
+  <div class="card home-post home-post--compact position-relative">
+    <div class="card-body py-2">
+      <div class="text-right"><small>{{ include.p.race_date | default: include.p.date | date: "%Y-%m-%d %H:%M" }} UTC</small></div>
+      <div class="d-flex align-items-baseline justify-content-between">
+        <a class="post-title-link home-post__title stretched-link" href="{{ include.p.url }}">{{ include.p.title }}</a>
+        <span class="emoji-badge" title="Race result">🏁</span>
+      </div>
+      {% include home/card_separator.html %}
+      <div class="home-sample-meta">
+        {% if include.p.distance_km %}<span class="meta-item distance-value">{{ include.p.distance_km }} km</span>{% endif %}
+        {% if include.p.elevation_gain_m %}<span class="meta-item elevation-value">{{ include.p.elevation_gain_m }} m</span>{% endif %}
+        {% if include.p.duration_formatted %}<span class="meta-item duration-value">{{ include.p.duration_formatted }}</span>{% endif %}
+      </div>
+      <div class="home-sample-tags">
+        {% include home/race_type_tags.html post=include.p %}
+      </div>
+    </div>
+  </div>
+</div>
