@@ -40,13 +40,13 @@ title: moelholm.com
     {% include home/section_list.html title='Posts' emoji='📖' items=latest limit=2 kind='running' more_url='/running/' %}
 
   {% assign race_posts = site.running | where_exp: 'p','p.tags contains "race"' | sort: 'date' | reverse %}
-  {% include home/section_list.html title='Races' emoji='🏁' items=race_posts limit=2 kind='results' more_url='/tags#race' grid='home-samples--two' %}
+  {% include home/section_list.html title='Races' emoji='🏁' items=race_posts limit=2 kind='results' more_url='/races' grid='home-samples--two' %}
 
   <div class="card position-relative">
       <div class="card-body">
   <h5 class="mb-2 d-flex align-items-center gap-1">About <span class="emoji-badge ml-1">👤</span></h5>
   <p>I run a lot these days. In fact it may be borderline crazy to most folks; I am primarily a trail and ultra runner. Trail runs are just everything besides normal road running. Ultra running is...</p>
-  <div class="text-right"><a class="btn btn-sm stretched-link" href="/about/">More</a></div>
+  <div class="text-right"><a class="btn btn-sm stretched-link" href="/about">More</a></div>
       </div>
     </div>
   </div>
