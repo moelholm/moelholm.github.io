@@ -3,16 +3,16 @@ layout: default
 title: Nicky Moelholm
 ---
 
-# Welcome
-Welcome, I'm Nicky Moelholm and this is my personal web site. Here you find my blog containing posts about everything from software engineering to running.
+# About
+Welcome, I'm Nicky Moelholm and this is my personal web site. Here you find my blog containing posts about primarily running. I used to blog about software engineering too. But finding the time to do it all properly has been slightly challenging. So for now you'll mostly find running information here 😆.
 
-## About me
+## Me
 
 I live in Billund, Denmark, with my wonderful family: Teresa and our 3 children, Isabella, Noah, and Casper. Oh ... and our cute dog, Nala (she's a Jack Russel Terrier).
 
 <div class="row justify-content-center mb-4">
     <div class="col-6">
-        <img src="/img/about/me_and_nala.jpg" alt="Me and Nala (our Jack Russel Terrier)" class="w-100" />
+        {% include lightbox.html id="about-1" full_url="/img/about/me_and_nala.jpg" thumb_src="/img/about/me_and_nala.jpg" alt="Me and Nala (our Jack Russel Terrier)" img_class="w-100" title="View image" %}
     </div>
 </div>
 
@@ -22,10 +22,10 @@ I run a lot these days. In fact it may be borderline crazy to most folks; I am p
 
 <div class="row justify-content-center mb-4">
     <div class="col-6">
-        <img src="/img/about/me_running_1.jpg" alt="Me at a mountain in Germany - taken during running" class="w-100" />
+        {% include lightbox.html id="about-2" full_url="/img/about/me_running_1.jpg" thumb_src="/img/about/me_running_1.jpg" alt="Me at a mountain in Germany - taken during running" img_class="w-100" title="View image" %}
     </div>
     <div class="col-6">
-        <img src="/img/about/me_running_2.jpg" alt="Me at a mountain in Germany - taken during running" class="w-100" />
+        {% include lightbox.html id="about-3" full_url="/img/about/me_running_2.jpg" thumb_src="/img/about/me_running_2.jpg" alt="Me at a mountain in Germany - taken during running" img_class="w-100" title="View image" %}
     </div>
 </div>
 
@@ -35,10 +35,10 @@ I currently work for The LEGO Group as a Software Engineer on the ILSP product t
 
 <div class="row justify-content-center mb-4">
     <div class="col-6">
-        <img src="/img/about/lego_minifig.jpg" alt="LEGO Campus during Christmas" class="w-100" />
+        {% include lightbox.html id="about-4" full_url="/img/about/lego_minifig.jpg" thumb_src="/img/about/lego_minifig.jpg" alt="LEGO Campus during Christmas" img_class="w-100" title="View image" %}
     </div>
     <div class="col-6">
-        <img src="/img/about/me_and_fox.jpg" alt="Me and a LEGO fox at LEGO Campus" class="w-100" />
+        {% include lightbox.html id="about-5" full_url="/img/about/me_and_fox.jpg" thumb_src="/img/about/me_and_fox.jpg" alt="Me and a LEGO fox at LEGO Campus" img_class="w-100" title="View image" %}
     </div>
 </div>
 

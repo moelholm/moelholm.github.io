@@ -1,0 +1,38 @@
+{%- comment -%}
+Render race type tags as small chips, visually matching race table tag styles.
+Inputs: post
+{%- endcomment -%}
+{%- assign race_type_tags = 'trailrunning,ultrarunning,halfmarathon,marathon,backyard-ultra' | split: ',' -%}
+{%- assign display_tags = '' -%}
+{%- assign class_names = '' -%}
+{%- for tag in include.post.tags -%}
+  {%- if race_type_tags contains tag -%}
+    {%- if tag == 'trailrunning' -%}
+      {%- assign display_tags = display_tags | append: 'trail,' -%}
+      {%- assign class_names = class_names | append: 'race-tag-trail,' -%}
+    {%- elsif tag == 'ultrarunning' -%}
+      {%- assign display_tags = display_tags | append: 'ultra,' -%}
+      {%- assign class_names = class_names | append: 'race-tag-ultra,' -%}
+    {%- elsif tag == 'halfmarathon' -%}
+      {%- assign display_tags = display_tags | append: 'half,' -%}
+      {%- assign class_names = class_names | append: 'race-tag-half,' -%}
+    {%- elsif tag == 'marathon' -%}
+      {%- assign display_tags = display_tags | append: 'marathon,' -%}
+      {%- assign class_names = class_names | append: 'race-tag-marathon,' -%}
+    {%- elsif tag == 'backyard-ultra' -%}
+      {%- assign display_tags = display_tags | append: 'backyard,' -%}
+      {%- assign class_names = class_names | append: 'race-tag-backyard,' -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- if display_tags != '' -%}
+  <span class="race-tags-inline">
+    {%- assign tag_array = display_tags | split: ',' -%}
+    {%- assign class_array = class_names | split: ',' -%}
+    {%- for t in tag_array -%}
+      {%- if t != '' -%}
+        <span class="race-tag {{ class_array[forloop.index0] }}">{{ t }}</span>
+      {%- endif -%}
+    {%- endfor -%}
+  </span>
+{%- endif -%}

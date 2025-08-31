@@ -1,4 +1,21 @@
 {% assign href_prefix = include.href | default: '/tags#' %}
-<a class="tag" href="{{ href_prefix }}{{ include.name }}">
-  <nobr>{{ include.name }}</nobr>
-  </a>
+{% assign tag_name = include.name %}
+{% assign race_tag_classes = '' %}
+{% assign size = include.size | default: 'md' %}
+{% assign size_class = 'race-tag--md' %}
+{% if size == 'sm' %}{% assign size_class = 'race-tag--sm' %}{% endif %}
+{% if size == 'lg' %}{% assign size_class = 'race-tag--lg' %}{% endif %}
+{% if tag_name == 'trailrunning' %}
+  {% assign race_tag_classes = 'race-tag-trail' %}
+{% elsif tag_name == 'ultrarunning' %}
+  {% assign race_tag_classes = 'race-tag-ultra' %}
+{% elsif tag_name == 'halfmarathon' %}
+  {% assign race_tag_classes = 'race-tag-half' %}
+{% elsif tag_name == 'marathon' %}
+  {% assign race_tag_classes = 'race-tag-marathon' %}
+{% elsif tag_name == 'backyard-ultra' %}
+  {% assign race_tag_classes = 'race-tag-backyard' %}
+{% endif %}
+{%- assign all_classes = 'race-tag ' | append: size_class -%}
+{%- if race_tag_classes != '' -%}{%- assign all_classes = all_classes | append: ' ' | append: race_tag_classes -%}{%- endif -%}
+<a class="{{ all_classes }}" href="{{ href_prefix }}{{ tag_name }}"><nobr>{{ tag_name }}</nobr></a>

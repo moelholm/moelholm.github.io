@@ -3,7 +3,9 @@ layout: default
 title: moelholm.com
 ---
 
-<h1>Running Tags</h1>
+<h1>Tags · Running</h1>
+<p>Below is a list of tags used throughout the running posts.</p>
+
 <div class="row tags-page">
   <!-- Tag badges index -->
   <div class="col-12 tags-index mb-3">
@@ -15,9 +17,9 @@ title: moelholm.com
     {% endfor %}
     {% assign sortedtags = tags | split:' ' | uniq | sort %}
 
-  <div class="mb-2 tag-list">
+  <div class="mb-2">
       {% for tag in sortedtags %}
-        {% include tag_chip.html name=tag href="/tags#" %}
+        {% include tag_chip.html name=tag href="/tags#" size="lg" %}
       {% endfor %}
     </div>
   </div>
@@ -39,7 +41,7 @@ title: moelholm.com
       {% endif %}
     {% endfor %}
 
-  <h3 id="{{ tag }}">{% include tag_chip.html name=tag href="/tags#" %} <small class="tag-count">{{ tag_count }}</small></h3>
+  <h3 id="{{ tag }}">{% include tag_chip.html name=tag href="/tags#" size="lg" %} <small class="tag-count">{{ tag_count }}</small></h3>
     <ul class="tag-posts">
       {% for post in site.running %}
         {% if post.tags contains tag %}
@@ -69,9 +71,9 @@ title: moelholm.com
     {% endfor %}
     {% assign sortedtags = tags | split:' ' | uniq | sort %}
 
-    <div class="mb-2 tag-list">
+    <div class="mb-2">
       {% for tag in sortedtags %}
-        {% include tag_chip.html name=tag href="/tags#" %}
+        {% include tag_chip.html name=tag href="/tags#" size="lg" %}
       {% endfor %}
     </div>
   </div>
@@ -93,7 +95,7 @@ title: moelholm.com
       {% endif %}
     {% endfor %}
 
-  <h3 id="{{ tag }}">{% include tag_chip.html name=tag href="/tags#" %} <small class="tag-count">{{ tag_count }}</small></h3>
+  <h3 id="{{ tag }}">{% include tag_chip.html name=tag href="/tags#" size="lg" %} <small class="tag-count">{{ tag_count }}</small></h3>
     <ul class="tag-posts">
       {% for post in site.software_engineering %}
         {% if post.tags contains tag %}

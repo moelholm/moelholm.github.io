@@ -1,0 +1,52 @@
+{%- comment -%}
+Unified, reusable CSS-only lightbox (trigger + overlay).
+Parameters:
+  - id: optional (recommended). Unique id for checkbox/overlay. If omitted, derived from full_url and loop index/time.
+  - full_url: required. URL to the large/full image shown in overlay.
+  - thumb_src | src: optional. URL for the trigger image; defaults to full_url if not provided.
+  - alt: optional. Alt text for both images.
+  - label_class: optional. Classes for the trigger label (caller styles the trigger).
+  - img_class: optional. Classes for the trigger <img> (caller styles the trigger).
+  - title: optional. Title attribute on the trigger label.
+  - loading: optional. 'lazy' (default) or 'eager' for the trigger image.
+  - width, height: optional. Explicit dimensions for the trigger image.
+  - aria_label: optional. Accessible label for dialog (default: "Image viewer").
+  - close_label: optional. Close symbol/text (default: ×).
+Notes:
+  - No styling is applied to the trigger/thumbnail; call-site controls it via classes.
+  - The overlay uses existing lightbox CSS classes already in site.scss.
+{%- endcomment -%}
+
+{%- assign _full = include.full_url -%}
+{%- assign _thumb = include.thumb_src | default: include.src | default: _full -%}
+{%- assign _alt = include.alt | default: '' -%}
+{%- assign _label_class = include.label_class | default: include.class -%}
+{%- assign _img_class = include.img_class -%}
+{%- assign _title = include.title -%}
+{%- assign _loading = include.loading | default: 'lazy' -%}
+{%- assign _width = include.width -%}
+{%- assign _height = include.height -%}
+{%- assign _aria = include.aria_label | default: 'Image viewer' -%}
+{%- assign _close = include.close_label | default: '×' -%}
+
+{%- assign _id = include.id -%}
+{%- if _id == nil or _id == '' -%}
+  {%- assign _slug = _full | slugify -%}
+  {%- if forloop and forloop.index0 != nil -%}
+    {%- assign _id = 'lb-' | append: _slug | append: '-' | append: forloop.index0 -%}
+  {%- else -%}
+    {%- assign _id = 'lb-' | append: _slug -%}
+  {%- endif -%}
+{%- endif -%}
+
+<label for="{{ _id }}" class="lightbox-trigger{% if _label_class %} {{ _label_class }}{% endif %}"{% if _title %} title="{{ _title }}"{% endif %}>
+  <img src="{{ _thumb }}" alt="{{ _alt }}"{% if _img_class %} class="{{ _img_class }}"{% endif %}{% if _loading != 'eager' %} loading="lazy"{% endif %}{% if _width %} width="{{ _width }}"{% endif %}{% if _height %} height="{{ _height }}"{% endif %} />
+</label>
+<input id="{{ _id }}" class="lightbox-toggle" type="checkbox" hidden />
+<div class="lightbox" role="dialog" aria-label="{{ _aria }}" aria-modal="true">
+  <label class="lightbox__backdrop" for="{{ _id }}" aria-hidden="true"></label>
+  <label class="lightbox__image" for="{{ _id }}">
+    <img src="{{ _full }}" alt="{{ _alt }}" />
+  </label>
+  <label class="lightbox__close" for="{{ _id }}" aria-label="Close">{{ _close }}</label>
+</div>

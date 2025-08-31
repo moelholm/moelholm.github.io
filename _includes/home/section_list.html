@@ -1,0 +1,35 @@
+{%- comment -%}
+Reusable section for homepage lists.
+Params:
+- title: string
+- emoji: string
+- items: array
+- limit: number
+- kind: 'toots' | 'running' | 'results'
+- more_url: string
+- grid: optional grid modifier class (e.g., 'home-samples--two')
+{%- endcomment -%}
+<div class="card mb-3">
+  <div class="card-body">
+    <h5 class="mb-2 d-flex align-items-center gap-1">{{ include.title }}{% if include.emoji %} <span class="emoji-badge ml-1">{{ include.emoji }}</span>{% endif %}</h5>
+    {%- assign list = include.items -%}
+    {%- if list and list.size > 0 -%}
+      <div class="home-samples{% if include.grid %} {{ include.grid }}{% endif %}">
+        {%- for item in list limit: include.limit -%}
+          {%- if include.kind == 'toots' -%}
+            {% include home/card_toot.html toot=item %}
+          {%- elsif include.kind == 'running' -%}
+            {% include home/card_running_post.html post=item %}
+          {%- elsif include.kind == 'results' -%}
+            {% include home/card_race_result.html p=item %}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+      {%- if include.more_url -%}
+      <div class="text-right"><a class="btn btn-sm" href="{{ include.more_url }}">More</a></div>
+      {%- endif -%}
+    {%- else -%}
+      <p>No {% if include.kind == 'toots' %}updates{% elsif include.kind == 'running' %}posts{% else %}results{% endif %} found.</p>
+    {%- endif -%}
+  </div>
+</div>

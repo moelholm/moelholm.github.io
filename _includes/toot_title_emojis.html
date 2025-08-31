@@ -1,0 +1,11 @@
+{% assign suffix = '' %}
+{% if include.hashtags and include.hashtags contains 'running' %}
+	{% unless suffix contains '🏃🏻‍♂️' %}{% assign suffix = suffix | append: ' 🏃🏻‍♂️' %}{% endunless %}
+{% endif %}
+{% if include.hashtags and include.hashtags contains 'trailrunning' %}
+	{% unless suffix contains '🌳' %}{% assign suffix = suffix | append: ' 🌳' %}{% endunless %}
+{% endif %}
+{% if include.hashtags and include.hashtags contains 'ultrarunning' %}
+	{% unless suffix contains '🌋' %}{% assign suffix = suffix | append: ' 🌋' %}{% endunless %}
+{% endif %}
+{{ suffix }}
