@@ -107,7 +107,7 @@ def main():
     print(f"Input:  {inp}")
     print(f"Output: {outp}")
     print(f"Bounds: {max_w}x{max_h}")
-    print(f"Quality:{quality}")
+    print(f"Quality: {quality}")
     resize_image(inp, outp, max_w, max_h, quality)
 
 
