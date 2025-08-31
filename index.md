@@ -5,7 +5,7 @@ title: moelholm.com
 
 <!-- Hero / intro -->
 <section class="home-hero">
-  {% include lightbox.html id="hero-img" full_url="/img_running/2024_08_utmb_ccc_finishline.jpg" thumb_src="/img_running/2024_08_utmb_ccc_finishline.jpg" alt="Finish line at UTMB CCC" img_class="home-hero__img" title="View image" %}
+  {% include lightbox.html id="hero-img" full_url="/img_running/hero_frontpage.jpg" thumb_src="/img_running/hero_frontpage.jpg" alt="Frontpage hero" img_class="home-hero__img" title="View image" %}
   <div class="home-hero__text">
     <h1>Running++</h1>
     <p>I'm Nicky Bass Mølholm. I share my running experiences, race reports and training notes here.</p>
