@@ -1,0 +1,13 @@
+@import "../variables";
+
+// Race tag chips used across the site (home, tags, races)
+.race-tag { font-size: 0.65rem; padding: 0.2rem 0.4rem; border-radius: 6px; font-weight: 500; text-transform: lowercase; white-space: nowrap; display: inline-block; background: rgba(252, 76, 2, 0.08); color: $trail-green; border: 1px solid rgba(252, 76, 2, 0.2); }
+.race-tag.race-tag--sm { font-size: 0.6rem; padding: 0.15rem 0.3rem; }
+.race-tag.race-tag--md { font-size: 0.7rem; padding: 0.2rem 0.4rem; }
+.race-tag.race-tag--lg { font-size: 0.9rem; padding: 0.35rem 0.6rem; }
+.race-tag.race-tag-trail { background: rgba(152, 251, 152, 0.3); color: #228B22; border: 1px solid rgba(152, 251, 152, 0.5); }
+.race-tag.race-tag-ultra { background: rgba(255, 182, 193, 0.4); color: #DC143C; border: 1px solid rgba(255, 182, 193, 0.6); }
+.race-tag.race-tag-half { background: rgba(173, 216, 230, 0.4); color: #4682B4; border: 1px solid rgba(173, 216, 230, 0.6); }
+.race-tag.race-tag-marathon { background: rgba(221, 160, 221, 0.4); color: #8B008B; border: 1px solid rgba(221, 160, 221, 0.6); }
+.race-tag.race-tag-backyard { background: rgba(255, 218, 185, 0.4); color: #FF8C00; border: 1px solid rgba(255, 218, 185, 0.6); }
+@media (max-width: $bp-phone-max) { .race-tag { font-size: 0.6rem; padding: 0.15rem 0.3rem; } }

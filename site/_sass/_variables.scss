@@ -1,0 +1,34 @@
+// Shared variables and breakpoints for the theme
+
+$page-background-color: #fff9f4; // warm, light background
+$link-color: #ff6a33; // primary warm accent
+$link-hover-color: #ff4f12; // deeper warm on hover
+$nav-bg-color: #111827; // charcoal for strong contrast
+
+// Calmer colors for normal/content links (less saturated)
+$content-link-color: #374151; // slate 700
+$content-link-hover-color: #1f2937; // slate 800
+
+// Heading colors - neutral/dark for readability
+$heading-primary: #1f2937; // slate 800 for h1
+$heading-secondary: #374151; // slate 700 for h2-h6
+$text-muted: #6b7280; // gray for secondary text
+
+// Theme palette (keep variable names for compatibility)
+$trail-green: #ff6a33;      // primary accent (warm)
+$trail-forest: #e4500c;     // deeper warm
+$trail-accent: #ffe9df;     // light warm tint
+
+// Breakpoints (single source of truth)
+// Very small phones (iPhone SE and similar)
+$bp-compact: 480px;         // min-width for compact phones
+$bp-compact-max: 479px;     // max-width strictly below compact
+// Phones (portrait + landscape)
+$bp-phone-max: 767px;       // max-width for phones
+// iPad / Tablets (portrait + landscape)
+$bp-ipad-min: 768px;        // min-width for iPad/tablets
+$bp-ipad-max: 1023px;       // max-width for iPad/tablets
+// Desktops
+$bp-desktop-min: 1024px;    // min-width for desktops and up
+// Wide desktops
+$bp-wide-min: 1200px;       // min-width for large displays
