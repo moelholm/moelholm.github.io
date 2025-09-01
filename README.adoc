@@ -4,9 +4,9 @@ Web site for www.moelholm.com.
 
 == Run locally
 
-After checkout:
+After checkout (from repo root):
 
-    bundle install
+    cd site && bundle install && cd -
 
 === Development vs Production Servers 🔧
 
@@ -26,7 +26,7 @@ The site provides two convenient server scripts for different workflows:
 
 === Manual Jekyll Commands
 
-For advanced usage:
+For advanced usage (run inside the `site/` folder):
 
     # Development with drafts
     bundle exec jekyll serve --config _config.yml,_config_dev.yml
@@ -41,7 +41,7 @@ For advanced usage:
 
 Once in a while:
 
-    bundle update
+    (cd site && bundle update)
 
 == Photo Processing 📸
 
@@ -86,7 +86,7 @@ This site uses Jekyll 3.10.0 with GitHub Pages. The build process is fully autom
 
 * **Local Development:** Use `./dev-server.sh` to preview with drafts
 * **Production Testing:** Use `./prod-server.sh` to test final output  
-* **GitHub Pages:** Automatically builds from `_config.yml` on push to master
+* **GitHub Pages:** Builds via Actions from `site/` on push to master
 * **Collections:** Running and software engineering posts are organized as Jekyll collections
 * **Draft Management:** Uses Jekyll's built-in `published: false` support
 

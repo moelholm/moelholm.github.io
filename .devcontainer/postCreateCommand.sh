@@ -7,7 +7,7 @@ echo "🚀 Setting up blog development environment..."
 
 # Install Python dependencies for photo processing
 echo "📸 Installing photo processing dependencies..."
-pip install -r requirements.txt
+pip install -r tools/requirements.txt
 
 echo "✅ Environment setup complete!"
 echo "🌐 To start Jekyll with drafts: ./dev-server.sh"
