@@ -196,12 +196,13 @@ def main() -> int:
         print("USER_ID is empty. Set USER_ID via env var MASTODON_USER_ID.", file=sys.stderr)
         return 2
 
-    repo_root = Path(__file__).resolve().parent
-    collections_root = repo_root / "blog_collections"
+    repo_root = Path(__file__).resolve().parents[1]  # repo root
+    site_root = repo_root / "site"
+    collections_root = site_root / "blog_collections"
     out_dir = collections_root / "_toots"
     tmp_dir = collections_root / "_toots.tmp"
     # Assets media directories (atomic swap as well)
-    assets_root = repo_root / "assets"
+    assets_root = site_root / "assets"
     media_final_dir = assets_root / "toots_media"
     media_tmp_dir = assets_root / "toots_media.tmp"
 

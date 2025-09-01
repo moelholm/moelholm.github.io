@@ -54,17 +54,17 @@ jobs:
           git log -1 --oneline origin/master
           git checkout -B bot/mastodon-toots origin/master
 
-          # Generate files without committing
-          python fetch_toots.py
+          # Generate files without committing (script lives in tools/)
+          python tools/fetch_toots.py
 
           # If no changes in toots nor media assets, exit early (no PR)
-          if [ -z "$(git status --porcelain -- blog_collections/_toots assets/toots_media)" ]; then
+          if [ -z "$(git status --porcelain -- site/blog_collections/_toots site/assets/toots_media)" ]; then
             echo "No toot/media changes; nothing to do."
             exit 0
           fi
 
           # Commit and push PR branch
-          git add -A blog_collections/_toots assets/toots_media
+          git add -A site/blog_collections/_toots site/assets/toots_media
           git commit -m "chore(toots): refresh generated toot files"
           git push -u origin bot/mastodon-toots
 
