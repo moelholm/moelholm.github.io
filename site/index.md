@@ -1,6 +1,8 @@
 ---
 layout: default
 title: moelholm.com
+stylesheets:
+  - /css/home.css
 ---
 
 <!-- Hero / intro -->

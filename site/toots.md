@@ -2,6 +2,7 @@
 layout: default
 title: Updates - moelholm.com
 permalink: /toots/
+stylesheets: ["/css/toots.css"]
 ---
 
 # Updates · Running

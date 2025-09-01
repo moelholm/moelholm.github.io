@@ -10,6 +10,11 @@
   <link rel="stylesheet" href="/css/site.css">
   <!-- Code Highlight CSS -->
   <link rel="stylesheet" href="/css/syntax.css">
+  {% if page.stylesheets %}
+    {% for css in page.stylesheets %}
+  <link rel="stylesheet" href="{{ css }}">
+    {% endfor %}
+  {% endif %}
   {% if site.google_analytics and jekyll.environment == 'production' %}
   {% include analytics.html %}
   {% endif %}
