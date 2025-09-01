@@ -1,6 +1,6 @@
 @import "../variables";
 
-// Home hero and grid (frontpage redesign)
+// Home hero and grid
 .home-hero {
   display: grid;
   grid-template-columns: 1fr;
@@ -13,14 +13,14 @@
   @media (min-width: $bp-desktop-min) { grid-template-columns: 5fr 4fr; .home-hero__img { max-height: 420px; } }
 }
 
-// Tablets: tweak proportions
+// Tablet adjustments
 @media (min-width: $bp-ipad-min) and (max-width: $bp-ipad-max) {
   .home-hero { grid-template-columns: 6fr 5fr; gap: 0.75rem; }
   .home-hero .home-hero__img { max-height: 380px; }
   .home-hero .home-hero__text h1 { font-size: 2.25rem; line-height: 1.15; }
 }
 
-/* Keep front-page badges tidy on tablets */
+// Front-page badges layout on tablets
 @media (min-width: $bp-ipad-min) and (max-width: $bp-ipad-max) {
   .home-hero .external-race-links { display: grid; grid-template-columns: repeat(2, max-content); gap: 0.5rem 0.6rem; align-items: center; }
   .home-hero .external-race-links .result-badge { margin: 0 !important; }
@@ -50,6 +50,45 @@
 .home-samples .home-post { cursor: pointer; }
 .home-samples .home-post .card-text,
 .home-samples .home-post .home-post__title { overflow-wrap: anywhere; word-break: break-word; }
+
+// Home post title color behavior
+.home-post__title {
+  color: $link-color !important;
+  &:hover,
+  &:focus { color: $link-hover-color !important; }
+}
+
+// Homepage intro spacing and list bullets
+.blog-item.intro { margin-bottom: 0.9em; padding-bottom: 0.9em; }
+.blog-item.intro ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 1em 0;
+  li {
+    position: relative;
+    padding-left: 1.8em;
+    margin-bottom: 0.8em;
+    transition: all 0.3s ease;
+    &::before { content: ">"; position: absolute; left: 0; color: $trail-green; font-size: 0.9em; transition: all 0.3s ease; }
+    &:hover { padding-left: 2em; color: $heading-secondary; &::before { transform: translateX(3px); } }
+    @media (max-width: 767px) {
+      padding-left: 1.5em; margin-bottom: 0.6em;
+      &:hover { padding-left: 1.7em; &::before { transform: translateX(2px); } }
+    }
+  }
+}
+
+// Front list spacing helpers
+.front-list .blog-item { margin-bottom: 1em; padding-bottom: 1em; border-bottom: 1px solid rgba(252, 76, 2, 0.1); }
+.front-list .blog-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+.front-list .row > .col-md-12 { margin-bottom: 0.8rem; }
+.front-list .row > .col-md-12:last-child { margin-bottom: 0; }
+
+// Small helpers used on home
+.emoji-badge { font-size: 0.95rem; line-height: 1; }
+.home-card-sep { margin: 0.35rem 0 0.45rem 0; border: 0; border-top: 1px solid rgba(252, 76, 2, 0.08); }
+.home-sample-tags { margin-top: 0.25rem; }
+.home-sample-tags .race-tags-inline { display: inline-flex; gap: 0.25rem; flex-wrap: wrap; }
 
 // RSS link styles (used on home header)
 .rss-link-block { text-align: right; }

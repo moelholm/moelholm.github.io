@@ -1,6 +1,6 @@
 @import "../variables";
 
-// Tags page specific styling
+// Tags page
 .tags-index { margin-bottom: 1rem; }
 .tags-page .tag { font-size: 0.9rem; padding: 0.2rem 0.4rem; }
 .tags-page h3 .tag { margin-right: 0.4rem; vertical-align: middle; }
@@ -8,7 +8,6 @@
 .tags-page h3 .race-tag { margin-right: 0.4rem; vertical-align: middle; }
 .tags-page .tag-list::before { content: none !important; }
 
-// Tag list rendering within page
 .tag-badge { display: inline-block; padding: 0.3rem 0.7rem; border-radius: 20px; background: $trail-accent !important; color: $heading-secondary !important; font-size: 0.75rem; font-weight: 500; margin: 0 0.4rem 0.4rem 0; border: 1px solid rgba(255, 233, 223, 0.5) !important; text-decoration: none !important; cursor: pointer; }
 .tag-badge:hover { text-decoration: underline !important; text-underline-offset: 0.12em; text-decoration-thickness: 0.08em; border-color: #ffdcca; }
 .tag-count { color: $text-muted; }

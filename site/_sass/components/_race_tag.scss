@@ -1,6 +1,6 @@
 @import "../variables";
 
-// Race tag chips used across the site (home, tags, races)
+// Race tag chips (global)
 .race-tag { font-size: 0.65rem; padding: 0.2rem 0.4rem; border-radius: 6px; font-weight: 500; text-transform: lowercase; white-space: nowrap; display: inline-block; background: rgba(252, 76, 2, 0.08); color: $trail-green; border: 1px solid rgba(252, 76, 2, 0.2); }
 .race-tag.race-tag--sm { font-size: 0.6rem; padding: 0.15rem 0.3rem; }
 .race-tag.race-tag--md { font-size: 0.7rem; padding: 0.2rem 0.4rem; }
