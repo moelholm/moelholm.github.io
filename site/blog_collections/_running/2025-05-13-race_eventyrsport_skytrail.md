@@ -34,9 +34,10 @@ The race starts and ends at _Himmelbjerget_ (crude English translation "Sky Moun
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-05-13/IMG_4849.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-05-13/IMG_4845.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-05-13/IMG_4850.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-05-13/IMG_4851.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-05-13/IMG_4847.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-05-13/IMG_4846.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-05-13/IMG_4849.jpg" data-src="/img_running/2025-05-13/IMG_4849.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-05-13/IMG_4845.jpg" data-src="/img_running/2025-05-13/IMG_4845.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-05-13/IMG_4850.jpg" data-src="/img_running/2025-05-13/IMG_4850.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-05-13/IMG_4851.jpg" data-src="/img_running/2025-05-13/IMG_4851.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-05-13/IMG_4847.jpg" data-src="/img_running/2025-05-13/IMG_4847.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-05-13/IMG_4846.jpg" data-src="/img_running/2025-05-13/IMG_4846.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-05-13/IMG_0942.jpg" data-src="/img_running/2025-05-13/IMG_0942.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-05-13/IMG_5672.jpg" data-src="/img_running/2025-05-13/IMG_5672.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -46,7 +47,7 @@ Fast forward to this year - 2025 - I now signed up to the longest distance: the 
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-05-13/IMG_4843.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-05-13/IMG_4852.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-05-13/IMG_4843.jpg" data-src="/img_running/2025-05-13/IMG_4843.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-05-13/IMG_4852.jpg" data-src="/img_running/2025-05-13/IMG_4852.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -54,7 +55,7 @@ My strategy was; hold back effort until the last 1 or 2 loops and then let go. A
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-05-13/IMG_4857.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-05-13/IMG_4858.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-05-13/IMG_4857.jpg" data-src="/img_running/2025-05-13/IMG_4857.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-05-13/IMG_4858.jpg" data-src="/img_running/2025-05-13/IMG_4858.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -62,7 +63,7 @@ And even though I held back effort (/pace) due to the length of the race I actua
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-05-13/IMG_4933.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-05-13/IMG_4934.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-05-13/IMG_4933.jpg" data-src="/img_running/2025-05-13/IMG_4933.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-05-13/IMG_4934.jpg" data-src="/img_running/2025-05-13/IMG_4934.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -70,19 +71,19 @@ But then on loop 4 I started having cramp threats. The massive downhill running 
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-05-13/IMG_4938.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-05-13/IMG_4939.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-05-13/IMG_4940.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-05-13/IMG_4941.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-05-13/IMG_4938.jpg" data-src="/img_running/2025-05-13/IMG_4938.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-05-13/IMG_4939.jpg" data-src="/img_running/2025-05-13/IMG_4939.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-05-13/IMG_4940.jpg" data-src="/img_running/2025-05-13/IMG_4940.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-05-13/IMG_4941.jpg" data-src="/img_running/2025-05-13/IMG_4941.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
 The weather was awesome so we were super lucky. And with one of Denmarks absolute finest routes (and probably toughest too) I couldn’t have dreamed of a better day. 
 
-As I ran into the finish line I was cheered at 🤩 by my good colleague Nicolae Cernean and his fiancée Iana. That was so nice - so I did my best to look like it was an easy run 😆😂. Btw they both kicked absolute a**; Nico on his 14k (2 loops) and Iana with her 7K (1 loop) 👏🏻👏🏻.
+As I ran into the finish line I was cheered at 🤩 by my good colleague Nicolae Cernean and his fiancé e Iana. That was so nice - so I did my best to look like it was an easy run 😆😂. Btw they both kicked absolute a**; Nico on his 14k (2 loops) and Iana with her 7K (1 loop) 👏🏻👏🏻.
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-05-13/IMG_4936.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-05-13/IMG_4937.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-05-13/IMG_4860.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-05-13/IMG_4866.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-05-13/IMG_4936.jpg" data-src="/img_running/2025-05-13/IMG_4936.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-05-13/IMG_4937.jpg" data-src="/img_running/2025-05-13/IMG_4937.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-05-13/IMG_4860.jpg" data-src="/img_running/2025-05-13/IMG_4860.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-05-13/IMG_4866.jpg" data-src="/img_running/2025-05-13/IMG_4866.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -101,6 +102,6 @@ I will be back within the next few years - maybe even next year again 🤗.
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-05-13/IMG_4855.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-05-13/IMG_4861.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-05-13/IMG_4855.jpg" data-src="/img_running/2025-05-13/IMG_4855.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-05-13/IMG_4861.jpg" data-src="/img_running/2025-05-13/IMG_4861.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}

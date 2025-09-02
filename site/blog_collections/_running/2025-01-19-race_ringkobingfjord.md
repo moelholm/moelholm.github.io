@@ -32,7 +32,7 @@ Distance|{{ page.distance_km }}k
 This is how it looked like on Strava after my race:
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-01-11/2025-01-11_2_small.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-01-11/2025-01-11_1_small.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-01-11/2025-01-11_2_small.jpg" data-src="/img_running/2025-01-11/2025-01-11_2_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-01-11/2025-01-11_1_small.jpg" data-src="/img_running/2025-01-11/2025-01-11_1_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -52,9 +52,9 @@ Had a blast out there. I don't think this was the last time I showed up at the s
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-01-11/2025-01-11_3_small.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-01-11/2025-01-11_10_small.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-01-11/2025-01-11_5_small.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-01-11/2025-01-11_6_small.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-01-11/2025-01-11_7_small.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-01-11/2025-01-11_8_small.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-01-11/2025-01-11_4_small.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-01-11/2025-01-11_9_small.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-01-11/2025-01-11_3_small.jpg" data-src="/img_running/2025-01-11/2025-01-11_3_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-01-11/2025-01-11_10_small.jpg" data-src="/img_running/2025-01-11/2025-01-11_10_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-01-11/2025-01-11_5_small.jpg" data-src="/img_running/2025-01-11/2025-01-11_5_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-01-11/2025-01-11_6_small.jpg" data-src="/img_running/2025-01-11/2025-01-11_6_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-01-11/2025-01-11_7_small.jpg" data-src="/img_running/2025-01-11/2025-01-11_7_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-01-11/2025-01-11_8_small.jpg" data-src="/img_running/2025-01-11/2025-01-11_8_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-01-11/2025-01-11_4_small.jpg" data-src="/img_running/2025-01-11/2025-01-11_4_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-01-11/2025-01-11_9_small.jpg" data-src="/img_running/2025-01-11/2025-01-11_9_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}

@@ -53,10 +53,9 @@ Below are my latest updates from Mastodon (similar to X, Bluesky, Threads, etc).
 
 		{% capture media_html %}
 			{% if toot.media and toot.media.size > 0 %}
-				<div class="toot-media-grid mt-2">
+				<div class="toot-media-grid mt-2 spotlight-group">
 					{% for m in toot.media %}
-						{% assign lb_id = "lb-" | append: toot.id | append: "-" | append: forloop.index0 %}
-						{% include lightbox.html id=lb_id full_url=m.url thumb_src=m.thumb alt=m.alt label_class='toot-media-thumb' title='View image' %}
+						<img src="{{ m.thumb | default: m.url }}" data-src="{{ m.url }}" alt="{{ m.alt }}" class="spotlight toot-media-thumb" loading="lazy" />
 					{% endfor %}
 				</div>
 			{% endif %}
@@ -72,6 +71,7 @@ Below are my latest updates from Mastodon (similar to X, Bluesky, Threads, etc).
 			 cta_label="open"
 			 cta_href=external_href
 			 extra_html=media_html
+			 card_body_classes='py-2'
 		%}
 	{% endfor %}
 	</div>

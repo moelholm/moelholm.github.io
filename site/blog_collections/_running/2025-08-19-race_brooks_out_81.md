@@ -41,10 +41,10 @@ I was up early 04 something something. Then drove my car to the finish line. The
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-08-16/IMG_7671.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-16/IMG_7672.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-08-16/IMG_7673.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-16/IMG_7674.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-08-16/IMG_7675.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-16/IMG_7677.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-08-16/IMG_7678.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-16/IMG_7679.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-08-16/IMG_7671.jpg" data-src="/img_running/2025-08-16/IMG_7671.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-16/IMG_7672.jpg" data-src="/img_running/2025-08-16/IMG_7672.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-08-16/IMG_7673.jpg" data-src="/img_running/2025-08-16/IMG_7673.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-16/IMG_7674.jpg" data-src="/img_running/2025-08-16/IMG_7674.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-08-16/IMG_7675.jpg" data-src="/img_running/2025-08-16/IMG_7675.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-16/IMG_7677.jpg" data-src="/img_running/2025-08-16/IMG_7677.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-08-16/IMG_7678.jpg" data-src="/img_running/2025-08-16/IMG_7678.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-16/IMG_7679.jpg" data-src="/img_running/2025-08-16/IMG_7679.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }} 
 
@@ -54,8 +54,8 @@ We started on the open, quiet Harrild Hede where there's "sky high and heather a
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-08-16/IMG_7681.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-16/IMG_7682.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-08-16/IMG_7683.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-16/IMG_7684.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-08-16/IMG_7681.jpg" data-src="/img_running/2025-08-16/IMG_7681.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-16/IMG_7682.jpg" data-src="/img_running/2025-08-16/IMG_7682.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-08-16/IMG_7683.jpg" data-src="/img_running/2025-08-16/IMG_7683.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-16/IMG_7684.jpg" data-src="/img_running/2025-08-16/IMG_7684.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -63,11 +63,11 @@ The route constantly changed terrain and surfaces. From the desolate heath, the 
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-08-16/IMG_7686.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-16/IMG_7687.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-08-16/IMG_7688.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-16/IMG_7689.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-08-16/IMG_7690.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-16/IMG_7691.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-08-16/IMG_7692.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-16/IMG_7693.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-08-16/IMG_7695.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-16/IMG_7696.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-08-16/IMG_7686.jpg" data-src="/img_running/2025-08-16/IMG_7686.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-16/IMG_7687.jpg" data-src="/img_running/2025-08-16/IMG_7687.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-08-16/IMG_7688.jpg" data-src="/img_running/2025-08-16/IMG_7688.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-16/IMG_7689.jpg" data-src="/img_running/2025-08-16/IMG_7689.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-08-16/IMG_7690.jpg" data-src="/img_running/2025-08-16/IMG_7690.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-16/IMG_7691.jpg" data-src="/img_running/2025-08-16/IMG_7691.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-08-16/IMG_7692.jpg" data-src="/img_running/2025-08-16/IMG_7692.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-16/IMG_7693.jpg" data-src="/img_running/2025-08-16/IMG_7693.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-08-16/IMG_7695.jpg" data-src="/img_running/2025-08-16/IMG_7695.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-16/IMG_7696.jpg" data-src="/img_running/2025-08-16/IMG_7696.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -79,9 +79,9 @@ The end had a fun finish "detail": we entered the finish area at around 70k. How
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-08-16/IMG_7697.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-16/IMG_7698.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-08-16/IMG_7699.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-16/IMG_7700.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-08-16/IMG_7701.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-16/IMG_7702.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-08-16/IMG_7697.jpg" data-src="/img_running/2025-08-16/IMG_7697.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-16/IMG_7698.jpg" data-src="/img_running/2025-08-16/IMG_7698.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-08-16/IMG_7699.jpg" data-src="/img_running/2025-08-16/IMG_7699.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-16/IMG_7700.jpg" data-src="/img_running/2025-08-16/IMG_7700.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-08-16/IMG_7701.jpg" data-src="/img_running/2025-08-16/IMG_7701.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-16/IMG_7702.jpg" data-src="/img_running/2025-08-16/IMG_7702.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -89,8 +89,8 @@ After 8h53m05s out there (avg pace ~6:34 min/km) I finished as number 5 out of 3
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-08-16/IMG_7705.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-16/IMG_7704.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-08-16/IMG_7707.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-16/IMG_7710.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-08-16/IMG_7705.jpg" data-src="/img_running/2025-08-16/IMG_7705.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-16/IMG_7704.jpg" data-src="/img_running/2025-08-16/IMG_7704.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-08-16/IMG_7707.jpg" data-src="/img_running/2025-08-16/IMG_7707.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-16/IMG_7710.jpg" data-src="/img_running/2025-08-16/IMG_7710.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 

@@ -7,7 +7,7 @@ stylesheets:
 
 <!-- Hero / intro -->
 <section class="home-hero">
-  {% include lightbox.html id="hero-img" full_url="/img_running/frontpage.jpg" thumb_src="/img_running/frontpage.jpg" alt="Frontpage image" img_class="home-hero__img" title="View image" %}
+  <img src="/img_running/frontpage.jpg" data-src="/img_running/frontpage.jpg" alt="Me and Casper at UTMB CCC 2024" class="spotlight home-hero__img" loading="lazy" />
   <div class="home-hero__text">
     <h1>Running++</h1>
     <p>I'm Nicky Bass Mølholm. I share my running experiences, race reports and training notes here.</p>

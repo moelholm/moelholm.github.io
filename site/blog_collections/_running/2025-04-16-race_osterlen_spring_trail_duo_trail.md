@@ -35,7 +35,7 @@ The race started Saturday. We fetched our race bibs at the finish line at Christ
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-04-16/IMG_3211.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-16/IMG_3216.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-04-16/IMG_3211.jpg" data-src="/img_running/2025-04-16/IMG_3211.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-16/IMG_3216.jpg" data-src="/img_running/2025-04-16/IMG_3216.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -43,8 +43,8 @@ Since Bo were to start later (at the midway point) he then took his car back hom
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-04-16/IMG_3217.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-16/IMG_3222.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-04-16/IMG_3224.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-16/IMG_3226.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-04-16/IMG_3217.jpg" data-src="/img_running/2025-04-16/IMG_3217.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-16/IMG_3222.jpg" data-src="/img_running/2025-04-16/IMG_3222.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-04-16/IMG_3224.jpg" data-src="/img_running/2025-04-16/IMG_3224.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-16/IMG_3226.jpg" data-src="/img_running/2025-04-16/IMG_3226.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -52,7 +52,7 @@ The starting line was a mix of `Duo Trail` and the "real" ultra runners taking t
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-04-16/IMG_3230.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-16/IMG_3232.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-04-16/IMG_3230.jpg" data-src="/img_running/2025-04-16/IMG_3230.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-16/IMG_3232.jpg" data-src="/img_running/2025-04-16/IMG_3232.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -60,7 +60,7 @@ The boulder stone passing you see there was pretty much the only one of it's kin
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-04-16/IMG_3237.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-16/IMG_3238.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-04-16/IMG_3237.jpg" data-src="/img_running/2025-04-16/IMG_3237.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-16/IMG_3238.jpg" data-src="/img_running/2025-04-16/IMG_3238.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -70,7 +70,7 @@ Around the 20K mark or so Bo and my family were waiting at the road and got a fe
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-04-16/IMG_0080.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-16/IMG_0081.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-04-16/IMG_0080.jpg" data-src="/img_running/2025-04-16/IMG_0080.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-16/IMG_0081.jpg" data-src="/img_running/2025-04-16/IMG_0081.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -78,7 +78,7 @@ It re-powered me to give it a go for the remaining 10-14K 🤩. So fast forward 
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-04-16/IMG_0085.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-16/IMG_3241.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-04-16/IMG_0085.jpg" data-src="/img_running/2025-04-16/IMG_0085.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-16/IMG_3241.jpg" data-src="/img_running/2025-04-16/IMG_3241.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -86,7 +86,7 @@ That was my race. After that I went home with my family to take a bath and rest 
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-04-16/IMG_5895.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-16/IMG_3252.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-04-16/IMG_5895.jpg" data-src="/img_running/2025-04-16/IMG_5895.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-16/IMG_3252.jpg" data-src="/img_running/2025-04-16/IMG_3252.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -96,8 +96,8 @@ But now comes the best thing. We actually ran so good that we ended up on the po
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-04-16/IMG_0093.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-16/IMG_0098.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-04-16/IMG_3257.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-16/IMG_3278.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-04-16/IMG_0093.jpg" data-src="/img_running/2025-04-16/IMG_0093.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-16/IMG_0098.jpg" data-src="/img_running/2025-04-16/IMG_0098.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-04-16/IMG_3257.jpg" data-src="/img_running/2025-04-16/IMG_3257.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-16/IMG_3278.jpg" data-src="/img_running/2025-04-16/IMG_3278.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 

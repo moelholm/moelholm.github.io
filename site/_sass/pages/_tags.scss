@@ -17,3 +17,13 @@
 .tag-posts li a:hover .title { color: $link-hover-color; }
 .tag-posts .arrow { color: $trail-green; }
 .tag-posts .date { color: $text-muted; }
+
+// Uses shared component styles from components/_table_card.scss
+.tags-page .table-card { margin-bottom: 0.6rem; padding: 0.45rem 0.6rem; }
+.tags-page .table-card .table-card__title { font-size: 0.95rem; }
+.tags-page .table-card .table-card__date { font-size: 0.75rem; }
+
+// Tag matches grid layout using shared table-card components
+.tag-matches { display: grid; grid-template-columns: 1fr; gap: 0.45rem; margin: 0.4rem 0 0.9rem 0; }
+@media (min-width: $bp-ipad-min) { .tag-matches { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: $bp-desktop-min) { .tag-matches { grid-template-columns: repeat(3, minmax(0, 1fr)); } }

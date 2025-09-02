@@ -1,0 +1,12 @@
+<div class="table-card position-relative">
+  <div class="table-card__head d-flex justify-content-between align-items-center">
+    <small class="table-card__date text-muted">{{ include.datetime_text }}</small>
+  </div>
+  <div class="table-card__title h6">
+    <a class="table-card__title-link" href="{{ include.href }}">{{ include.title_html }}</a>
+  </div>
+  {% if include.body_html %}
+    <div class="table-card__body">{{ include.body_html }}</div>
+  {% endif %}
+  <a class="stretched-link" href="{{ include.href }}" aria-label="open"></a>
+</div>

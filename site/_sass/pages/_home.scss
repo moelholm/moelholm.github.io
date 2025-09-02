@@ -30,8 +30,10 @@
 
 // Compact variants for homepage
 .home-post--compact .card-body { padding: 0.6rem 0.75rem; }
-.blog-item--compact { margin-bottom: 0.6rem; padding-bottom: 0.6rem; border-bottom: 1px solid rgba(252, 76, 2, 0.08); .home-post__title { font-size: 1.05rem; } }
-.list-cards .blog-item { margin-bottom: 0.6rem; padding-bottom: 0.6rem; border-bottom: 1px solid rgba(252, 76, 2, 0.08); }
+// Keep compact title size but remove any bottom separators for home cards
+.blog-item--compact { margin-bottom: 0.6rem; padding-bottom: 0.6rem; border-bottom: none; .home-post__title { font-size: 1.05rem; } }
+// Ensure no separators underneath cards within the home grid
+.home-samples .blog-item { border-bottom: none; margin-bottom: 0.6rem; padding-bottom: 0; }
 .list-cards .blog-item--compact .card-body { padding-bottom: 0.6rem; }
 .list-cards .blog-item--compact .toot-content:last-child,
 .list-cards .blog-item--compact .toot-media-grid:last-child,
@@ -41,15 +43,124 @@
 .list-cards .blog-item--compact .race-tag { margin-right: 0.35rem; margin-bottom: 0.35rem; }
 
 // Grid of samples (posts, updates, results) shared layout used on home
-.home-samples { display: grid; grid-template-columns: 1fr; gap: 0.6rem; align-items: stretch; > * { min-width: 0; } @media (min-width: $bp-desktop-min) { grid-template-columns: repeat(2, minmax(0, 1fr)); } &.home-samples--four { @media (min-width: $bp-desktop-min) { grid-template-columns: repeat(4, minmax(0, 1fr)); } } &.home-samples--two { @media (min-width: $bp-desktop-min) { grid-template-columns: repeat(2, minmax(0, 1fr)); } } }
-.home-samples .card { height: 100%; }
+.home-samples { display: grid; grid-template-columns: 1fr; gap: 0.6rem; align-items: stretch; > * { min-width: 0; width: 100%; } @media (min-width: $bp-desktop-min) { grid-template-columns: repeat(2, minmax(0, 1fr)); } &.home-samples--four { @media (min-width: $bp-desktop-min) { grid-template-columns: repeat(4, minmax(0, 1fr)); } } &.home-samples--two { @media (min-width: $bp-desktop-min) { grid-template-columns: repeat(2, minmax(0, 1fr)); } } }
+.home-samples .card { height: 100%; width: 100%; }
 .home-samples .home-post .card-body { display: flex; flex-direction: column; }
 .home-samples .home-post .card-body .text-right:last-child { margin-top: auto; }
 .home-samples .home-post .d-flex.align-items-baseline { align-items: center !important; }
 .home-samples .home-post.position-relative .stretched-link { z-index: 1; }
+.home-samples .home-post .home-post__title { position: relative; z-index: 2; }
 .home-samples .home-post { cursor: pointer; }
 .home-samples .home-post .card-text,
 .home-samples .home-post .home-post__title { overflow-wrap: anywhere; word-break: break-word; }
+
+// Keep race meta/tags from expanding card width
+.home-sample-meta { display: flex; gap: 0.4rem; flex-wrap: wrap; align-items: center; }
+.home-sample-meta .meta-item { white-space: nowrap; }
+.home-sample-tags { display: block; }
+
+// Home tag chips: no underline by default, underline on hover/focus for consistency
+.home-sample-tags a,
+.home-sample-tags .race-tag,
+.home-sample-tags .tag { text-decoration: none; }
+.home-sample-tags a:hover, .home-sample-tags a:focus,
+.home-sample-tags .race-tag:hover, .home-sample-tags .race-tag:focus,
+.home-sample-tags .tag:hover, .home-sample-tags .tag:focus {
+  text-decoration: underline !important;
+  text-underline-offset: 0.12em;
+  text-decoration-thickness: 0.08em;
+}
+
+// Homepage Race metrics bar styling
+
+// Race metrics: tight, table-like 2-row layout
+.home-race-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "distance vert"
+    "time time";
+  gap: 0.3rem 0.35rem;
+  margin: 0.4rem 0 0.5rem 0;
+  align-items: stretch; // make row items equal height
+}
+
+.home-race-metrics .metric {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center; // center horizontally
+  text-align: center; // center text within
+  gap: 0.3rem;
+  position: relative;
+  background: #fff;
+  // unified border style (same as distance)
+  border: 1px dashed rgba(255, 106, 51, 0.22);
+  border-radius: 8px;
+  padding: 0.22rem 0.4rem; // ultra tight
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  width: 100%;
+  align-self: stretch;
+  min-height: 2rem; // equalize heights, still compact
+}
+
+.home-race-metrics .metric-icon { display: inline-flex; align-items: center; justify-content: center; width: 1rem; }
+.home-race-metrics .metric-icon i { font-size: 0.9rem; line-height: 1; opacity: 0.9; }
+.home-race-metrics .metric .metric-value { font-weight: 700; color: $heading-secondary; white-space: nowrap; display: inline-flex; align-items: center; line-height: 1; }
+.home-race-metrics .metric .metric-value .unit { font-weight: 600; color: $text-muted; margin-left: 0.12rem; }
+
+// Emphasize different tiles slightly
+.home-race-metrics .metric--distance {
+  grid-area: distance;
+  background: rgba(255, 106, 51, 0.03);
+}
+.home-race-metrics .metric--distance .metric-icon { color: $link-color; }
+.home-race-metrics .metric--vert {
+  grid-area: vert;
+  background: rgba(16, 185, 129, 0.03);
+}
+.home-race-metrics .metric--vert .metric-icon { color: #16a34a; }
+.home-race-metrics .metric--time {
+  grid-area: time;
+  background: rgba(59, 130, 246, 0.03);
+}
+.home-race-metrics .metric--time .metric-icon { color: #2563eb; }
+
+
+// Always two columns on tablets/desktop with time spanning bottom row
+@media (min-width: $bp-ipad-min) {
+  .home-race-metrics {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "distance vert"
+      "time time";
+    gap: 0.35rem 0.4rem;
+  }
+}
+
+// Phones: stack if space is tight
+@media (max-width: $bp-compact) {
+  .home-race-metrics {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "distance vert"
+      "time time";
+    gap: 0.25rem 0.3rem;
+  }
+}
+
+
+@media (max-width: $bp-compact) { .home-race-metrics { grid-template-columns: 1fr 1fr; } }
+
+// Tablets: two columns
+@media (min-width: $bp-ipad-min) and (max-width: $bp-ipad-max) {
+  .home-race-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+// Ensure equal-height cards by stretching grid children and letting the card fill height
+.home-samples > * { height: 100%; align-self: stretch; width: 100%; }
+.home-samples > * > .blog-item { height: 100%; width: 100%; display: flex; }
+.home-samples > * > .blog-item > .card { height: 100%; display: flex; flex-direction: column; }
+.home-samples > * > .blog-item > .card > .card-body { display: flex; flex-direction: column; }
 
 // Home post title color behavior
 .home-post__title {
@@ -86,7 +197,7 @@
 
 // Small helpers used on home
 .emoji-badge { font-size: 0.95rem; line-height: 1; }
-.home-card-sep { margin: 0.35rem 0 0.45rem 0; border: 0; border-top: 1px solid rgba(252, 76, 2, 0.08); }
+.home-card-sep { margin: 0.08rem 0 0.12rem 0; border: 0; border-top: 1px solid rgba(252, 76, 2, 0.08); }
 .home-sample-tags { margin-top: 0.25rem; }
 .home-sample-tags .race-tags-inline { display: inline-flex; gap: 0.25rem; flex-wrap: wrap; }
 

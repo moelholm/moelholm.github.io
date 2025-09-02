@@ -32,7 +32,7 @@ If you recall my last race notes, then my family came too late to see me enter t
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-06-12/IMG_5422.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-12/IMG_5423.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-12/IMG_5422.jpg" data-src="/img_running/2025-06-12/IMG_5422.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-12/IMG_5423.jpg" data-src="/img_running/2025-06-12/IMG_5423.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -40,8 +40,8 @@ There were pacers for 1:35 and “slower”, but since I wanted to aim closer to
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-06-12/IMG_5425.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-12/IMG_5428.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-06-12/IMG_5429.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-12/IMG_5430.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-12/IMG_5425.jpg" data-src="/img_running/2025-06-12/IMG_5425.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-12/IMG_5428.jpg" data-src="/img_running/2025-06-12/IMG_5428.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-12/IMG_5429.jpg" data-src="/img_running/2025-06-12/IMG_5429.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-12/IMG_5430.jpg" data-src="/img_running/2025-06-12/IMG_5430.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -53,7 +53,7 @@ Side remark: here’s a fine poster my wife and son made for cheering me on 🥲
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-06-12/IMG_5435.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-12/IMG_5438.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-12/IMG_5435.jpg" data-src="/img_running/2025-06-12/IMG_5435.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-12/IMG_5438.jpg" data-src="/img_running/2025-06-12/IMG_5438.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -62,7 +62,7 @@ The weather was awesome. But it did feel quite warm (when you combine a harder e
 On the day I gave it what I had. A race time of `1:32:58` and a position `164` of `1421` finishers. And even though I naively had hoped to run a bit faster, then under the circumstances (warm, hilly, windy) I feel happy with my performance 🤗🕺🏼.
 
 <div style="text-align: center; margin-bottom: 1em;">
- <img src="/img_running/2025-06-12/IMG_5432.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" />
+ <img src="/img_running/2025-06-12/IMG_5432.jpg" data-src="/img_running/2025-06-12/IMG_5432.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" />
 </div>
 
 ### Recommended?
