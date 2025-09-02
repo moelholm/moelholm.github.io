@@ -43,19 +43,16 @@ stylesheets: ["/css/tags.css"]
     {% endfor %}
 
   <h3 id="{{ tag }}">{% include tag_chip.html name=tag href="/tags#" size="lg" %} <small class="tag-count">{{ tag_count }}</small></h3>
-    <ul class="tag-posts">
+    <div class="tag-matches">
       {% for post in site.running %}
         {% if post.tags contains tag %}
-          <li>
-            <a href="{{ post.url }}">
-              <span class="arrow">›</span>
-              <small class="date">{{ post.date | date: "%Y-%m-%d" }}</small>
-              <span class="title">{{ post.title }}</span>
-            </a>
-          </li>
+          {% assign dt_text = post.date | date: "%Y-%m-%d" %}
+          {% capture title_html %}{{ post.title }}{% endcapture %}
+          {% capture body_html %}{% endcapture %}
+          {% include table_card.html datetime_text=dt_text title_html=title_html href=post.url body_html=body_html %}
         {% endif %}
       {% endfor %}
-    </ul>
+    </div>
   </div>
   {% endfor %}
 </div>
@@ -97,19 +94,16 @@ stylesheets: ["/css/tags.css"]
     {% endfor %}
 
   <h3 id="{{ tag }}">{% include tag_chip.html name=tag href="/tags#" size="lg" %} <small class="tag-count">{{ tag_count }}</small></h3>
-    <ul class="tag-posts">
+    <div class="tag-matches">
       {% for post in site.software_engineering %}
         {% if post.tags contains tag %}
-          <li>
-            <a href="{{ post.url }}">
-              <span class="arrow">›</span>
-              <small class="date">{{ post.date | date: "%Y-%m-%d" }}</small>
-              <span class="title">{{ post.title }}</span>
-            </a>
-          </li>
+          {% assign dt_text = post.date | date: "%Y-%m-%d" %}
+          {% capture title_html %}{{ post.title }}{% endcapture %}
+          {% capture body_html %}{% endcapture %}
+          {% include table_card.html datetime_text=dt_text title_html=title_html href=post.url body_html=body_html %}
         {% endif %}
       {% endfor %}
-    </ul>
+    </div>
   </div>
   {% endfor %}
 </div>

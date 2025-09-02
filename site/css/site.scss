@@ -4,7 +4,7 @@
 // Import shared variables and components
 @import "variables";
 @import "components/race_tag";
-@import "components/lightbox";
+@import "components/table_card";
 
 * { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
@@ -137,13 +137,7 @@ body .container {
 }
 
 a,
-a:visited {
-  color: $content-link-color;
-  text-decoration: underline;
-  text-underline-offset: 0.15em;
-  text-decoration-thickness: 0.08em;
-  text-decoration-color: rgba(55, 65, 81, 0.45);
-}
+a:visited { color: $content-link-color; text-decoration: none; }
 
 a[href],
 .stretched-link,
@@ -153,11 +147,32 @@ a[href],
   cursor: pointer !important;
 }
 
+// Ensure top-right CTA buttons are clickable above stretched-link overlays
+.blog-item .btn.position-relative { z-index: 2; }
+
+// Keep inline links and tag chips clickable within cards
+.blog-item .card-extra a,
+.blog-item .toot-content a { position: relative; z-index: 2; }
+
+// Keep spotlight images clickable inside cards (don't let overlay steal clicks)
+.blog-item .spotlight { position: relative; z-index: 2; }
+
+// Ensure titles hover correctly above stretched-link overlay
+.blog-item .post-title-link,
+.blog-item .home-post__title { position: relative; z-index: 2; }
+
+// Only show pointer on actual interactive elements (links/buttons)
+
+// Ensure stretched-link sits above body content for hover/click capture
+.blog-item .stretched-link { z-index: 1; }
+// Ensure the Bootstrap stretched-link overlay captures clicks across the card body
+.blog-item .stretched-link::after { z-index: 1; pointer-events: auto; }
+
+// Spotlight-enabled media: show hand cursor on hover
+.spotlight { cursor: pointer; }
+
 a:hover,
-a:focus {
-  color: $content-link-hover-color;
-  text-decoration: none;
-}
+a:focus { color: $content-link-hover-color; text-decoration: underline; text-underline-offset: 0.15em; text-decoration-thickness: 0.08em; text-decoration-color: rgba(55, 65, 81, 0.45); }
 
 a:focus-visible {
   outline: 2px solid rgba(55, 65, 81, 0.35);
@@ -271,20 +286,21 @@ h2 {
   }
   
   a {
-  text-decoration: underline;
+    text-decoration: none;
     background-color: transparent;
     color: $content-link-color;
     font-weight: 500;
-  transition: color 0.2s ease-in-out, text-decoration-color 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out, text-decoration-color 0.2s ease-in-out;
     position: relative;
-  text-underline-offset: 0.15em;
-  text-decoration-thickness: 0.08em;
-  text-decoration-color: rgba(55, 65, 81, 0.45);
   }
-  
-  a:hover {
+
+  a:hover,
+  a:focus {
     color: $content-link-hover-color;
-  text-decoration: none;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+    text-decoration-thickness: 0.08em;
+    text-decoration-color: rgba(55, 65, 81, 0.45);
   }
 
   .tag-list {
@@ -446,12 +462,14 @@ h2 {
 .post-title-link {
   color: $heading-secondary !important;
   font-weight: 700;
-  text-decoration: none !important;
+  text-decoration: none;
   
   &:hover,
   &:focus {
     color: $heading-primary !important;
-    text-decoration: none !important;
+    text-decoration: underline;
+    text-underline-offset: 0.12em;
+    text-decoration-thickness: 0.08em;
   }
 }
 
@@ -480,6 +498,21 @@ h2 {
       margin-right: 0.3em;
     }
   }
+}
+
+// Compact blog/toots list layout used on listing pages (running, toots, etc.)
+.list-cards {
+  .blog-item { margin-bottom: 1.2rem; padding-bottom: 0.9rem; border-bottom: 1px solid rgba(252, 76, 2, 0.08); }
+  .blog-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+  .blog-item--compact .card-body { padding-bottom: 0.6rem; }
+
+  // Ensure spacing between items doesn't collapse inside Bootstrap cols
+  > .col-md-12 { margin-bottom: 1rem; }
+  > .col-md-12:last-child { margin-bottom: 0; }
+
+  // Homepage card title: follow global link rules (underline on hover/focus)
+  .home-post__title { color: $link-color !important; text-decoration: none; }
+  .home-post__title:hover, .home-post__title:focus { color: $link-hover-color !important; text-decoration: underline; }
 }
 
 code.highlighter-rouge {
@@ -527,8 +560,8 @@ tbody + tbody {
 }
 
 // Legacy .tag chips (kept minimal) — prefer .race-tag
-.tag { background: transparent; color: $content-link-color; padding: 0.1rem 0.2rem; border-radius: 4px; font-size: 0.8rem; display: inline-block; }
-.tag:hover { text-decoration: underline !important; }
+.tag { background: transparent; color: $content-link-color; padding: 0.1rem 0.2rem; border-radius: 4px; font-size: 0.8rem; display: inline-block; text-decoration: none !important; }
+.tag:hover, .tag:focus { text-decoration: underline !important; }
 
 // Custom styling for intro bullet lists - running theme
 

@@ -31,7 +31,7 @@ Distance|{{ page.distance_km }}k
 Thy Trail Marathon is in the upper part of Northern Jutland, Denmark 🇩🇰:
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-02-26/1.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-02-26/2.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-02-26/1.jpg" data-src="/img_running/2025-02-26/1.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-02-26/2.jpg" data-src="/img_running/2025-02-26/2.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -41,7 +41,7 @@ I was up pretty early to get to the race in time: at around 04:00 AM. Took a few
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-02-26/a.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-02-26/b.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-02-26/a.jpg" data-src="/img_running/2025-02-26/a.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-02-26/b.jpg" data-src="/img_running/2025-02-26/b.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -53,7 +53,7 @@ At the starting-line we were a lot of runners - 211 (!) so it was pretty busy th
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-02-26/c.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-02-26/d.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-02-26/c.jpg" data-src="/img_running/2025-02-26/c.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-02-26/d.jpg" data-src="/img_running/2025-02-26/d.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -63,8 +63,8 @@ Anyways - Thy Trail Marathon has its signature quality; It can get pretty wet ou
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-02-26/e.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-02-26/f.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-02-26/g.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-02-26/h.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-02-26/e.jpg" data-src="/img_running/2025-02-26/e.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-02-26/f.jpg" data-src="/img_running/2025-02-26/f.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-02-26/g.jpg" data-src="/img_running/2025-02-26/g.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-02-26/h.jpg" data-src="/img_running/2025-02-26/h.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -74,8 +74,8 @@ Other than that it was an amazing route. Thy National Park is one of the most am
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-02-26/i.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-02-26/j.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-02-26/k.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-02-26/l.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-02-26/i.jpg" data-src="/img_running/2025-02-26/i.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-02-26/j.jpg" data-src="/img_running/2025-02-26/j.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-02-26/k.jpg" data-src="/img_running/2025-02-26/k.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-02-26/l.jpg" data-src="/img_running/2025-02-26/l.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -85,7 +85,7 @@ After 42 kilometers I thought I was done. But no ... couldn't even see the finis
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-02-26/n.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-02-26/m.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-02-26/n.jpg" data-src="/img_running/2025-02-26/n.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-02-26/m.jpg" data-src="/img_running/2025-02-26/m.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 

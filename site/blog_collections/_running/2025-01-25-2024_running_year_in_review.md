@@ -14,7 +14,7 @@ According to Strava, in 2024 I ran `5000K` over `501h` with a total elevation ga
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-01-25/strava1.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-01-25/strava2.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-01-25/strava1.jpg" data-src="/img_running/2025-01-25/strava1.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-01-25/strava2.jpg" data-src="/img_running/2025-01-25/strava2.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -24,8 +24,8 @@ That was a lot more than I ever thought I would do. Even now I cannot imagine ru
 
 I had planned 14 races for 2024. Some were added during the year - but most were planned as the year kicked off. 
 <div style="text-align: center;">
- <img src="/img_running/2025-01-25/raceplan2024.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" />
-</div>
+ <img src="/img_running/2025-01-25/raceplan2024.jpg" data-src="/img_running/2025-01-25/raceplan2024.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" />
+ </div>
 
 I successfully ran all of them. No injuries/illness prevented me to start - and no races resulted in a DNF.
 
@@ -50,9 +50,9 @@ With [Race: UTMB CCC](https://strava.app.link/kEjfFt91sQb) I achieved a new Elev
 A few photos from that race:
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-01-25/ccc1.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-01-25/ccc2.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-01-25/ccc6.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-01-25/ccc7.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-01-25/ccc3.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-01-25/ccc4.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-01-25/ccc1.jpg" data-src="/img_running/2025-01-25/ccc1.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-01-25/ccc2.jpg" data-src="/img_running/2025-01-25/ccc2.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-01-25/ccc6.jpg" data-src="/img_running/2025-01-25/ccc6.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-01-25/ccc7.jpg" data-src="/img_running/2025-01-25/ccc7.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-01-25/ccc3.jpg" data-src="/img_running/2025-01-25/ccc3.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-01-25/ccc4.jpg" data-src="/img_running/2025-01-25/ccc4.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -62,8 +62,8 @@ With [Race: Kullamannen by UTMB](https://strava.app.link/guWy5FgXrQb) I achieved
 A few photos from that race:
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-01-25/kulla1.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-01-25/kulla2.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-01-25/kulla3.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-01-25/kulla4.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-01-25/kulla1.jpg" data-src="/img_running/2025-01-25/kulla1.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-01-25/kulla2.jpg" data-src="/img_running/2025-01-25/kulla2.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-01-25/kulla3.jpg" data-src="/img_running/2025-01-25/kulla3.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-01-25/kulla4.jpg" data-src="/img_running/2025-01-25/kulla4.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 

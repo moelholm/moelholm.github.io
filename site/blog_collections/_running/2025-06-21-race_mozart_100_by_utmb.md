@@ -35,8 +35,8 @@ I arrived in Salzburg Thursday, collected my bib Friday, ran Saturday, relaxed S
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-06-21/IMG_5506.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5515.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-06-21/IMG_5520.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5522.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-21/IMG_5506.jpg" data-src="/img_running/2025-06-21/IMG_5506.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5515.jpg" data-src="/img_running/2025-06-21/IMG_5515.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-21/IMG_5520.jpg" data-src="/img_running/2025-06-21/IMG_5520.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5522.jpg" data-src="/img_running/2025-06-21/IMG_5522.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -45,9 +45,9 @@ Thursday when I arrived I went out to be a tourist 🤗🤩.
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-06-21/IMG_5523.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5524.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-06-21/IMG_5533.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5534.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-06-21/IMG_5543.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/PAULANER.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-21/IMG_5523.jpg" data-src="/img_running/2025-06-21/IMG_5523.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5524.jpg" data-src="/img_running/2025-06-21/IMG_5524.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-21/IMG_5533.jpg" data-src="/img_running/2025-06-21/IMG_5533.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5534.jpg" data-src="/img_running/2025-06-21/IMG_5534.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-21/IMG_5543.jpg" data-src="/img_running/2025-06-21/IMG_5543.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/PAULANER.jpg" data-src="/img_running/2025-06-21/PAULANER.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -58,10 +58,10 @@ Friday I collected my race bib and starter pack. The UTMB race organizers had co
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-06-21/IMG_5567.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5563.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-06-21/mozart 100.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5568.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-06-21/IMG_5569.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5572.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-06-21/IMG_5573.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5574.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-21/IMG_5567.jpg" data-src="/img_running/2025-06-21/IMG_5567.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5563.jpg" data-src="/img_running/2025-06-21/IMG_5563.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-21/mozart 100.jpg" data-src="/img_running/2025-06-21/mozart 100.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5568.jpg" data-src="/img_running/2025-06-21/IMG_5568.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-21/IMG_5569.jpg" data-src="/img_running/2025-06-21/IMG_5569.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5572.jpg" data-src="/img_running/2025-06-21/IMG_5572.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-21/IMG_5573.jpg" data-src="/img_running/2025-06-21/IMG_5573.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5574.jpg" data-src="/img_running/2025-06-21/IMG_5574.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -69,7 +69,7 @@ I collected: the usual UTMB drop back, race bib, another tag (chip) to attach to
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-06-21/230.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5566.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-21/230.jpg" data-src="/img_running/2025-06-21/230.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5566.jpg" data-src="/img_running/2025-06-21/IMG_5566.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -78,9 +78,9 @@ The race started at 05:00 Saturday morning. So I was up pretty early … around 
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-06-21/10.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5609.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-06-21/IMG_5612.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5611.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-06-21/IMG_5615.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5608.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-21/10.jpg" data-src="/img_running/2025-06-21/10.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5609.jpg" data-src="/img_running/2025-06-21/IMG_5609.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-21/IMG_5612.jpg" data-src="/img_running/2025-06-21/IMG_5612.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5611.jpg" data-src="/img_running/2025-06-21/IMG_5611.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-21/IMG_5615.jpg" data-src="/img_running/2025-06-21/IMG_5615.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5608.jpg" data-src="/img_running/2025-06-21/IMG_5608.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -88,10 +88,10 @@ The race itself had a nice mix of runnable and hiking sections. As you can see b
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-06-21/IMG_5621.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5626.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-06-21/IMG_5628.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5632.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-06-21/IMG_5635.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5639.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-06-21/IMG_5641.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5647.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-21/IMG_5621.jpg" data-src="/img_running/2025-06-21/IMG_5621.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5626.jpg" data-src="/img_running/2025-06-21/IMG_5626.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-21/IMG_5628.jpg" data-src="/img_running/2025-06-21/IMG_5628.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5632.jpg" data-src="/img_running/2025-06-21/IMG_5632.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-21/IMG_5635.jpg" data-src="/img_running/2025-06-21/IMG_5635.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5639.jpg" data-src="/img_running/2025-06-21/IMG_5639.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-21/IMG_5641.jpg" data-src="/img_running/2025-06-21/IMG_5641.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5647.jpg" data-src="/img_running/2025-06-21/IMG_5647.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -99,8 +99,8 @@ We reached the Zwölferhorn mountain after roughly 50 kilometers. This mountain 
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-06-21/Zwölferhorn.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5660.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-06-21/IMG_5659.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5663.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-21/Zwölferhorn.jpg" data-src="/img_running/2025-06-21/Zwölferhorn.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5660.jpg" data-src="/img_running/2025-06-21/IMG_5660.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-21/IMG_5659.jpg" data-src="/img_running/2025-06-21/IMG_5659.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5663.jpg" data-src="/img_running/2025-06-21/IMG_5663.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -108,7 +108,7 @@ A downside of writing this report a bit late is that details fade a bit … but 
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-06-21/IMG_5665.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5666.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-21/IMG_5665.jpg" data-src="/img_running/2025-06-21/IMG_5665.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5666.jpg" data-src="/img_running/2025-06-21/IMG_5666.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -118,7 +118,7 @@ Now this Schafberg mountain was also no easy challenge. At 1288 meters it was qu
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-06-21/IMG_5668.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5669.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-21/IMG_5668.jpg" data-src="/img_running/2025-06-21/IMG_5668.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5669.jpg" data-src="/img_running/2025-06-21/IMG_5669.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -130,7 +130,7 @@ Here is roughly when rain started and where I had to put on the headlamp before 
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-06-21/IMG_5677.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5678.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-21/IMG_5677.jpg" data-src="/img_running/2025-06-21/IMG_5677.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5678.jpg" data-src="/img_running/2025-06-21/IMG_5678.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -138,7 +138,7 @@ And here you see my view somewhere along Gaisberg where I can see Salzburg. Now 
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-06-21/IMG_5681.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5682.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-21/IMG_5681.jpg" data-src="/img_running/2025-06-21/IMG_5681.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5682.jpg" data-src="/img_running/2025-06-21/IMG_5682.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -148,9 +148,9 @@ Luckily I had only the Kapuzinerberg mountain after it. I knew it; I had hiked i
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-06-21/Q30088.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5684.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-06-21/IMG_5687.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5688.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-06-21/IMG_5779.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/HOKA.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-21/Q30088.jpg" data-src="/img_running/2025-06-21/Q30088.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5684.jpg" data-src="/img_running/2025-06-21/IMG_5684.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-21/IMG_5687.jpg" data-src="/img_running/2025-06-21/IMG_5687.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5688.jpg" data-src="/img_running/2025-06-21/IMG_5688.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-21/IMG_5779.jpg" data-src="/img_running/2025-06-21/IMG_5779.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/HOKA.jpg" data-src="/img_running/2025-06-21/HOKA.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -162,7 +162,7 @@ I used Sunday to relax a lot - went down to the race area and saw it being close
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-06-21/IMG_5718.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5709.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-21/IMG_5718.jpg" data-src="/img_running/2025-06-21/IMG_5718.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5709.jpg" data-src="/img_running/2025-06-21/IMG_5709.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -172,7 +172,7 @@ Monday I left Salzburg again. Bus to the airport and then flight to Frankfurt an
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-06-21/Hauptbahnhof.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5732.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-21/Hauptbahnhof.jpg" data-src="/img_running/2025-06-21/Hauptbahnhof.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5732.jpg" data-src="/img_running/2025-06-21/IMG_5732.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -184,8 +184,8 @@ A few photos of me (those where I looked less like a zombie 🤣) from the profe
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-06-21/IMG_5784.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5788.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-06-21/IMG_5771.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5785.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-21/IMG_5784.jpg" data-src="/img_running/2025-06-21/IMG_5784.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5788.jpg" data-src="/img_running/2025-06-21/IMG_5788.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-21/IMG_5771.jpg" data-src="/img_running/2025-06-21/IMG_5771.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-21/IMG_5785.jpg" data-src="/img_running/2025-06-21/IMG_5785.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 

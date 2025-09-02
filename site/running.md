@@ -20,7 +20,7 @@ Below are my latest running posts (primarily race reports).
 			{% if post.tags contains 'race' %}{% assign is_race = true %}{% endif %}
 			{% assign badge = '🏃' %}{% if is_race %}{% assign badge = '🏁' %}{% endif %}
 			{% assign class_mods = post.tags | join: ' ' %}
-			{% include card.html
+            {% include card.html
 				 id=post.id
 				 title=post.title
 				 href=post.url
@@ -31,6 +31,7 @@ Below are my latest running posts (primarily race reports).
 				 cta_label="open"
 				 cta_href=post.url
 				 extra_html=tags_html
+				 card_body_classes='py-2'
 			%}
 		{% endfor %}
 	</div>

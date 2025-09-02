@@ -34,8 +34,8 @@ BACH was - as was the case last year - super well organized; geared for 10.000+ 
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-06-27/IMG_5833.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-27/IMG_5832.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-06-27/IMG_5835.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-27/IMG_5836.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-27/IMG_5833.jpg" data-src="/img_running/2025-06-27/IMG_5833.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-27/IMG_5832.jpg" data-src="/img_running/2025-06-27/IMG_5832.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-27/IMG_5835.jpg" data-src="/img_running/2025-06-27/IMG_5835.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-27/IMG_5836.jpg" data-src="/img_running/2025-06-27/IMG_5836.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -46,8 +46,8 @@ Even though I wasn’t primed for this half I decided to do my best. I originall
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-06-27/IMG_5839.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-27/IMG_5840.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-06-27/IMG_5841.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-27/IMG_5842.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-27/IMG_5839.jpg" data-src="/img_running/2025-06-27/IMG_5839.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-27/IMG_5840.jpg" data-src="/img_running/2025-06-27/IMG_5840.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-27/IMG_5841.jpg" data-src="/img_running/2025-06-27/IMG_5841.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-27/IMG_5842.jpg" data-src="/img_running/2025-06-27/IMG_5842.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -55,7 +55,7 @@ I had power to follow the 1:29 pacers for 12-13 kilometers. But by then I was ge
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-06-27/IMG_5845.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-27/IMG_5843.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-27/IMG_5845.jpg" data-src="/img_running/2025-06-27/IMG_5845.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-27/IMG_5843.jpg" data-src="/img_running/2025-06-27/IMG_5843.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -68,7 +68,7 @@ The atmosphere was superb. The cheering crowd was almost unbroken from start to 
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-06-27/IMG_5846.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-27/IMG_5848.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-27/IMG_5846.jpg" data-src="/img_running/2025-06-27/IMG_5846.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-27/IMG_5848.jpg" data-src="/img_running/2025-06-27/IMG_5848.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -85,7 +85,7 @@ Then grabbed a water bottle. And behold: an entire bag of goodies. It contained 
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-06-27/IMG_5850.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-27/IMG_5860.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-27/IMG_5850.jpg" data-src="/img_running/2025-06-27/IMG_5850.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-27/IMG_5860.jpg" data-src="/img_running/2025-06-27/IMG_5860.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -93,9 +93,9 @@ I followed the event web site for incoming finishers. Eagerly awaiting Mads, Nic
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-06-27/IMG_5856.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-27/IMG_5857.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-06-27/IMG_5862.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-27/IMG_5864.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-06-27/IMG_5866.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-27/IMG_5867.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-27/IMG_5856.jpg" data-src="/img_running/2025-06-27/IMG_5856.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-27/IMG_5857.jpg" data-src="/img_running/2025-06-27/IMG_5857.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-27/IMG_5862.jpg" data-src="/img_running/2025-06-27/IMG_5862.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-27/IMG_5864.jpg" data-src="/img_running/2025-06-27/IMG_5864.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-06-27/IMG_5866.jpg" data-src="/img_running/2025-06-27/IMG_5866.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-06-27/IMG_5867.jpg" data-src="/img_running/2025-06-27/IMG_5867.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 

@@ -34,8 +34,8 @@ The race took place in Fort Østerlund, a bit outside Silkeborg city. Since I di
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-04-01/IMG_2926.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-01/IMG_2921.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-04-01/IMG_2925.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-01/IMG_2927.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-04-01/IMG_2926.jpg" data-src="/img_running/2025-04-01/IMG_2926.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-01/IMG_2921.jpg" data-src="/img_running/2025-04-01/IMG_2921.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-04-01/IMG_2925.jpg" data-src="/img_running/2025-04-01/IMG_2925.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-01/IMG_2927.jpg" data-src="/img_running/2025-04-01/IMG_2927.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -43,8 +43,8 @@ Last year I brought a little tent and it worked ok. However, this year, the race
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-04-01/IMG_2928.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-01/IMG_2929.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-04-01/IMG_2933.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-01/IMG_2930.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-04-01/IMG_2928.jpg" data-src="/img_running/2025-04-01/IMG_2928.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-01/IMG_2929.jpg" data-src="/img_running/2025-04-01/IMG_2929.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-04-01/IMG_2933.jpg" data-src="/img_running/2025-04-01/IMG_2933.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-01/IMG_2930.jpg" data-src="/img_running/2025-04-01/IMG_2930.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -54,8 +54,8 @@ The race started Friday evening at 20:00 hours CET. At that time it was dark alr
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-04-01/IMG_2934.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-01/IMG_2935.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-04-01/IMG_2936.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-01/IMG_2939.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-04-01/IMG_2934.jpg" data-src="/img_running/2025-04-01/IMG_2934.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-01/IMG_2935.jpg" data-src="/img_running/2025-04-01/IMG_2935.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-04-01/IMG_2936.jpg" data-src="/img_running/2025-04-01/IMG_2936.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-01/IMG_2939.jpg" data-src="/img_running/2025-04-01/IMG_2939.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -67,21 +67,21 @@ My wife and children had promised to come and cheer for me Saturday. So I had to
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-04-01/IMG_0004.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-01/IMG_0006.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-04-01/IMG_0004.jpg" data-src="/img_running/2025-04-01/IMG_0004.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-01/IMG_0006.jpg" data-src="/img_running/2025-04-01/IMG_0006.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
 It turned out I had good legs. No sign of injuries. In fact I ran some of the fastest rounds at the later part of the race. At some point I was on top of the leaderboard 🤩 (Pssst: don't tell anybody ... but in a backyard ultra, speed actually doesn't matter at all):
 
 <div style="text-align: center; margin-bottom: 1em;">
- <img src="/img_running/2025-04-01/IMG_0012.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" />
+ <img src="/img_running/2025-04-01/IMG_0012.jpg" data-src="/img_running/2025-04-01/IMG_0012.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" />
 </div>
 
 I knew I had to do better than last year (17 rounds). So when I reached 20 rounds (also "hours") I decided to call it a day. Despite feeling super strong I did not really want to keep on running for more hours. Rather: I wanted to end on a high note and stop while the daylight was still there and then enjoy some family time. And ... ahem ... McDonalds ... you know for the boys. So that was it - I went to the race volunteers and *proudly* asked for my DNF medal:
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-04-01/IMG_2942.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-01/IMG_2948.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-04-01/IMG_2942.jpg" data-src="/img_running/2025-04-01/IMG_2942.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-01/IMG_2948.jpg" data-src="/img_running/2025-04-01/IMG_2948.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 

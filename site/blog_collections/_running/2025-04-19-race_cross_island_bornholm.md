@@ -31,15 +31,15 @@ Distance|{{ page.distance_km }}k
 The race was starting very close to our vacation home in Gudhjem in the east: at the art museum in Rø. Then the route went via paved roads and gravel roads crossing the Island (Bornholm) to the city in west, Rønne - at the stadium. This is how the route looked like on Strava after I ran it:
 
 <div style="text-align: center; margin-bottom: 1em;">
- <img src="/img_running/2025-04-19/Route.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" />
+ <img src="/img_running/2025-04-19/Route.jpg" data-src="/img_running/2025-04-19/Route.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" />
 </div>
 
 A few photos from the starting area at the art museum:
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-04-19/IMG_3898.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-19/IMG_3893.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-04-19/IMG_0318.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-19/IMG_3900.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-04-19/IMG_3898.jpg" data-src="/img_running/2025-04-19/IMG_3898.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-19/IMG_3893.jpg" data-src="/img_running/2025-04-19/IMG_3893.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-04-19/IMG_0318.jpg" data-src="/img_running/2025-04-19/IMG_0318.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-19/IMG_3900.jpg" data-src="/img_running/2025-04-19/IMG_3900.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -51,7 +51,7 @@ My family waited for me at a few key spots along the route. They also - btw - se
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-04-19/IMG_0320.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-19/IMG_0323.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-04-19/IMG_0320.jpg" data-src="/img_running/2025-04-19/IMG_0320.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-19/IMG_0323.jpg" data-src="/img_running/2025-04-19/IMG_0323.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -59,7 +59,7 @@ Fast forward to the end. I did not beat my PB (from 2024) but I did have an extr
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-04-19/IMG_0326.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-19/IMG_0327.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-04-19/IMG_0326.jpg" data-src="/img_running/2025-04-19/IMG_0326.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-19/IMG_0327.jpg" data-src="/img_running/2025-04-19/IMG_0327.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -67,7 +67,7 @@ In conclusion I felt I was running at the edge of what was possible for me at my
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-04-19/IMG_3901.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-19/IMG_3917.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-04-19/IMG_3901.jpg" data-src="/img_running/2025-04-19/IMG_3901.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-04-19/IMG_3917.jpg" data-src="/img_running/2025-04-19/IMG_3917.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 

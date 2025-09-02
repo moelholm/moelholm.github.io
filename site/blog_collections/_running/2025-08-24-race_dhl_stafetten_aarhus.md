@@ -36,10 +36,10 @@ The race started - in a way - earlier the day; by having a piece of Alfono's fam
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-08-21/IMG_7769.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-21/IMG_7775.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-08-21/IMG_7777.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-21/IMG_7778.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-08-21/IMG_7782.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-21/IMG_7783.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-08-21/IMG_7785.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-21/IMG_7791.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-08-21/IMG_7769.jpg" data-src="/img_running/2025-08-21/IMG_7769.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-21/IMG_7775.jpg" data-src="/img_running/2025-08-21/IMG_7775.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-08-21/IMG_7777.jpg" data-src="/img_running/2025-08-21/IMG_7777.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-21/IMG_7778.jpg" data-src="/img_running/2025-08-21/IMG_7778.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-08-21/IMG_7782.jpg" data-src="/img_running/2025-08-21/IMG_7782.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-21/IMG_7783.jpg" data-src="/img_running/2025-08-21/IMG_7783.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-08-21/IMG_7785.jpg" data-src="/img_running/2025-08-21/IMG_7785.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-21/IMG_7791.jpg" data-src="/img_running/2025-08-21/IMG_7791.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -47,10 +47,10 @@ My team had some last-minute reshuffle: 2 of our colleagues got ill, so we ran t
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-08-21/IMG_7794.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-21/IMG_7795.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-08-21/IMG_7796.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-21/IMG_7797.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-08-21/IMG_7798.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-21/IMG_7801.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-08-21/IMG_7806.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-21/IMG_7804.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-08-21/IMG_7794.jpg" data-src="/img_running/2025-08-21/IMG_7794.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-21/IMG_7795.jpg" data-src="/img_running/2025-08-21/IMG_7795.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-08-21/IMG_7796.jpg" data-src="/img_running/2025-08-21/IMG_7796.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-21/IMG_7797.jpg" data-src="/img_running/2025-08-21/IMG_7797.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-08-21/IMG_7798.jpg" data-src="/img_running/2025-08-21/IMG_7798.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-21/IMG_7801.jpg" data-src="/img_running/2025-08-21/IMG_7801.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-08-21/IMG_7806.jpg" data-src="/img_running/2025-08-21/IMG_7806.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-21/IMG_7804.jpg" data-src="/img_running/2025-08-21/IMG_7804.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -62,8 +62,8 @@ The race was tough for all of us. Relatively to each of our abilities it seemed 
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-08-21/IMG_7809.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-21/IMG_7810.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-08-21/IMG_7812.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-21/IMG_7818.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-08-21/IMG_7809.jpg" data-src="/img_running/2025-08-21/IMG_7809.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-21/IMG_7810.jpg" data-src="/img_running/2025-08-21/IMG_7810.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-08-21/IMG_7812.jpg" data-src="/img_running/2025-08-21/IMG_7812.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-21/IMG_7818.jpg" data-src="/img_running/2025-08-21/IMG_7818.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -71,8 +71,8 @@ After the race it was time to some post-race grill food: chicken, potato salad a
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-08-21/IMG_7820.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-21/IMG_7821.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-08-21/IMG_7822.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-21/IMG_7823.jpg" alt="" class="w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-08-21/IMG_7820.jpg" data-src="/img_running/2025-08-21/IMG_7820.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-21/IMG_7821.jpg" data-src="/img_running/2025-08-21/IMG_7821.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-08-21/IMG_7822.jpg" data-src="/img_running/2025-08-21/IMG_7822.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-08-21/IMG_7823.jpg" data-src="/img_running/2025-08-21/IMG_7823.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 

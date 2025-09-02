@@ -12,7 +12,7 @@ I live in Billund, Denmark, with my wonderful family: Teresa and our 3 children,
 
 <div class="row justify-content-center mb-4">
     <div class="col-6">
-        {% include lightbox.html id="about-1" full_url="/img/about/me_and_nala.jpg" thumb_src="/img/about/me_and_nala.jpg" alt="Me and Nala (our Jack Russel Terrier)" img_class="w-100" title="View image" %}
+    <img src="/img/about/me_and_nala.jpg" data-src="/img/about/me_and_nala.jpg" alt="Me and Nala (our Jack Russel Terrier)" class="spotlight w-100" loading="lazy" />
     </div>
 </div>
 
@@ -20,12 +20,12 @@ I live in Billund, Denmark, with my wonderful family: Teresa and our 3 children,
 
 I run a lot these days. In fact it may be borderline crazy to most folks; I am primarily a trail and ultra runner. Trail runs are just everything besides normal road running. Ultra running is the crazy part; they begin after the Marathon distance: a 43 kilometer run is an ultra run. Typically they are longer though - popular distances are: 50 kilometers, 80 kilometers (50 miles), 100 kilometers and 160 kilometers (100 miles).
 
-<div class="row justify-content-center mb-4">
+<div class="row justify-content-center mb-4 spotlight-group">
     <div class="col-6">
-        {% include lightbox.html id="about-2" full_url="/img/about/me_running_1.jpg" thumb_src="/img/about/me_running_1.jpg" alt="Me at a mountain in Germany - taken during running" img_class="w-100" title="View image" %}
+    <img src="/img/about/me_running_1.jpg" data-src="/img/about/me_running_1.jpg" alt="Me at a mountain in Germany - taken during running" class="spotlight w-100" loading="lazy" />
     </div>
     <div class="col-6">
-        {% include lightbox.html id="about-3" full_url="/img/about/me_running_2.jpg" thumb_src="/img/about/me_running_2.jpg" alt="Me at a mountain in Germany - taken during running" img_class="w-100" title="View image" %}
+    <img src="/img/about/me_running_2.jpg" data-src="/img/about/me_running_2.jpg" alt="Me at a mountain in Germany - taken during running" class="spotlight w-100" loading="lazy" />
     </div>
 </div>
 
@@ -33,12 +33,12 @@ I run a lot these days. In fact it may be borderline crazy to most folks; I am p
 
 I currently work for The LEGO Group as a Software Engineer on the ILSP product team.
 
-<div class="row justify-content-center mb-4">
+<div class="row justify-content-center mb-4 spotlight-group">
     <div class="col-6">
-        {% include lightbox.html id="about-4" full_url="/img/about/lego_minifig.jpg" thumb_src="/img/about/lego_minifig.jpg" alt="LEGO Campus during Christmas" img_class="w-100" title="View image" %}
+    <img src="/img/about/lego_minifig.jpg" data-src="/img/about/lego_minifig.jpg" alt="LEGO Campus during Christmas" class="spotlight w-100" loading="lazy" />
     </div>
     <div class="col-6">
-        {% include lightbox.html id="about-5" full_url="/img/about/me_and_fox.jpg" thumb_src="/img/about/me_and_fox.jpg" alt="Me and a LEGO fox at LEGO Campus" img_class="w-100" title="View image" %}
+    <img src="/img/about/me_and_fox.jpg" data-src="/img/about/me_and_fox.jpg" alt="Me and a LEGO fox at LEGO Campus" class="spotlight w-100" loading="lazy" />
     </div>
 </div>
 

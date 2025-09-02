@@ -1,15 +1,5 @@
-{%- comment -%}
-Reusable section for homepage lists.
-Params:
-- title: string
-- emoji: string
-- items: array
-- limit: number
-- kind: 'toots' | 'running' | 'results'
-- more_url: string
-- grid: optional grid modifier class (e.g., 'home-samples--two')
-{%- endcomment -%}
-<div class="card mb-3">
+
+<div class="card{% if include.kind != 'toots' %} mb-3{% endif %}">
   <div class="card-body">
     <h5 class="mb-2 d-flex align-items-center gap-1">{{ include.title }}{% if include.emoji %} <span class="emoji-badge ml-1">{{ include.emoji }}</span>{% endif %}</h5>
     {%- assign list = include.items -%}
@@ -17,11 +7,97 @@ Params:
       <div class="home-samples{% if include.grid %} {{ include.grid }}{% endif %}">
         {%- for item in list limit: include.limit -%}
           {%- if include.kind == 'toots' -%}
-            {% include home/card_toot.html toot=item %}
+            {%- assign src = item.remote_url | default: item.url -%}
+            {%- assign parts = src | split: '/' -%}
+            {%- assign rev = parts | reverse -%}
+            {%- assign toot_anchor = '' -%}
+            {%- for p in rev -%}{%- if p != '' and toot_anchor == '' -%}{%- assign toot_anchor = p -%}{%- endif -%}{%- endfor -%}
+            {%- assign toot_link = '/toots/#toot-' | append: toot_anchor -%}
+            {%- assign external_href = item.remote_url | default: item.url -%}
+            {%- capture day_ordinal -%}{% include ordinal_day.html date=item.date %}{%- endcapture -%}
+            {%- assign month_part = item.date | date: "%B " -%}
+            {%- assign time_part = item.date | date: "%a %H:%M" -%}
+            {%- assign title_text = month_part | append: day_ordinal | append: " · " | append: time_part -%}
+            {%- capture emoji_suffix -%}{% include toot_title_emojis.html hashtags=item.hashtags %}{%- endcapture -%}
+            {%- assign title_text = title_text | append: emoji_suffix -%}
+            {%- assign date_text = item.date | date: "%Y-%m-%d %H:%M" | append: " UTC" -%}
+            {%- capture body_html -%}<p class="card-text mb-2">{{ item.content | strip_html | truncate: 140 }}</p>{%- endcapture -%}
+            {% include card.html
+              wrap_in_col=false
+              id=toot_anchor
+              title=title_text
+              href=toot_link
+              badge_html="🐘"
+              body_html=body_html
+              date_text=date_text
+              cta_label="open"
+              cta_href=toot_link
+              class_modifiers='blog-item--compact'
+              card_classes='home-post home-post--compact position-relative'
+              card_body_classes='py-2'
+            %}
           {%- elsif include.kind == 'running' -%}
-            {% include home/card_running_post.html post=item %}
+            {%- assign date_text = item.date | date: "%Y-%m-%d %H:%M" | append: " UTC" -%}
+            {%- capture body_html -%}{{ item.content | strip_html | truncate: 140 }}{%- endcapture -%}
+            {%- assign is_race = false -%}{% if item.tags contains 'race' %}{%- assign is_race = true -%}{% endif %}
+            {%- assign badge = '🏃' -%}{% if is_race %}{%- assign badge = '📖' -%}{% endif %}
+            {%- assign class_mods = 'blog-item--compact' -%}
+            {%- if is_race -%}{%- assign class_mods = class_mods | append: ' race' -%}{%- endif -%}
+            {% include card.html
+              wrap_in_col=false
+              id=item.id
+              title=item.title
+              href=item.url
+              badge_html=badge
+              body_html=body_html
+              date_text=date_text
+              cta_label="open"
+              cta_href=item.url
+              class_modifiers=class_mods
+              card_classes='home-post home-post--compact position-relative'
+              card_body_classes='py-2'
+            %}
           {%- elsif include.kind == 'results' -%}
-            {% include home/card_race_result.html p=item %}
+            {%- assign date_text = item.race_date | default: item.date | date: "%Y-%m-%d %H:%M" | append: " UTC" -%}
+            {%- capture metrics_html -%}
+              <div class="home-race-metrics" aria-label="Race metrics">
+                {% if item.distance_km %}
+                  <div class="metric metric--distance" title="Distance">
+                    <span class="metric-icon"><i class="fa-solid fa-route" aria-hidden="true"></i></span>
+                    <span class="metric-value">{{ item.distance_km }}<span class="unit"> km</span></span>
+                  </div>
+                {% endif %}
+                {% if item.elevation_gain_m %}
+                  <div class="metric metric--vert" title="Elevation gain">
+                    <span class="metric-icon"><i class="fa-solid fa-mountain" aria-hidden="true"></i></span>
+                    <span class="metric-value">{{ item.elevation_gain_m }}<span class="unit"> m</span></span>
+                  </div>
+                {% endif %}
+                {% if item.duration_formatted %}
+                  <div class="metric metric--time" title="Duration">
+                    <span class="metric-icon"><i class="fa-regular fa-clock" aria-hidden="true"></i></span>
+                    <span class="metric-value">{{ item.duration_formatted }}</span>
+                  </div>
+                {% endif %}
+              </div>
+            {%- endcapture -%}
+            {% capture tags_html %}{% include home/race_type_tags.html post=item %}{% endcapture %}
+            {% capture extra_html %}{{ metrics_html }}<div class="home-sample-tags">{{ tags_html }}</div>{% endcapture %}
+            {% include card.html
+              wrap_in_col=false
+              id=item.id
+              title=item.title
+              href=item.url
+              badge_html='🏁'
+              body_html=''
+              date_text=date_text
+              cta_label="open"
+              cta_href=item.url
+              extra_html=extra_html
+              class_modifiers='blog-item--compact race'
+              card_classes='home-post home-post--compact position-relative'
+              card_body_classes='py-2'
+            %}
           {%- endif -%}
         {%- endfor -%}
       </div>
