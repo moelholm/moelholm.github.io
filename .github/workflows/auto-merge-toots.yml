@@ -37,4 +37,5 @@ jobs:
             echo "PR #$pr_number found but without 'toots' label; skipping."
             exit 0
           fi
-          gh pr merge "$pr_number" --repo "$REPO" --squash --auto --delete-branch || gh pr merge "$pr_number" --repo "$REPO" --squash --delete-branch
+          # Merge immediately to ensure this workflow finishes after the merge is applied
+          gh pr merge "$pr_number" --repo "$REPO" --squash --delete-branch
