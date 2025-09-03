@@ -2,16 +2,12 @@ name: fetch-toots
 
 on:
   schedule:
-    - cron: '*/10 * * * *'  # every 10 minutes
+    - cron: '0 */6 * * *'  # every 6 hours
   workflow_dispatch: {}
 
 permissions:
   contents: write
   pull-requests: write
-
-concurrency:
-  group: fetch-toots
-  cancel-in-progress: true
 
 jobs:
   fetch:
