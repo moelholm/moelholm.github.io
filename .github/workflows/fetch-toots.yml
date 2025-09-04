@@ -2,12 +2,16 @@ name: fetch-toots
 
 on:
   schedule:
-    - cron: '0 */6 * * *'  # every 6 hours
+  - cron: '*/10 * * * *'  # every 10 minutes
   workflow_dispatch: {}
 
 permissions:
   contents: write
   pull-requests: write
+
+concurrency:
+  group: fetch-toots
+  cancel-in-progress: true
 
 jobs:
   fetch:
@@ -58,10 +62,16 @@ jobs:
           python tools/fetch_toots.py
 
           # If no changes in toots nor media assets, exit early (no PR)
-          if [ -z "$(git status --porcelain -- site/blog_collections/_toots site/assets/toots_media)" ]; then
+          changes=$(git diff --name-only site/blog_collections/_toots site/assets/toots_media || true)
+          if [ -z "$changes" ]; then
             echo "No toot/media changes; nothing to do."
             exit 0
           fi
+          non_meta=$(echo "$changes" | grep -v '^site/blog_collections/_toots/meta.md$' || true)
+            if [ -z "$non_meta" ]; then
+              echo "Only meta.md changed (timestamp); skipping commit/PR."
+              exit 0
+            fi
 
           # Commit and push PR branch
           git add -A site/blog_collections/_toots site/assets/toots_media
