@@ -39,3 +39,12 @@ jobs:
           fi
           # Merge immediately to ensure this workflow finishes after the merge is applied
           gh pr merge "$pr_number" --repo "$REPO" --squash --delete-branch
+          echo "Merged PR #$pr_number. Dispatching 'toots-merged' event to trigger Pages build."
+          curl -s -f -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/$REPO/dispatches \
+            -d '{"event_type":"toots-merged"}' \
+          || { echo "Failed to dispatch event"; exit 1; }
+          echo "repository_dispatch event sent."
