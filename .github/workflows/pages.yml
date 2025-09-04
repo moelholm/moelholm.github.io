@@ -3,11 +3,9 @@ name: Build & Deploy (Jekyll / GitHub Pages)
 on:
   push:
     branches: [ master ]
-  # Ensure Pages deploys after automated toot PR merges, since pushes from
-  # GITHUB_TOKEN won't trigger workflows. This runs when the auto-merge workflow completes.
-  workflow_run:
-    workflows: ["Auto-merge toot PRs"]
-    types: [completed]
+  # Triggered explicitly only when a toot PR was actually merged
+  repository_dispatch:
+    types: [toots-merged]
   workflow_dispatch:
 
 permissions:
@@ -21,8 +19,7 @@ concurrency:
 
 jobs:
   build:
-    # For workflow_run, only proceed when the upstream workflow succeeded on master
-    if: github.event_name != 'workflow_run' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'master')
+  # For repository_dispatch we assume master was updated by a merge that required a new build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout master
