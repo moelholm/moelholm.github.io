@@ -20,6 +20,7 @@ Below are my latest updates from Mastodon (similar to X, Bluesky, Threads, etc).
 		{% assign id_val = 'toot-' | append: toot_anchor %}
 		{% assign external_href = toot.remote_url | default: toot.url %}
 		{% assign date_text = toot.date | date: "%Y-%m-%d %H:%M" | append: " UTC" %}
+		{% assign date_iso = toot.date | date_to_xmlschema %}
 
 	{% assign original_html = toot.content %}
 	{% assign has_html = false %}
@@ -68,6 +69,7 @@ Below are my latest updates from Mastodon (similar to X, Bluesky, Threads, etc).
 			 badge_html="🐘"
 			 body_html=body_html
 			 date_text=date_text
+			 date_iso=date_iso
 			 cta_label="open"
 			 cta_href=external_href
 			 extra_html=media_html

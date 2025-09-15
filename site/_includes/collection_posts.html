@@ -5,7 +5,11 @@
   <div class="blog-item{% if post.tags contains 'race' %} race{% endif %}">
       <div class="card">
         <div class="card-body">
-          <div class="text-right"><small>{{ post.date | date_to_string }}</small></div>
+          <div class="text-right">
+            <small>
+              <time class="timeago" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time>
+            </small>
+          </div>
           <a href="{{ post.url }}" title="{{ post.title }}" class="post-title-link">
             {% if post.published == false %}<span class="badge badge-warning">DRAFT</span> {% endif %}{{ post.title }}
           </a>

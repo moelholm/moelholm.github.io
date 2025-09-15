@@ -47,9 +47,10 @@ stylesheets: ["/css/tags.css"]
       {% for post in site.running %}
         {% if post.tags contains tag %}
           {% assign dt_text = post.date | date: "%Y-%m-%d" %}
+          {% assign dt_iso = post.date | date_to_xmlschema %}
           {% capture title_html %}{{ post.title }}{% endcapture %}
           {% capture body_html %}{% endcapture %}
-          {% include table_card.html datetime_text=dt_text title_html=title_html href=post.url body_html=body_html %}
+          {% include table_card.html datetime_text=dt_text datetime_iso=dt_iso title_html=title_html href=post.url body_html=body_html %}
         {% endif %}
       {% endfor %}
     </div>

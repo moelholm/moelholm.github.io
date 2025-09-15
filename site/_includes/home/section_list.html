@@ -21,6 +21,7 @@
             {%- capture emoji_suffix -%}{% include toot_title_emojis.html hashtags=item.hashtags %}{%- endcapture -%}
             {%- assign title_text = title_text | append: emoji_suffix -%}
             {%- assign date_text = item.date | date: "%Y-%m-%d %H:%M" | append: " UTC" -%}
+              {%- assign date_iso = item.date | date_to_xmlschema -%}
             {%- capture body_html -%}<p class="card-text mb-2">{{ item.content | strip_html | truncate: 140 }}</p>{%- endcapture -%}
             {% include card.html
               wrap_in_col=false
@@ -30,6 +31,7 @@
               badge_html="🐘"
               body_html=body_html
               date_text=date_text
+                date_iso=date_iso
               cta_label="open"
               cta_href=toot_link
               class_modifiers='blog-item--compact'
@@ -38,6 +40,7 @@
             %}
           {%- elsif include.kind == 'running' -%}
             {%- assign date_text = item.date | date: "%Y-%m-%d %H:%M" | append: " UTC" -%}
+              {%- assign date_iso = item.date | date_to_xmlschema -%}
             {%- capture body_html -%}{{ item.content | strip_html | truncate: 140 }}{%- endcapture -%}
             {%- assign is_race = false -%}{% if item.tags contains 'race' %}{%- assign is_race = true -%}{% endif %}
             {%- assign badge = '🏃' -%}{% if is_race %}{%- assign badge = '📖' -%}{% endif %}
@@ -51,6 +54,7 @@
               badge_html=badge
               body_html=body_html
               date_text=date_text
+                date_iso=date_iso
               cta_label="open"
               cta_href=item.url
               class_modifiers=class_mods
@@ -59,6 +63,7 @@
             %}
           {%- elsif include.kind == 'results' -%}
             {%- assign date_text = item.race_date | default: item.date | date: "%Y-%m-%d %H:%M" | append: " UTC" -%}
+              {%- assign date_iso = item.race_date | default: item.date | date_to_xmlschema -%}
             {%- capture metrics_html -%}
               <div class="home-race-metrics" aria-label="Race metrics">
                 {% if item.distance_km %}
@@ -91,6 +96,7 @@
               badge_html='🏁'
               body_html=''
               date_text=date_text
+                date_iso=date_iso
               cta_label="open"
               cta_href=item.url
               extra_html=extra_html
