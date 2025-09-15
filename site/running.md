@@ -12,6 +12,7 @@ Below are my latest running posts (primarily race reports).
 <div class="row list-cards">
 		{% for post in latest %}
 			{% assign date_text = post.date | date: "%Y-%m-%d %H:%M" | append: " UTC" %}
+			{% assign date_iso = post.date | date_to_xmlschema %}
 			{% capture tags_html %}
 				<span>{% for tag in post.tags %}{% include tag_chip.html name=tag href="/tags#" size="md" %}{% endfor %}</span>
 			{% endcapture %}
@@ -27,7 +28,8 @@ Below are my latest running posts (primarily race reports).
 				 badge_html=badge
 				 class_modifiers=class_mods
 				 body_html=body_html
-				 date_text=date_text
+				date_text=date_text
+				date_iso=date_iso
 				 cta_label="open"
 				 cta_href=post.url
 				 extra_html=tags_html

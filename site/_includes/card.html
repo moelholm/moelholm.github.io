@@ -8,7 +8,13 @@
   <div class="card-body{% if include.card_body_classes %} {{ include.card_body_classes }}{% else %} py-1{% endif %}">
         {% if include.date_text or include.cta_href %}
         <div class="d-flex justify-content-between align-items-center mb-0">
-          <small class="text-muted">{{ include.date_text }}</small>
+          <small class="text-muted">
+            {% if include.date_iso %}
+              <time class="timeago" datetime="{{ include.date_iso }}">{{ include.date_text }}</time>
+            {% else %}
+              {{ include.date_text }}
+            {% endif %}
+          </small>
           {% if include.cta_href %}
             {% assign is_external = false %}
             {% if include.cta_href contains 'http' %}{% assign is_external = true %}{% endif %}

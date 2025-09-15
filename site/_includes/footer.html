@@ -6,3 +6,28 @@
   <a href="https://dk.linkedin.com/in/nicky-bass-m%C3%B8lholm-1163a62" title="LinkedIn" style="color: #0077b5;" class="fab fa-linkedin" target="_new"></a>
   <a href="mailto:moelholm@gmail.com" title="Email" style="color: #37ce55;" class="fa-regular fa-envelope"></a>
 </footer>
+<!-- timeago.js for friendly relative timestamps -->
+<script src="https://unpkg.com/timeago.js@4.0.2/dist/timeago.min.js"></script>
+<script>
+  function renderTimeAgo() {
+    const nodes = document.querySelectorAll('.timeago');
+    nodes.forEach(node => {
+      const datetime = node.getAttribute('datetime');
+      if (!datetime) return;
+      
+      const date = new Date(datetime);
+      const relativeTime = timeago.format(datetime);
+      
+      // Format as "2025-sep-07"
+      const year = date.getFullYear();
+      const month = date.toLocaleDateString('en', { month: 'short' }).toLowerCase();
+      const day = String(date.getDate()).padStart(2, '0');
+      const formattedDate = `${year}-${month}-${day}`;
+      
+      node.textContent = `${relativeTime} | ${formattedDate}`;
+    });
+  }
+  
+  document.addEventListener('DOMContentLoaded', renderTimeAgo);
+  if (document.readyState !== 'loading') renderTimeAgo();
+</script>

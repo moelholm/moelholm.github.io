@@ -1,6 +1,12 @@
 <div class="table-card position-relative">
   <div class="table-card__head d-flex justify-content-between align-items-center">
-    <small class="table-card__date text-muted">{{ include.datetime_text }}</small>
+    <small class="table-card__date text-muted">
+      {% if include.datetime_iso %}
+        <time class="timeago" datetime="{{ include.datetime_iso }}">{{ include.datetime_text }}</time>
+      {% else %}
+        {{ include.datetime_text }}
+      {% endif %}
+    </small>
   </div>
   <div class="table-card__title h6">
     <a class="table-card__title-link" href="{{ include.href }}">{{ include.title_html }}</a>

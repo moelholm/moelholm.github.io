@@ -139,7 +139,8 @@ Inputs:
                 </div>
               {% endcapture %}
               {% capture datetime_text %}{{ race_date | date: "%Y-%m-%d" }}{% endcapture %}
-              {% include table_card.html datetime_text=datetime_text title_html=title_html href=post.url body_html=body_html %}
+              {% assign datetime_iso = race_date | date_to_xmlschema %}
+              {% include table_card.html datetime_text=datetime_text datetime_iso=datetime_iso title_html=title_html href=post.url body_html=body_html %}
             </td>
           </tr>
         {% endif %}
