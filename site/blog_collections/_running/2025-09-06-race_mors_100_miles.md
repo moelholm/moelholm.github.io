@@ -89,6 +89,8 @@ On the route, endless kilometers ticked by while being greeted heartily by all t
 {% capture table_content %}
 |------------|------------|
 | <img src="/img_running/2025-09-06/IMG_8029.jpg" data-src="/img_running/2025-09-06/IMG_8029.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-09-06/IMG_8032.jpg" data-src="/img_running/2025-09-06/IMG_8032.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-09-06/IMG_8042.jpg" data-src="/img_running/2025-09-06/IMG_8042.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-09-06/IMG_8055.jpg" data-src="/img_running/2025-09-06/IMG_8055.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-09-06/IMG_8056.jpg" data-src="/img_running/2025-09-06/IMG_8056.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-09-06/IMG_8072.jpg" data-src="/img_running/2025-09-06/IMG_8072.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
