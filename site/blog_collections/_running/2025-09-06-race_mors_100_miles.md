@@ -96,6 +96,13 @@ An aid station at every 5 kilometers (ish) was super nice. A good thing to look 
 
 {% capture table_content %}
 |------------|------------|
+| <img src="/img_running/2025-09-06/IMG_1561.jpg" data-src="/img_running/2025-09-06/IMG_1561.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-09-06/IMG_1560.jpg" data-src="/img_running/2025-09-06/IMG_1560.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-09-06/IMG_1008.jpg" data-src="/img_running/2025-09-06/IMG_1008.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-09-06/IMG_1562.jpg" data-src="/img_running/2025-09-06/IMG_1562.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+{% endcapture %}
+{{ table_content | markdownify }}
+
+{% capture table_content %}
+|------------|------------|
 | <img src="/img_running/2025-09-06/IMG_8044.jpg" data-src="/img_running/2025-09-06/IMG_8044.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-09-06/IMG_8047.jpg" data-src="/img_running/2025-09-06/IMG_8047.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
