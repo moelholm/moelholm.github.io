@@ -7,7 +7,7 @@ race_date: 2025-09-06
 comments: true
 tags: race running ultrarunning
 distance_km: 160
-elevation_gain_m: 200
+elevation_gain_m: 1309
 duration_formatted: '18h11m00s'
 published: true
 race_results_official: "https://my.raceresult.com/308371/results#1_34594F"
