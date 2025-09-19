@@ -31,11 +31,14 @@ jobs:
         env:
           SSM_PARAMETER_NAME: ${{ secrets.AWS_SSM_PARAMETER_NAME_MOELHOLM_WWW }}
         run: |
-          # Set the parameter value and mask it immediately
-          PARAMETER_VALUE="${{ github.event.inputs.parameter_value }}"
+          # Extract the input value at runtime so it does NOT appear in the echoed script
+          # This avoids the value being rendered inline before masking occurs.
+          PARAMETER_VALUE=$(jq -r '.inputs.parameter_value' "$GITHUB_EVENT_PATH")
+
+          # Mask immediately so any accidental future echoes are redacted
           echo "::add-mask::$PARAMETER_VALUE"
-          echo "Updating SSM parameter with new value..."
-          
+          echo "Updating SSM parameter with value..."
+
           aws ssm put-parameter \
             --name "$SSM_PARAMETER_NAME" \
             --value "$PARAMETER_VALUE" \
