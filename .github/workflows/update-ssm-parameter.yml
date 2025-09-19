@@ -1,0 +1,53 @@
+name: Update SSM Parameter
+
+on:
+  workflow_dispatch:
+    inputs:
+      parameter_value:
+        description: 'The value to store in the SSM parameter (will be encrypted)'
+        required: true
+        type: string
+
+permissions:
+  id-token: write   # Required for OIDC
+  contents: read
+
+jobs:
+  update-ssm:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN_MOELHOLM_WWW }}
+          aws-region: ${{ secrets.AWS_REGION_MOELHOLM_WWW }}
+          role-session-name: GitHubActions-UpdateSSM
+
+      - name: Update SSM Parameter
+        run: |
+          echo "::add-mask::${PARAMETER_VALUE}"
+          echo "Updating SSM parameter with new value..."
+          aws ssm put-parameter \
+            --name "${{ secrets.AWS_SSM_PARAMETER_NAME_MOELHOLM_WWW }}" \
+            --value "$PARAMETER_VALUE" \
+            --type "SecureString" \
+            --overwrite
+
+          echo "✅ Successfully updated SSM parameter"
+        env:
+          PARAMETER_VALUE: ${{ github.event.inputs.parameter_value }}
+
+      - name: Verify parameter was updated
+        run: |
+          echo "Verifying parameter update..."
+          UPDATED_AT=$(aws ssm get-parameter \
+            --name "${{ secrets.AWS_SSM_PARAMETER_NAME_MOELHOLM_WWW }}" \
+            --query 'Parameter.LastModifiedDate' \
+            --output text)
+          
+          echo "Parameter last modified: $UPDATED_AT"
+          echo "✅ Parameter verification complete"
