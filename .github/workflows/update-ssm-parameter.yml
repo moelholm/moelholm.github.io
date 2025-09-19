@@ -29,14 +29,17 @@ jobs:
 
       - name: Update SSM Parameter
         run: |
+          echo "::add-mask::${PARAMETER_VALUE}"
           echo "Updating SSM parameter with new value..."
           aws ssm put-parameter \
             --name "${{ secrets.AWS_SSM_PARAMETER_NAME_MOELHOLM_WWW }}" \
-            --value "${{ github.event.inputs.parameter_value }}" \
+            --value "$PARAMETER_VALUE" \
             --type "SecureString" \
             --overwrite
 
           echo "✅ Successfully updated SSM parameter"
+        env:
+          PARAMETER_VALUE: ${{ github.event.inputs.parameter_value }}
 
       - name: Verify parameter was updated
         run: |
