@@ -9,5 +9,12 @@ echo "🚀 Setting up blog development environment..."
 echo "📸 Installing photo processing dependencies..."
 pip install -r tools/requirements.txt
 
+# Install AWS CLI
+echo "☁️ Installing AWS CLI..."
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+rm -rf awscliv2.zip aws/
+
 echo "✅ Environment setup complete!"
 echo "🌐 To start Jekyll with drafts: ./dev-server.sh"
