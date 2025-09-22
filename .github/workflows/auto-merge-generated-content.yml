@@ -1,0 +1,56 @@
+name: Auto-merge generated content PRs
+
+on:
+  # Run when either fetch workflow completes successfully
+  workflow_run:
+    workflows: ["fetch-toots", "fetch-activities"]
+    types: [completed]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  automerge_from_run:
+    if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Merge open generated content PR when fetch workflow completes
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          # Only act for default branch workflow runs
+          if [ "${{ github.event.workflow_run.head_branch }}" != "master" ]; then
+            echo "Workflow run was for branch '${{ github.event.workflow_run.head_branch }}'; skipping."
+            exit 0
+          fi
+          # Determine which workflow just ran to select branch/label/event
+            wf_name="${{ github.event.workflow_run.name }}"
+            case "$wf_name" in
+              fetch-toots)
+                branch="bot/mastodon-toots"; label="toots"; event="toots-merged" ;;
+              fetch-activities)
+                branch="bot/strava-activities"; label="activities"; event="activities-merged" ;;
+              *)
+                echo "Unknown triggering workflow '$wf_name'"; exit 0 ;;
+            esac
+
+          pr_number=$(gh pr list --repo "$REPO" --head "$branch" --state open --json number --jq '.[0].number // empty')
+          if [ -z "${pr_number:-}" ]; then
+            echo "No open PR from $branch; nothing to merge."; exit 0; fi
+
+            if ! gh pr view "$pr_number" --repo "$REPO" --json labels --jq '.labels[].name' | grep -qx "$label"; then
+              echo "PR #$pr_number lacks required label '$label'; skipping."; exit 0; fi
+
+          gh pr merge "$pr_number" --repo "$REPO" --squash --delete-branch
+          echo "Merged PR #$pr_number from $branch. Dispatching '$event' event."
+          curl -s -f -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/$REPO/dispatches \
+            -d "{\"event_type\":\"$event\"}" \
+          || { echo "Failed to dispatch event"; exit 1; }
+          echo "repository_dispatch '$event' sent."

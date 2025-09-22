@@ -1,0 +1,131 @@
+name: 'Fetch Collection'
+description: 'DRY action to fetch/update a generated blog collection and open/update a PR'
+inputs:
+  script:
+    description: 'Python script path (relative to repo root) to execute'
+    required: true
+  collection_dir:
+    description: 'Path to collection directory to diff (e.g. site/blog_collections/_toots)'
+    required: true
+  assets_dir:
+    description: 'Optional assets directory to include in diff (e.g. site/assets/toots_media)'
+    required: false
+  pr_branch:
+    description: 'Branch name for PR (e.g. bot/mastodon-toots)'
+    required: true
+  pr_title:
+    description: 'Pull request title'
+    required: true
+  pr_body:
+    description: 'Pull request body'
+    required: true
+  pr_label:
+    description: 'Label to apply (will be created if absent)'
+    required: true
+  python_deps:
+    description: 'Space separated extra pip dependencies'
+    required: false
+  base_branch:
+    description: 'Base branch'
+    required: false
+    default: 'master'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Checkout base branch
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ inputs.base_branch }}
+        fetch-depth: 0
+
+    - name: Configure Git user
+      shell: bash
+      run: |
+        git config user.name 'github-actions[bot]'
+        git config user.email 'github-actions[bot]@users.noreply.github.com'
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      shell: bash
+      run: |
+        set -euxo pipefail
+        python -m pip install --upgrade pip
+        # Base deps
+        pip install requests html2text ${{ inputs.python_deps }} || pip install requests html2text
+
+    - name: Prepare branch
+      shell: bash
+      run: |
+        set -euxo pipefail
+        git fetch --force --prune origin ${{ inputs.base_branch }}:refs/remotes/origin/${{ inputs.base_branch }}
+        git checkout -B ${{ inputs.pr_branch }} origin/${{ inputs.base_branch }}
+
+    - name: Run fetch script
+      shell: bash
+      run: |
+        set -euxo pipefail
+        python ${{ inputs.script }}
+
+    - name: Detect changes
+      id: diff
+      shell: bash
+      run: |
+        set -euo pipefail
+        paths="${{ inputs.collection_dir }}"
+        if [ -n "${{ inputs.assets_dir }}" ]; then
+          paths="$paths ${{ inputs.assets_dir }}"
+        fi
+        changes=$(git diff --name-only $paths || true)
+        echo "Changed files:\n$changes"
+        # Exclude meta-only change
+        non_meta=$(echo "$changes" | grep -v '/meta.md$' || true)
+        if [ -z "$non_meta" ]; then
+          echo "meta-only or no changes" >> $GITHUB_STEP_SUMMARY
+          echo "has_changes=false" >> $GITHUB_OUTPUT
+        else
+          echo "has_changes=true" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Commit & push
+      if: steps.diff.outputs.has_changes == 'true'
+      shell: bash
+      run: |
+        set -euxo pipefail
+        git add ${{ inputs.collection_dir }}
+        if [ -n "${{ inputs.assets_dir }}" ]; then
+          git add ${{ inputs.assets_dir }}
+        fi
+        git commit -m "chore: refresh generated collection ${{ inputs.collection_dir }}"
+        git push -u origin ${{ inputs.pr_branch }}
+
+    - name: Ensure label exists
+      if: steps.diff.outputs.has_changes == 'true'
+      shell: bash
+      env:
+        GH_TOKEN: ${{ github.token }}
+      run: |
+        gh label create ${{ inputs.pr_label }} --color EDEDED --description 'Automated content updates' || true
+
+    - name: Create or update PR
+      if: steps.diff.outputs.has_changes == 'true'
+      shell: bash
+      env:
+        GH_TOKEN: ${{ github.token }}
+      run: |
+        set -euo pipefail
+        existing=$(gh pr list --head ${{ inputs.pr_branch }} --state open --json number --jq '.[0].number' || true)
+        if [ -z "$existing" ]; then
+          gh pr create \
+            --title "${{ inputs.pr_title }}" \
+            --body "${{ inputs.pr_body }}" \
+            --label "${{ inputs.pr_label }}" \
+            --base "${{ inputs.base_branch }}" \
+            --head "${{ inputs.pr_branch }}"
+        else
+          gh pr edit "$existing" --add-label "${{ inputs.pr_label }}"
+        fi
