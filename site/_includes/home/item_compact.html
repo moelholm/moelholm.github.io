@@ -1,0 +1,48 @@
+{%- comment -%}
+Generic compact item card for small collections (toots, activities).
+Parameters:
+  item: document
+  kind: 'toots' | 'activities'
+  anchor_id: optional override anchor
+  badge_html: optional badge emoji/html
+  more_link: base page link (e.g., /toots/ or /activities/)
+{%- endcomment -%}
+{%- assign anchor = include.anchor_id -%}
+{%- if anchor == nil or anchor == '' -%}
+  {%- if include.kind == 'toots' -%}
+    {%- assign src = item.remote_url | default: item.url -%}
+    {%- assign parts = src | split: '/' -%}
+    {%- assign rev = parts | reverse -%}
+    {%- assign anchor = '' -%}
+    {%- for p in rev -%}{%- if p != '' and anchor == '' -%}{%- assign anchor = p -%}{%- endif -%}{%- endfor -%}
+  {%- else -%}
+    {%- assign anchor = item.id -%}
+  {%- endif -%}
+{%- endif -%}
+{%- capture day_ordinal -%}{% include ordinal_day.html date=item.date %}{%- endcapture -%}
+{%- assign month_part = item.date | date: "%B " -%}
+{%- assign time_part = item.date | date: "%a %H:%M" -%}
+{%- assign title_text = month_part | append: day_ordinal | append: " · " | append: time_part -%}
+{%- if include.kind == 'toots' -%}
+  {%- capture emoji_suffix -%}{% include toot_title_emojis.html hashtags=item.hashtags %}{%- endcapture -%}
+  {%- assign title_text = title_text | append: emoji_suffix -%}
+{%- endif -%}
+{%- assign date_text = item.date | date: "%Y-%m-%d %H:%M" | append: " UTC" -%}
+{%- assign date_iso = item.date | date_to_xmlschema -%}
+{%- capture body_html -%}<p class="card-text mb-2">{{ item.content | default: item.description | strip_html | truncate: 140 }}</p>{%- endcapture -%}
+{%- assign target_link = include.more_link | append: '#'+ include.kind | append: '-' | append: anchor -%}
+{% include card.html
+  wrap_in_col=false
+  id=anchor
+  title=title_text
+  href=target_link
+  badge_html=include.badge_html
+  body_html=body_html
+  date_text=date_text
+  date_iso=date_iso
+  cta_label="open"
+  cta_href=target_link
+  class_modifiers='blog-item--compact'
+  card_classes='home-post home-post--compact position-relative'
+  card_body_classes='py-2'
+%}

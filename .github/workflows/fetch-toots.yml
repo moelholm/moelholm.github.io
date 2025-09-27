@@ -2,7 +2,7 @@ name: fetch-toots
 
 on:
   schedule:
-  - cron: '*/10 * * * *'  # every 10 minutes
+  - cron: '*/10 * * * *'
   workflow_dispatch: {}
 
 permissions:
@@ -17,79 +17,20 @@ jobs:
   fetch:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Fetch Mastodon toots (composite)
+        uses: ./.github/actions/fetch-collection
         with:
-          # Always fetch the latest master branch with full history to avoid stale state
-          ref: master
-          fetch-depth: 0
-
-      - name: Configure Git user
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install requests html2text
-
-      - name: Fetch Mastodon toots
+          script: tools/fetch_toots.py
+          collection_dir: site/blog_collections/_toots
+          assets_dir: site/assets/toots_media
+          pr_branch: bot/mastodon-toots
+          pr_title: Refresh toot files
+          pr_body: Automated update of Mastodon toot files.
+          pr_label: toots
         env:
           MASTODON_TOKEN: ${{ secrets.MASTODON_TOKEN }}
           MASTODON_INSTANCE: ${{ vars.MASTODON_INSTANCE }}
           MASTODON_USER_ID: ${{ secrets.MASTODON_USER_ID }}
-          MASTODON_TAGS: running,ultrarunning,trailrunning
+          MASTODON_TAGS: running,ultrarunning,trailrunning,strengthtraining
           MASTODON_LIMIT: 10
           MASTODON_MODE: global
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          set -euxo pipefail
-          # Ensure we base our PR branch on the absolute latest master from remote
-          git remote -v
-          git fetch --force --prune --tags origin +refs/heads/master:refs/remotes/origin/master
-          git rev-parse HEAD
-          git rev-parse origin/master
-          git log -1 --oneline origin/master
-          git checkout -B bot/mastodon-toots origin/master
-
-          # Generate files without committing (script lives in tools/)
-          python tools/fetch_toots.py
-
-          # If no changes in toots nor media assets, exit early (no PR)
-          changes=$(git diff --name-only site/blog_collections/_toots site/assets/toots_media || true)
-          if [ -z "$changes" ]; then
-            echo "No toot/media changes; nothing to do."
-            exit 0
-          fi
-          non_meta=$(echo "$changes" | grep -v '^site/blog_collections/_toots/meta.md$' || true)
-            if [ -z "$non_meta" ]; then
-              echo "Only meta.md changed (timestamp); skipping commit/PR."
-              exit 0
-            fi
-
-          # Commit and push PR branch
-          git add -A site/blog_collections/_toots site/assets/toots_media
-          git commit -m "chore(toots): refresh generated toot files"
-          git push -u origin bot/mastodon-toots
-
-          # Ensure 'toots' label exists (ignore if it already exists)
-          gh label create toots --color EDEDED --description "Automated Mastodon toot updates" || true
-
-          # Create PR if not exists; otherwise update labels
-          if ! gh pr list --head bot/mastodon-toots --state open --json number --jq '.[0].number' | grep -qE '^[0-9]+$'; then
-            gh pr create \
-              --title "Refresh toot files" \
-              --body "Automated update of Mastodon toot files (global LIMIT=${MASTODON_LIMIT})." \
-              --label toots \
-              --base master \
-              --head bot/mastodon-toots
-          else
-            pr_number=$(gh pr list --head bot/mastodon-toots --state open --json number --jq '.[0].number')
-            gh pr edit "$pr_number" --add-label toots
-          fi

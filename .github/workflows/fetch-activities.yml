@@ -1,0 +1,69 @@
+name: fetch-activities
+
+on:
+  schedule:
+  - cron: '0 * * * *'  # hourly
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+  id-token: write
+
+concurrency:
+  group: fetch-activities
+  cancel-in-progress: true
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install token dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install boto3 requests
+
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN_MOELHOLM_WWW }}
+          aws-region: ${{ secrets.AWS_REGION_MOELHOLM_WWW }}
+          role-session-name: GitHubActions-StravaFetch
+
+      - name: Get Strava access token
+        id: token
+        env:
+          AWS_SSM_APP_PATH: ${{ vars.AWS_SSM_APP_PATH_MOELHOLM_WWW }}
+        run: |
+          set -euo pipefail
+          token=$(python tools/strava_token.py)
+          # Mask immediately so it never appears in logs (past this point any occurrence is redacted)
+          echo "::add-mask::$token"
+          # Write output WITHOUT printing the value to the log (redirect only)
+          echo "token=$token" >> "$GITHUB_OUTPUT"
+
+      - name: Fetch Strava activities (composite)
+        uses: ./.github/actions/fetch-collection
+        with:
+          script: tools/fetch_strava_activities.py
+          collection_dir: site/blog_collections/_activities
+          pr_branch: bot/strava-activities
+          pr_title: Refresh Strava activities
+          pr_body: Automated update of Strava activity files.
+          pr_label: activities
+          python_deps: boto3
+        env:
+          STRAVA_ACCESS_TOKEN: ${{ steps.token.outputs.token }}
+          STRAVA_LIMIT: 10
+          AWS_SSM_APP_PATH: ${{ vars.AWS_SSM_APP_PATH_MOELHOLM_WWW }}

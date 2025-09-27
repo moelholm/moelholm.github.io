@@ -3,9 +3,9 @@ name: Build & Deploy (Jekyll / GitHub Pages)
 on:
   push:
     branches: [ master ]
-  # Triggered explicitly only when a toot PR was actually merged
+  # Triggered explicitly when a generated content PR (toots or activities) was merged
   repository_dispatch:
-    types: [toots-merged]
+    types: [toots-merged, activities-merged]
   workflow_dispatch:
 
 permissions:

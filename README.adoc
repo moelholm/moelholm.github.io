@@ -88,6 +88,10 @@ This site uses Jekyll 3.10.0 with GitHub Pages. The build process is fully autom
 * **Production Testing:** Use `./prod-server.sh` to test final output  
 * **GitHub Pages:** Builds via Actions from `site/` on push to master
 * **Collections:** Running and software engineering posts are organized as Jekyll collections
+* **Automated Collections:**
+** Activities (Strava) fetched via `tools/fetch_strava_activities.py` (latest activities, description + media thumbnails)
+** Updates (Mastodon toots) fetched via `tools/fetch_toots.py` (tag-filtered statuses with media)
+Both are stored under `blog_collections/_activities` and `blog_collections/_toots` respectively and surfaced on the front page (Activities shown before Updates) using a shared section include.
 * **Draft Management:** Uses Jekyll's built-in `published: false` support
 
 === Photos

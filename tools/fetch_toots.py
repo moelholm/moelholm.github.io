@@ -25,19 +25,24 @@ import os
 import sys
 import json
 import shutil
-from datetime import datetime, timezone
 from pathlib import Path
 from typing import List, Dict, Any, Set
 from urllib.parse import urlparse
-from hashlib import sha1
 
 import requests
 import html2text
+from collection_utils import (
+    debug as util_debug,
+    iso_utc,
+    AtomicDirWriter,
+    write_meta_file,
+    safe_filename_from_url,
+    download_file,
+)
 
 
 # ----------------------
 # Parameters (can be overridden via env vars)
-# ----------------------
 INSTANCE = os.environ.get("MASTODON_INSTANCE", "https://mastodon.social").rstrip("/")
 USER_ID = os.environ.get("MASTODON_USER_ID", "")
 TAGS = [
@@ -50,19 +55,10 @@ MODE = os.environ.get("MASTODON_MODE", "global").strip().lower()  # per_tag | gl
 # ----------------------
 # Helpers
 # ----------------------
+NAMESPACE = "fetch_toots"
+
 def debug(msg: str) -> None:
-    print(f"[fetch_toots] {msg}")
-
-
-def iso_utc(dt_str: str) -> datetime:
-    """Parse Mastodon created_at to UTC-aware datetime (seconds precision)."""
-    s = dt_str.replace("Z", "+00:00")
-    dt = datetime.fromisoformat(s)
-    if dt.tzinfo is None:
-        dt = dt.replace(tzinfo=timezone.utc)
-    return dt.astimezone(timezone.utc).replace(microsecond=0)
-
-
+    util_debug(NAMESPACE, msg)
 def to_markdown(html: str) -> str:
     """Convert toot HTML to Markdown using html2text."""
     conv = html2text.HTML2Text()
@@ -76,28 +72,7 @@ def to_markdown(html: str) -> str:
     return md
 
 
-# ----------------------
-# Media helpers (thumbnails)
-# ----------------------
-def _safe_filename_from_url(u: str, prefix: str = "thumb_") -> str:
-    try:
-        p = urlparse(u)
-        name = Path(p.path).name or "file"
-        ext = Path(name).suffix
-    except Exception:
-        ext = ""
-    digest = sha1(u.encode("utf-8")).hexdigest()[:12]
-    return f"{prefix}{digest}{ext}"
-
-
-def _download(url: str, dest: Path) -> None:
-    dest.parent.mkdir(parents=True, exist_ok=True)
-    with requests.get(url, stream=True, timeout=30) as r:
-        r.raise_for_status()
-        with open(dest, "wb") as f:
-            for chunk in r.iter_content(chunk_size=8192):
-                if chunk:
-                    f.write(chunk)
+# media helpers now provided by collection_utils (safe_filename_from_url, download_file)
 
 
 # ----------------------
@@ -160,9 +135,9 @@ def write_toot_file(out_dir: Path, media_root: Path, toot: Dict[str, Any], tag: 
             alt = str(att.get("description") or "").strip()
             if not thumb_url:
                 continue
-            fname = _safe_filename_from_url(thumb_url)
+            fname = safe_filename_from_url(thumb_url)
             try:
-                _download(thumb_url, media_dir / fname)
+                download_file(thumb_url, media_dir / fname)
             except Exception:
                 continue
             media_items.append({
@@ -196,27 +171,11 @@ def main() -> int:
         print("USER_ID is empty. Set USER_ID via env var MASTODON_USER_ID.", file=sys.stderr)
         return 2
 
-    repo_root = Path(__file__).resolve().parents[1]  # repo root
+    repo_root = Path(__file__).resolve().parents[1]
     site_root = repo_root / "site"
-    collections_root = site_root / "blog_collections"
-    out_dir = collections_root / "_toots"
-    tmp_dir = collections_root / "_toots.tmp"
-    # Assets media directories (atomic swap as well)
-    assets_root = site_root / "assets"
-    media_final_dir = assets_root / "toots_media"
-    media_tmp_dir = assets_root / "toots_media.tmp"
+    writer = AtomicDirWriter(namespace=NAMESPACE, collection_name="_toots", site_root=site_root, assets_subdir="toots_media")
+    writer.prepare()
 
-    # Prepare a clean temporary directory for safe generation
-    if tmp_dir.exists():
-        shutil.rmtree(tmp_dir)
-    tmp_dir.mkdir(parents=True, exist_ok=True)
-    # Prepare media tmp dir
-    if media_tmp_dir.exists():
-        shutil.rmtree(media_tmp_dir)
-    media_tmp_dir.mkdir(parents=True, exist_ok=True)
-
-    # Fetch and write
-    total_written = 0
     if MODE == "global":
         id_to_status: Dict[str, Dict[str, Any]] = {}
         id_to_tag: Dict[str, str] = {}
@@ -234,14 +193,13 @@ def main() -> int:
                 if tid not in id_to_status:
                     id_to_status[tid] = st
                     id_to_tag[tid] = tag
-
         sorted_statuses = sorted(
             id_to_status.values(), key=lambda s: iso_utc(str(s.get("created_at", ""))), reverse=True
         )
         for st in sorted_statuses[:LIMIT]:
             tag = id_to_tag.get(str(st.get("id")), TAGS[0] if TAGS else "")
-            write_toot_file(tmp_dir, media_tmp_dir, st, tag)
-            total_written += 1
+            write_toot_file(writer.tmp_dir, writer.assets_tmp_dir, st, tag)  # type: ignore[arg-type]
+            writer.increment()
     else:
         seen: Set[str] = set()
         for tag in TAGS:
@@ -258,48 +216,16 @@ def main() -> int:
                 toot_id = str(st.get("id"))
                 if toot_id in seen:
                     continue
-                write_toot_file(tmp_dir, media_tmp_dir, st, tag)
+                write_toot_file(writer.tmp_dir, writer.assets_tmp_dir, st, tag)  # type: ignore[arg-type]
                 seen.add(toot_id)
-                total_written += 1
+                writer.increment()
                 count_for_tag += 1
                 if count_for_tag >= LIMIT:
                     break
 
-    # Write metadata file into tmp_dir so it becomes part of the atomic replacement
-    meta_path = tmp_dir / "meta.md"
-    now_utc = datetime.now(timezone.utc).replace(microsecond=0)
-    meta_lines = [
-        "---",
-        "is_meta: true",
-        f"updated_at: \"{now_utc.isoformat()}\"",
-        f"items: {total_written}",
-        "---",
-        "",
-    ]
-    meta_path.write_text("\n".join(meta_lines), encoding="utf-8")
-
-    debug(f"Prepared {total_written} toot files in temporary directory {tmp_dir}")
-
-    # Only replace current set if we actually produced content
-    if total_written > 0:
-        if out_dir.exists():
-            debug(f"Replacing existing directory {out_dir} with freshly generated content")
-            shutil.rmtree(out_dir)
-        tmp_dir.rename(out_dir)
-        # Swap media assets atomically
-        backup = assets_root / "toots_media.backup"
-        if backup.exists():
-            shutil.rmtree(backup)
-        if media_final_dir.exists():
-            media_final_dir.rename(backup)
-        media_tmp_dir.rename(media_final_dir)
-        if backup.exists():
-            shutil.rmtree(backup)
-        debug(f"Wrote {total_written} toot files to {out_dir}")
-    else:
-        debug("No toot files produced; keeping existing content and removing temp directory")
-        shutil.rmtree(tmp_dir)
-
+    write_meta_file(writer)
+    debug(f"Prepared {writer.produced} toot files in temporary directory {writer.tmp_dir}")
+    writer.finalize()
     return 0
 
 

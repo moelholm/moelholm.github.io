@@ -7,33 +7,55 @@
       <div class="home-samples{% if include.grid %} {{ include.grid }}{% endif %}">
         {%- for item in list limit: include.limit -%}
           {%- if include.kind == 'toots' -%}
-            {%- assign src = item.remote_url | default: item.url -%}
-            {%- assign parts = src | split: '/' -%}
-            {%- assign rev = parts | reverse -%}
-            {%- assign toot_anchor = '' -%}
-            {%- for p in rev -%}{%- if p != '' and toot_anchor == '' -%}{%- assign toot_anchor = p -%}{%- endif -%}{%- endfor -%}
-            {%- assign toot_link = '/toots/#toot-' | append: toot_anchor -%}
-            {%- assign external_href = item.remote_url | default: item.url -%}
-            {%- capture day_ordinal -%}{% include ordinal_day.html date=item.date %}{%- endcapture -%}
-            {%- assign month_part = item.date | date: "%B " -%}
-            {%- assign time_part = item.date | date: "%a %H:%M" -%}
-            {%- assign title_text = month_part | append: day_ordinal | append: " · " | append: time_part -%}
-            {%- capture emoji_suffix -%}{% include toot_title_emojis.html hashtags=item.hashtags %}{%- endcapture -%}
-            {%- assign title_text = title_text | append: emoji_suffix -%}
+            {% include home/item_compact.html item=item kind='toots' badge_html='🐘' more_link='/toots/' %}
+          {%- elsif include.kind == 'activities' -%}
+            {%- assign anchor_id = item.id -%}
+            {%- assign link = '/activities/#activities-' | append: anchor_id -%}
+            {%- comment -%}Compute whole kilometers from meters (floor, no decimals).{%- endcomment -%}
+            {%- assign distance_m = item.distance_m | plus: 0 -%}
+            {%- assign distance = '' -%}
+            {%- if distance_m > 0 -%}
+              {%- assign distance_km_float = distance_m | divided_by: 1000.0 -%}
+              {%- assign distance = distance_km_float | floor -%}
+            {%- endif -%}
+            {%- assign elev = item.elevation_gain_m -%}
+            {%- assign dur_seconds = item.moving_time_s | default: item.elapsed_time_s -%}
             {%- assign date_text = item.date | date: "%Y-%m-%d %H:%M" | append: " UTC" -%}
-              {%- assign date_iso = item.date | date_to_xmlschema -%}
-            {%- capture body_html -%}<p class="card-text mb-2">{{ item.content | strip_html | truncate: 140 }}</p>{%- endcapture -%}
+            {%- assign date_iso = item.date | date_to_xmlschema -%}
+            {%- capture metrics_html -%}
+              <div class="home-race-metrics" aria-label="Activity metrics">
+                {% if distance != '' and distance > 0 %}
+                  <div class="metric metric--distance" title="Distance">
+                    <span class="metric-icon"><i class="fa-solid fa-route" aria-hidden="true"></i></span>
+                    <span class="metric-value">{{ distance }}<span class="unit"> km</span></span>
+                  </div>
+                {% endif %}
+                {% if elev and elev > 0 %}
+                  <div class="metric metric--vert" title="Elevation gain">
+                    <span class="metric-icon"><i class="fa-solid fa-mountain" aria-hidden="true"></i></span>
+                    <span class="metric-value">{{ elev }}<span class="unit"> m</span></span>
+                  </div>
+                {% endif %}
+                {% if dur_seconds %}
+                  <div class="metric metric--time" title="Duration">
+                    <span class="metric-icon"><i class="fa-regular fa-clock" aria-hidden="true"></i></span>
+                    <span class="metric-value">{% include duration_format.html seconds=dur_seconds %}</span>
+                  </div>
+                {% endif %}
+              </div>
+            {%- endcapture -%}
             {% include card.html
               wrap_in_col=false
-              id=toot_anchor
-              title=title_text
-              href=toot_link
-              badge_html="🐘"
-              body_html=body_html
+              id=anchor_id
+              title=item.name
+              href=link
+              badge_html='🏃'
+              body_html=''
               date_text=date_text
-                date_iso=date_iso
-              cta_label="open"
-              cta_href=toot_link
+              date_iso=date_iso
+              cta_label='open'
+              cta_href=link
+              extra_html=metrics_html
               class_modifiers='blog-item--compact'
               card_classes='home-post home-post--compact position-relative'
               card_body_classes='py-2'
@@ -111,7 +133,7 @@
       <div class="text-right"><a class="btn btn-sm" href="{{ include.more_url }}">More</a></div>
       {%- endif -%}
     {%- else -%}
-      <p>No {% if include.kind == 'toots' %}updates{% elsif include.kind == 'running' %}posts{% else %}results{% endif %} found.</p>
+  <p>No {% if include.kind == 'toots' %}updates{% elsif include.kind == 'activities' %}activities{% elsif include.kind == 'running' %}posts{% else %}results{% endif %} found.</p>
     {%- endif -%}
   </div>
 </div>
