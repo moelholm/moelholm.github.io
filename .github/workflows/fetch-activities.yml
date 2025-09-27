@@ -62,7 +62,7 @@ jobs:
           pr_title: Refresh Strava activities
           pr_body: Automated update of Strava activity files.
           pr_label: activities
-          python_deps: boto3
+          python_deps: boto3 Pillow
         env:
           STRAVA_ACCESS_TOKEN: ${{ steps.token.outputs.token }}
           STRAVA_LIMIT: 10
