@@ -17,6 +17,11 @@ jobs:
   fetch:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
       - name: Fetch Mastodon toots (composite)
         uses: ./.github/actions/fetch-collection
         with:
