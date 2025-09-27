@@ -58,6 +58,7 @@ jobs:
         with:
           script: tools/fetch_strava_activities.py
           collection_dir: site/blog_collections/_activities
+          assets_dir: site/assets/activities_media
           pr_branch: bot/strava-activities
           pr_title: Refresh Strava activities
           pr_body: Automated update of Strava activity files.
