@@ -101,14 +101,25 @@ runs:
         if [ -n "${{ inputs.assets_dir }}" ]; then
           paths="$paths ${{ inputs.assets_dir }}"
         fi
-        changes=$(git diff --name-only $paths || true)
-        echo "Changed files:\n$changes"
-        # Exclude meta-only change
-        non_meta=$(echo "$changes" | grep -v '/meta.md$' || true)
-        if [ -z "$non_meta" ]; then
-          echo "meta-only or no changes" >> $GITHUB_STEP_SUMMARY
+        # Gather tracked changes (modified/removed) and untracked (new) files
+        tracked_changes=$(git diff --name-only -- $paths || true)
+        untracked_changes=$(git ls-files --others --exclude-standard -- $paths || true)
+        # Combine, de-duplicate, and drop empty lines
+        all_changes=$(printf "%s\n%s\n" "$tracked_changes" "$untracked_changes" | sed '/^$/d' | sort -u)
+        echo "Tracked changes:\n$tracked_changes"
+        echo "Untracked changes:\n$untracked_changes"
+        echo "All relevant changes (deduped):\n$all_changes"
+
+        # Exclude meta-only change: if the only changed file ends with /meta.md (possibly multiple meta files across dirs) treat as no-op
+        non_meta=$(echo "$all_changes" | grep -v '/meta\.md$' || true)
+        if [ -z "$all_changes" ]; then
+          echo "No changes detected in $paths" >> $GITHUB_STEP_SUMMARY
+          echo "has_changes=false" >> $GITHUB_OUTPUT
+        elif [ -z "$non_meta" ]; then
+          echo "meta-only changes detected (ignored)" >> $GITHUB_STEP_SUMMARY
           echo "has_changes=false" >> $GITHUB_OUTPUT
         else
+          echo "Detected non-meta changes" >> $GITHUB_STEP_SUMMARY
           echo "has_changes=true" >> $GITHUB_OUTPUT
         fi
 
