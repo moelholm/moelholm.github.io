@@ -44,7 +44,7 @@ jobs:
       - name: Get Strava access token
         id: token
         env:
-          AWS_SSM_APP_PATH: ${{ vars.AWS_SSM_APP_PATH_MOELHOLM_WWW }}
+          AWS_SSM_APP_PATH: ${{ vars.AWS_SSM_APP_PATH }}
         run: |
           set -euo pipefail
           token=$(python tools/strava_token.py)
@@ -66,4 +66,4 @@ jobs:
         env:
           STRAVA_ACCESS_TOKEN: ${{ steps.token.outputs.token }}
           STRAVA_LIMIT: 10
-          AWS_SSM_APP_PATH: ${{ vars.AWS_SSM_APP_PATH_MOELHOLM_WWW }}
+          AWS_SSM_APP_PATH: ${{ vars.AWS_SSM_APP_PATH }}
