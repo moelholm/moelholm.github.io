@@ -62,8 +62,29 @@ runs:
       shell: bash
       run: |
         set -euxo pipefail
-        git fetch --force --prune origin ${{ inputs.base_branch }}:refs/remotes/origin/${{ inputs.base_branch }}
-        git checkout -B ${{ inputs.pr_branch }} origin/${{ inputs.base_branch }}
+        base="${{ inputs.base_branch }}"
+        # Ensure remote URL is present (some prior actions/checkout combos can leave it detached)
+        if ! git remote get-url origin >/dev/null 2>&1; then
+          git remote add origin "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}"
+        fi
+        echo "Fetching base branch '$base' from origin..."
+        # Fetch just the base branch (shallow is fine); avoid refspec overwriting that can delete tracking ref
+        git fetch --force origin "$base" || {
+          echo "::error::Failed to fetch origin/$base" >&2
+          exit 1
+        }
+        # Determine ref to base
+        if git show-ref --verify --quiet "refs/remotes/origin/$base"; then
+          base_ref="origin/$base"
+        elif git show-ref --verify --quiet "refs/heads/$base"; then
+          base_ref="$base"
+        else
+          echo "::error::Base branch reference '$base' not found locally even after fetch." >&2
+          git show-ref || true
+          exit 1
+        fi
+        echo "Creating/updating work branch '${{ inputs.pr_branch }}' from $base_ref"
+        git checkout -B "${{ inputs.pr_branch }}" "$base_ref"
 
     - name: Run fetch script
       shell: bash
