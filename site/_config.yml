@@ -23,6 +23,8 @@ collections:
     tags: true
   toots:
     output: false
+  activities:
+    output: false
 feed:
   collections:
     - running

@@ -1,25 +1,34 @@
 #!/usr/bin/env python3
-"""Fetch latest Strava activities and generate markdown collection.
+"""Fetch recent Strava activities and generate site collection entries.
 
-Behavior:
- - Fetches the authenticated athlete's most recent activities (page 1) using the Strava API
- - Filters out activities with sport_type == 'Walk'
- - Keeps up to LIMIT items (default 10)
- - Writes files to blog_collections/_activities (atomic via AtomicDirWriter)
- - Produces meta.md with updated_at + item count
+What it does:
+    * Fetches the authenticated athlete's most recent activities (page 1 of /athlete/activities).
+    * Skips walking activities.
+    * Applies a hard cap (STRAVA_LIMIT) on how many activities are processed.
+    * For each activity: fetches detailed data and associated photos via
+                /activities/{id}/photos?size=5000&per_page=50&photo_sources=true
+    * Selects the largest non-placeholder photo for up to STRAVA_PHOTO_MAX photos, stores both a large
+        and a thumbnail version under: site/assets/activities_media/<activity_id>/
+    * Writes a Markdown file in blog_collections/_activities with YAML front matter containing:
+                id, date (UTC ISO), name, sport_type, distance_m, elevation_gain_m,
+                moving_time_s, elapsed_time_s, remote_url, optional description, media[]
+    * Media list entries have local paths for thumb and large plus alt text.
+    * Finalizes the collection atomically (temp dir swap) using AtomicDirWriter.
 
-Environment:
- - STRAVA_ACCESS_TOKEN (required)
- - STRAVA_LIMIT (optional, default 10)
+Environment variables:
+    STRAVA_ACCESS_TOKEN   (required) OAuth token with at least activity:read scope
+    STRAVA_LIMIT          (optional, default 10) max number of activities to keep
+    STRAVA_PHOTO_MAX      (optional, default 6) max photos saved per activity
+    STRAVA_THUMB_WIDTH    (optional, default 400) thumbnail width in pixels
 
-Output file naming: YYYY-MM-DD-<activity_id>.md
-Front matter fields:
- id (string), date (start_date_local in UTC), name, distance_m, moving_time_s,
- elapsed_time_s, sport_type, remote_url
+Output structure:
+    site/blog_collections/_activities/<YYYY-MM-DD>-<activity_id>.md
+    site/assets/activities_media/<activity_id>/thumb_<n>.jpg, large_<n>.jpg
 
-Distance is stored in meters (float) as received.
-
-Dependencies: requests, collection_utils
+Exit codes:
+    0 success
+    2 missing STRAVA_ACCESS_TOKEN
+    3 fetch error
 """
 from __future__ import annotations
 
@@ -28,6 +37,8 @@ import sys
 from pathlib import Path
 from typing import Any, Dict, List
 import requests
+from io import BytesIO
+from PIL import Image
 from urllib.parse import urlparse
 
 from collection_utils import (
@@ -42,6 +53,8 @@ from collection_utils import (
 NAMESPACE = "fetch_strava_activities"
 API_BASE = "https://www.strava.com/api/v3"
 LIMIT = int(os.environ.get("STRAVA_LIMIT", "10"))
+PHOTO_MAX = int(os.environ.get("STRAVA_PHOTO_MAX", "6"))
+THUMB_WIDTH = int(os.environ.get("STRAVA_THUMB_WIDTH", "400"))
 
 
 def debug(msg: str):
@@ -73,6 +86,105 @@ def fetch_activity_detail(token: str, act_id: str) -> Dict[str, Any]:
     return data
 
 
+def download_activity_photos_simple(token: str, act_id: str, alt_text: str, media_root: Path) -> List[Dict[str, str]]:
+    """Fetch and store activity photos in the simplest possible way.
+
+    1. Call /activities/{id}/photos?size=5000&per_page=50
+    2. For each photo object, pick the largest numeric URL in item['urls'].
+    3. Skip placeholders (contain 'placeholder-photo').
+    4. Download large image locally (large_<n>.jpg)
+    5. Generate thumbnail (thumb_<n>.jpg) scaled to THUMB_WIDTH preserving aspect.
+    6. Return list of media dicts suitable for front matter.
+    """
+    headers = {"Authorization": f"Bearer {token}", "Accept": "application/json"}
+    endpoint = f"{API_BASE}/activities/{act_id}/photos"
+    params = {"size": 5000, "per_page": 50, "photo_sources": "true"}
+    try:
+        resp = requests.get(endpoint, headers=headers, params=params, timeout=30)
+    except Exception as e:
+        debug(f"Activity {act_id}: photo request failed: {e}")
+        return []
+    if resp.status_code != 200:
+        debug(f"Activity {act_id}: photo request status {resp.status_code}")
+        return []
+    try:
+        items = resp.json()
+    except Exception:
+        debug(f"Activity {act_id}: invalid JSON in photo response")
+        return []
+    if not isinstance(items, list):
+        debug(f"Activity {act_id}: photos response not list")
+        return []
+
+    media_dir = media_root / act_id
+    media_dir.mkdir(parents=True, exist_ok=True)
+
+    media_entries: List[Dict[str, str]] = []
+    count = 0
+    for item in items:
+        if count >= PHOTO_MAX:
+            break
+        if not isinstance(item, dict):
+            continue
+        urls_dict = item.get("urls") or {}
+        if not isinstance(urls_dict, dict):
+            continue
+        # Pick largest numeric key
+        best_url = None
+        try:
+            sorted_urls = sorted(
+                (
+                    (int(k), v) for k, v in urls_dict.items() if isinstance(k, str) and isinstance(v, str)
+                ),
+                key=lambda kv: kv[0],
+                reverse=True,
+            )
+            if sorted_urls:
+                best_url = sorted_urls[0][1]
+        except Exception:
+            # fallback: take any string value
+            for v in urls_dict.values():
+                if isinstance(v, str):
+                    best_url = v
+                    break
+        if not best_url or "placeholder-photo" in best_url:
+            continue
+        # Download large
+        try:
+            img_resp = requests.get(best_url, timeout=30)
+            if img_resp.status_code != 200:
+                continue
+            data = img_resp.content
+            if len(data) < 1000:
+                continue
+            # Load with PIL (even if already JPEG) to normalize & allow thumbnail
+            img = Image.open(BytesIO(data)).convert("RGB")
+            large_name = f"large_{count+1}.jpg"
+            large_path = media_dir / large_name
+            img.save(large_path, "JPEG", quality=88, optimize=True)
+
+            # Thumbnail
+            ratio = THUMB_WIDTH / float(img.width)
+            new_size = (THUMB_WIDTH, max(1, int(img.height * ratio))) if img.width > THUMB_WIDTH else (img.width, img.height)
+            thumb_img = img.resize(new_size) if img.width > THUMB_WIDTH else img
+            thumb_name = f"thumb_{count+1}.jpg"
+            thumb_path = media_dir / thumb_name
+            thumb_img.save(thumb_path, "JPEG", quality=82, optimize=True)
+
+            media_entries.append({
+                "thumb": f"/assets/activities_media/{act_id}/{thumb_name}",
+                "url": f"/assets/activities_media/{act_id}/{large_name}",
+                "alt": alt_text,
+            })
+            count += 1
+        except Exception as e:
+            debug(f"Activity {act_id}: failed to process image: {e}")
+            continue
+
+    debug(f"Activity {act_id}: saved {len(media_entries)} photos (simple mode)")
+    return media_entries
+
+
 def write_activity_file(token: str, out_dir: Path, media_root: Path, activity: Dict[str, Any], detail: Dict[str, Any]):
     act_id = str(activity.get("id"))
     start_dt = iso_utc(str(activity.get("start_date")))
@@ -82,82 +194,11 @@ def write_activity_file(token: str, out_dir: Path, media_root: Path, activity: D
     distance = activity.get("distance", 0)
     moving_time = activity.get("moving_time", 0)
     elapsed_time = activity.get("elapsed_time", 0)
+    elev_gain = detail.get("total_elevation_gain") or activity.get("total_elevation_gain") or 0
     url = f"https://www.strava.com/activities/{act_id}" if act_id else ""
     description = str(detail.get("description") or "").strip()
 
-    # Photos extraction
-    media_items: List[Dict[str, str]] = []
-    photos = detail.get("photos") or {}
-    try:
-        primary = photos.get("primary") if isinstance(photos, dict) else None
-        if primary and isinstance(primary, dict):
-            urls = primary.get("urls")
-            if isinstance(urls, dict):
-                best = None
-                for k, v in urls.items():
-                    try:
-                        size = int(k)
-                    except Exception:
-                        size = 0
-                    if v and (best is None or size > best[0]):
-                        best = (size, v)
-                if best and isinstance(best[1], str):
-                    media_items.append({"thumb_src": best[1], "alt": name})
-    except Exception:
-        pass
-
-    try:
-        if isinstance(photos, dict) and photos.get("count", 0) and photos.get("count", 0) > 1:
-            photo_url = f"{API_BASE}/activities/{act_id}/photos"
-            r = requests.get(photo_url, headers={"Authorization": f"Bearer {token}", "Accept": "application/json"}, timeout=30)
-            if r.status_code == 200:
-                arr = r.json()
-                if isinstance(arr, list):
-                    for ph in arr:
-                        try:
-                            urls = ph.get("urls") if isinstance(ph, dict) else None
-                            if isinstance(urls, dict):
-                                best = None
-                                for k, v in urls.items():
-                                    try:
-                                        size = int(k)
-                                    except Exception:
-                                        size = 0
-                                    if v and (best is None or size > best[0]):
-                                        best = (size, v)
-                                if best and isinstance(best[1], str):
-                                    media_items.append({"thumb_src": best[1], "alt": name})
-                        except Exception:
-                            continue
-    except Exception:
-        pass
-
-    # Deduplicate + cap
-    dedup = []
-    seen = set()
-    for m in media_items:
-        u = m.get("thumb_src")
-        if not u or u in seen:
-            continue
-        seen.add(u)
-        dedup.append(m)
-    media_items = dedup[:6]
-
-    stored_media: List[Dict[str, str]] = []
-    if media_items:
-        media_dir = media_root / act_id
-        for m in media_items:
-            src = m["thumb_src"]
-            fname = safe_filename_from_url(src, prefix="act_")
-            try:
-                download_file(src, media_dir / fname)
-            except Exception:
-                continue
-            stored_media.append({
-                "thumb": f"/assets/activities_media/{act_id}/{fname}",
-                "url": url,
-                "alt": m.get("alt", ""),
-            })
+    stored_media = download_activity_photos_simple(token, act_id, name, media_root)
 
     fm_lines = [
         "---",
@@ -165,9 +206,10 @@ def write_activity_file(token: str, out_dir: Path, media_root: Path, activity: D
         f"date: \"{start_dt.isoformat()}\"",
         f"name: \"{name.replace('\\"', "'")}\"",
         f"sport_type: {sport_type}",
-        f"distance_m: {distance}",
+    f"distance_m: {distance}",
+        f"elevation_gain_m: {elev_gain}",
         f"moving_time_s: {moving_time}",
-        f"elapsed_time_s: {elapsed_time}",
+    f"elapsed_time_s: {elapsed_time}",
         f"remote_url: \"{url}\"",
     ]
     if description:

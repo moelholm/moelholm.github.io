@@ -33,8 +33,11 @@ stylesheets:
 <!-- Main: latest posts + sidebar -->
 <section class="home-grid">
   <div class="home-grid__main">
-    {% assign entries = site.toots | where_exp: 't', 't.is_meta != true' | sort: 'date' | reverse %}
-    {% include home/section_list.html title='Updates' emoji='🐘' items=entries limit=2 kind='toots' more_url='/toots/' grid='home-samples--two' %}
+  {% assign activities = site.activities | where_exp: 'a', 'a.is_meta != true' | sort: 'date' | reverse %}
+  {% include home/section_list.html title='Activities' emoji='🏃' items=activities limit=2 kind='activities' more_url='/activities/' grid='home-samples--two' %}
+
+  {% assign entries = site.toots | where_exp: 't', 't.is_meta != true' | sort: 'date' | reverse %}
+  {% include home/section_list.html title='Updates' emoji='🐘' items=entries limit=2 kind='toots' more_url='/toots/' grid='home-samples--two' %}
   </div>
 
   <div class="home-grid__main">
