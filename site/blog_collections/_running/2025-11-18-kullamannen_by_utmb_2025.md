@@ -160,7 +160,7 @@ By the way: The cup is from the UTMB race venue ... I had to buy it myself. But 
 
 Yes, 100% 🤠: ⭐️⭐️⭐️⭐️⭐️.
 
-If you need a true hardcore ultra trail running challenge, then look no further. It's not that it has the most elevation. But it is extremely tough for other reasons, such as: hard running trails (stones, narly trails, muddy paths, leafy forest undergrounds hiding roots and other obstacles), endless night hours, few aid stations forcing you to be more self sufficient than for many other "by UTMB" races, Swedish autumn weather conditions etc. 
+If you need a true hardcore ultra trail running challenge, then look no further. It's not that it has the most elevation. But it is extremely tough for other reasons, such as: hard running trails (stones, gnarly trails, muddy paths, leafy forest undergrounds hiding roots and other obstacles), endless night hours, few aid stations forcing you to be more self sufficient than for many other "by UTMB" races, Swedish autumn weather conditions etc. 
 
 The 100 miler route has elevation too. It is cleverly concentrated on a few points on the long 173 kilometer route - so you will inded feel the 2500 meters of elevation gain that my watch measured 🏔️🐐. I was happy that I brought my Hiking poles  for sure.
 
