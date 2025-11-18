@@ -2,6 +2,16 @@
 
 Web site for www.moelholm.com.
 
+== Setup for Cloud
+
+To connect to an AWS account
+
+    aws configure sso --no-browser
+    export AWS_PROFILE=codespace-sso
+
+    # To refresh expired token:
+    aws sso login --profile codespace-sso --no-browser
+
 == Run locally
 
 After checkout (from repo root):
