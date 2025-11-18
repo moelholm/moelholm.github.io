@@ -123,7 +123,7 @@ Then off to do the remaining 50K 🤣. And then it got real. In all honesty my p
 
 On fresh legs it would have been a breeze - but on these super hammered legs it just took quite a while 😂. The last part was also actually super hard - not particularly due to elevation, but more due to long segments of running on small, medium and big stones. Mini boulders 🪨. Effective at exhausting legs, feet and will power. 
 
-And of course the second round of darkness began too (starting Saturday at around 16:00). That and then rain 🌧️. That meant: muddy trails up/down the remaining mountain (/hilly) parts. The last descent took me an eternity because my legs were to weak to carry me strong down the mountain. And it was very slippery - super dangerous. Brutal. But you know what they say ... "It's all good training" 😂 👍🏻.
+And of course the second round of darkness began too (starting Saturday at around 16:00). That and then rain 🌧️. That meant: muddy trails up/down the remaining mountain (/hilly) parts. The last descent took me an eternity because my legs were too weak to carry me strong down the mountain. And it was very slippery - super dangerous. Brutal. But you know what they say ... "It's all good training" 😂 👍🏻.
 
 {% capture impressions_three %}
 |------------|------------|
@@ -162,7 +162,7 @@ Yes, 100% 🤠: ⭐️⭐️⭐️⭐️⭐️.
 
 If you need a true hardcore ultra trail running challenge, then look no further. It's not that it has the most elevation. But it is extremely tough for other reasons, such as: hard running trails (stones, gnarly trails, muddy paths, leafy forest undergrounds hiding roots and other obstacles), endless night hours, few aid stations forcing you to be more self sufficient than for many other "by UTMB" races, Swedish autumn weather conditions etc. 
 
-The 100 miler route has elevation too. It is cleverly concentrated on a few points on the long 173 kilometer route - so you will inded feel the 2500 meters of elevation gain that my watch measured 🏔️🐐. I was happy that I brought my Hiking poles  for sure.
+The 100 miler route has elevation too. It is cleverly concentrated on a few points on the long 173 kilometer route - so you will indeed feel the 2500 meters of elevation gain that my watch measured 🏔️🐐. I was happy that I brought my Hiking poles for sure.
 
 Additionally, it is very well organized from race bib collection, to shuttle logistics to finish-line flow. It has an omnipresent authentic atmosphere. From the communication before the race, to the race start and to the finish line race venue near Hotel Skansen. And it has the best closing kilometres (see the epilogue description above). 
 
