@@ -123,7 +123,7 @@ Then off to do the remaining 50K 🤣. And then it got real. In all honesty my p
 
 On fresh legs it would have been a breeze - but on these super hammered legs it just took quite a while 😂. The last part was also actually super hard - not particularly due to elevation, but more due to long segments of running on small, medium and big stones. Mini boulders 🪨. Effective at exhausting legs, feet and will power. 
 
-And of course the second round of darkness began too (starting Saturday at around 16:00). That and then rain 🌧️. That meant: muddy trails up/down the remaining mountain (/hilly) parts. The last decent took me an eternity because my legs were to weak to carry me strong down the mountain. And it was very slippery - super dangerous. Brutal. But you know what they say ... "It's all good training" 😂 👍🏻.
+And of course the second round of darkness began too (starting Saturday at around 16:00). That and then rain 🌧️. That meant: muddy trails up/down the remaining mountain (/hilly) parts. The last descent took me an eternity because my legs were to weak to carry me strong down the mountain. And it was very slippery - super dangerous. Brutal. But you know what they say ... "It's all good training" 😂 👍🏻.
 
 {% capture impressions_three %}
 |------------|------------|
