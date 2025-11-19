@@ -5,7 +5,7 @@ description: "Race notes for Kullamannen 100 Miles - 2025"
 date: 2025-11-18 05:00:00 +0100
 race_date: 2025-10-31
 comments: true
-tags: race running ultrarunning trail
+tags: race running trailrunning ultrarunning
 distance_km: 172.7
 elevation_gain_m: 2585
 duration_formatted: '26h41m18s'
