@@ -101,6 +101,7 @@ def write_toot_file(out_dir: Path, media_root: Path, toot: Dict[str, Any], tag: 
     url = str(toot.get("url", ""))
     body_md = to_markdown(str(toot.get("content", "")))
     hashtags = [str(t.get("name")) for t in (toot.get("tags") or []) if isinstance(t, dict) and t.get("name")]
+    favourites_count = int(toot.get("favourites_count", 0))
     # Determine instance base from the toot's remote URL
     instance_base = ""
     try:
@@ -120,6 +121,7 @@ def write_toot_file(out_dir: Path, media_root: Path, toot: Dict[str, Any], tag: 
         f"tag: {tag}",
         f"remote_url: \"{url}\"",
         f"instance_base: \"{instance_base}\"",
+        f"favourites_count: {favourites_count}",
         "hashtags:",
     ]
     for h in hashtags:
