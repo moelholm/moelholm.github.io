@@ -5,6 +5,7 @@ site/_site/
 # Local Bundler and virtualenv
 .bundle/
 .venv/
+site/vendor/
 
 # Temporary photo directories
 _temp_photos/

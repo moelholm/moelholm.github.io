@@ -62,11 +62,12 @@ Below are my latest updates from Mastodon (similar to X, Bluesky, Threads, etc).
 			{% endif %}
 		{% endcapture %}
 
+		{% capture likes_badge %}🐘{% if toot.favourites_count and toot.favourites_count > 0 %} <span class="likes-badge">❤️ {{ toot.favourites_count }}</span>{% endif %}{% endcapture %}
 		{% include card.html
 			 id=id_val
 			 title=title_for_card
 			 href=external_href
-			 badge_html="🐘"
+			 badge_html=likes_badge
 			 body_html=body_html
 			 date_text=date_text
 			 date_iso=date_iso
