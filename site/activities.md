@@ -2,7 +2,7 @@
 layout: default
 title: Activities - moelholm.com
 permalink: /activities/
-stylesheets: ["/css/toots.css"]
+stylesheets: ["/css/activities.css"]
 ---
 
 # Activities · Strava
@@ -45,9 +45,9 @@ Below are my latest activities from Strava.
 		{% if raw_type == 'WeightTraining' %}{% assign type_tag = 'strengthtraining' %}{% endif %}
 
 		{%- comment -%}
-		Badge icon: replace runner emoji with a stylized Strava-like glyph (using an orange triangle). Fallback simple emoji.
+		Kudos badge: show kudos count if > 0, similar to likes badge on toots page
 		{%- endcomment -%}
-		{% assign badge_html = '🏃' %}
+		{% capture kudos_badge %}{% if act.kudos_count and act.kudos_count > 0 %}<span class="engagement-badge">👏 {{ act.kudos_count }}</span>{% endif %}{% endcapture %}
 
 		{% capture body_html %}
 		  {% assign desc = act.description | default: act.content %}
@@ -75,7 +75,7 @@ Below are my latest activities from Strava.
 			 id=anchor_id
 			 title=title_for_card
 			 href=external_href
-			 badge_html=badge_html
+			 badge_html=kudos_badge
 			 body_html=body_html
 			 date_text=date_text
 			 date_iso=date_iso

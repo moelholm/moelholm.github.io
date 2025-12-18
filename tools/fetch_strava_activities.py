@@ -11,7 +11,7 @@ What it does:
         and a thumbnail version under: site/assets/activities_media/<activity_id>/
     * Writes a Markdown file in blog_collections/_activities with YAML front matter containing:
                 id, date (UTC ISO), name, sport_type, distance_m, elevation_gain_m,
-                moving_time_s, elapsed_time_s, remote_url, optional description, media[]
+                moving_time_s, elapsed_time_s, remote_url, optional kudos_count, optional description, media[]
     * Media list entries have local paths for thumb and large plus alt text.
     * Finalizes the collection atomically (temp dir swap) using AtomicDirWriter.
 
@@ -197,6 +197,7 @@ def write_activity_file(token: str, out_dir: Path, media_root: Path, activity: D
     elev_gain = detail.get("total_elevation_gain") or activity.get("total_elevation_gain") or 0
     url = f"https://www.strava.com/activities/{act_id}" if act_id else ""
     description = str(detail.get("description") or "").strip()
+    kudos_count = detail.get("kudos_count") or activity.get("kudos_count") or 0
 
     stored_media = download_activity_photos_simple(token, act_id, name, media_root)
 
@@ -212,6 +213,8 @@ def write_activity_file(token: str, out_dir: Path, media_root: Path, activity: D
     f"elapsed_time_s: {elapsed_time}",
         f"remote_url: \"{url}\"",
     ]
+    if kudos_count > 0:
+        fm_lines.append(f"kudos_count: {kudos_count}")
     if description:
         fm_lines.append(f"description: \"{description.replace('\\"', "'")}\"")
     if stored_media:
