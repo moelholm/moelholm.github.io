@@ -89,7 +89,7 @@ runs:
         if git ls-remote --heads origin "$pr_branch" | grep -q "refs/heads/${pr_branch}$"; then
           echo "Deleting existing remote branch '$pr_branch'..."
           git push origin --delete "$pr_branch" || {
-            echo "::warning::Failed to delete remote branch '$pr_branch', this may cause push conflicts later"
+            echo "::warning::Failed to delete remote branch '$pr_branch'. The push step will use force push as fallback. If this occurs frequently, check repository permissions."
           }
         fi
         echo "Creating fresh work branch '$pr_branch' from $base_ref"
@@ -142,9 +142,9 @@ runs:
           git add ${{ inputs.assets_dir }}
         fi
         git commit -m "chore: refresh generated collection ${{ inputs.collection_dir }}"
-        # Try normal push first; if it fails (branch wasn't deleted), force push
+        # Try normal push first; if it fails (e.g., branch wasn't deleted or conflicts), use force push
         git push -u origin ${{ inputs.pr_branch }} || {
-          echo "::warning::Normal push failed, using force push as fallback"
+          echo "::warning::Normal push failed (likely due to branch deletion failure or conflicts), using force push as fallback"
           git push --force -u origin ${{ inputs.pr_branch }}
         }
 
