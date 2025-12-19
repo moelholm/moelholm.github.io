@@ -88,7 +88,9 @@ runs:
         echo "Checking if PR branch '$pr_branch' exists remotely..."
         if git ls-remote --heads origin "$pr_branch" | grep -q "$pr_branch"; then
           echo "PR branch exists remotely, fetching..."
-          git fetch origin "$pr_branch" || true
+          git fetch origin "$pr_branch" || {
+            echo "::warning::Failed to fetch remote PR branch '$pr_branch', continuing anyway"
+          }
         fi
         echo "Creating/updating work branch '$pr_branch' from $base_ref"
         git checkout -B "$pr_branch" "$base_ref"
