@@ -63,6 +63,7 @@ runs:
       run: |
         set -euxo pipefail
         base="${{ inputs.base_branch }}"
+        pr_branch="${{ inputs.pr_branch }}"
         # Ensure remote URL is present (some prior actions/checkout combos can leave it detached)
         if ! git remote get-url origin >/dev/null 2>&1; then
           git remote add origin "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}"
@@ -83,8 +84,14 @@ runs:
           git show-ref || true
           exit 1
         fi
-        echo "Creating/updating work branch '${{ inputs.pr_branch }}' from $base_ref"
-        git checkout -B "${{ inputs.pr_branch }}" "$base_ref"
+        # Check if PR branch exists remotely and fetch it if so
+        echo "Checking if PR branch '$pr_branch' exists remotely..."
+        if git ls-remote --heads origin "$pr_branch" | grep -q "$pr_branch"; then
+          echo "PR branch exists remotely, fetching..."
+          git fetch origin "$pr_branch" || true
+        fi
+        echo "Creating/updating work branch '$pr_branch' from $base_ref"
+        git checkout -B "$pr_branch" "$base_ref"
 
     - name: Run fetch script
       shell: bash
@@ -133,7 +140,9 @@ runs:
           git add ${{ inputs.assets_dir }}
         fi
         git commit -m "chore: refresh generated collection ${{ inputs.collection_dir }}"
-        git push -u origin ${{ inputs.pr_branch }}
+        # Use force-with-lease to safely update the branch even if it diverged
+        # This is safe because we always reset to base branch in the prepare step
+        git push --force-with-lease -u origin ${{ inputs.pr_branch }}
 
     - name: Ensure label exists
       if: steps.diff.outputs.has_changes == 'true'
