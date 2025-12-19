@@ -57,9 +57,9 @@ Below are my latest activities from Strava.
 
 		{% capture media_html %}
 			{% if act.media and act.media.size > 0 %}
-				<div class="toot-media-grid mt-2 spotlight-group">
+				<div class="media-grid mt-2 spotlight-group">
 					{% for m in act.media %}
-						<img src="{{ m.thumb | default: m.url }}" data-src="{{ m.url }}" alt="{{ m.alt }}" class="spotlight toot-media-thumb" loading="lazy" />
+						<img src="{{ m.thumb | default: m.url }}" data-src="{{ m.url }}" alt="{{ m.alt }}" class="spotlight media-thumb" loading="lazy" />
 					{% endfor %}
 				</div>
 			{% endif %}
