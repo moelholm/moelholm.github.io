@@ -84,16 +84,13 @@ runs:
           git show-ref || true
           exit 1
         fi
-        # Check if PR branch exists remotely and fetch it if so
-        echo "Checking if PR branch '$pr_branch' exists remotely..."
+        # Delete remote branch if it exists to ensure a clean slate
+        echo "Checking if remote branch '$pr_branch' exists..."
         if git ls-remote --heads origin "$pr_branch" | grep -q "refs/heads/${pr_branch}$"; then
-          echo "PR branch exists remotely, fetching..."
-          git fetch origin "$pr_branch" || {
-            echo "::warning::Failed to fetch remote PR branch '$pr_branch'. The --force-with-lease protection cannot verify the remote state. If this occurs frequently, check for concurrent updates manually."
-            true  # Continue despite fetch failure
-          }
+          echo "Deleting existing remote branch '$pr_branch'..."
+          git push origin --delete "$pr_branch" || echo "::warning::Failed to delete remote branch, continuing anyway"
         fi
-        echo "Creating/updating work branch '$pr_branch' from $base_ref"
+        echo "Creating fresh work branch '$pr_branch' from $base_ref"
         git checkout -B "$pr_branch" "$base_ref"
 
     - name: Run fetch script
@@ -143,9 +140,7 @@ runs:
           git add ${{ inputs.assets_dir }}
         fi
         git commit -m "chore: refresh generated collection ${{ inputs.collection_dir }}"
-        # Use force-with-lease to safely update the branch even if it diverged
-        # This is safe because we always reset to base branch in the prepare step
-        git push --force-with-lease -u origin ${{ inputs.pr_branch }}
+        git push -u origin ${{ inputs.pr_branch }}
 
     - name: Ensure label exists
       if: steps.diff.outputs.has_changes == 'true'
