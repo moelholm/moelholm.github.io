@@ -63,6 +63,7 @@ runs:
       run: |
         set -euxo pipefail
         base="${{ inputs.base_branch }}"
+        pr_branch="${{ inputs.pr_branch }}"
         # Ensure remote URL is present (some prior actions/checkout combos can leave it detached)
         if ! git remote get-url origin >/dev/null 2>&1; then
           git remote add origin "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}"
@@ -83,8 +84,16 @@ runs:
           git show-ref || true
           exit 1
         fi
-        echo "Creating/updating work branch '${{ inputs.pr_branch }}' from $base_ref"
-        git checkout -B "${{ inputs.pr_branch }}" "$base_ref"
+        # Delete remote branch if it exists to ensure a clean slate
+        echo "Checking if remote branch '$pr_branch' exists..."
+        if git ls-remote --heads origin "$pr_branch" | grep -q "refs/heads/${pr_branch}$"; then
+          echo "Deleting existing remote branch '$pr_branch'..."
+          git push origin --delete "$pr_branch" || {
+            echo "::warning::Failed to delete remote branch '$pr_branch'. The push step will use force push as fallback. If this occurs frequently, check repository permissions."
+          }
+        fi
+        echo "Creating fresh work branch '$pr_branch' from $base_ref"
+        git checkout -B "$pr_branch" "$base_ref"
 
     - name: Run fetch script
       shell: bash
@@ -133,7 +142,11 @@ runs:
           git add ${{ inputs.assets_dir }}
         fi
         git commit -m "chore: refresh generated collection ${{ inputs.collection_dir }}"
-        git push -u origin ${{ inputs.pr_branch }}
+        # Try normal push first; if it fails (e.g., branch deletion failure), use force push
+        git push -u origin ${{ inputs.pr_branch }} || {
+          echo "::warning::Normal push failed, likely because remote branch still exists. Using force push as fallback."
+          git push --force -u origin ${{ inputs.pr_branch }}
+        }
 
     - name: Ensure label exists
       if: steps.diff.outputs.has_changes == 'true'
