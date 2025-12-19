@@ -88,7 +88,9 @@ runs:
         echo "Checking if remote branch '$pr_branch' exists..."
         if git ls-remote --heads origin "$pr_branch" | grep -q "refs/heads/${pr_branch}$"; then
           echo "Deleting existing remote branch '$pr_branch'..."
-          git push origin --delete "$pr_branch" || echo "::warning::Failed to delete remote branch, continuing anyway"
+          git push origin --delete "$pr_branch" || {
+            echo "::warning::Failed to delete remote branch '$pr_branch', this may cause push conflicts later"
+          }
         fi
         echo "Creating fresh work branch '$pr_branch' from $base_ref"
         git checkout -B "$pr_branch" "$base_ref"
@@ -140,7 +142,11 @@ runs:
           git add ${{ inputs.assets_dir }}
         fi
         git commit -m "chore: refresh generated collection ${{ inputs.collection_dir }}"
-        git push -u origin ${{ inputs.pr_branch }}
+        # Try normal push first; if it fails (branch wasn't deleted), force push
+        git push -u origin ${{ inputs.pr_branch }} || {
+          echo "::warning::Normal push failed, using force push as fallback"
+          git push --force -u origin ${{ inputs.pr_branch }}
+        }
 
     - name: Ensure label exists
       if: steps.diff.outputs.has_changes == 'true'
