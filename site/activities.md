@@ -47,7 +47,7 @@ Below are my latest activities from Strava.
 		{%- comment -%}
 		Kudos badge: show kudos count if > 0, similar to likes badge on toots page
 		{%- endcomment -%}
-		{% capture kudos_badge %}{% if act.kudos_count and act.kudos_count > 0 %}<span class="engagement-badge">👏 {{ act.kudos_count }}</span>{% endif %}{% endcapture %}
+		{% capture kudos_badge %}{% include engagement_badge.html count=act.kudos_count %}{% endcapture %}
 
 		{% capture body_html %}
 		  {% assign desc = act.description | default: act.content %}
