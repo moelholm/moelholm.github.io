@@ -142,9 +142,9 @@ runs:
           git add ${{ inputs.assets_dir }}
         fi
         git commit -m "chore: refresh generated collection ${{ inputs.collection_dir }}"
-        # Try normal push first; if it fails (e.g., branch wasn't deleted or conflicts), use force push
+        # Try normal push first; if it fails (e.g., branch deletion failure), use force push
         git push -u origin ${{ inputs.pr_branch }} || {
-          echo "::warning::Normal push failed (likely due to branch deletion failure or conflicts), using force push as fallback"
+          echo "::warning::Normal push failed, likely because remote branch still exists. Using force push as fallback"
           git push --force -u origin ${{ inputs.pr_branch }}
         }
 
