@@ -45,7 +45,7 @@ Below are my latest activities from Strava.
 		{% if raw_type == 'WeightTraining' %}{% assign type_tag = 'strengthtraining' %}{% endif %}
 
 		{%- comment -%}
-		Kudos badge: show kudos count if > 0, similar to likes badge on toots page
+		Kudos badge: show kudos count if > 0 with ❤️ emoji, same as likes badge on toots page
 		{%- endcomment -%}
 		{% capture kudos_badge %}{% include engagement_badge.html count=act.kudos_count %}{% endcapture %}
 
