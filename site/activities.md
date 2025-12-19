@@ -2,7 +2,7 @@
 layout: default
 title: Activities - moelholm.com
 permalink: /activities/
-stylesheets: ["/css/toots.css"]
+stylesheets: ["/css/activities.css"]
 ---
 
 # Activities · Strava
@@ -45,9 +45,9 @@ Below are my latest activities from Strava.
 		{% if raw_type == 'WeightTraining' %}{% assign type_tag = 'strengthtraining' %}{% endif %}
 
 		{%- comment -%}
-		Badge icon: replace runner emoji with a stylized Strava-like glyph (using an orange triangle). Fallback simple emoji.
+		Kudos badge: show kudos count if > 0 with ❤️ emoji, same as likes badge on toots page
 		{%- endcomment -%}
-		{% assign badge_html = '🏃' %}
+		{% capture kudos_badge %}{% include engagement_badge.html count=act.kudos_count %}{% endcapture %}
 
 		{% capture body_html %}
 		  {% assign desc = act.description | default: act.content %}
@@ -57,9 +57,9 @@ Below are my latest activities from Strava.
 
 		{% capture media_html %}
 			{% if act.media and act.media.size > 0 %}
-				<div class="toot-media-grid mt-2 spotlight-group">
+				<div class="media-grid mt-2 spotlight-group">
 					{% for m in act.media %}
-						<img src="{{ m.thumb | default: m.url }}" data-src="{{ m.url }}" alt="{{ m.alt }}" class="spotlight toot-media-thumb" loading="lazy" />
+						<img src="{{ m.thumb | default: m.url }}" data-src="{{ m.url }}" alt="{{ m.alt }}" class="spotlight media-thumb" loading="lazy" />
 					{% endfor %}
 				</div>
 			{% endif %}
@@ -75,7 +75,7 @@ Below are my latest activities from Strava.
 			 id=anchor_id
 			 title=title_for_card
 			 href=external_href
-			 badge_html=badge_html
+			 badge_html=kudos_badge
 			 body_html=body_html
 			 date_text=date_text
 			 date_iso=date_iso

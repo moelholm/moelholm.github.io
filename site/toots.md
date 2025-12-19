@@ -54,15 +54,15 @@ Below are my latest updates from Mastodon (similar to X, Bluesky, Threads, etc).
 
 		{% capture media_html %}
 			{% if toot.media and toot.media.size > 0 %}
-				<div class="toot-media-grid mt-2 spotlight-group">
+				<div class="media-grid mt-2 spotlight-group">
 					{% for m in toot.media %}
-						<img src="{{ m.thumb | default: m.url }}" data-src="{{ m.url }}" alt="{{ m.alt }}" class="spotlight toot-media-thumb" loading="lazy" />
+						<img src="{{ m.thumb | default: m.url }}" data-src="{{ m.url }}" alt="{{ m.alt }}" class="spotlight media-thumb" loading="lazy" />
 					{% endfor %}
 				</div>
 			{% endif %}
 		{% endcapture %}
 
-		{% capture likes_badge %}{% if toot.favourites_count and toot.favourites_count > 0 %}<span class="likes-badge">❤️ {{ toot.favourites_count }}</span>{% endif %}{% endcapture %}
+		{% capture likes_badge %}{% include engagement_badge.html count=toot.favourites_count %}{% endcapture %}
 		{% include card.html
 			 id=id_val
 			 title=title_for_card

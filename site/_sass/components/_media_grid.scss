@@ -1,0 +1,10 @@
+@import "../variables";
+
+// Media grid for posts/activities with photos
+.media-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 8px; }
+@media (min-width: $bp-ipad-min) { .media-grid { grid-template-columns: repeat(4, 1fr); gap: 10px; } }
+.media-thumb { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border: 2px solid transparent; border-radius: 10px; padding: 4px; background: linear-gradient(#fff, #fff) padding-box, linear-gradient(135deg, rgba(31, 41, 55, 0.85), rgba(55, 65, 81, 0.85)) border-box; box-shadow: 0 1px 3px rgba(0,0,0,0.10); transition: transform 0.12s ease, box-shadow 0.12s ease; cursor: pointer; }
+.media-thumb:hover, .media-thumb:focus-visible { transform: translateY(-1px); box-shadow: 0 3px 10px rgba(0,0,0,0.08); }
+.media-thumb:focus-visible { outline: 2px solid rgba(252, 76, 2, 0.45); outline-offset: 2px; }
+/* img is the thumb itself now; object-fit handled on .media-thumb */
+@media (prefers-reduced-motion: reduce) { .media-thumb { transition: none; } }
