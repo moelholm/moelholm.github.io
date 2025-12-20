@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Fussingø Trail 2025 - 48K"
+title: "Fussingø Trail 2025"
 description: "Race notes for Fussingø Trail 48K - 2025"
 date: 2025-12-11 08:00:00 +0100
 race_date: 2025-12-07
 comments: true
 tags: race running trailrunning ultrarunning
-distance_km: 48.7
+distance_km: 48
 elevation_gain_m: 1166
 duration_formatted: '4h33m27s'
 published: true
@@ -18,7 +18,7 @@ race_website: "https://my.raceresult.com/349136/info"
 Sunday December 7th I lined up in Fussingø, Randers 🇩🇰 for the 48K edition of Fussingø Trail. I ran this race back in 2023 when it was a 25K event – this time I came back for the long distance and finished with a top-10 placement 🎉.
 
 {% capture rows %}
-Race|Fussingø Trail 48K;
+Race|Fussingø Trail;
 Date|{{ page.race_date }};
 Www|[my.raceresult.com/349136]({{ page.race_website }});
 Type|Trail;
