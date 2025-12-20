@@ -22,7 +22,7 @@ Race|Fussingø Trail;
 Date|{{ page.race_date }};
 Www|[my.raceresult.com/349136]({{ page.race_website }});
 Type|Trail;
-Position|Top-10;
+Position|9 of 64 finishers;
 Duration|{{ page.duration_formatted }};
 Distance|{{ page.distance_km }}k;
 Elevation|{{ page.elevation_gain_m }}m
