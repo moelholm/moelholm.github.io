@@ -33,14 +33,19 @@ giscus is a commenting system that uses GitHub Discussions as a backend. When vi
 3. Scroll to **Features** section
 4. Check ✅ **Discussions**
 
-### Step 2: Create a Discussion Category
+### Step 2: Create a Discussion Category (or use existing)
 
-1. Go to the **Discussions** tab in your repository
-2. Click the ⚙️ gear icon (Categories)
-3. Create a new category:
-   - **Name**: `Blog Comments`
-   - **Description**: `Comments from blog posts`
-   - **Format**: Choose "Announcement" (only you can create threads, visitors can comment)
+You can either:
+- **Option A**: Use the default "Announcements" category (already exists in most repos)
+- **Option B**: Create a new category specifically for blog comments:
+  1. Go to the **Discussions** tab in your repository
+  2. Click the ⚙️ gear icon (Categories)
+  3. Create a new category:
+     - **Name**: `Blog Comments`
+     - **Description**: `Comments from blog posts`
+     - **Format**: Choose "Announcement" (only you can create threads, visitors can comment)
+
+**Tip**: Using the default "Announcements" category is perfectly fine and requires less setup.
 
 ### Step 3: Install the giscus App
 
@@ -55,10 +60,13 @@ giscus is a commenting system that uses GitHub Discussions as a backend. When vi
 2. Fill in the configuration form:
    - **Repository**: `moelholm/moelholm.github.io`
    - **Page ↔️ Discussions Mapping**: Choose "pathname"
-   - **Discussion Category**: Select "Blog Comments"
+   - **Discussion Category**: Select your category (e.g., "Announcements" or "Blog Comments")
    - **Features**: Enable reactions
    - **Theme**: "Preferred color scheme"
-3. Copy the generated `data-repo-id` and `data-category-id` values
+3. Copy all the generated values:
+   - `data-repo-id` 
+   - `data-category` (the category name)
+   - `data-category-id`
 
 ### Step 5: Update Configuration
 
@@ -66,9 +74,16 @@ Edit `site/_config.yml` and update the giscus section:
 
 ```yaml
 giscus:
-  repo_id: "R_kgDOABCDEF"  # Replace with your actual repo_id
-  category_id: "DIC_kwDOABCDEFGH"  # Replace with your actual category_id
+  repo_name: "moelholm/moelholm.github.io"
+  repo_id: "MDEwOlJlcG9zaXRvcnkxOTU1MzQ0MTk="  # From giscus.app
+  category_name: "Announcements"  # Category name from giscus.app
+  category_id: "DIC_kwDOC6eeU84C0DZR"  # From giscus.app
 ```
+
+**Note**: Copy all values exactly as shown in the giscus.app configuration generator, including:
+- `data-repo-id` → use as `repo_id`
+- `data-category` → use as `category_name` 
+- `data-category-id` → use as `category_id`
 
 ### Step 6: Deploy
 

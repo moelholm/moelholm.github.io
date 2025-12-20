@@ -47,4 +47,5 @@ features:
 giscus:
   repo_name: "moelholm/moelholm.github.io"
   repo_id: ""  # Get from https://giscus.app/ - Required before deploying
+  category_name: "Announcements"  # Category name from your Discussions
   category_id: ""  # Get from https://giscus.app/ - Required before deploying

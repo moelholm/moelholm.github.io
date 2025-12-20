@@ -3,7 +3,7 @@
   <script src="https://giscus.app/client.js"
         data-repo="{{ site.giscus.repo_name | default: 'moelholm/moelholm.github.io' }}"
         data-repo-id="{{ site.giscus.repo_id }}"
-        data-category="Blog Comments"
+        data-category="{{ site.giscus.category_name | default: 'Announcements' }}"
         data-category-id="{{ site.giscus.category_id }}"
         data-mapping="pathname"
         data-strict="0"
