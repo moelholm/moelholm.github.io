@@ -39,13 +39,8 @@ features:
   show_software_engineering: false
 
 # GitHub Discussions (giscus) configuration
-# To get these IDs:
-# 1. Enable Discussions in your repository settings
-# 2. Install the giscus app: https://github.com/apps/giscus
-# 3. Visit https://giscus.app/ to generate your configuration
-# 4. Create a "Blog Comments" category in your repository's Discussions
 giscus:
   repo_name: "moelholm/moelholm.github.io"
-  repo_id: ""  # Get from https://giscus.app/ - Required before deploying
-  category_name: "Announcements"  # Category name from your Discussions
-  category_id: ""  # Get from https://giscus.app/ - Required before deploying
+  repo_id: "MDEwOlJlcG9zaXRvcnkxOTU1MzQ0MTk="
+  category_name: "Announcements"
+  category_id: "DIC_kwDOC6eeU84C0DZR"
