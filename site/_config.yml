@@ -37,3 +37,13 @@ plugins:
 # Feature toggles
 features:
   show_software_engineering: false
+
+# GitHub Discussions (giscus) configuration
+# To get these IDs:
+# 1. Enable Discussions in your repository settings
+# 2. Install the giscus app: https://github.com/apps/giscus
+# 3. Visit https://giscus.app/ to generate your configuration
+# 4. Create a "Blog Comments" category in your repository's Discussions
+giscus:
+  repo_id: "CONFIGURE_ME"
+  category_id: "CONFIGURE_ME"
