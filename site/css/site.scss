@@ -595,4 +595,15 @@ tbody + tbody {
   color: #ff9800;
 }
 
+// GitHub Discussions (giscus) comments styling
+.giscus-comments {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px dashed rgba(252, 76, 2, 0.15);
+  
+  .giscus-frame {
+    margin: 0 auto;
+  }
+}
+
 // (intentional)

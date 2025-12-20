@@ -37,3 +37,10 @@ plugins:
 # Feature toggles
 features:
   show_software_engineering: false
+
+# GitHub Discussions (giscus) configuration
+giscus:
+  repo_name: "moelholm/moelholm.github.io"
+  repo_id: "MDEwOlJlcG9zaXRvcnkxOTU1MzQ0MTk="
+  category_name: "Announcements"
+  category_id: "DIC_kwDOC6eeU84C0DZR"

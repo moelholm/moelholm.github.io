@@ -103,6 +103,7 @@ This site uses Jekyll 3.10.0 with GitHub Pages. The build process is fully autom
 ** Updates (Mastodon toots) fetched via `tools/fetch_toots.py` (tag-filtered statuses with media)
 Both are stored under `blog_collections/_activities` and `blog_collections/_toots` respectively and surfaced on the front page (Activities shown before Updates) using a shared section include.
 * **Draft Management:** Uses Jekyll's built-in `published: false` support
+* **Comments:** Uses link:GISCUS_SETUP.md[giscus] (GitHub Discussions-based commenting system) - see link:GISCUS_SETUP.md[setup guide]
 
 === Photos
 

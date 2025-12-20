@@ -4,8 +4,7 @@ layout: default
 <h1>
   {% if page.published == false %}<span class="badge badge-warning">DRAFT</span> {% endif %}{{ page.title }}
 </h1>
-<p class="post-metadata">{{ page.date | date_to_string }} {% if page.comments %} • <a
-    href="{{ site.url }}{{ page.url }}#disqus_thread">0 Comments</a>{% endif %}</p>
+<p class="post-metadata">{{ page.date | date_to_string }}</p>
 
 
 
@@ -28,5 +27,5 @@ layout: default
   {{ content }}
 </div>
 {% if page.comments %}
-{% include disqus.html %}
+{% include giscus.html %}
 {% endif %}
