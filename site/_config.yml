@@ -45,5 +45,6 @@ features:
 # 3. Visit https://giscus.app/ to generate your configuration
 # 4. Create a "Blog Comments" category in your repository's Discussions
 giscus:
-  repo_id: "CONFIGURE_ME"
-  category_id: "CONFIGURE_ME"
+  repo_name: "moelholm/moelholm.github.io"
+  repo_id: ""  # Get from https://giscus.app/ - Required before deploying
+  category_id: ""  # Get from https://giscus.app/ - Required before deploying

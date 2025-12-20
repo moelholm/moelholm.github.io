@@ -1,7 +1,7 @@
 <!-- GitHub Discussions via giscus -->
 <div class="giscus-comments">
   <script src="https://giscus.app/client.js"
-        data-repo="moelholm/moelholm.github.io"
+        data-repo="{{ site.giscus.repo_name | default: 'moelholm/moelholm.github.io' }}"
         data-repo-id="{{ site.giscus.repo_id }}"
         data-category="Blog Comments"
         data-category-id="{{ site.giscus.category_id }}"

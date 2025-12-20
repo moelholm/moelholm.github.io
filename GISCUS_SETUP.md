@@ -271,4 +271,4 @@ If you encounter issues:
 
 ---
 
-**Note**: This setup was implemented on December 20, 2025 to replace the previous Disqus integration with a more privacy-friendly and GitHub-native solution.
+**Note**: This setup was implemented on December 20, 2024 to replace the previous Disqus integration with a more privacy-friendly and GitHub-native solution.
