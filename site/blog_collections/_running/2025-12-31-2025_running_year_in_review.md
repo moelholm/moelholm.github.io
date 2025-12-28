@@ -37,9 +37,9 @@ During the year I reached ITRA Advanced 4 level - a milestone that reflects the 
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-12-31/itra1.jpg" data-src="/img_running/2025-12-31/itra1.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-12-31/itra2.jpg" data-src="/img_running/2025-12-31/itra2.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-12-31/itra3.jpg" data-src="/img_running/2025-12-31/itra3.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-12-31/itra4.jpg" data-src="/img_running/2025-12-31/itra4.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2025-12-31/itra5.jpg" data-src="/img_running/2025-12-31/itra5.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-12-31/itra6.jpg" data-src="/img_running/2025-12-31/itra6.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-12-31/Itra1.jpg" data-src="/img_running/2025-12-31/Itra1.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-12-31/Itra2.jpg" data-src="/img_running/2025-12-31/Itra2.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-12-31/Itra3.jpg" data-src="/img_running/2025-12-31/Itra3.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-12-31/Itra4.jpg" data-src="/img_running/2025-12-31/Itra4.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-12-31/Itra5.jpg" data-src="/img_running/2025-12-31/Itra5.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-12-31/Itra6.jpg" data-src="/img_running/2025-12-31/Itra6.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
