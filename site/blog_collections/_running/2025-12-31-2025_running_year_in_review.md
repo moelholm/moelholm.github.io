@@ -38,11 +38,13 @@ During the year I reached ITRA Advanced 4 level - a milestone that reflects the 
 {% capture table_content %}
 |------------|------------|
 | <img src="/img_running/2025-12-31/itra1.jpg" data-src="/img_running/2025-12-31/itra1.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-12-31/itra2.jpg" data-src="/img_running/2025-12-31/itra2.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-12-31/itra3.jpg" data-src="/img_running/2025-12-31/itra3.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-12-31/itra4.jpg" data-src="/img_running/2025-12-31/itra4.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-12-31/itra5.jpg" data-src="/img_running/2025-12-31/itra5.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-12-31/itra6.jpg" data-src="/img_running/2025-12-31/itra6.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
 ## UTMB Runner Index
-I'm now in the top 9% of UTMB runners worldwide with an index of 546. My highest race score this year was 561 - a testament to the quality of ultra races I've been able to complete.
+I'm now in the top 9% of UTMB runners worldwide with an index of 546. My highest race score this year was 561.
 
 {% capture table_content %}
 |------------|------------|
@@ -53,8 +55,6 @@ I'm now in the top 9% of UTMB runners worldwide with an index of 546. My highest
 ## Personal Bests (PBs)
 
 This year brought a number of new personal bests across various distances. Below is a summary of the key achievements organized by distance:
-
-I'm really proud of especially the 100 miler in the 18 hour range. And the 5K in sub 20 minutes. And the 10K in sub 40 minutes (although stars aligned for this to happen: little wind, carbon plate shoes 👌🏻 (Christmas gift 🥳😂) and a fast route with a tiny net decline).
 
 | Distance | Pace | Time | Context |
 |----------|------|------|---------|
@@ -67,3 +67,5 @@ I'm really proud of especially the 100 miler in the 18 hour range. And the 5K in
 | 1K | 03:38 /km | 3m38s | Race: DHL Stafetten |
 | 1/2 mile | 03:30 /km | 2m49s | Training: Ridaos Intervals |
 | 400m | 03:20 /km | 1m20s | Training: Ridaos Intervals |
+
+I'm really proud of especially the 100 miler in the 18 hour range. And the 5K in sub 20 minutes. And the 10K in sub 40 minutes (although stars aligned for this to happen: little wind, carbon plate shoes 👌🏻 (Christmas gift 🥳😂) and a fast route with a tiny net decline).
