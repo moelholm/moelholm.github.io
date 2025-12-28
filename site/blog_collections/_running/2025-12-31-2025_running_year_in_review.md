@@ -53,5 +53,4 @@ This year brought a number of new personal bests across various distances. Below
 | 5K | 03:54 /km | 19m29s | Training: 5K time trial |
 | 1K | 03:38 /km | 3m38s | Race: DHL Stafetten |
 | 1/2 mile | 03:30 /km | 2m49s | Training: Ridaos Intervals |
-| 500m | 03:20 /km | - | Training: Ridaos Intervals |
-| 400m | - | 1m20s | Training: Ridaos Intervals |
+| 400m | 03:20 /km | 1m20s | Training: Ridaos Intervals |
