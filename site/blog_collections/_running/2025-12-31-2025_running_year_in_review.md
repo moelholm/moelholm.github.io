@@ -21,7 +21,7 @@ According to Strava, in 2025 I ran `4850K` over `464h20m` with a total elevation
 
 The volume is slightly less than 2024 (5000K / 501h) - primarily due to Tuesday cross training in the first half of the year (stair stepper, prep for Mozart).
 
-# Achievements
+# Miscellaneous Achievements
 
 ## Half Marathon Attempts
 This year I chased the sub-90 minute half marathon goal across three races. The results were bittersweet - while my Strava times consistently showed sub-90 performances, the official chip times were all just above the mark. Close, but not quite there! Here are the three attempts:
@@ -31,7 +31,7 @@ This year I chased the sub-90 minute half marathon goal across three races. The 
 - [Race: Bestseller Aarhus City Half](/blog/running/2025/06/27/race_bestseller_aarhus_city_half) - Official: 1h30m37s, Strava half: 1h29m50s
 
 ## ITRA Runner Index
-During the year I reached ITRA Advanced 4 level - a milestone that reflects the accumulation of ultra distance races and vertical gain. The journey to this level has taken me through some fantastic trails and mountains across Europe.
+During the year I reached ITRA Advanced 4 level - a milestone that reflects the accumulation of ultra distance races and vertical gain. The journey to this level has taken me through adventures in Austria (Mozart 100), Sweden (Österlen Spring Trail and Kullamannen), and various trail races in Denmark.
 
 {% capture table_content %}
 |------------|------------|
@@ -48,9 +48,10 @@ This year brought a number of new personal bests across various distances. Below
 | 100M (160K) | 06:49 /km | 18h11m | Race: Mors 100 Miles |
 | 100K | 06:11 /km | 10h18m29s | Race: LNBK Ringkøbing Fjord Winter Edition |
 | 50K | 05:11 /km | 4h19m20s | Race: LNBK Ringkøbing Fjord Winter Edition |
-| 30K | - | - | Training |
+| 30K | 04:30 /km | 2h15m | Training |
 | 10K | 03:59 /km | 39m50s | Training |
-| 5K | 03:57 /km | 19m45s | Training (during 10K PB run) |
+| 5K | 03:54 /km | 19m29s | Training: 5K time trial |
 | 1K | 03:38 /km | 3m38s | Race: DHL Stafetten |
-| 1/2 mile | - | 2m49s | Training: Ridaos Intervals |
+| 1/2 mile | 03:30 /km | 2m49s | Training: Ridaos Intervals |
+| 500m | 03:20 /km | - | Training: Ridaos Intervals |
 | 400m | - | 1m20s | Training: Ridaos Intervals |
