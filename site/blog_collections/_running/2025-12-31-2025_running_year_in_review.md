@@ -19,7 +19,7 @@ According to Strava, in 2025 I ran `4850K` over `464h20m` with a total elevation
 {% endcapture %}
 {{ table_content | markdownify }}
 
-The volume is slightly less than 2024 (5000K / 501h) - primarily due to Tuesday cross training in the first half of the year (stair stepper, prep for Mozart).
+The volume is slightly less than 2024 (5000K / 501h) - primarily due to Tuesday cross training in the first half of the year (stair stepper, prep for Mozart). I think this cross training (and added strength training in the first half year in particular) was well invested. I had an incredible Mozart 100 race: felt super strong compared to my UTMB CCC experience in 2024. Much stronger hiking and less critical performance drop.
 
 # Miscellaneous Achievements
 
@@ -30,6 +30,8 @@ This year I chased the sub-90 minute half marathon goal across three races. The 
 - [Race: Odense City Half](/blog/running/2025/05/21/race_odense_city_half) - Official: 1h31m, Strava half: 1h29m46s 😭
 - [Race: Bestseller Aarhus City Half](/blog/running/2025/06/27/race_bestseller_aarhus_city_half) - Official: 1h30m37s, Strava half: 1h29m50s
 
+I'm really happy with these results even though I didn't manage to set a PB for the half. I feel much faster overall than in 2024 - but still wasn't able to beat my own 2024 PB 🤭. I'm sure I couldn't crank out ~90 min half's like this back then - but apparently I had an epic race day in 2024 (at Bestseller Aarhus City Half) that is hard for me to beat still 🤔. I hope I get to beat it in 2026 😎👏🏻
+
 ## ITRA Runner Index
 During the year I reached ITRA Advanced 4 level - a milestone that reflects the accumulation of ultra distance races and vertical gain. The journey to this level has taken me through adventures in Austria (Mozart 100), Sweden (Österlen Spring Trail and Kullamannen), and various trail races in Denmark.
 
@@ -39,9 +41,20 @@ During the year I reached ITRA Advanced 4 level - a milestone that reflects the 
 {% endcapture %}
 {{ table_content | markdownify }}
 
+## UTMB Runner Index
+I'm now in the top 9% of UTMB runners worldwide with an index of 546. My highest race score this year was 561 - a testament to the quality of ultra races I've been able to complete.
+
+{% capture table_content %}
+|------------|------------|
+| <img src="/img_running/2025-12-31/utmb1.jpg" data-src="/img_running/2025-12-31/utmb1.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-12-31/utmb2.jpg" data-src="/img_running/2025-12-31/utmb2.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+{% endcapture %}
+{{ table_content | markdownify }}
+
 ## Personal Bests (PBs)
 
 This year brought a number of new personal bests across various distances. Below is a summary of the key achievements organized by distance:
+
+I'm really proud of especially the 100 miler in the 18 hour range. And the 5K in sub 20 minutes. And the 10K in sub 40 minutes (although stars aligned for this to happen: little wind, carbon plate shoes 👌🏻 (Christmas gift 🥳😂) and a fast route with a tiny net decline).
 
 | Distance | Pace | Time | Context |
 |----------|------|------|---------|
