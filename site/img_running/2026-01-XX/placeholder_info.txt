@@ -1,0 +1,15 @@
+The blog post is ready but needs images from the PDF.
+
+Since I cannot access the Dropbox PDF link, please add the following images:
+
+1. Strava screenshots (strava1.jpg, strava2.jpg) - showing 2025 stats
+2. Race plan image (raceplan2025.jpg)
+3. Race moments collage (race_moments.jpg) if available
+4. Photos from Mozart 100 (mozart1-4.jpg)
+5. Photos from Mors 100 Miles (mors1-4.jpg)
+6. Photos from Kullamannen 2025 (kulla2025_1-4.jpg)
+
+You can also copy/link to existing images from the individual race blog posts:
+- Mozart 100: /img_running/2025-06-21/
+- Mors 100 Miles: /img_running/2025-09-06/
+- Kullamannen 2025: /img_running/2025-11-18/
