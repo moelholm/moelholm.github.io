@@ -24,7 +24,7 @@ The volume is slightly less than 2024 (5000K / 501h) - primarily due to Tuesday 
 
 # Races
 
-In 2025, I completed **15 races** totaling **878K** with **10,889m** of elevation gain over **116h50m** of racing. The races were split between **9 ultras** (≥50km) and **6 non-ultras**, as well as **12 trail races** and **3 road races**.
+In 2025, I completed **16 races** totaling **1056K** with **18,542m** of elevation gain over **130h7m** of racing. The races were split between **6 ultras** (≥50km) and **10 non-ultras**, as well as **9 trail races** and **7 road races**.
 
 Highlights include my longest race ever: [Kullamannen 172.7K](/blog/running/2025/11/18/kullamannen_by_utmb_2025) with 26h41m on feet. I also achieved a backyard ultra PB of **20 yards** (134K) at [Wayout Backyard Ultra](/blog/running/2025/04/01/race_wayout_backyard_ultra), finishing 13th of 163 starters.
 
