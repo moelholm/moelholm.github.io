@@ -48,7 +48,8 @@ I'm now in the top 9% of UTMB runners worldwide with an index of 546. My highest
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-12-31/utmb1.jpg" data-src="/img_running/2025-12-31/utmb1.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-12-31/utmb2.jpg" data-src="/img_running/2025-12-31/utmb2.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-12-31/Utmb1.jpg" data-src="/img_running/2025-12-31/Utmb1.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-12-31/Utmb2.jpg" data-src="/img_running/2025-12-31/Utmb2.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-12-31/Utmb3.jpg" data-src="/img_running/2025-12-31/Utmb3.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-12-31/Utmb4.jpg" data-src="/img_running/2025-12-31/Utmb4.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
