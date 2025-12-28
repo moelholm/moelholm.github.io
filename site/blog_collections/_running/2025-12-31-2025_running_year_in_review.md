@@ -6,6 +6,7 @@ date: 2025-12-31 17:00:00 +0100
 comments: true
 tags: running ultrarunning utmb review
 draft: true
+# TODO: Upload strava1.jpg and strava2.jpg to site/img_running/2025-12-31/ before merging
 ---
 
 This is a summary of how 2025 turned out to be for me in terms of running. I have kept it very short when it comes to mentioning the races etc., otherwise it would be a neverending story 😉.
@@ -20,6 +21,12 @@ According to Strava, in 2025 I ran `4850K` over `464h20m` with a total elevation
 {{ table_content | markdownify }}
 
 The volume is slightly less than 2024 (5000K / 501h) - primarily due to Tuesday cross training in the first half of the year (stair stepper, prep for Mozart). I think this cross training (and added strength training in the first half year in particular) was well invested. I had an incredible Mozart 100 race: felt super strong compared to my UTMB CCC experience in 2024. Much stronger hiking and less critical performance drop.
+
+# Races
+
+In 2025, I completed **15 races** totaling **878K** with **10,889m** of elevation gain over **116h50m** of racing. The races were split between **9 ultras** (≥50km) and **6 non-ultras**, as well as **12 trail races** and **3 road races**.
+
+Highlights include my longest race ever: [Kullamannen 172.7K](/blog/running/2025/11/18/kullamannen_by_utmb_2025) with 26h41m on feet. I also achieved a backyard ultra PB of **20 yards** (134K) at [Wayout Backyard Ultra](/blog/running/2025/04/01/race_wayout_backyard_ultra), finishing 13th of 163 starters.
 
 # Miscellaneous Achievements
 
@@ -59,9 +66,9 @@ This year brought a number of new personal bests across various distances. Below
 
 | Distance | Pace | Time | Context |
 |----------|------|------|---------|
-| 100M (160K) | 06:49 /km | 18h11m | Race: Mors 100 Miles |
-| 100K | 06:11 /km | 10h18m29s | Race: LNBK Ringkøbing Fjord Winter Edition |
-| 50K | 05:11 /km | 4h19m20s | Race: LNBK Ringkøbing Fjord Winter Edition |
+| 100M (160K) | 06:49 /km | 18h11m | [Race: Mors 100 Miles](/blog/running/2025/09/06/race_mors_100_miles) |
+| 100K | 06:00 /km | 10h18m29s | [Race: LNBK Ringkøbing Fjord Winter Edition](/blog/running/2025/01/19/race_ringkobingfjord) |
+| 50K | 05:11 /km | 4h19m20s | [Race: LNBK Ringkøbing Fjord Winter Edition](/blog/running/2025/01/19/race_ringkobingfjord) |
 | 30K | 04:30 /km | 2h15m | Training |
 | 10K | 03:59 /km | 39m50s | Training |
 | 5K | 03:54 /km | 19m29s | Training: 5K time trial |
