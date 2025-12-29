@@ -8,6 +8,7 @@ on:
 permissions:
   contents: read
   pull-requests: write
+  deployments: write
 
 jobs:
   deploy-preview:
@@ -53,3 +54,22 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         timeout-minutes: 5
+  
+  cleanup-preview:
+    runs-on: ubuntu-latest
+    # Only run cleanup when PR is closed
+    if: github.event.action == 'closed'
+    steps:
+      - name: Delete Netlify deployment
+        uses: nwtgck/actions-netlify@v3.0
+        with:
+          publish-dir: '.'  # Dummy directory (not used for deletion)
+          production-deploy: false
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Cleanup PR #${{ github.event.pull_request.number }}"
+          alias: pr-${{ github.event.pull_request.number }}
+          enable-pull-request-comment: false
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        continue-on-error: true
