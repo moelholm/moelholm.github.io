@@ -4,7 +4,7 @@ title: "2025 Running Year in Review"
 description: "A summary of my running in 2025"
 date: 2025-12-31 17:00:00 +0100
 comments: true
-tags: running ultrarunning utmb review
+tags: running ultrarunning trailrunning itra utmb review
 draft: true
 # TODO: Upload strava1.jpg and strava2.jpg to site/img_running/2025-12-31/ before merging
 ---

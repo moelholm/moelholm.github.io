@@ -1,0 +1,99 @@
+name: PR Preview (Jekyll Build)
+
+on:
+  pull_request:
+    branches: [ master ]
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  build-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'
+          bundler-cache: false
+      
+      - name: Install Jekyll dependencies
+        run: |
+          cd site
+          bundle install
+      
+      - name: Build Jekyll site
+        run: |
+          cd site
+          bundle exec jekyll build --drafts
+        env:
+          JEKYLL_ENV: preview
+      
+      - name: Comment on PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+            
+            // Check if site was built
+            const sitePath = 'site/_site';
+            const exists = fs.existsSync(sitePath);
+            
+            let body;
+            if (exists) {
+              body = `✅ **Preview Build Successful**
+              
+              The Jekyll site has been built successfully for this PR. The build includes draft posts.
+              
+              **Note:** This is a build verification only. To preview the actual site locally:
+              1. Clone this branch
+              2. Run \`cd site && bundle install\`
+              3. Run \`bundle exec jekyll serve --drafts\`
+              4. Visit http://localhost:4000
+              
+              **Build Details:**
+              - Commit: ${context.payload.pull_request.head.sha.substring(0, 7)}
+              - Branch: ${context.payload.pull_request.head.ref}`;
+            } else {
+              body = `❌ **Preview Build Failed**
+              
+              The Jekyll site build failed. Please check the workflow logs for details.`;
+            }
+            
+            // Find existing comment
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.pull_request.number,
+            });
+            
+            const botComment = comments.find(comment => 
+              comment.user.type === 'Bot' && 
+              comment.body.includes('Preview Build')
+            );
+            
+            if (botComment) {
+              // Update existing comment
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body: body
+              });
+            } else {
+              // Create new comment
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.payload.pull_request.number,
+                body: body
+              });
+            }
