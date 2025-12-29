@@ -24,13 +24,11 @@ The volume is slightly less than 2024 (5000K / 501h) - primarily due to Tuesday 
 
 # Races
 
-In 2025, I completed **16 races** totaling **1055K** with **18500m** of elevation gain over **130h** of racing. The races were split between **6 ultras** (≥50km) and **10 non-ultras**, as well as **9 trail races** and **7 road races**.
+In 2025, I completed `16 races` totaling `1055K` with `18500m` of elevation gain over `130h` of racing. The races were split between `6 ultras` (≥50km) and `10 non-ultras`, as well as `9 trail races` and `7 road races`.
 
-Highlights include my longest race ever: [Kullamannen 172.7K](/blog/running/2025/11/18/kullamannen_by_utmb_2025) with 26h41m on feet. I also achieved a backyard ultra PB of **20 yards** (134K) at [Wayout Backyard Ultra](/blog/running/2025/04/01/race_wayout_backyard_ultra), finishing 13th of 163 starters.
+Highlights include my longest race ever: [Kullamannen 172.7K](/blog/running/2025/11/18/kullamannen_by_utmb_2025) with `26h41m` on feet. I also achieved a backyard ultra PB of `20 yards` (`134K`) at [Wayout Backyard Ultra](/blog/running/2025/04/01/race_wayout_backyard_ultra), finishing 13th of 163 starters.
 
-# Miscellaneous Achievements
-
-## Half Marathon Attempts
+# Half's
 This year I chased the sub-90 minute half marathon goal across three races. The results were bittersweet - while my Strava times consistently showed sub-90 performances, the official chip times were all just above the mark. Close, but not quite there! Here are the three attempts:
 
 - [Race: Cross Island Bornholm](/blog/running/2025/04/19/race_cross_island_bornholm) - Official: 1h30m10s, Strava half: 1h29m39s 😆
@@ -39,7 +37,7 @@ This year I chased the sub-90 minute half marathon goal across three races. The 
 
 I'm really happy with these results even though I didn't manage to set a PB for the half. I feel much faster overall than in 2024 - but still wasn't able to beat my own 2024 PB 🤭. I'm sure I couldn't crank out ~90 min half's like this back then - but apparently I had an epic race day in 2024 (at Bestseller Aarhus City Half) that is hard for me to beat still 🤔. I hope I get to beat it in 2026 😎👏🏻
 
-## ITRA Runner Index
+# ITRA Stats
 During the year I reached ITRA Advanced 4 level - a milestone that reflects the accumulation of ultra distance races and vertical gain. The journey to this level has taken me through adventures in Austria (Mozart 100), Sweden (Österlen Spring Trail and Kullamannen), and various trail races in Denmark.
 
 {% capture table_content %}
@@ -50,8 +48,10 @@ During the year I reached ITRA Advanced 4 level - a milestone that reflects the 
 {% endcapture %}
 {{ table_content | markdownify }}
 
-## UTMB Runner Index
-I'm now in the top 9% of UTMB runners worldwide with an index of 546. My highest race score this year was 561.
+My highest race score this year was 578 (see last screenshot).
+
+# UTMB Stats
+I'm now in the top `9%` of UTMB runners worldwide with an index of `546`. My highest race score this year was `561`.
 
 {% capture table_content %}
 |------------|------------|
@@ -60,20 +60,34 @@ I'm now in the top 9% of UTMB runners worldwide with an index of 546. My highest
 {% endcapture %}
 {{ table_content | markdownify }}
 
-## Personal Bests (PBs)
+# Personal Bests
 
 This year brought a number of new personal bests across various distances. Below is a summary of the key achievements organized by distance:
+
+Ultra distances:
 
 | Distance | Pace | Time | Context |
 |----------|------|------|---------|
 | 100M (160K) | 06:49 /km | 18h11m | [Race: Mors 100 Miles](/blog/running/2025/09/06/race_mors_100_miles) |
 | 100K | 06:00 /km | 10h18m29s | [Race: LNBK Ringkøbing Fjord Winter Edition](/blog/running/2025/01/19/race_ringkobingfjord) |
 | 50K | 05:11 /km | 4h19m20s | [Race: LNBK Ringkøbing Fjord Winter Edition](/blog/running/2025/01/19/race_ringkobingfjord) |
+
+I'm really proud of especially the 100 miler in the 18 hour range.
+
+Medium distances:
+
+| Distance | Pace | Time | Context |
+|----------|------|------|---------|
 | 30K | 04:30 /km | 2h15m | Training |
 | 10K | 03:59 /km | 39m50s | Training |
 | 5K | 03:54 /km | 19m29s | Training: 5K time trial |
+
+The 5K in sub 20 minutes is a milestone I'm proud of. And the 10K in sub 40 minutes (although stars aligned for this to happen: little wind, carbon plate shoes 👌🏻 (Christmas gift 🥳😂) and a fast route with a tiny net decline).
+
+Short distances:
+
+| Distance | Pace | Time | Context |
+|----------|------|------|---------|
 | 1K | 03:38 /km | 3m38s | Race: DHL Stafetten |
 | 1/2 mile | 03:30 /km | 2m49s | Training: Ridaos Intervals |
 | 400m | 03:20 /km | 1m20s | Training: Ridaos Intervals |
-
-I'm really proud of especially the 100 miler in the 18 hour range. And the 5K in sub 20 minutes. And the 10K in sub 40 minutes (although stars aligned for this to happen: little wind, carbon plate shoes 👌🏻 (Christmas gift 🥳😂) and a fast route with a tiny net decline).
