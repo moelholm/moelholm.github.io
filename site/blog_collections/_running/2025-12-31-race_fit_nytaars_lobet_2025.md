@@ -21,7 +21,7 @@ Race|FiT Nytårs Løbet/Walk 2025;
 Date|{{ page.race_date }};
 Www|[my.raceresult.com/312645]({{ page.race_website }});
 Type|Trail;
-Position|TBC;
+Position|2nd place;
 Duration|{{ page.duration_formatted }};
 Distance|{{ page.distance_km }}k;
 Elevation|{{ page.elevation_gain_m }}m
@@ -34,9 +34,18 @@ I actually ran this in 2023 with my buddy Bo. This year I had to do it alone tho
 
 {% capture photos %}
 |------------|------------|
-| <img src="/img_running/2025-12-31/IMG_0001.jpg" data-src="/img_running/2025-12-31/IMG_0001.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 320px" /> | <img src="/img_running/2025-12-31/IMG_0002.jpg" data-src="/img_running/2025-12-31/IMG_0002.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 320px" /> |
+| <img src="/img_running/2025-12-31/IMG_0698.jpeg" data-src="/img_running/2025-12-31/IMG_0698.jpeg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 320px" /> | <img src="/img_running/2025-12-31/IMG_0699.jpeg" data-src="/img_running/2025-12-31/IMG_0699.jpeg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 320px" /> |
+| <img src="/img_running/2025-12-31/IMG_0700.jpeg" data-src="/img_running/2025-12-31/IMG_0700.jpeg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 320px" /> | <img src="/img_running/2025-12-31/IMG_0702.jpeg" data-src="/img_running/2025-12-31/IMG_0702.jpeg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 320px" /> |
 {% endcapture %}
 {{ photos | markdownify }}
+
+I finished second place and am very happy with that - only one or two minutes behind the winner! It was an excellent experience on trails that I know and love.
+
+{% capture finish_photos %}
+|------------|------------|
+| <img src="/img_running/2025-12-31/IMG_0703.jpeg" data-src="/img_running/2025-12-31/IMG_0703.jpeg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 320px" /> | <img src="/img_running/2025-12-31/IMG_0704.jpeg" data-src="/img_running/2025-12-31/IMG_0704.jpeg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 320px" /> |
+{% endcapture %}
+{{ finish_photos | markdownify }}
 
 ### Recommended?
 
