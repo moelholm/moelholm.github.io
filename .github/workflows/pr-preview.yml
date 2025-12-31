@@ -116,9 +116,12 @@ jobs:
           DEPLOYS=$(netlify api listSiteDeploys \
             --data='{"site_id": "${{ secrets.NETLIFY_SITE_ID }}"}')
           
-          # Extract deploy_id from the response (checking both name and deploy_ssl_url)
+          # Extract deploy_id from the response
+          # Match deployments where:
+          # 1. The name field exactly matches the PR alias, OR
+          # 2. The deploy_ssl_url contains the alias as a subdomain (e.g., pr-42--site.netlify.app)
           DEPLOY_ID=$(echo "$DEPLOYS" | jq -r --arg alias "$PR_ALIAS" \
-            '.[] | select(.name == $alias or (.deploy_ssl_url | tostring | contains($alias))) | .id' | head -1)
+            '.[] | select(.name == $alias or (.deploy_ssl_url | tostring | test("^https?://\($alias)--"))) | .id' | head -1)
           
           if [ -n "$DEPLOY_ID" ]; then
             echo "Found deployment ID: $DEPLOY_ID, deleting..."
