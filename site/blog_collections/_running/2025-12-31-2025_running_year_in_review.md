@@ -6,23 +6,22 @@ date: 2025-12-31 17:00:00 +0100
 comments: true
 tags: running ultrarunning trailrunning itra utmb review
 draft: true
-# TODO: Upload strava1.jpg and strava2.jpg to site/img_running/2025-12-31/ before merging
 ---
 
 This is a summary of how 2025 turned out to be for me in terms of running 🏃‍♂️. I have kept it very short when it comes to mentioning the races etc., otherwise it would be a neverending story 😉.
 
 # Training Volume
-According to Strava, in 2025 I ran `4850K` over `464h20m` with a total elevation gain landing on `36.5K`. That's equivalent to an average of `93K` / `8.9h` per week.
+According to Strava, in 2025 I ran `4934K` over `471h23m` with a total elevation gain landing on `36730m`. That's equivalent to an average of `95K` / `9.1h` per week.
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2025-12-31/strava1.jpg" data-src="/img_running/2025-12-31/strava1.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-12-31/strava2.jpg" data-src="/img_running/2025-12-31/strava2.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2025-12-31/Strava1.jpg" data-src="/img_running/2025-12-31/Strava1.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2025-12-31/Strava2.jpg" data-src="/img_running/2025-12-31/Strava2.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
 The volume is slightly less than 2024 (`5000K` / `501h`) - primarily due to Tuesday cross training in the first half of the year (stair stepper, prep for Mozart). I think this cross training (and added strength training in the first half of the year in particular) was well invested. I had an incredible Mozart 100 race: felt super strong compared to my UTMB CCC experience in 2024. Much stronger hiking and less critical performance drop.
 
-This year was also the first where I had monthly running volumes exceeding `500K`: October with `~550K` and December with an all-time record of `~580K` 🥳🤩👏🏻
+This year was also the first where I had monthly running volumes exceeding `500K`: October with `~550K` and December with an all-time record of `~585K` 🥳🤩👏🏻
 
 # Races
 
