@@ -15,14 +15,14 @@ race_results_strava: "https://www.strava.com/activities/16891788449"
 race_website: "https://my.raceresult.com/312645/info"
 ---
 
-This year I last-minute decided to run a New Year's Eve trail run - my last race of 2024 in my own backyard! It was right here in Billund where I live. In Frederikshåb Plantage (5 minutes by car from me) on some of the same usual trails that I frequently run on 🤠👌🏻
+This year I last-minute decided to run a New Year's Eve trail run - my last race of 2025 in my own backyard! It was right here in Billund where I live. In Frederikshåb Plantage (5 minutes by car from me) on some of the same usual trails that I frequently run on 🤠👌🏻
 
 {% capture rows %}
 Race|FiT Nytårs Løbet/Walk 2025;
 Date|{{ page.race_date }};
 Www|[my.raceresult.com/312645]({{ page.race_website }});
 Type|Trail;
-Position|2nd place;
+Position|2 of 15 finishers;
 Duration|{{ page.duration_formatted }};
 Distance|{{ page.distance_km }}k;
 Elevation|{{ page.elevation_gain_m }}m
