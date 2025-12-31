@@ -122,24 +122,13 @@ class AtomicDirWriter:
         # Swap assets if present
         if self.assets_tmp_dir and self.assets_final_dir:
             backup = self.assets_root / f"{self.assets_subdir}.backup"
-            try:
-                # Clean up any existing backup first
-                if backup.exists():
-                    shutil.rmtree(backup)
-                # If assets_final_dir exists, move it to backup
-                if self.assets_final_dir.exists():
-                    self.assets_final_dir.rename(backup)
-                # Rename tmp to final
-                self.assets_tmp_dir.rename(self.assets_final_dir)
-            finally:
-                # Always try to clean up backup directory if it exists
-                # backup is guaranteed to be defined since it's created before the try block
-                # Wrap in try-except to prevent masking the original exception
-                try:
-                    if backup.exists():
-                        shutil.rmtree(backup)
-                except Exception:
-                    pass  # Don't mask the original exception
+            if backup.exists():
+                shutil.rmtree(backup)
+            if self.assets_final_dir.exists():
+                self.assets_final_dir.rename(backup)
+            self.assets_tmp_dir.rename(self.assets_final_dir)
+            if backup.exists():
+                shutil.rmtree(backup)
         debug(self.namespace, f"Wrote {self._produced} items to {self.final_dir}")
 
     def meta_path(self) -> Path:

@@ -40,42 +40,6 @@ jobs:
       - name: Install Netlify CLI
         run: npm install -g netlify-cli
       
-      - name: Clean up old deployments for this PR
-        run: |
-          # Clean up old deployments with the same alias to avoid accumulation
-          PR_ALIAS="pr-${{ github.event.pull_request.number }}"
-          echo "Cleaning up old deployments for alias: $PR_ALIAS"
-          
-          # List all deploys and find those matching this PR alias
-          if DEPLOYS=$(netlify api listSiteDeploys \
-            --data="$(jq -n --arg site_id "${{ secrets.NETLIFY_SITE_ID }}" '{site_id: $site_id}')"); then
-            
-            # Find all deployment IDs matching this PR alias
-            DEPLOY_IDS=$(echo "$DEPLOYS" | jq -r --arg alias "$PR_ALIAS" \
-              '.[] | select(.name == $alias or (.deploy_ssl_url | tostring | test("^https?://" + $alias + "--"))) | .id')
-            
-            if [ -n "$DEPLOY_IDS" ]; then
-              echo "Found existing deployments to clean up"
-              # Delete each old deployment
-              echo "$DEPLOY_IDS" | while read -r deploy_id; do
-                if [ -n "$deploy_id" ]; then
-                  echo "Deleting deployment: $deploy_id"
-                  netlify api deleteSiteDeploy \
-                    --data="$(jq -n --arg site_id "${{ secrets.NETLIFY_SITE_ID }}" --arg deploy_id "$deploy_id" '{site_id: $site_id, deploy_id: $deploy_id}')" \
-                    || echo "Failed to delete deployment $deploy_id (may already be deleted)"
-                fi
-              done
-              echo "Cleanup completed"
-            else
-              echo "No existing deployments found for this PR"
-            fi
-          else
-            echo "Failed to list deployments, proceeding with new deployment anyway"
-          fi
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        continue-on-error: true
-      
       - name: Deploy to Netlify
         id: netlify-deploy
         run: |
