@@ -134,8 +134,12 @@ class AtomicDirWriter:
             finally:
                 # Always try to clean up backup directory if it exists
                 # backup is guaranteed to be defined since it's created before the try block
-                if backup.exists():
-                    shutil.rmtree(backup)
+                # Wrap in try-except to prevent masking the original exception
+                try:
+                    if backup.exists():
+                        shutil.rmtree(backup)
+                except Exception:
+                    pass  # Don't mask the original exception
         debug(self.namespace, f"Wrote {self._produced} items to {self.final_dir}")
 
     def meta_path(self) -> Path:

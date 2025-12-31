@@ -114,22 +114,29 @@ jobs:
           
           # List all deploys for the site and find the one with matching alias
           # Using jq to properly construct the JSON payload
-          DEPLOYS=$(netlify api listSiteDeploys \
-            --data="$(jq -n --arg site_id "${{ secrets.NETLIFY_SITE_ID }}" '{site_id: $site_id}')")
+          if ! DEPLOYS=$(netlify api listSiteDeploys \
+            --data="$(jq -n --arg site_id "${{ secrets.NETLIFY_SITE_ID }}" '{site_id: $site_id}')"); then
+            echo "Failed to list deployments" >&2
+            exit 0
+          fi
           
           # Extract deploy_id from the response
           # Match deployments where:
           # 1. The name field exactly matches the PR alias, OR
           # 2. The deploy_ssl_url contains the alias as a subdomain (e.g., pr-42--site.netlify.app)
+          # Note: The alias is expected to be safe (just "pr-" followed by a number)
           DEPLOY_ID=$(echo "$DEPLOYS" | jq -r --arg alias "$PR_ALIAS" \
             '.[] | select(.name == $alias or (.deploy_ssl_url | tostring | test("^https?://" + $alias + "--"))) | .id' | head -1)
           
           if [ -n "$DEPLOY_ID" ]; then
             echo "Found deployment ID: $DEPLOY_ID, deleting..."
             # Use jq to properly construct the JSON payload
-            netlify api deleteSiteDeploy \
-              --data="$(jq -n --arg site_id "${{ secrets.NETLIFY_SITE_ID }}" --arg deploy_id "$DEPLOY_ID" '{site_id: $site_id, deploy_id: $deploy_id}')"
-            echo "Deployment deleted successfully"
+            if netlify api deleteSiteDeploy \
+              --data="$(jq -n --arg site_id "${{ secrets.NETLIFY_SITE_ID }}" --arg deploy_id "$DEPLOY_ID" '{site_id: $site_id, deploy_id: $deploy_id}')"; then
+              echo "Deployment deleted successfully"
+            else
+              echo "Failed to delete deployment" >&2
+            fi
           else
             echo "No deployment found for alias $PR_ALIAS"
           fi
