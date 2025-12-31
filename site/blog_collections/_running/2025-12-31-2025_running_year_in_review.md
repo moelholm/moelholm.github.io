@@ -2,7 +2,7 @@
 layout: post
 title: "2025 Running Year in Review"
 description: "A summary of my running in 2025"
-date: 2025-12-31 17:00:00 +0100
+date: 2025-12-31 15:00:00 +0100
 comments: true
 tags: running ultrarunning trailrunning itra utmb review
 draft: true
