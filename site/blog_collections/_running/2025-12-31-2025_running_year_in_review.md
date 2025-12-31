@@ -22,6 +22,8 @@ According to Strava, in 2025 I ran `4850K` over `464h20m` with a total elevation
 
 The volume is slightly less than 2024 (`5000K` / `501h`) - primarily due to Tuesday cross training in the first half of the year (stair stepper, prep for Mozart). I think this cross training (and added strength training in the first half of the year in particular) was well invested. I had an incredible Mozart 100 race: felt super strong compared to my UTMB CCC experience in 2024. Much stronger hiking and less critical performance drop.
 
+This year was also the first where I had monthly running volumes exceeding `500K`: October with `~550K` and December with an all-time record of `~580K` 🥳🤩👏🏻
+
 # Races
 
 In 2025, I completed `16 races` totaling `1055K` with `18500m` of elevation gain over `130h` of racing. The races were split between `6 ultras` (≥50km) and `10 non-ultras`, as well as `9 trail races` and `7 road races`.
