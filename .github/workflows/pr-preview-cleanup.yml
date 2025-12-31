@@ -1,0 +1,48 @@
+name: PR Preview Cleanup
+
+on:
+  pull_request:
+    branches: [ master ]
+    types: [closed]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  cleanup-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Netlify CLI
+        run: npm install -g netlify-cli
+      
+      - name: Delete Netlify deployment
+        run: |
+          PR_ALIAS="pr-${{ github.event.pull_request.number }}"
+          echo "Deleting deployments for PR: $PR_ALIAS"
+          
+          # List all site deployments
+          DEPLOYS=$(netlify api listSiteDeploys \
+            --data="$(jq -n --arg site_id "${{ secrets.NETLIFY_SITE_ID }}" '{site_id: $site_id}')")
+          
+          if [ $? -ne 0 ]; then
+            echo "Failed to list deployments"
+            exit 0
+          fi
+          
+          # Find and delete all deployments matching this PR alias
+          echo "$DEPLOYS" | jq -r --arg alias "$PR_ALIAS" \
+            '.[] | select(.name == $alias or (.deploy_ssl_url | contains("://" + $alias + "--"))) | .id' | \
+          while read -r deploy_id; do
+            if [ -n "$deploy_id" ]; then
+              echo "Deleting deployment: $deploy_id"
+              netlify api deleteSiteDeploy \
+                --data="$(jq -n --arg site_id "${{ secrets.NETLIFY_SITE_ID }}" --arg deploy_id "$deploy_id" '{site_id: $site_id, deploy_id: $deploy_id}')" \
+                && echo "Deleted successfully" || echo "Failed to delete"
+            fi
+          done
+          
+          echo "Cleanup complete"
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        continue-on-error: true

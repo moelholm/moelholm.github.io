@@ -3,7 +3,7 @@ name: PR Preview (Netlify)
 on:
   pull_request:
     branches: [ master ]
-    types: [opened, synchronize, reopened, closed]
+    types: [opened, synchronize, reopened]
 
 permissions:
   contents: read
@@ -13,8 +13,6 @@ permissions:
 jobs:
   deploy-preview:
     runs-on: ubuntu-latest
-    # Only run deploy for open PRs, not closed
-    if: github.event.action != 'closed'
     steps:
       - name: Checkout PR branch
         uses: actions/checkout@v4
@@ -97,20 +95,4 @@ jobs:
                 body: comment
               });
             }
-  
-  cleanup-preview:
-    runs-on: ubuntu-latest
-    # Only run cleanup when PR is closed
-    if: github.event.action == 'closed'
-    steps:
-      - name: Install Netlify CLI
-        run: npm install -g netlify-cli
-      
-      - name: Delete Netlify deployment
-        run: |
-          netlify api deleteDeploy \
-            --site-id=${{ secrets.NETLIFY_SITE_ID }} \
-            --data="{\"deploy_id\": \"pr-${{ github.event.pull_request.number }}\"}" || true
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        continue-on-error: true
+
