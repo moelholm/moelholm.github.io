@@ -133,6 +133,7 @@ class AtomicDirWriter:
                 self.assets_tmp_dir.rename(self.assets_final_dir)
             finally:
                 # Always try to clean up backup directory if it exists
+                # backup is guaranteed to be defined since it's created before the try block
                 if backup.exists():
                     shutil.rmtree(backup)
         debug(self.namespace, f"Wrote {self._produced} items to {self.final_dir}")
