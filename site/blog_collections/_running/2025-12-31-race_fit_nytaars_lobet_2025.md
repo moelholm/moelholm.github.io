@@ -11,6 +11,7 @@ elevation_gain_m: TBC
 duration_formatted: 'TBC'
 published: true
 race_results_official: "https://my.raceresult.com/312645/results"
+race_results_strava: "https://www.strava.com/activities/16891788449"
 race_website: "https://my.raceresult.com/312645/info"
 ---
 
