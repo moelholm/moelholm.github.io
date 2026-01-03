@@ -22,7 +22,7 @@ Race|FiT Nytårs Løbet/Walk 2025;
 Date|{{ page.race_date }};
 Www|[my.raceresult.com/312645]({{ page.race_website }});
 Type|Trail;
-Position|2 of 15 finishers;
+Position|2 of 13 finishers;
 Duration|{{ page.duration_formatted }};
 Distance|{{ page.distance_km }}k;
 Elevation|{{ page.elevation_gain_m }}m
