@@ -2,6 +2,7 @@
 layout: default
 title: Races 2026 - moelholm.com
 permalink: /races-2026/
+stylesheets: ["/css/races.css"]
 ---
 
 <style>
@@ -13,19 +14,32 @@ permalink: /races-2026/
   width: 100%;
   font-size: 0.9rem;
   border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
 }
 
 .races-2026-container th {
-  background-color: rgba(252, 76, 2, 0.1);
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   font-weight: 600;
   padding: 0.6rem 0.4rem;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: none;
+  color: #495057;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .races-2026-container td {
   padding: 0.5rem 0.4rem;
   vertical-align: middle;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: none;
+  border-bottom: 1px solid rgba(252, 76, 2, 0.08);
+}
+
+.races-2026-container tbody tr:last-child td {
+  border-bottom: none;
 }
 
 .races-2026-container td:nth-child(1),
@@ -46,6 +60,33 @@ permalink: /races-2026/
   text-align: center;
 }
 
+.races-2026-legend {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(252, 76, 2, 0.05) 0%, rgba(255, 149, 0, 0.05) 100%);
+  border-radius: 8px;
+  border: 1px solid rgba(252, 76, 2, 0.12);
+}
+
+.races-2026-legend h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #495057;
+}
+
+.races-2026-legend ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0.5rem;
+}
+
+.races-2026-legend li {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #666;
+}
+
 @media (max-width: 768px) {
   .races-2026-container table {
     font-size: 0.8rem;
@@ -58,10 +99,15 @@ permalink: /races-2026/
   .races-2026-container td:nth-child(7) {
     font-size: 0.7rem;
   }
+  
+  .races-2026-container th {
+    font-size: 0.7rem;
+    padding: 0.5rem 0.3rem;
+  }
 }
 </style>
 
-<div class="races-2026-container">
+<div class="races-2026-container" markdown="1">
 
 # Races · Running 2026
 
@@ -81,14 +127,14 @@ Below is my race calendar for 2026, showing upcoming races I plan to participate
 | ☑️ | SEP | 27 | 🇩🇰 | 42K | HCA Marathon | marathon, running | [🔗](https://www.hcamarathon.dk) |
 | ☑️ | OCT | 30 | 🇸🇪 | 160K | Kullamannen by UTMB | ultra, trail, running | [🔗](https://utmb.world/races/kullamannen) |
 
----
+<div class="races-2026-legend" markdown="1">
 
-**Legend:**
+#### Legend:
 - ☑️ = Race yet to be done
 - ✅ = Race completed
 - ❌ = Race not attended
 
-**Tags:**
+#### Tags:
 - **ultra** = Ultrarunning (≥50km or time-based ultra events)
 - **trail** = Trail running
 - **marathon** = Marathon distance (42K)
@@ -98,17 +144,4 @@ Below is my race calendar for 2026, showing upcoming races I plan to participate
 
 </div>
 
----
-
-**Legend:**
-- ☑️ = Race yet to be done
-- ✅ = Race completed
-- ❌ = Race not attended
-
-**Tags:**
-- **ultra** = Ultrarunning (≥50km or time-based ultra events)
-- **trail** = Trail running
-- **marathon** = Marathon distance (42K)
-- **halfmarathon** = Half marathon distance (21K)
-- **backyard** = Backyard ultra format
-- **running** = Road running
+</div>
