@@ -8,20 +8,7 @@ Parameters:
 - url: Race information URL
 {% endcomment %}
 
-{% assign row_classes = '' %}
-{% assign is_ultra = false %}
-{% assign is_trail = false %}
-
-{% for tag in include.tags %}
-  {% if tag == 'ultra' %}{% assign is_ultra = true %}{% endif %}
-  {% if tag == 'trail' %}{% assign is_trail = true %}{% endif %}
-  {% if tag == 'backyard' %}{% assign row_classes = row_classes | append: 'tag-backyard ' %}{% endif %}
-{% endfor %}
-
-{% if is_ultra %}{% assign row_classes = row_classes | append: 'tag-ultra ' %}{% else %}{% assign row_classes = row_classes | append: 'tag-non-ultra ' %}{% endif %}
-{% if is_trail %}{% assign row_classes = row_classes | append: 'tag-trail ' %}{% else %}{% assign row_classes = row_classes | append: 'tag-road ' %}{% endif %}
-
-<tr class="{{ row_classes | strip }}">
+<tr>
   <td class="race-details-cell" colspan="2">
     {% capture title_html %}{{ include.title }}{% endcapture %}
     {% capture body_html %}
