@@ -6,10 +6,51 @@ Parameters:
 - distance: Race distance (e.g., "100 km", "6h", "♾️")
 - tags: Array of tag objects with 'name' and 'class' (e.g., [{"name":"ultra", "class":"race-tag-ultra"}])
 - url: Race information URL
-- row_classes: CSS classes for the table row (e.g., "tag-ultra tag-road")
 {% endcomment %}
 
-<tr class="{{ include.row_classes }}">
+{% comment %}Infer row_classes from tags and distance{% endcomment %}
+{% assign row_classes = '' %}
+
+{% comment %}Check if ultra based on distance or tags{% endcomment %}
+{% assign is_ultra = false %}
+{% assign distance_num = include.distance | replace: ' km', '' | replace: 'km', '' | plus: 0 %}
+{% if distance_num >= 50 or include.distance contains 'h' or include.distance contains '♾️' %}
+  {% assign is_ultra = true %}
+{% endif %}
+{% for tag in include.tags %}
+  {% if tag.name == 'ultra' %}
+    {% assign is_ultra = true %}
+  {% endif %}
+{% endfor %}
+
+{% if is_ultra %}
+  {% assign row_classes = row_classes | append: 'tag-ultra ' %}
+{% else %}
+  {% assign row_classes = row_classes | append: 'tag-non-ultra ' %}
+{% endif %}
+
+{% comment %}Check if trail or road{% endcomment %}
+{% assign is_trail = false %}
+{% for tag in include.tags %}
+  {% if tag.name == 'trail' %}
+    {% assign is_trail = true %}
+  {% endif %}
+{% endfor %}
+
+{% if is_trail %}
+  {% assign row_classes = row_classes | append: 'tag-trail ' %}
+{% else %}
+  {% assign row_classes = row_classes | append: 'tag-road ' %}
+{% endif %}
+
+{% comment %}Check if backyard{% endcomment %}
+{% for tag in include.tags %}
+  {% if tag.name == 'backyard' %}
+    {% assign row_classes = row_classes | append: 'tag-backyard ' %}
+  {% endif %}
+{% endfor %}
+
+<tr class="{{ row_classes | strip }}">
   <td class="race-details-cell" colspan="2">
     {% capture title_html %}{{ include.title }}{% endcapture %}
     {% capture body_html %}

@@ -11,7 +11,6 @@ races:
       - name: "ultra"
         class: "race-tag-ultra"
     url: "https://my.raceresult.com/309269/info"
-    row_classes: "tag-ultra tag-road"
   
   - date: "2026-02-01"
     title: "Eventyrsport VinterTrail Mols Bjerge"
@@ -20,7 +19,6 @@ races:
       - name: "trail"
         class: "race-tag-trail"
     url: "https://www.sportstiming.dk/event/16032"
-    row_classes: "tag-non-ultra tag-trail"
   
   - date: "2026-03-14"
     title: "Grenaa Halvmarathon – 6 timers ultraløb 2026"
@@ -29,7 +27,6 @@ races:
       - name: "ultra"
         class: "race-tag-ultra"
     url: "https://www.sportstiming.dk/event"
-    row_classes: "tag-ultra tag-road"
   
   - date: "2026-03-27"
     title: "Wayout Backyard Ultra"
@@ -42,7 +39,6 @@ races:
       - name: "trail"
         class: "race-tag-trail"
     url: "https://www.sportstiming.dk/event/14528"
-    row_classes: "tag-ultra tag-trail tag-backyard"
   
   - date: "2026-05-10"
     title: "Copenhagen Marathon"
@@ -51,7 +47,6 @@ races:
       - name: "marathon"
         class: "race-tag-marathon"
     url: "https://www.copenhagenmarathon.dk"
-    row_classes: "tag-non-ultra tag-road"
   
   - date: "2026-05-30"
     title: "24 Timer ved Havet"
@@ -60,7 +55,6 @@ races:
       - name: "ultra"
         class: "race-tag-ultra"
     url: "https://www.sportstiming.dk/event"
-    row_classes: "tag-ultra tag-road"
   
   - date: "2026-06-14"
     title: "Bestseller Aarhus City Half"
@@ -69,7 +63,6 @@ races:
       - name: "half"
         class: "race-tag-half"
     url: "https://www.aarhusmotion.dk"
-    row_classes: "tag-non-ultra tag-road"
   
   - date: "2026-09-27"
     title: "HCA Marathon"
@@ -78,7 +71,6 @@ races:
       - name: "marathon"
         class: "race-tag-marathon"
     url: "https://www.hcamarathon.dk"
-    row_classes: "tag-non-ultra tag-road"
   
   - date: "2026-10-30"
     title: "Kullamannen by UTMB"
@@ -89,7 +81,6 @@ races:
       - name: "trail"
         class: "race-tag-trail"
     url: "https://utmb.world/races/kullamannen"
-    row_classes: "tag-ultra tag-trail"
 ---
 
 <h1>Race Calendar 2026</h1>
@@ -104,7 +95,7 @@ races:
       <thead class="thead-light"><tr><th class="date-col"></th><th class="race-details-col"></th></tr></thead>
       <tbody>
         {% for race in page.races %}
-          {% include race_card.html date=race.date title=race.title distance=race.distance tags=race.tags url=race.url row_classes=race.row_classes %}
+          {% include race_card.html date=race.date title=race.title distance=race.distance tags=race.tags url=race.url %}
         {% endfor %}
       </tbody>
     </table>
