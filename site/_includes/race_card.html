@@ -8,15 +8,11 @@ Parameters:
 - url: Race information URL
 {% endcomment %}
 
-{% comment %}Infer row_classes from tags and distance{% endcomment %}
+{% comment %}Infer row_classes from tags only (not from distance){% endcomment %}
 {% assign row_classes = '' %}
 
-{% comment %}Check if ultra based on distance or tags{% endcomment %}
+{% comment %}Check if ultra from tags only{% endcomment %}
 {% assign is_ultra = false %}
-{% assign distance_num = include.distance | replace: ' km', '' | replace: 'km', '' | plus: 0 %}
-{% if distance_num >= 50 or include.distance contains 'h' or include.distance contains '♾️' %}
-  {% assign is_ultra = true %}
-{% endif %}
 {% for tag in include.tags %}
   {% if tag.name == 'ultra' %}
     {% assign is_ultra = true %}
