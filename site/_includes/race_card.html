@@ -1,0 +1,31 @@
+{% comment %}
+Race Card Include - Renders a single race card
+Parameters:
+- date: Race date (YYYY-MM-DD format)
+- title: Race title
+- distance: Race distance (e.g., "100 km", "6h", "♾️")
+- tags: Array of tag objects with 'name' and 'class' (e.g., [{"name":"ultra", "class":"race-tag-ultra"}])
+- url: Race information URL
+- row_classes: CSS classes for the table row (e.g., "tag-ultra tag-road")
+{% endcomment %}
+
+<tr class="{{ include.row_classes }}">
+  <td class="race-details-cell" colspan="2">
+    {% capture title_html %}{{ include.title }}{% endcapture %}
+    {% capture body_html %}
+      <div class="race-meta">
+        <span class="meta-item distance-value">{{ include.distance }}</span>
+        {% if include.tags %}
+          <span class="race-tags-inline race-tags-group">
+            {% for tag in include.tags %}
+              <span class="race-tag {{ tag.class }}">{{ tag.name }}</span>
+            {% endfor %}
+          </span>
+        {% endif %}
+        <a href="{{ include.url }}" class="race-tag" target="_blank" rel="noopener">🔗 race info</a>
+      </div>
+    {% endcapture %}
+    {% capture datetime_text %}{{ include.date }}{% endcapture %}
+    {% include table_card.html datetime_text=datetime_text title_html=title_html body_html=body_html href=include.url %}
+  </td>
+</tr>
