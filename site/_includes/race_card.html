@@ -4,7 +4,7 @@ Parameters:
 - date: Race date (YYYY-MM-DD format)
 - title: Race title
 - distance: Race distance (e.g., "100 km", "6h", "♾️")
-- tags: Array of tag objects with 'name' and 'class' (e.g., [{"name":"ultra", "class":"race-tag-ultra"}])
+- tags: Array of tag names (e.g., ["ultra", "trail"])
 - url: Race information URL
 {% endcomment %}
 
@@ -14,7 +14,7 @@ Parameters:
 {% comment %}Check if ultra from tags only{% endcomment %}
 {% assign is_ultra = false %}
 {% for tag in include.tags %}
-  {% if tag.name == 'ultra' %}
+  {% if tag == 'ultra' %}
     {% assign is_ultra = true %}
   {% endif %}
 {% endfor %}
@@ -28,7 +28,7 @@ Parameters:
 {% comment %}Check if trail or road{% endcomment %}
 {% assign is_trail = false %}
 {% for tag in include.tags %}
-  {% if tag.name == 'trail' %}
+  {% if tag == 'trail' %}
     {% assign is_trail = true %}
   {% endif %}
 {% endfor %}
@@ -41,7 +41,7 @@ Parameters:
 
 {% comment %}Check if backyard{% endcomment %}
 {% for tag in include.tags %}
-  {% if tag.name == 'backyard' %}
+  {% if tag == 'backyard' %}
     {% assign row_classes = row_classes | append: 'tag-backyard ' %}
   {% endif %}
 {% endfor %}
@@ -55,7 +55,20 @@ Parameters:
         {% if include.tags %}
           <span class="race-tags-inline race-tags-group">
             {% for tag in include.tags %}
-              <span class="race-tag {{ tag.class }}">{{ tag.name }}</span>
+              {% comment %}Infer CSS class from tag name{% endcomment %}
+              {% assign tag_class = '' %}
+              {% if tag == 'ultra' %}
+                {% assign tag_class = 'race-tag-ultra' %}
+              {% elsif tag == 'trail' %}
+                {% assign tag_class = 'race-tag-trail' %}
+              {% elsif tag == 'marathon' %}
+                {% assign tag_class = 'race-tag-marathon' %}
+              {% elsif tag == 'half' %}
+                {% assign tag_class = 'race-tag-half' %}
+              {% elsif tag == 'backyard' %}
+                {% assign tag_class = 'race-tag-backyard' %}
+              {% endif %}
+              <span class="race-tag {{ tag_class }}">{{ tag }}</span>
             {% endfor %}
           </span>
         {% endif %}
