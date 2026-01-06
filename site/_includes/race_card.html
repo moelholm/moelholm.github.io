@@ -4,14 +4,13 @@ Parameters:
 - date: Race date (YYYY-MM-DD format)
 - title: Race title
 - distance: Race distance (e.g., "100 km", "6h", "♾️")
-- tags: Array of tag names (e.g., ["ultra", "trail"])
+- tags: Array of tag strings (e.g., ["ultra", "trail"])
 - url: Race information URL
 {% endcomment %}
 
 {% comment %}Infer row_classes from tags only (not from distance){% endcomment %}
 {% assign row_classes = '' %}
 
-{% comment %}Check if ultra from tags only{% endcomment %}
 {% assign is_ultra = false %}
 {% for tag in include.tags %}
   {% if tag == 'ultra' %}
