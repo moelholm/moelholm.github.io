@@ -1,31 +1,22 @@
 @import "../variables";
 
-// Race status indicators - CSS-based with pastel colors
+// Race status indicators - Font Awesome icons with pastel colors
 .race-status {
-  display: inline-block;
-  width: 0.7rem;
-  height: 0.7rem;
-  border-radius: 50%;
   margin-right: 0.3rem;
-  vertical-align: middle;
-  position: relative;
-  top: -0.05rem;
+  font-size: 0.9rem;
 }
 
 // Pending - similar to date color (muted gray/slate)
 .race-status-pending {
-  background: $text-muted;
-  border: 1.5px solid rgba(107, 114, 128, 0.4);
+  color: #6b7280;
 }
 
 // Completed - gentle pastel green
 .race-status-completed {
-  background: #a8e6a3;
-  border: 1.5px solid rgba(76, 175, 80, 0.4);
+  color: #a8e6a3;
 }
 
 // Cancelled - gentle pastel red (not screaming)
 .race-status-cancelled {
-  background: #f5b7b1;
-  border: 1.5px solid rgba(244, 67, 54, 0.3);
+  color: #f5b7b1;
 }
