@@ -1,25 +1,13 @@
-{% comment %}
-Race Card Include - Renders a single race card
-Parameters:
-- date: Race date (YYYY-MM-DD format)
-- title: Race title
-- distance: Race distance (e.g., "100 km", "6h", "♾️")
-- tags: Array of tag strings (e.g., ["ultra", "trail"])
-- url: Race information URL
-- status: Race status ("pending", "completed", "cancelled")
-{% endcomment %}
-
 {% assign status_class = 'race-status-pending' %}
-{% assign status_icon = 'fa-regular fa-square' %}
+{% assign status_icon = 'fa-regular fa-square-check' %}
 {% if include.status == 'completed' %}
   {% assign status_class = 'race-status-completed' %}
-  {% assign status_icon = 'fa-regular fa-square-check' %}
 {% elsif include.status == 'cancelled' %}
   {% assign status_class = 'race-status-cancelled' %}
   {% assign status_icon = 'fa-regular fa-square-xmark' %}
 {% endif %}
 {% assign date_obj = include.date | date: "%b-%d" | upcase %}
-{% capture title_html %}<span class="race-status {{ status_class }} {{ status_icon }}"></span> <span class="race-date-prefix">{{ date_obj }}</span> | {{ include.title }}{% endcapture %}
+{% capture title_html %}<span class="race-status {{ status_class }}"><i class="{{ status_icon }}"></i></span> <span class="race-date-prefix">{{ date_obj }}</span> | {{ include.title }}{% endcapture %}
 {% capture body_html %}
   <div class="race-meta">
     <a href="{{ include.url }}" class="race-tag" target="_blank" rel="noopener">🔗 race info</a>

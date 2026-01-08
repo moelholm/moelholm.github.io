@@ -2,7 +2,8 @@
 layout: default
 title: Race Calendar 2026 - moelholm.com
 permalink: /race-calendar-2026/
-stylesheets: ["/css/races.css"]
+stylesheets: ["/css/races.css", "/_sass/components/_race_status.scss"]
+body_class: race-calendar-page
 races:
   - date: "2026-01-10"
     title: "LNBK Ringkøbing Fjord - Winter Edition"
