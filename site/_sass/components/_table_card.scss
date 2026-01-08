@@ -20,4 +20,7 @@
 
 // Compact spacing variants when stacked in grids
 .tags-page .table-card { margin-bottom: 0.75rem; }
-.races-container .table-card { margin: 0; }
+.races-container .table-card { margin: 0 0 1rem 0; }
+
+// Race date prefix styling (for calendar pages)
+.race-date-prefix { color: $text-muted; font-weight: 500; }
