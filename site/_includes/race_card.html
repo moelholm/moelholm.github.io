@@ -12,6 +12,7 @@ Parameters:
 {% capture title_html %}<span class="race-date-prefix">{{ date_obj }}</span> | {{ include.title }}{% endcapture %}
 {% capture body_html %}
   <div class="race-meta">
+    <a href="{{ include.url }}" class="race-tag" target="_blank" rel="noopener">🔗 race info</a>
     <span class="race-tag">{{ include.distance }}</span>
     {% if include.tags %}
       <span class="race-tags-inline race-tags-group">
@@ -27,7 +28,6 @@ Parameters:
         {% endfor %}
       </span>
     {% endif %}
-    <a href="{{ include.url }}" class="race-tag" target="_blank" rel="noopener">🔗 race info</a>
   </div>
 {% endcapture %}
 {% include table_card.html title_html=title_html body_html=body_html href=include.url %}
