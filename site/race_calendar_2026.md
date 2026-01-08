@@ -63,17 +63,8 @@ races:
 
 <p>Below are the races I plan to participate in during 2026.</p>
 
-<br/>
-
 <div class="races-container">
-  <div class="table-responsive">
-    <table class="table races-table races-table--nohead">
-      <thead class="thead-light"><tr><th class="date-col"></th><th class="race-details-col"></th></tr></thead>
-      <tbody>
-        {% for race in page.races %}
-          {% include race_card.html date=race.date title=race.title distance=race.distance tags=race.tags url=race.url %}
-        {% endfor %}
-      </tbody>
-    </table>
-  </div>
+  {% for race in page.races %}
+    {% include race_card.html date=race.date title=race.title distance=race.distance tags=race.tags url=race.url %}
+  {% endfor %}
 </div>
