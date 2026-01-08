@@ -12,7 +12,7 @@ Parameters:
 {% capture title_html %}<span class="race-date-prefix">{{ date_obj }}</span> | {{ include.title }}{% endcapture %}
 {% capture body_html %}
   <div class="race-meta">
-    <span class="meta-item distance-value">{{ include.distance }}</span>
+    <span class="race-tag">{{ include.distance }}</span>
     {% if include.tags %}
       <span class="race-tags-inline race-tags-group">
         {% for tag in include.tags %}
