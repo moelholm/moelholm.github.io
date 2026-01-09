@@ -75,6 +75,8 @@ races:
 
 <div class="races-container">
   {% for race in page.races %}
-    {% include race_card.html date=race.date title=race.title distance=race.distance tags=race.tags url=race.url status=race.status %}
+    <div style="margin-bottom: 1rem;">
+      {% include race_card.html date=race.date title=race.title distance=race.distance tags=race.tags url=race.url status=race.status %}
+    </div>
   {% endfor %}
 </div>
