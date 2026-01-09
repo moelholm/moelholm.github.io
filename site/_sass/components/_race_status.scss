@@ -1,0 +1,28 @@
+@import "../variables";
+
+// Race status indicators - Font Awesome icons with pastel colors
+.race-status {
+  margin-right: 0.3rem;
+  font-size: 0.9rem;
+}
+
+// Pending - extremely light gray, barely visible (even lighter than date)
+.race-status-pending {
+  color: #e5e7eb;
+}
+
+// Completed - gentle soft green (pastel)
+.race-status-completed {
+  color: #86efac;
+}
+
+// Cancelled - gentle pastel red (not screaming)
+.race-status-cancelled {
+  color: #f5b7b1;
+}
+
+// Race date prefix styling (for calendar pages)
+.race-date-prefix { 
+  color: $text-muted; 
+  font-weight: 500; 
+}
