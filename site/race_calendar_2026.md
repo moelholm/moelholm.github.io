@@ -10,14 +10,14 @@ races:
     distance: "100 km"
     tags: ["ultra"]
     url: "https://my.raceresult.com/351761/info"
-    status: "completed"
+    status: "pending"
   
   - date: "2026-02-01"
     title: "Eventyrsport VinterTrail Mols Bjerge"
     distance: "46 km"
     tags: ["ultra", "trail"]
     url: "https://www.sportstiming.dk/event/17044"
-    status: "cancelled"
+    status: "pending"
   
   - date: "2026-03-14"
     title: "Grenaa Halvmarathon – 6 timers ultraløb 2026"

@@ -20,3 +20,9 @@
 .race-status-cancelled {
   color: #f5b7b1;
 }
+
+// Race date prefix styling (for calendar pages)
+.race-date-prefix { 
+  color: $text-muted; 
+  font-weight: 500; 
+}
