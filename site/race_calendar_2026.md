@@ -15,7 +15,7 @@ races:
   - date: "2026-02-01"
     title: "Eventyrsport VinterTrail Mols Bjerge"
     distance: "46 km"
-    tags: ["trail"]
+    tags: ["ultra", "trail"]
     url: "https://www.sportstiming.dk/event/17044"
     status: "cancelled"
   
