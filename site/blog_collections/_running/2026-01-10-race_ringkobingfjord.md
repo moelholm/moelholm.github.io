@@ -39,7 +39,7 @@ This is how it looked like on Strava after my race:
 {% endcapture %}
 {{ table_content | markdownify }}
 
-I ran this race [last year as well](https://moelholm.com/blog/running/2025/01/19/race_ringkobingfjord) and that was a great experience with perfect weather and some nice PBs. This year turned out quite different though 😅. The first 50K section was significantly more technical and harder to run this time around - lots of snow and ice on the paths that really hammered the legs. You have to constantly adjust your stride and landing, which takes a toll after a while.
+I ran this race [last year as well](https://moelholm.com/blog/running/2025/01/19/race_ringkobingfjord) and that was a great experience with perfect weather and some nice PBs. This year turned out quite different though 😅.
 
 {% capture table_content %}
 |------------|------------|
@@ -47,6 +47,8 @@ I ran this race [last year as well](https://moelholm.com/blog/running/2025/01/19
 | <img src="/img_running/2026-01-10/2026-01-10_874_small.jpg" data-src="/img_running/2026-01-10/2026-01-10_874_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-01-10/2026-01-10_876_small.jpg" data-src="/img_running/2026-01-10/2026-01-10_876_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
+
+The first 50K section was significantly more technical and harder to run this time around - lots of snow and ice on the paths that really hammered the legs. You have to constantly adjust your stride and landing, which takes a toll after a while.
 
 The last 50K was roughly on par with last year in terms of difficulty, but I suspect my legs were already pretty "shut down" from the tough first half 😬. I also had a rather nasty bonk in the final 15K or so. Turns out my bottle caps had frozen solid and I couldn't drink anything 🥶! I think that definitely contributed to hitting the wall harder than usual towards the end of the race.
 
@@ -59,7 +61,11 @@ The last 50K was roughly on par with last year in terms of difficulty, but I sus
 {% endcapture %}
 {{ table_content | markdownify }}
 
+During the race, I got passed by [Mikael Schwartz](https://www.strava.com/athletes/12407929) who was running the 50K. Mikael is a running acquaintance I once met at a race and we've been connected on Strava since then. He was incredibly strong as he passed me - just flying along! 🚀 It was such a nice moment to meet him out there and chat a bit 😊. But naturally he had to keep going at his much faster pace towards the finish line. Great to see him crushing it! 👏🏻
+
 Despite the tough conditions, the raw west coast rolling hills and the route around the fjord are still fantastic - harsh at times, but that's part of the charm.
+
+The race organization and volunteers did an excellent job as always 👏🏻🤩. They were SUPER helpful in actively filling my bottles at the aid stations - really appreciated that! The aid stations were well stocked with all sorts of goodies too 🤗.
 
 {% capture table_content %}
 |------------|------------|
@@ -69,8 +75,6 @@ Despite the tough conditions, the raw west coast rolling hills and the route aro
 | <img src="/img_running/2026-01-10/2026-01-10_918_small.jpg" data-src="/img_running/2026-01-10/2026-01-10_918_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-01-10/2026-01-10_919_small.jpg" data-src="/img_running/2026-01-10/2026-01-10_919_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
-
-The race organization and volunteers did an excellent job as always 👏🏻🤩. They were SUPER helpful in actively filling my bottles at the aid stations - really appreciated that! The aid stations were well stocked with all sorts of goodies too 🤗.
 
 All in all, I finished in {{ page.duration_formatted }} covering {{ page.distance_km }} kilometers - and I'm quite satisfied with that result! Despite the tough conditions, I still placed in the top 25% which I think is quite ok given what was definitely a strong finisher field 💪🏻. It was a very sweet feeling to finally get to the finish line as my legs were absolutely smashed 😅. First thing I did was seeking out the toilet - I had some imminent business to attend to 🚽😬! Second thing was grabbing a sandwich and then hurrying home to relax 🥪🏠.
 

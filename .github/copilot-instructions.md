@@ -22,7 +22,7 @@ comments: true
 tags: race running ultrarunning  # or trailrunning
 distance_km: [actual distance rounded to integer, e.g., 102]
 elevation_gain_m: [elevation gain]
-duration_formatted: 'HH:MM:SS'  # use elapsed time, not moving time
+duration_formatted: 'HHhMMmSSs'  # use elapsed time, not moving time
 race_results_official: "URL"
 race_results_strava: "URL"
 race_website: "URL"
