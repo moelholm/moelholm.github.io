@@ -97,18 +97,7 @@
               </div>
             {%- endcapture -%}
             {%- capture tags_html -%}
-              {% if item.tags %}
-                {% for tag in item.tags %}
-                  {% assign tag_class = '' %}
-                  {% if tag == 'ultra' %}{% assign tag_class = 'race-tag-ultra' %}
-                  {% elsif tag == 'trail' %}{% assign tag_class = 'race-tag-trail' %}
-                  {% elsif tag == 'marathon' %}{% assign tag_class = 'race-tag-marathon' %}
-                  {% elsif tag == 'half' %}{% assign tag_class = 'race-tag-half' %}
-                  {% elsif tag == 'backyard' %}{% assign tag_class = 'race-tag-backyard' %}
-                  {% endif %}
-                  <span class="race-tag {{ tag_class }}">{{ tag }}</span>
-                {% endfor %}
-              {% endif %}
+              {% include home/race_calendar_tags.html tags=item.tags %}
             {%- endcapture -%}
             {% capture extra_html %}{{ metrics_html }}<div class="home-sample-tags">{{ tags_html }}</div>{% endcapture %}
             {%- assign href = item.blog_url | default: item.url -%}
