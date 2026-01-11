@@ -28,4 +28,8 @@
     {% endif %}
   </div>
 {% endcapture %}
-{% include table_card.html title_html=title_html body_html=body_html href=include.url %}
+{% if include.blog_url %}
+  {% include table_card.html title_html=title_html body_html=body_html href=include.blog_url %}
+{% else %}
+  {% include table_card.html title_html=title_html body_html=body_html href=include.url %}
+{% endif %}
