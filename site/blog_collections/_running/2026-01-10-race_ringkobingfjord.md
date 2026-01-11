@@ -24,7 +24,7 @@ Type|Normal roads, cycle paths and gravel paths (no trails);
 Position|18 of 72 finishers (+11 DNFs);
 Duration|{{ page.duration_formatted }};
 Distance|{{ page.distance_km }}k;
-Elevation|{{ page.elevation_gain_m }}m
+Elevation|{{ page.elevation_gain_m }}m;
 {% endcapture %}
 {% assign rows_array = rows | split: ";" %}
 
@@ -33,7 +33,7 @@ Elevation|{{ page.elevation_gain_m }}m
 This is how it looked like on Strava after my race:
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2026-01-10/2026-01-10_1.jpg" data-src="/img_running/2026-01-10/2026-01-10_1.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-01-10/2026-01-10_2.jpg" data-src="/img_running/2026-01-10/2026-01-10_2.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-01-10/2026-01-10_1_small.jpg" data-src="/img_running/2026-01-10/2026-01-10_1_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-01-10/2026-01-10_2_small.jpg" data-src="/img_running/2026-01-10/2026-01-10_2_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -49,8 +49,8 @@ Oh and by the way: I was up early at 03:40 to make sure I could get to race chec
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2026-01-10/2026-01-10_3.jpg" data-src="/img_running/2026-01-10/2026-01-10_3.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-01-10/2026-01-10_4.jpg" data-src="/img_running/2026-01-10/2026-01-10_4.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-01-10/2026-01-10_5.jpg" data-src="/img_running/2026-01-10/2026-01-10_5.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-01-10/2026-01-10_6.jpg" data-src="/img_running/2026-01-10/2026-01-10_6.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-01-10/2026-01-10_3_small.jpg" data-src="/img_running/2026-01-10/2026-01-10_3_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-01-10/2026-01-10_4_small.jpg" data-src="/img_running/2026-01-10/2026-01-10_4_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-01-10/2026-01-10_5_small.jpg" data-src="/img_running/2026-01-10/2026-01-10_5_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-01-10/2026-01-10_6_small.jpg" data-src="/img_running/2026-01-10/2026-01-10_6_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
