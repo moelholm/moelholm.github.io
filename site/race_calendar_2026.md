@@ -10,7 +10,8 @@ races:
     distance: "100 km"
     tags: ["ultra"]
     url: "https://my.raceresult.com/351761/info"
-    status: "pending"
+    blog_url: "/blog/running/2026/01/11/race_ringkobingfjord"
+    status: "completed"
   
   - date: "2026-02-01"
     title: "Eventyrsport VinterTrail Mols Bjerge"
@@ -76,7 +77,7 @@ races:
 <div class="races-container">
   {% for race in page.races %}
     <div style="margin-bottom: 1rem;">
-      {% include race_card.html date=race.date title=race.title distance=race.distance tags=race.tags url=race.url status=race.status %}
+      {% include race_card.html date=race.date title=race.title distance=race.distance tags=race.tags url=race.url blog_url=race.blog_url status=race.status %}
     </div>
   {% endfor %}
 </div>
