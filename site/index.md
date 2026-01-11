@@ -36,15 +36,8 @@ stylesheets:
   {% comment %}Get upcoming races from race calendar{% endcomment %}
   {% assign race_calendar_page = site.pages | where: "name", "race_calendar_2026.md" | first %}
   {% if race_calendar_page and race_calendar_page.races %}
-    {% assign now_date = site.time | date: "%Y-%m-%d" %}
     {% assign upcoming_races = race_calendar_page.races | where: "status", "pending" | sort: "date" %}
-    {% assign upcoming_races_filtered = "" | split: "" %}
-    {% for race in upcoming_races %}
-      {% if race.date >= now_date %}
-        {% assign upcoming_races_filtered = upcoming_races_filtered | push: race %}
-      {% endif %}
-    {% endfor %}
-    {% include home/section_list.html title='Upcoming Races' emoji='🏁' items=upcoming_races_filtered limit=2 kind='upcoming_races' more_url='/race-calendar-2026/' grid='home-samples--two' %}
+    {% include home/section_list.html title='Upcoming Races' emoji='🏁' items=upcoming_races limit=2 kind='upcoming_races' more_url='/race-calendar-2026/' grid='home-samples--two' %}
   {% endif %}
 
   {% assign activities = site.activities | where_exp: 'a', 'a.is_meta != true' | sort: 'date' | reverse %}
