@@ -83,7 +83,52 @@
               card_classes='home-post home-post--compact position-relative'
               card_body_classes='py-2'
             %}
-          {%- elsif include.kind == 'results' -%}
+          {%- elsif include.kind == 'upcoming_races' -%}
+            {%- assign date_text = item.date | date: "%Y-%m-%d %H:%M" | append: " UTC" -%}
+            {%- assign date_iso = item.date | date_to_xmlschema -%}
+            {%- capture metrics_html -%}
+              <div class="home-race-metrics" aria-label="Race metrics">
+                {% if item.distance %}
+                  <div class="metric metric--distance" title="Distance">
+                    <span class="metric-icon"><i class="fa-solid fa-route" aria-hidden="true"></i></span>
+                    <span class="metric-value">{{ item.distance }}</span>
+                  </div>
+                {% endif %}
+              </div>
+            {%- endcapture -%}
+            {%- capture tags_html -%}
+              {% if item.tags %}
+                {% for tag in item.tags %}
+                  {% assign tag_class = '' %}
+                  {% if tag == 'ultra' %}{% assign tag_class = 'race-tag-ultra' %}
+                  {% elsif tag == 'trail' %}{% assign tag_class = 'race-tag-trail' %}
+                  {% elsif tag == 'marathon' %}{% assign tag_class = 'race-tag-marathon' %}
+                  {% elsif tag == 'half' %}{% assign tag_class = 'race-tag-half' %}
+                  {% elsif tag == 'backyard' %}{% assign tag_class = 'race-tag-backyard' %}
+                  {% endif %}
+                  <span class="race-tag {{ tag_class }}">{{ tag }}</span>
+                {% endfor %}
+              {% endif %}
+            {%- endcapture -%}
+            {% capture extra_html %}{{ metrics_html }}<div class="home-sample-tags">{{ tags_html }}</div>{% endcapture %}
+            {%- assign href = item.blog_url | default: item.url -%}
+            {% include card.html
+              wrap_in_col=false
+              id=item.title
+              title=item.title
+              href=href
+              badge_html='🏁'
+              body_html=''
+              date_text=date_text
+              date_iso=date_iso
+              cta_label="view"
+              cta_href=href
+              extra_html=extra_html
+              class_modifiers='blog-item--compact race upcoming-race'
+              card_classes='home-post home-post--compact position-relative'
+              card_body_classes='py-2'
+            %}
+          {%- elsif include.kind == 'previous_races' or include.kind == 'results' -%}
             {%- assign date_text = item.race_date | default: item.date | date: "%Y-%m-%d %H:%M" | append: " UTC" -%}
               {%- assign date_iso = item.race_date | default: item.date | date_to_xmlschema -%}
             {%- capture metrics_html -%}
@@ -133,7 +178,7 @@
       <div class="text-right"><a class="btn btn-sm" href="{{ include.more_url }}">More</a></div>
       {%- endif -%}
     {%- else -%}
-  <p>No {% if include.kind == 'toots' %}updates{% elsif include.kind == 'activities' %}activities{% elsif include.kind == 'running' %}posts{% else %}results{% endif %} found.</p>
+  <p>No {% if include.kind == 'toots' %}updates{% elsif include.kind == 'activities' %}activities{% elsif include.kind == 'running' %}posts{% elsif include.kind == 'upcoming_races' %}upcoming races{% elsif include.kind == 'previous_races' %}previous races{% else %}results{% endif %} found.</p>
     {%- endif -%}
   </div>
 </div>
