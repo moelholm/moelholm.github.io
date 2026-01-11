@@ -6,7 +6,7 @@ date: 2026-01-11 14:00:00 +0100
 race_date: 2026-01-10
 comments: true
 tags: race running ultrarunning
-distance_km: 103
+distance_km: 102
 elevation_gain_m: 236
 duration_formatted: '11h03m10s'
 race_results_official: "https://my.raceresult.com/351761/results"
@@ -15,8 +15,6 @@ race_website: "https://my.raceresult.com/351761/info"
 ---
 
 Back again for another lap around Ringkøbing Fjord! This year I ran the `LNBK Ringkøbing Fjord Winter Edition 2026` - a {{ page.distance_km }} kilometer race around the beautiful fjord on Denmark's west coast.
-
-By the way: I was up early at 03:40 to make sure I could get to race check-in and everything starting at 06:30 in Ringkøbing. Worth it though 🌅💪🏻!
 
 {% capture rows %}
 Race|LNBK Ringkøbing Fjord Winter Edition 2026;
@@ -31,6 +29,8 @@ Elevation|{{ page.elevation_gain_m }}m;
 {% assign rows_array = rows | split: ";" %}
 
 {% include blog_race_summary.html rows=rows_array %}
+
+I was up early at 03:40 to make sure I could get to race check-in and everything starting at 06:30 in Ringkøbing. Worth it though 🌅💪🏻!
 
 This is how it looked like on Strava after my race:
 {% capture table_content %}
@@ -59,7 +59,7 @@ The last 50K was roughly on par with last year in terms of difficulty, but I sus
 {% endcapture %}
 {{ table_content | markdownify }}
 
-Despite the tough conditions, the raw west coast rolling hills and the route around the fjord are still fantastic - harsh at times, but that's part of the charm. The race organization and volunteers did an excellent job as always 👏🏻🤩.
+Despite the tough conditions, the raw west coast rolling hills and the route around the fjord are still fantastic - harsh at times, but that's part of the charm.
 
 {% capture table_content %}
 |------------|------------|
@@ -70,6 +70,10 @@ Despite the tough conditions, the raw west coast rolling hills and the route aro
 {% endcapture %}
 {{ table_content | markdownify }}
 
+The race organization and volunteers did an excellent job as always 👏🏻🤩. They were SUPER helpful in actively filling my bottles at the aid stations - really appreciated that! The aid stations were well stocked with all sorts of goodies too 🤗.
+
+All in all, I finished in {{ page.duration_formatted }} covering {{ page.distance_km }} kilometers - and I'm quite satisfied with that result! Despite the tough conditions, I still placed in the top 25% which I think is quite ok given what was definitely a strong finisher field 💪🏻. It was a very sweet feeling to finally get to the finish line as my legs were absolutely smashed 😅. First thing I did was seeking out the toilet - I had some imminent business to attend to 🚽😬! Second thing was grabbing a sandwich and then hurrying home to relax 🥪🏠.
+
 ### Recommended?
 
 Absolutely! It's still a beautiful and well-organized race 👌🏻. You should definitely give this race a go if you're looking for a proper winter 100K challenge in Denmark! 
@@ -78,4 +82,4 @@ One small note though: access to a toilet during the race would have been nice �
 
 I'll be back 🤠👍🏻.
 
-⭐️⭐️⭐️⭐️⭐️
+⭐️⭐️⭐️⭐️
