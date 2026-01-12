@@ -14,16 +14,7 @@
     <span class="race-tag">{{ include.distance }}</span>
     {% if include.tags %}
       <span class="race-tags-inline race-tags-group">
-        {% for tag in include.tags %}
-          {% assign tag_class = '' %}
-          {% if tag == 'ultra' %}{% assign tag_class = 'race-tag-ultra' %}
-          {% elsif tag == 'trail' %}{% assign tag_class = 'race-tag-trail' %}
-          {% elsif tag == 'marathon' %}{% assign tag_class = 'race-tag-marathon' %}
-          {% elsif tag == 'half' %}{% assign tag_class = 'race-tag-half' %}
-          {% elsif tag == 'backyard' %}{% assign tag_class = 'race-tag-backyard' %}
-          {% endif %}
-          <span class="race-tag {{ tag_class }}">{{ tag }}</span>
-        {% endfor %}
+        {% include home/race_calendar_tags.html tags=include.tags %}
       </span>
     {% endif %}
   </div>

@@ -33,6 +33,13 @@ stylesheets:
 <!-- Main: latest posts + sidebar -->
 <section class="home-grid">
   <div class="home-grid__main">
+  {% comment %}Get upcoming races from race calendar{% endcomment %}
+  {% assign race_calendar_page = site.pages | where: "name", "race_calendar_2026.md" | first %}
+  {% if race_calendar_page and race_calendar_page.races %}
+    {% assign upcoming_races = race_calendar_page.races | where: "status", "pending" | sort: "date" %}
+    {% include home/section_list.html title='Upcoming Races' emoji='🏁' items=upcoming_races limit=2 kind='upcoming_races' more_url='/race-calendar-2026/' grid='home-samples--two' %}
+  {% endif %}
+
   {% assign activities = site.activities | where_exp: 'a', 'a.is_meta != true' | sort: 'date' | reverse %}
   {% include home/section_list.html title='Activities' emoji='🏃' items=activities limit=2 kind='activities' more_url='/activities/' grid='home-samples--two' %}
 
@@ -45,7 +52,7 @@ stylesheets:
     {% include home/section_list.html title='Posts' emoji='📖' items=latest limit=2 kind='running' more_url='/running/' %}
 
   {% assign race_posts = site.running | where_exp: 'p','p.tags contains "race"' | sort: 'date' | reverse %}
-  {% include home/section_list.html title='Races' emoji='🏁' items=race_posts limit=2 kind='results' more_url='/races' grid='home-samples--two' %}
+  {% include home/section_list.html title='Previous Races' emoji='🏁' items=race_posts limit=2 kind='previous_races' more_url='/races' grid='home-samples--two' %}
 
   <div class="card position-relative">
       <div class="card-body">
