@@ -176,19 +176,18 @@ stylesheets:
         var slideIndex = activeSlide.getAttribute('data-slide-index');
         if (!slideIndex) return;
         
-        // First, remove all active classes
-        teaserLinks.forEach(function(link) {
-          link.classList.remove('active');
-        });
+        // Remove active class from ALL teaser links
+        for (var i = 0; i < teaserLinks.length; i++) {
+          teaserLinks[i].classList.remove('active');
+        }
         
-        // Then, add active class only to the first matching link
-        var matched = false;
-        teaserLinks.forEach(function(link) {
-          if (!matched && link.getAttribute('data-slide-to') === slideIndex) {
-            link.classList.add('active');
-            matched = true;
+        // Add active class only to the first matching link
+        for (var j = 0; j < teaserLinks.length; j++) {
+          if (teaserLinks[j].getAttribute('data-slide-to') === slideIndex) {
+            teaserLinks[j].classList.add('active');
+            break; // Exit immediately after first match
           }
-        });
+        }
       }
       
       function resetProgressBar() {
