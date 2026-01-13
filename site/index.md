@@ -30,36 +30,111 @@ stylesheets:
   
 </section>
 
-<!-- Main: latest posts + sidebar -->
-<section class="home-grid">
-  <div class="home-grid__main">
-  {% comment %}Get upcoming races from race calendar{% endcomment %}
+<!-- Main: latest posts + sidebar in carousel -->
+<section class="home-carousel-section">
+  {% comment %}Prepare all data for carousel slides{% endcomment %}
   {% assign race_calendar_page = site.pages | where: "name", "race_calendar_2026.md" | first %}
   {% if race_calendar_page and race_calendar_page.races %}
     {% assign upcoming_races = race_calendar_page.races | where: "status", "pending" | sort: "date" %}
-    {% include home/section_list.html title='Upcoming Races' emoji='🏁' items=upcoming_races limit=2 kind='upcoming_races' more_url='/race-calendar-2026/' grid='home-samples--two' %}
   {% endif %}
-
   {% assign activities = site.activities | where_exp: 'a', 'a.is_meta != true' | sort: 'date' | reverse %}
-  {% include home/section_list.html title='Activities' emoji='🏃' items=activities limit=2 kind='activities' more_url='/activities/' grid='home-samples--two' %}
-
   {% assign entries = site.toots | where_exp: 't', 't.is_meta != true' | sort: 'date' | reverse %}
-  {% include home/section_list.html title='Updates' emoji='🐘' items=entries limit=2 kind='toots' more_url='/toots/' grid='home-samples--two' %}
-  </div>
-
-  <div class="home-grid__main">
-    {% assign latest = site.running | sort: 'date' | reverse %}
-    {% include home/section_list.html title='Posts' emoji='📖' items=latest limit=2 kind='running' more_url='/running/' %}
-
+  {% assign latest = site.running | sort: 'date' | reverse %}
   {% assign race_posts = site.running | where_exp: 'p','p.tags contains "race"' | sort: 'date' | reverse %}
-  {% include home/section_list.html title='Previous Races' emoji='🏁' items=race_posts limit=2 kind='previous_races' more_url='/races' grid='home-samples--two' %}
 
-  <div class="card position-relative">
-      <div class="card-body">
-  <h5 class="mb-2 d-flex align-items-center gap-1">About <span class="emoji-badge ml-1">👤</span></h5>
-  <p>I run a lot these days. In fact it may be borderline crazy to most folks; I am primarily a trail and ultra runner. Trail runs are just everything besides normal road running. Ultra running is...</p>
-  <div class="text-right"><a class="btn btn-sm stretched-link" href="/about">More</a></div>
-      </div>
+  <div id="homeCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+    <!-- Carousel indicators (dots) -->
+    <ol class="carousel-indicators">
+      {% if upcoming_races and upcoming_races.size > 0 %}
+        <li data-target="#homeCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#homeCarousel" data-slide-to="1"></li>
+        <li data-target="#homeCarousel" data-slide-to="2"></li>
+        <li data-target="#homeCarousel" data-slide-to="3"></li>
+        <li data-target="#homeCarousel" data-slide-to="4"></li>
+      {% else %}
+        <li data-target="#homeCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#homeCarousel" data-slide-to="1"></li>
+        <li data-target="#homeCarousel" data-slide-to="2"></li>
+        <li data-target="#homeCarousel" data-slide-to="3"></li>
+      {% endif %}
+    </ol>
+
+    <!-- Carousel slides -->
+    <div class="carousel-inner">
+      {% if upcoming_races and upcoming_races.size > 0 %}
+        <!-- Slide 1: Upcoming Races -->
+        <div class="carousel-item active">
+          <div class="home-grid__main">
+            {% include home/section_list.html title='Upcoming Races' emoji='🏁' items=upcoming_races limit=2 kind='upcoming_races' more_url='/race-calendar-2026/' grid='home-samples--two' %}
+          </div>
+        </div>
+
+        <!-- Slide 2: Activities -->
+        <div class="carousel-item">
+          <div class="home-grid__main">
+            {% include home/section_list.html title='Activities' emoji='🏃' items=activities limit=2 kind='activities' more_url='/activities/' grid='home-samples--two' %}
+          </div>
+        </div>
+
+        <!-- Slide 3: Updates -->
+        <div class="carousel-item">
+          <div class="home-grid__main">
+            {% include home/section_list.html title='Updates' emoji='🐘' items=entries limit=2 kind='toots' more_url='/toots/' grid='home-samples--two' %}
+          </div>
+        </div>
+
+        <!-- Slide 4: Posts -->
+        <div class="carousel-item">
+          <div class="home-grid__main">
+            {% include home/section_list.html title='Posts' emoji='📖' items=latest limit=2 kind='running' more_url='/running/' %}
+          </div>
+        </div>
+
+        <!-- Slide 5: Previous Races -->
+        <div class="carousel-item">
+          <div class="home-grid__main">
+            {% include home/section_list.html title='Previous Races' emoji='🏁' items=race_posts limit=2 kind='previous_races' more_url='/races' grid='home-samples--two' %}
+          </div>
+        </div>
+      {% else %}
+        <!-- Slide 1: Activities (when no upcoming races) -->
+        <div class="carousel-item active">
+          <div class="home-grid__main">
+            {% include home/section_list.html title='Activities' emoji='🏃' items=activities limit=2 kind='activities' more_url='/activities/' grid='home-samples--two' %}
+          </div>
+        </div>
+
+        <!-- Slide 2: Updates -->
+        <div class="carousel-item">
+          <div class="home-grid__main">
+            {% include home/section_list.html title='Updates' emoji='🐘' items=entries limit=2 kind='toots' more_url='/toots/' grid='home-samples--two' %}
+          </div>
+        </div>
+
+        <!-- Slide 3: Posts -->
+        <div class="carousel-item">
+          <div class="home-grid__main">
+            {% include home/section_list.html title='Posts' emoji='📖' items=latest limit=2 kind='running' more_url='/running/' %}
+          </div>
+        </div>
+
+        <!-- Slide 4: Previous Races -->
+        <div class="carousel-item">
+          <div class="home-grid__main">
+            {% include home/section_list.html title='Previous Races' emoji='🏁' items=race_posts limit=2 kind='previous_races' more_url='/races' grid='home-samples--two' %}
+          </div>
+        </div>
+      {% endif %}
     </div>
+
+    <!-- Carousel controls -->
+    <a class="carousel-control-prev" href="#homeCarousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#homeCarousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
 </section>
