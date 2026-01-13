@@ -48,6 +48,7 @@
       &:hover {
         opacity: 0.85 !important;
         color: $link-color;
+        text-decoration: none !important;
         border-bottom-color: rgba($link-color, 0.3) !important;
       }
       
