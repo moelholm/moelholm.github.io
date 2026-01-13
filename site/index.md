@@ -170,24 +170,31 @@ stylesheets:
       var RESET_DELAY = 50;
       
       function updateActiveTeaserLink() {
-        var activeSlide = carousel.querySelector('.carousel-item.active');
-        if (!activeSlide) return;
+        // Find which carousel slide is currently active by index
+        var allSlides = carousel.querySelectorAll('.carousel-item');
+        var currentIndex = -1;
         
-        var slideIndex = activeSlide.getAttribute('data-slide-index');
-        if (!slideIndex) return;
-        
-        // Remove 'active' class from ALL teaser links - use setAttribute to force removal
-        for (var i = 0; i < teaserLinks.length; i++) {
-          teaserLinks[i].classList.remove('active');
-          teaserLinks[i].removeAttribute('data-active'); // Extra safeguard
+        for (var k = 0; k < allSlides.length; k++) {
+          if (allSlides[k].classList.contains('active')) {
+            currentIndex = k;
+            break;
+          }
         }
         
-        // Add 'active' class ONLY to the first matching link
+        if (currentIndex === -1) return;
+        
+        // Clear ALL links
+        for (var i = 0; i < teaserLinks.length; i++) {
+          teaserLinks[i].classList.remove('active');
+          teaserLinks[i].removeAttribute('data-active');
+        }
+        
+        // Set the matching link active
         for (var j = 0; j < teaserLinks.length; j++) {
-          if (teaserLinks[j].getAttribute('data-slide-to') === slideIndex) {
+          if (teaserLinks[j].getAttribute('data-slide-to') === currentIndex.toString()) {
             teaserLinks[j].classList.add('active');
-            teaserLinks[j].setAttribute('data-active', 'true'); // Extra marker
-            break; // IMMEDIATE EXIT
+            teaserLinks[j].setAttribute('data-active', 'true');
+            break;
           }
         }
       }
@@ -200,25 +207,55 @@ stylesheets:
         progressBar.classList.add('animating');
       }
       
-      function handleSlideChange() {
-        updateActiveTeaserLink();
+      function handleSlideChange(event) {
+        // Use event.to to get the target slide index
+        var targetIndex = event.to !== undefined ? event.to.toString() : null;
+        
+        if (targetIndex !== null) {
+          // Clear ALL links first
+          for (var i = 0; i < teaserLinks.length; i++) {
+            teaserLinks[i].classList.remove('active');
+            teaserLinks[i].removeAttribute('data-active');
+          }
+          
+          // Find and activate the matching link
+          for (var j = 0; j < teaserLinks.length; j++) {
+            if (teaserLinks[j].getAttribute('data-slide-to') === targetIndex) {
+              teaserLinks[j].classList.add('active');
+              teaserLinks[j].setAttribute('data-active', 'true');
+              break;
+            }
+          }
+        }
+        
         resetProgressBar();
       }
       
-      // Attach carousel slide event listener
+      // Attach carousel slide event listener (fires DURING transition with target info)
       if (typeof $ !== 'undefined' && $.fn.on) {
         $(carousel).on('slide.bs.carousel', handleSlideChange);
       } else {
         carousel.addEventListener('slide.bs.carousel', handleSlideChange);
       }
       
-      // Reset progress bar on manual navigation
+      // Manual navigation via teaser links - handle immediately
       teaserLinks.forEach(function(link) {
-        link.addEventListener('click', function() {
+        link.addEventListener('click', function(e) {
+          var targetSlide = this.getAttribute('data-slide-to');
+          
+          // Immediately clear all and set this one active
+          for (var i = 0; i < teaserLinks.length; i++) {
+            teaserLinks[i].classList.remove('active');
+            teaserLinks[i].removeAttribute('data-active');
+          }
+          this.classList.add('active');
+          this.setAttribute('data-active', 'true');
+          
           setTimeout(resetProgressBar, RESET_DELAY);
         });
       });
       
+      // Manual navigation via dots
       carouselDots.forEach(function(dot) {
         dot.addEventListener('click', function() {
           setTimeout(resetProgressBar, RESET_DELAY);
