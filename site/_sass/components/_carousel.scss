@@ -94,6 +94,27 @@
     }
   }
   
+  // Respect user's motion preferences
+  @media (prefers-reduced-motion: reduce) {
+    .carousel-teaser__item {
+      transition: none;
+      
+      &:hover {
+        transform: none;
+      }
+      
+      &.active {
+        transform: none;
+        
+        &::after {
+          animation: none;
+          opacity: 1;
+          transform: translateX(-50%) scale(1);
+        }
+      }
+    }
+  }
+  
   // Custom styling for carousel indicators (dots) - positioned at top
   .carousel-indicators {
     top: 0;
