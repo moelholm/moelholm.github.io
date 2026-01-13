@@ -86,7 +86,7 @@ stylesheets:
         <!-- Slide 4: Posts -->
         <div class="carousel-item">
           <div class="home-grid__main">
-            {% include home/section_list.html title='Posts' emoji='📖' items=latest limit=2 kind='running' more_url='/running/' %}
+            {% include home/section_list.html title='Posts' emoji='📖' items=latest limit=2 kind='running' more_url='/running/' grid='home-samples--two' %}
           </div>
         </div>
 
@@ -114,7 +114,7 @@ stylesheets:
         <!-- Slide 3: Posts -->
         <div class="carousel-item">
           <div class="home-grid__main">
-            {% include home/section_list.html title='Posts' emoji='📖' items=latest limit=2 kind='running' more_url='/running/' %}
+            {% include home/section_list.html title='Posts' emoji='📖' items=latest limit=2 kind='running' more_url='/running/' grid='home-samples--two' %}
           </div>
         </div>
 
