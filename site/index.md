@@ -45,16 +45,24 @@ stylesheets:
   <!-- Carousel section titles teaser -->
   <div class="carousel-teaser">
     {% if upcoming_races and upcoming_races.size > 0 %}
-      <span class="carousel-teaser__item">🏁 Upcoming Races</span>
+      <a href="#homeCarousel" data-slide-to="0" class="carousel-teaser__item">🏁 Upcoming Races</a>
       <span class="carousel-teaser__separator">•</span>
+      <a href="#homeCarousel" data-slide-to="1" class="carousel-teaser__item">🏃 Activities</a>
+      <span class="carousel-teaser__separator">•</span>
+      <a href="#homeCarousel" data-slide-to="2" class="carousel-teaser__item">🐘 Updates</a>
+      <span class="carousel-teaser__separator">•</span>
+      <a href="#homeCarousel" data-slide-to="3" class="carousel-teaser__item">📖 Posts</a>
+      <span class="carousel-teaser__separator">•</span>
+      <a href="#homeCarousel" data-slide-to="4" class="carousel-teaser__item">🏁 Previous Races</a>
+    {% else %}
+      <a href="#homeCarousel" data-slide-to="0" class="carousel-teaser__item">🏃 Activities</a>
+      <span class="carousel-teaser__separator">•</span>
+      <a href="#homeCarousel" data-slide-to="1" class="carousel-teaser__item">🐘 Updates</a>
+      <span class="carousel-teaser__separator">•</span>
+      <a href="#homeCarousel" data-slide-to="2" class="carousel-teaser__item">📖 Posts</a>
+      <span class="carousel-teaser__separator">•</span>
+      <a href="#homeCarousel" data-slide-to="3" class="carousel-teaser__item">🏁 Previous Races</a>
     {% endif %}
-    <span class="carousel-teaser__item">🏃 Activities</span>
-    <span class="carousel-teaser__separator">•</span>
-    <span class="carousel-teaser__item">🐘 Updates</span>
-    <span class="carousel-teaser__separator">•</span>
-    <span class="carousel-teaser__item">📖 Posts</span>
-    <span class="carousel-teaser__separator">•</span>
-    <span class="carousel-teaser__item">🏁 Previous Races</span>
   </div>
 
   <div id="homeCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">

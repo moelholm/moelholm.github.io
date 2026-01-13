@@ -13,7 +13,7 @@
   }
   
   .carousel-inner {
-    padding-top: 3rem;
+    padding-top: 1.5rem;
   }
   
   .carousel-item {
@@ -35,10 +35,15 @@
     &__item {
       white-space: nowrap;
       opacity: 0.8;
-      transition: opacity 0.2s ease;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
       
       &:hover {
         opacity: 1;
+        color: $link-color;
+        text-decoration: none;
       }
     }
     
