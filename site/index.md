@@ -45,23 +45,23 @@ stylesheets:
   <!-- Carousel section titles teaser -->
   <div class="carousel-teaser">
     {% if upcoming_races and upcoming_races.size > 0 %}
-      <a href="#homeCarousel" data-slide-to="0" class="carousel-teaser__item">🏁 Upcoming Races</a>
+      <a href="#homeCarousel" data-slide-to="0" class="carousel-teaser__item" aria-label="Go to Upcoming Races slide">🏁 Upcoming Races</a>
       <span class="carousel-teaser__separator">•</span>
-      <a href="#homeCarousel" data-slide-to="1" class="carousel-teaser__item">🏃 Activities</a>
+      <a href="#homeCarousel" data-slide-to="1" class="carousel-teaser__item" aria-label="Go to Activities slide">🏃 Activities</a>
       <span class="carousel-teaser__separator">•</span>
-      <a href="#homeCarousel" data-slide-to="2" class="carousel-teaser__item">🐘 Updates</a>
+      <a href="#homeCarousel" data-slide-to="2" class="carousel-teaser__item" aria-label="Go to Updates slide">🐘 Updates</a>
       <span class="carousel-teaser__separator">•</span>
-      <a href="#homeCarousel" data-slide-to="3" class="carousel-teaser__item">📖 Posts</a>
+      <a href="#homeCarousel" data-slide-to="3" class="carousel-teaser__item" aria-label="Go to Posts slide">📖 Posts</a>
       <span class="carousel-teaser__separator">•</span>
-      <a href="#homeCarousel" data-slide-to="4" class="carousel-teaser__item">🏁 Previous Races</a>
+      <a href="#homeCarousel" data-slide-to="4" class="carousel-teaser__item" aria-label="Go to Previous Races slide">🏁 Previous Races</a>
     {% else %}
-      <a href="#homeCarousel" data-slide-to="0" class="carousel-teaser__item">🏃 Activities</a>
+      <a href="#homeCarousel" data-slide-to="0" class="carousel-teaser__item" aria-label="Go to Activities slide">🏃 Activities</a>
       <span class="carousel-teaser__separator">•</span>
-      <a href="#homeCarousel" data-slide-to="1" class="carousel-teaser__item">🐘 Updates</a>
+      <a href="#homeCarousel" data-slide-to="1" class="carousel-teaser__item" aria-label="Go to Updates slide">🐘 Updates</a>
       <span class="carousel-teaser__separator">•</span>
-      <a href="#homeCarousel" data-slide-to="2" class="carousel-teaser__item">📖 Posts</a>
+      <a href="#homeCarousel" data-slide-to="2" class="carousel-teaser__item" aria-label="Go to Posts slide">📖 Posts</a>
       <span class="carousel-teaser__separator">•</span>
-      <a href="#homeCarousel" data-slide-to="3" class="carousel-teaser__item">🏁 Previous Races</a>
+      <a href="#homeCarousel" data-slide-to="3" class="carousel-teaser__item" aria-label="Go to Previous Races slide">🏁 Previous Races</a>
     {% endif %}
   </div>
 
