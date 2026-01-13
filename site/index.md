@@ -43,7 +43,7 @@ stylesheets:
   {% assign race_posts = site.running | where_exp: 'p','p.tags contains "race"' | sort: 'date' | reverse %}
 
   <div id="homeCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
-    <!-- Carousel indicators (dots) -->
+    <!-- Carousel indicators (dots) at top -->
     <ol class="carousel-indicators">
       {% if upcoming_races and upcoming_races.size > 0 %}
         <li data-target="#homeCarousel" data-slide-to="0" class="active"></li>
@@ -126,15 +126,5 @@ stylesheets:
         </div>
       {% endif %}
     </div>
-
-    <!-- Carousel controls -->
-    <a class="carousel-control-prev" href="#homeCarousel" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#homeCarousel" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
   </div>
 </section>
