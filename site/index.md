@@ -65,7 +65,12 @@ stylesheets:
     {% endif %}
   </div>
 
-  <div id="homeCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
+  <!-- Progress bar for carousel timing -->
+  <div class="carousel-progress">
+    <div class="carousel-progress__bar"></div>
+  </div>
+
+  <div id="homeCarousel" class="carousel slide" data-ride="carousel" data-interval="10000">
     <!-- Carousel indicators (dots) at top -->
     <ol class="carousel-indicators">
       {% if upcoming_races and upcoming_races.size > 0 %}
@@ -151,11 +156,14 @@ stylesheets:
     </div>
   </div>
 
-  <!-- Script to sync active teaser link with carousel -->
+  <!-- Script to sync active teaser link with carousel and animate progress bar -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       var carousel = document.getElementById('homeCarousel');
       if (!carousel) return;
+      
+      var progressBar = document.querySelector('.carousel-progress__bar');
+      var CAROUSEL_INTERVAL = 10000; // 10 seconds
       
       function updateActiveTeaserLink() {
         var activeSlide = carousel.querySelector('.carousel-item.active');
@@ -173,17 +181,50 @@ stylesheets:
         });
       }
       
+      function resetProgressBar() {
+        if (!progressBar) return;
+        // Remove animation class and reset width
+        progressBar.classList.remove('animating');
+        progressBar.style.width = '0%';
+        // Force reflow to restart animation
+        void progressBar.offsetWidth;
+        // Start animation
+        progressBar.classList.add('animating');
+      }
+      
+      function handleSlideChange() {
+        updateActiveTeaserLink();
+        resetProgressBar();
+      }
+      
       // Update on slide change - use jQuery events if available, fallback to native
       if (typeof $ !== 'undefined' && $.fn.on) {
-        $(carousel).on('slide.bs.carousel slid.bs.carousel', updateActiveTeaserLink);
+        $(carousel).on('slide.bs.carousel', handleSlideChange);
       } else {
-        carousel.addEventListener('slide.bs.carousel', updateActiveTeaserLink);
-        carousel.addEventListener('slid.bs.carousel', updateActiveTeaserLink);
+        carousel.addEventListener('slide.bs.carousel', handleSlideChange);
       }
+      
+      // Stop progress bar when user manually navigates
+      var teaserLinks = document.querySelectorAll('.carousel-teaser__item');
+      teaserLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          setTimeout(resetProgressBar, 50);
+        });
+      });
+      
+      var carouselDots = document.querySelectorAll('.carousel-indicators li');
+      carouselDots.forEach(function(dot) {
+        dot.addEventListener('click', function() {
+          setTimeout(resetProgressBar, 50);
+        });
+      });
       
       // Initial update with delay to ensure carousel is initialized by Bootstrap
       var CAROUSEL_INIT_DELAY = 100;
-      setTimeout(updateActiveTeaserLink, CAROUSEL_INIT_DELAY);
+      setTimeout(function() {
+        updateActiveTeaserLink();
+        resetProgressBar();
+      }, CAROUSEL_INIT_DELAY);
     });
   </script>
 </section>
