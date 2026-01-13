@@ -153,7 +153,7 @@ stylesheets:
 
   <!-- Script to sync active teaser link with carousel -->
   <script>
-    (function() {
+    document.addEventListener('DOMContentLoaded', function() {
       var carousel = document.getElementById('homeCarousel');
       if (!carousel) return;
       
@@ -173,12 +173,11 @@ stylesheets:
         });
       }
       
-      // Update on slide change
-      carousel.addEventListener('slide.bs.carousel', updateActiveTeaserLink);
-      carousel.addEventListener('slid.bs.carousel', updateActiveTeaserLink);
+      // Update on slide change - use jQuery events since Bootstrap 4 uses jQuery
+      $(carousel).on('slide.bs.carousel slid.bs.carousel', updateActiveTeaserLink);
       
-      // Initial update
-      updateActiveTeaserLink();
-    })();
+      // Initial update with small delay to ensure carousel is initialized
+      setTimeout(updateActiveTeaserLink, 100);
+    });
   </script>
 </section>
