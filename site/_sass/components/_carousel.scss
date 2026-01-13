@@ -34,22 +34,63 @@
     
     &__item {
       white-space: nowrap;
-      opacity: 0.8;
-      transition: all 0.2s ease;
+      opacity: 0.6;
+      transition: all 0.3s ease;
       cursor: pointer;
       text-decoration: none;
       color: inherit;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      position: relative;
+      font-weight: 500;
       
       &:hover {
-        opacity: 1;
+        opacity: 0.9;
         color: $link-color;
         text-decoration: none;
+        background-color: rgba($link-color, 0.08);
+        transform: translateY(-1px);
+      }
+      
+      &.active {
+        opacity: 1;
+        color: $link-color;
+        background: linear-gradient(135deg, rgba($link-color, 0.15) 0%, rgba($link-color, 0.25) 100%);
+        font-weight: 600;
+        transform: scale(1.08);
+        box-shadow: 0 2px 8px rgba($link-color, 0.2);
+        
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -8px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 6px;
+          height: 6px;
+          background-color: $link-color;
+          border-radius: 50%;
+          animation: pulse 1.5s ease-in-out infinite;
+        }
       }
     }
     
     &__separator {
-      opacity: 0.4;
+      opacity: 0.3;
       font-size: 0.7rem;
+      color: $text-muted;
+    }
+  }
+  
+  // Pulse animation for active indicator
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+      transform: translateX(-50%) scale(1);
+    }
+    50% {
+      opacity: 0.6;
+      transform: translateX(-50%) scale(1.2);
     }
   }
   

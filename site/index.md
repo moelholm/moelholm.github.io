@@ -86,68 +86,99 @@ stylesheets:
     <div class="carousel-inner">
       {% if upcoming_races and upcoming_races.size > 0 %}
         <!-- Slide 1: Upcoming Races -->
-        <div class="carousel-item active">
+        <div class="carousel-item active" data-slide-index="0">
           <div class="home-grid__main">
-            {% include home/section_list.html title='Upcoming Races' emoji='🏁' items=upcoming_races limit=2 kind='upcoming_races' more_url='/race-calendar-2026/' grid='home-samples--two' %}
+            {% include home/section_list.html title='Upcoming Races' emoji='🏁' items=upcoming_races limit=2 kind='upcoming_races' more_url='/race-calendar-2026/' grid='home-samples--two' hide_title=true %}
           </div>
         </div>
 
         <!-- Slide 2: Activities -->
-        <div class="carousel-item">
+        <div class="carousel-item" data-slide-index="1">
           <div class="home-grid__main">
-            {% include home/section_list.html title='Activities' emoji='🏃' items=activities limit=2 kind='activities' more_url='/activities/' grid='home-samples--two' %}
+            {% include home/section_list.html title='Activities' emoji='🏃' items=activities limit=2 kind='activities' more_url='/activities/' grid='home-samples--two' hide_title=true %}
           </div>
         </div>
 
         <!-- Slide 3: Updates -->
-        <div class="carousel-item">
+        <div class="carousel-item" data-slide-index="2">
           <div class="home-grid__main">
-            {% include home/section_list.html title='Updates' emoji='🐘' items=entries limit=2 kind='toots' more_url='/toots/' grid='home-samples--two' %}
+            {% include home/section_list.html title='Updates' emoji='🐘' items=entries limit=2 kind='toots' more_url='/toots/' grid='home-samples--two' hide_title=true %}
           </div>
         </div>
 
         <!-- Slide 4: Posts -->
-        <div class="carousel-item">
+        <div class="carousel-item" data-slide-index="3">
           <div class="home-grid__main">
-            {% include home/section_list.html title='Posts' emoji='📖' items=latest limit=2 kind='running' more_url='/running/' grid='home-samples--two' %}
+            {% include home/section_list.html title='Posts' emoji='📖' items=latest limit=2 kind='running' more_url='/running/' grid='home-samples--two' hide_title=true %}
           </div>
         </div>
 
         <!-- Slide 5: Previous Races -->
-        <div class="carousel-item">
+        <div class="carousel-item" data-slide-index="4">
           <div class="home-grid__main">
-            {% include home/section_list.html title='Previous Races' emoji='🏁' items=race_posts limit=2 kind='previous_races' more_url='/races' grid='home-samples--two' %}
+            {% include home/section_list.html title='Previous Races' emoji='🏁' items=race_posts limit=2 kind='previous_races' more_url='/races' grid='home-samples--two' hide_title=true %}
           </div>
         </div>
       {% else %}
         <!-- Slide 1: Activities (when no upcoming races) -->
-        <div class="carousel-item active">
+        <div class="carousel-item active" data-slide-index="0">
           <div class="home-grid__main">
-            {% include home/section_list.html title='Activities' emoji='🏃' items=activities limit=2 kind='activities' more_url='/activities/' grid='home-samples--two' %}
+            {% include home/section_list.html title='Activities' emoji='🏃' items=activities limit=2 kind='activities' more_url='/activities/' grid='home-samples--two' hide_title=true %}
           </div>
         </div>
 
         <!-- Slide 2: Updates -->
-        <div class="carousel-item">
+        <div class="carousel-item" data-slide-index="1">
           <div class="home-grid__main">
-            {% include home/section_list.html title='Updates' emoji='🐘' items=entries limit=2 kind='toots' more_url='/toots/' grid='home-samples--two' %}
+            {% include home/section_list.html title='Updates' emoji='🐘' items=entries limit=2 kind='toots' more_url='/toots/' grid='home-samples--two' hide_title=true %}
           </div>
         </div>
 
         <!-- Slide 3: Posts -->
-        <div class="carousel-item">
+        <div class="carousel-item" data-slide-index="2">
           <div class="home-grid__main">
-            {% include home/section_list.html title='Posts' emoji='📖' items=latest limit=2 kind='running' more_url='/running/' grid='home-samples--two' %}
+            {% include home/section_list.html title='Posts' emoji='📖' items=latest limit=2 kind='running' more_url='/running/' grid='home-samples--two' hide_title=true %}
           </div>
         </div>
 
         <!-- Slide 4: Previous Races -->
-        <div class="carousel-item">
+        <div class="carousel-item" data-slide-index="3">
           <div class="home-grid__main">
-            {% include home/section_list.html title='Previous Races' emoji='🏁' items=race_posts limit=2 kind='previous_races' more_url='/races' grid='home-samples--two' %}
+            {% include home/section_list.html title='Previous Races' emoji='🏁' items=race_posts limit=2 kind='previous_races' more_url='/races' grid='home-samples--two' hide_title=true %}
           </div>
         </div>
       {% endif %}
     </div>
   </div>
+
+  <!-- Script to sync active teaser link with carousel -->
+  <script>
+    (function() {
+      var carousel = document.getElementById('homeCarousel');
+      if (!carousel) return;
+      
+      function updateActiveTeaserLink() {
+        var activeSlide = carousel.querySelector('.carousel-item.active');
+        if (!activeSlide) return;
+        
+        var slideIndex = activeSlide.getAttribute('data-slide-index');
+        var teaserLinks = document.querySelectorAll('.carousel-teaser__item');
+        
+        teaserLinks.forEach(function(link) {
+          if (link.getAttribute('data-slide-to') === slideIndex) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+      
+      // Update on slide change
+      carousel.addEventListener('slide.bs.carousel', updateActiveTeaserLink);
+      carousel.addEventListener('slid.bs.carousel', updateActiveTeaserLink);
+      
+      // Initial update
+      updateActiveTeaserLink();
+    })();
+  </script>
 </section>
