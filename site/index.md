@@ -174,10 +174,20 @@ stylesheets:
         if (!activeSlide) return;
         
         var slideIndex = activeSlide.getAttribute('data-slide-index');
+        if (!slideIndex) return;
         
+        // First, remove all active classes
         teaserLinks.forEach(function(link) {
-          var isActive = link.getAttribute('data-slide-to') === slideIndex;
-          link.classList.toggle('active', isActive);
+          link.classList.remove('active');
+        });
+        
+        // Then, add active class only to the first matching link
+        var matched = false;
+        teaserLinks.forEach(function(link) {
+          if (!matched && link.getAttribute('data-slide-to') === slideIndex) {
+            link.classList.add('active');
+            matched = true;
+          }
         });
       }
       
