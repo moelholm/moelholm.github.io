@@ -175,16 +175,9 @@ stylesheets:
         
         var slideIndex = activeSlide.getAttribute('data-slide-index');
         
-        // Remove 'active' class from all links first
         teaserLinks.forEach(function(link) {
-          link.classList.remove('active');
-        });
-        
-        // Add 'active' class only to the matching link
-        teaserLinks.forEach(function(link) {
-          if (link.getAttribute('data-slide-to') === slideIndex) {
-            link.classList.add('active');
-          }
+          var isActive = link.getAttribute('data-slide-to') === slideIndex;
+          link.classList.toggle('active', isActive);
         });
       }
       
