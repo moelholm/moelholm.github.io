@@ -163,32 +163,36 @@ stylesheets:
       if (!carousel) return;
       
       var progressBar = document.querySelector('.carousel-progress__bar');
-      var CAROUSEL_INTERVAL = 10000; // 10 seconds
+      var teaserLinks = document.querySelectorAll('.carousel-teaser__item');
+      var carouselDots = document.querySelectorAll('.carousel-indicators li');
+      var CAROUSEL_INTERVAL = 10000;
+      var CAROUSEL_INIT_DELAY = 100;
+      var RESET_DELAY = 50;
       
       function updateActiveTeaserLink() {
         var activeSlide = carousel.querySelector('.carousel-item.active');
         if (!activeSlide) return;
         
         var slideIndex = activeSlide.getAttribute('data-slide-index');
-        var teaserLinks = document.querySelectorAll('.carousel-teaser__item');
         
+        // Remove 'active' class from all links first
+        teaserLinks.forEach(function(link) {
+          link.classList.remove('active');
+        });
+        
+        // Add 'active' class only to the matching link
         teaserLinks.forEach(function(link) {
           if (link.getAttribute('data-slide-to') === slideIndex) {
             link.classList.add('active');
-          } else {
-            link.classList.remove('active');
           }
         });
       }
       
       function resetProgressBar() {
         if (!progressBar) return;
-        // Remove animation class and reset width
         progressBar.classList.remove('animating');
         progressBar.style.width = '0%';
-        // Force reflow to restart animation
-        void progressBar.offsetWidth;
-        // Start animation
+        void progressBar.offsetWidth; // Force reflow
         progressBar.classList.add('animating');
       }
       
@@ -197,30 +201,27 @@ stylesheets:
         resetProgressBar();
       }
       
-      // Update on slide change - use jQuery events if available, fallback to native
+      // Attach carousel slide event listener
       if (typeof $ !== 'undefined' && $.fn.on) {
         $(carousel).on('slide.bs.carousel', handleSlideChange);
       } else {
         carousel.addEventListener('slide.bs.carousel', handleSlideChange);
       }
       
-      // Stop progress bar when user manually navigates
-      var teaserLinks = document.querySelectorAll('.carousel-teaser__item');
+      // Reset progress bar on manual navigation
       teaserLinks.forEach(function(link) {
         link.addEventListener('click', function() {
-          setTimeout(resetProgressBar, 50);
+          setTimeout(resetProgressBar, RESET_DELAY);
         });
       });
       
-      var carouselDots = document.querySelectorAll('.carousel-indicators li');
       carouselDots.forEach(function(dot) {
         dot.addEventListener('click', function() {
-          setTimeout(resetProgressBar, 50);
+          setTimeout(resetProgressBar, RESET_DELAY);
         });
       });
       
-      // Initial update with delay to ensure carousel is initialized by Bootstrap
-      var CAROUSEL_INIT_DELAY = 100;
+      // Initialize
       setTimeout(function() {
         updateActiveTeaserLink();
         resetProgressBar();

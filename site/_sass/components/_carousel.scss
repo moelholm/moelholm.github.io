@@ -88,20 +88,7 @@
     }
   }
   
-  // Pulse animation removed for cleaner design
-  
-  // Respect user's motion preferences
-  @media (prefers-reduced-motion: reduce) {
-    .carousel-teaser__item {
-      transition: none;
-    }
-    
-    .carousel-progress__bar {
-      transition: none;
-    }
-  }
-  
-  // Custom styling for carousel indicators (dots) - positioned at top
+  // Custom styling for carousel indicators (dots)
   .carousel-indicators {
     top: 0;
     bottom: auto;
@@ -112,7 +99,7 @@
       width: 12px;
       height: 12px;
       border-radius: 50%;
-      background-color: rgba(252, 76, 2, 0.3);
+      background-color: rgba($link-color, 0.3);
       border: none;
       margin: 0 6px;
       cursor: pointer;
@@ -125,12 +112,12 @@
       }
       
       &:hover {
-        background-color: rgba(252, 76, 2, 0.6);
+        background-color: rgba($link-color, 0.6);
       }
     }
   }
   
-  // Ensure proper spacing on mobile
+  // Responsive design
   @media (max-width: $bp-compact) {
     .carousel {
       min-height: 450px;
@@ -139,6 +126,17 @@
     .carousel-teaser {
       font-size: 0.85rem;
       gap: 0.4rem;
+    }
+  }
+  
+  // Accessibility: respect user's motion preferences
+  @media (prefers-reduced-motion: reduce) {
+    .carousel-teaser__item {
+      transition: none;
+    }
+    
+    .carousel-progress__bar {
+      transition: none;
     }
   }
 }
