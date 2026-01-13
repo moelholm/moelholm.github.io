@@ -176,16 +176,18 @@ stylesheets:
         var slideIndex = activeSlide.getAttribute('data-slide-index');
         if (!slideIndex) return;
         
-        // Remove active class from ALL teaser links
+        // Remove 'active' class from ALL teaser links - use setAttribute to force removal
         for (var i = 0; i < teaserLinks.length; i++) {
           teaserLinks[i].classList.remove('active');
+          teaserLinks[i].removeAttribute('data-active'); // Extra safeguard
         }
         
-        // Add active class only to the first matching link
+        // Add 'active' class ONLY to the first matching link
         for (var j = 0; j < teaserLinks.length; j++) {
           if (teaserLinks[j].getAttribute('data-slide-to') === slideIndex) {
             teaserLinks[j].classList.add('active');
-            break; // Exit immediately after first match
+            teaserLinks[j].setAttribute('data-active', 'true'); // Extra marker
+            break; // IMMEDIATE EXIT
           }
         }
       }

@@ -34,29 +34,28 @@
     
     &__item {
       white-space: nowrap;
-      opacity: 0.55;
+      opacity: 0.55 !important;
       transition: all 0.25s ease;
       cursor: pointer;
-      text-decoration: none;
+      text-decoration: none !important;
       color: $text-muted;
       padding: 0.25rem 0.5rem;
-      border-bottom: 2px solid transparent;
+      border-bottom: 2px solid transparent !important;
       position: relative;
       font-weight: 400;
       letter-spacing: 0.01em;
       
       &:hover {
-        opacity: 0.85;
+        opacity: 0.85 !important;
         color: $link-color;
-        text-decoration: none;
-        border-bottom-color: rgba($link-color, 0.3);
+        border-bottom-color: rgba($link-color, 0.3) !important;
       }
       
       &.active {
-        opacity: 1;
-        color: $link-color;
-        font-weight: 500;
-        border-bottom-color: $link-color;
+        opacity: 1 !important;
+        color: $link-color !important;
+        font-weight: 500 !important;
+        border-bottom-color: $link-color !important;
       }
     }
     
