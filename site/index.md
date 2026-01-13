@@ -42,7 +42,22 @@ stylesheets:
   {% assign latest = site.running | sort: 'date' | reverse %}
   {% assign race_posts = site.running | where_exp: 'p','p.tags contains "race"' | sort: 'date' | reverse %}
 
-  <div id="homeCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+  <!-- Carousel section titles teaser -->
+  <div class="carousel-teaser">
+    {% if upcoming_races and upcoming_races.size > 0 %}
+      <span class="carousel-teaser__item">🏁 Upcoming Races</span>
+      <span class="carousel-teaser__separator">•</span>
+    {% endif %}
+    <span class="carousel-teaser__item">🏃 Activities</span>
+    <span class="carousel-teaser__separator">•</span>
+    <span class="carousel-teaser__item">🐘 Updates</span>
+    <span class="carousel-teaser__separator">•</span>
+    <span class="carousel-teaser__item">📖 Posts</span>
+    <span class="carousel-teaser__separator">•</span>
+    <span class="carousel-teaser__item">🏁 Previous Races</span>
+  </div>
+
+  <div id="homeCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
     <!-- Carousel indicators (dots) at top -->
     <ol class="carousel-indicators">
       {% if upcoming_races and upcoming_races.size > 0 %}

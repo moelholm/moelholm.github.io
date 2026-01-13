@@ -2,7 +2,10 @@
 
 // Carousel styles for home page
 .home-carousel-section {
+  margin-top: 2rem;
   margin-bottom: 1.25rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid rgba(252, 76, 2, 0.15);
   
   .carousel {
     position: relative;
@@ -15,6 +18,34 @@
   
   .carousel-item {
     transition: transform 0.6s ease-in-out;
+  }
+  
+  // Carousel teaser showing available sections
+  .carousel-teaser {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    color: $text-muted;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    
+    &__item {
+      white-space: nowrap;
+      opacity: 0.8;
+      transition: opacity 0.2s ease;
+      
+      &:hover {
+        opacity: 1;
+      }
+    }
+    
+    &__separator {
+      opacity: 0.4;
+      font-size: 0.7rem;
+    }
   }
   
   // Custom styling for carousel indicators (dots) - positioned at top
@@ -50,6 +81,11 @@
   @media (max-width: $bp-compact) {
     .carousel {
       min-height: 450px;
+    }
+    
+    .carousel-teaser {
+      font-size: 0.85rem;
+      gap: 0.4rem;
     }
   }
 }
