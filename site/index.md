@@ -173,11 +173,17 @@ stylesheets:
         });
       }
       
-      // Update on slide change - use jQuery events since Bootstrap 4 uses jQuery
-      $(carousel).on('slide.bs.carousel slid.bs.carousel', updateActiveTeaserLink);
+      // Update on slide change - use jQuery events if available, fallback to native
+      if (typeof $ !== 'undefined' && $.fn.on) {
+        $(carousel).on('slide.bs.carousel slid.bs.carousel', updateActiveTeaserLink);
+      } else {
+        carousel.addEventListener('slide.bs.carousel', updateActiveTeaserLink);
+        carousel.addEventListener('slid.bs.carousel', updateActiveTeaserLink);
+      }
       
-      // Initial update with small delay to ensure carousel is initialized
-      setTimeout(updateActiveTeaserLink, 100);
+      // Initial update with delay to ensure carousel is initialized by Bootstrap
+      var CAROUSEL_INIT_DELAY = 100;
+      setTimeout(updateActiveTeaserLink, CAROUSEL_INIT_DELAY);
     });
   </script>
 </section>
