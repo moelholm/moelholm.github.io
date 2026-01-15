@@ -1,7 +1,6 @@
 (function() {
   'use strict';
   
-  var CAROUSEL_INTERVAL = 10000;
   var INIT_DELAY = 100;
   var RESET_DELAY = 50;
   
@@ -73,8 +72,6 @@
     
     teaserLinks.forEach(function(link) {
       link.addEventListener('click', function() {
-        var targetSlide = this.getAttribute('data-slide-to');
-        
         for (var i = 0; i < teaserLinks.length; i++) {
           teaserLinks[i].classList.remove('active');
         }
