@@ -1,97 +1,92 @@
 (function() {
   'use strict';
   
-  var INIT_DELAY = 100;
-  var RESET_DELAY = 50;
-  
-  function initCarousel() {
-    var carousel = document.getElementById('homeCarousel');
-    if (!carousel) return;
+  function initSwiper() {
+    var swiperContainer = document.getElementById('homeCarousel');
+    if (!swiperContainer) return;
     
-    var progressBar = document.querySelector('.carousel-progress__bar');
     var teaserLinks = document.querySelectorAll('.carousel-teaser__item');
-    var carouselDots = document.querySelectorAll('.carousel-indicators li');
     
-    function updateActiveTeaserLink() {
-      var allSlides = carousel.querySelectorAll('.carousel-item');
-      var currentIndex = -1;
+    // Initialize Swiper with progress bar pagination
+    var swiper = new Swiper('#homeCarousel', {
+      // Auto-rotation every 10 seconds
+      autoplay: {
+        delay: 10000,
+        disableOnInteraction: true,
+        pauseOnMouseEnter: true
+      },
       
-      for (var k = 0; k < allSlides.length; k++) {
-        if (allSlides[k].classList.contains('active')) {
-          currentIndex = k;
-          break;
+      // Progress bar pagination
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'progressbar'
+      },
+      
+      // Smooth transitions
+      speed: 600,
+      effect: 'slide',
+      
+      // Keyboard navigation
+      keyboard: {
+        enabled: true
+      },
+      
+      // Mouse wheel navigation
+      mousewheel: {
+        forceToAxis: true
+      },
+      
+      // Events
+      on: {
+        slideChange: function() {
+          updateActiveTeaserLink(this.activeIndex);
+        },
+        init: function() {
+          updateActiveTeaserLink(this.activeIndex);
         }
       }
-      
-      if (currentIndex === -1) return;
-      
+    });
+    
+    // Update active teaser link
+    function updateActiveTeaserLink(activeIndex) {
       for (var i = 0; i < teaserLinks.length; i++) {
         teaserLinks[i].classList.remove('active');
       }
       
       for (var j = 0; j < teaserLinks.length; j++) {
-        if (teaserLinks[j].getAttribute('data-slide-to') === currentIndex.toString()) {
+        var slideIndex = parseInt(teaserLinks[j].getAttribute('data-slide-to'), 10);
+        if (slideIndex === activeIndex) {
           teaserLinks[j].classList.add('active');
           break;
         }
       }
     }
     
-    function resetProgressBar() {
-      if (!progressBar) return;
-      progressBar.classList.remove('animating');
-      progressBar.style.width = '0%';
-      void progressBar.offsetWidth; // Force reflow for CSS animation reset
-      progressBar.classList.add('animating');
-    }
-    
-    function handleSlideChange(event) {
-      var targetIndex = event.to !== undefined ? event.to.toString() : null;
-      
-      if (targetIndex !== null) {
-        for (var i = 0; i < teaserLinks.length; i++) {
-          teaserLinks[i].classList.remove('active');
-        }
-        
-        for (var j = 0; j < teaserLinks.length; j++) {
-          if (teaserLinks[j].getAttribute('data-slide-to') === targetIndex) {
-            teaserLinks[j].classList.add('active');
-            break;
-          }
-        }
-      }
-      
-      resetProgressBar();
-    }
-    
-    if (typeof $ !== 'undefined' && $.fn.on) {
-      $(carousel).on('slide.bs.carousel', handleSlideChange);
-    } else {
-      carousel.addEventListener('slide.bs.carousel', handleSlideChange);
-    }
-    
+    // Click handlers for teaser links
     teaserLinks.forEach(function(link) {
-      link.addEventListener('click', function() {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        var slideIndex = parseInt(this.getAttribute('data-slide-to'), 10);
+        
+        // Clear all active states immediately
         for (var i = 0; i < teaserLinks.length; i++) {
           teaserLinks[i].classList.remove('active');
         }
         this.classList.add('active');
         
-        setTimeout(resetProgressBar, RESET_DELAY);
+        // Navigate to slide
+        swiper.slideTo(slideIndex);
+        
+        // Resume autoplay after manual navigation
+        swiper.autoplay.start();
       });
     });
-    
-    carouselDots.forEach(function(dot) {
-      dot.addEventListener('click', function() {
-        setTimeout(resetProgressBar, RESET_DELAY);
-      });
-    });
-    
-    setTimeout(function() {
-      updateActiveTeaserLink();
-      resetProgressBar();
-    }, INIT_DELAY);
   }
   
-  document.addEventListener('DOMContentLoaded', initCarousel);
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSwiper);
+  } else {
+    initSwiper();
+  }
 })();

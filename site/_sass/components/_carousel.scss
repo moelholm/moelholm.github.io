@@ -1,24 +1,23 @@
 @import "../variables";
 
-// Carousel styles for home page
+// Swiper carousel styles for home page
 .home-carousel-section {
   margin-top: 2rem;
   margin-bottom: 1.25rem;
   padding-top: 1.5rem;
   border-top: 2px solid rgba($link-color, 0.15);
   
-  .carousel {
+  .swiper {
     position: relative;
     min-height: 400px;
+    padding-top: 2rem; // Space for progress bar
   }
   
-  .carousel-inner {
-    padding-top: 1.5rem;
+  .swiper-wrapper {
+    padding-top: 1rem;
   }
   
-  .carousel-item {
-    transition: transform 0.6s ease-in-out;
-    
+  .swiper-slide {
     // Remove outer border from carousel cards
     .blog-item {
       border: none !important;
@@ -72,59 +71,25 @@
     }
   }
   
-  // Progress bar for carousel timing
-  .carousel-progress {
-    width: 100%;
-    height: 2px;
-    background-color: rgba($link-color, 0.15);
-    margin-bottom: 1rem;
-    overflow: hidden;
-    border-radius: 1px;
-    
-    &__bar {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, rgba($link-color, 0.6) 0%, $link-color 100%);
-      
-      &.animating {
-        width: 100%;
-        transition: width 10s linear;
-      }
-    }
-  }
-  
-  // Custom styling for carousel indicators (dots)
-  .carousel-indicators {
+  // Swiper progress bar pagination
+  .swiper-pagination-progressbar {
+    position: absolute;
     top: 0;
-    bottom: auto;
-    margin-top: 0;
-    margin-bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: rgba($link-color, 0.15);
+    border-radius: 2px;
     
-    li {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background-color: rgba($link-color, 0.3);
-      border: none;
-      margin: 0 6px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      
-      &.active {
-        background-color: $link-color;
-        width: 14px;
-        height: 14px;
-      }
-      
-      &:hover {
-        background-color: rgba($link-color, 0.6);
-      }
+    .swiper-pagination-progressbar-fill {
+      background: linear-gradient(90deg, rgba($link-color, 0.6) 0%, $link-color 100%);
+      border-radius: 2px;
     }
   }
   
   // Responsive design
   @media (max-width: $bp-compact) {
-    .carousel {
+    .swiper {
       min-height: 450px;
     }
     
@@ -140,8 +105,8 @@
       transition: none;
     }
     
-    .carousel-progress__bar {
-      transition: none;
+    .swiper-pagination-progressbar-fill {
+      transition: none !important;
     }
   }
 }

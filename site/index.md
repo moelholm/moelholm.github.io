@@ -65,89 +65,73 @@ stylesheets:
     {% endif %}
   </div>
 
-  <!-- Progress bar for carousel timing -->
-  <div class="carousel-progress">
-    <div class="carousel-progress__bar"></div>
-  </div>
-
-  <div id="homeCarousel" class="carousel slide" data-ride="carousel" data-interval="10000">
-    <!-- Carousel indicators (dots) at top -->
-    <ol class="carousel-indicators">
-      {% if upcoming_races and upcoming_races.size > 0 %}
-        <li data-target="#homeCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#homeCarousel" data-slide-to="1"></li>
-        <li data-target="#homeCarousel" data-slide-to="2"></li>
-        <li data-target="#homeCarousel" data-slide-to="3"></li>
-        <li data-target="#homeCarousel" data-slide-to="4"></li>
-      {% else %}
-        <li data-target="#homeCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#homeCarousel" data-slide-to="1"></li>
-        <li data-target="#homeCarousel" data-slide-to="2"></li>
-        <li data-target="#homeCarousel" data-slide-to="3"></li>
-      {% endif %}
-    </ol>
-
-    <!-- Carousel slides -->
-    <div class="carousel-inner">
+  <!-- Progress bar - now using Swiper's built-in progressbar -->
+  
+  <div id="homeCarousel" class="swiper">
+    <!-- Swiper pagination (progress bar) -->
+    <div class="swiper-pagination"></div>
+    
+    <!-- Swiper slides -->
+    <div class="swiper-wrapper">
       {% if upcoming_races and upcoming_races.size > 0 %}
         <!-- Slide 1: Upcoming Races -->
-        <div class="carousel-item active" data-slide-index="0">
+        <div class="swiper-slide" data-slide-index="0">
           <div class="home-grid__main">
             {% include home/section_list.html title='Upcoming Races' emoji='🏁' items=upcoming_races limit=2 kind='upcoming_races' more_url='/race-calendar-2026/' grid='home-samples--two' hide_title=true %}
           </div>
         </div>
 
         <!-- Slide 2: Activities -->
-        <div class="carousel-item" data-slide-index="1">
+        <div class="swiper-slide" data-slide-index="1">
           <div class="home-grid__main">
             {% include home/section_list.html title='Activities' emoji='🏃' items=activities limit=2 kind='activities' more_url='/activities/' grid='home-samples--two' hide_title=true %}
           </div>
         </div>
 
         <!-- Slide 3: Updates -->
-        <div class="carousel-item" data-slide-index="2">
+        <div class="swiper-slide" data-slide-index="2">
           <div class="home-grid__main">
             {% include home/section_list.html title='Updates' emoji='🐘' items=entries limit=2 kind='toots' more_url='/toots/' grid='home-samples--two' hide_title=true %}
           </div>
         </div>
 
         <!-- Slide 4: Posts -->
-        <div class="carousel-item" data-slide-index="3">
+        <div class="swiper-slide" data-slide-index="3">
           <div class="home-grid__main">
             {% include home/section_list.html title='Posts' emoji='📖' items=latest limit=2 kind='running' more_url='/running/' grid='home-samples--two' hide_title=true %}
           </div>
         </div>
 
         <!-- Slide 5: Previous Races -->
-        <div class="carousel-item" data-slide-index="4">
+        <div class="swiper-slide" data-slide-index="4">
           <div class="home-grid__main">
             {% include home/section_list.html title='Previous Races' emoji='🏁' items=race_posts limit=2 kind='previous_races' more_url='/races' grid='home-samples--two' hide_title=true %}
           </div>
         </div>
       {% else %}
         <!-- Slide 1: Activities (when no upcoming races) -->
-        <div class="carousel-item active" data-slide-index="0">
+        <div class="swiper-slide" data-slide-index="0">
           <div class="home-grid__main">
             {% include home/section_list.html title='Activities' emoji='🏃' items=activities limit=2 kind='activities' more_url='/activities/' grid='home-samples--two' hide_title=true %}
           </div>
         </div>
 
         <!-- Slide 2: Updates -->
-        <div class="carousel-item" data-slide-index="1">
+        <div class="swiper-slide" data-slide-index="1">
           <div class="home-grid__main">
             {% include home/section_list.html title='Updates' emoji='🐘' items=entries limit=2 kind='toots' more_url='/toots/' grid='home-samples--two' hide_title=true %}
           </div>
         </div>
 
         <!-- Slide 3: Posts -->
-        <div class="carousel-item" data-slide-index="2">
+        <div class="swiper-slide" data-slide-index="2">
           <div class="home-grid__main">
             {% include home/section_list.html title='Posts' emoji='📖' items=latest limit=2 kind='running' more_url='/running/' grid='home-samples--two' hide_title=true %}
           </div>
         </div>
 
         <!-- Slide 4: Previous Races -->
-        <div class="carousel-item" data-slide-index="3">
+        <div class="swiper-slide" data-slide-index="3">
           <div class="home-grid__main">
             {% include home/section_list.html title='Previous Races' emoji='🏁' items=race_posts limit=2 kind='previous_races' more_url='/races' grid='home-samples--two' hide_title=true %}
           </div>
