@@ -41,7 +41,7 @@
       if (!progressBar) return;
       progressBar.classList.remove('animating');
       progressBar.style.width = '0%';
-      void progressBar.offsetWidth;
+      void progressBar.offsetWidth; // Force reflow for CSS animation reset
       progressBar.classList.add('animating');
     }
     
