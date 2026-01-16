@@ -64,20 +64,21 @@
           releaseOnEdges: true
         },
         
-        // Loop disabled to match number of slides
-        loop: false,
+        // Enable loop so swiping past last slide goes to first
+        loop: true,
         
         // Events
         on: {
           slideChange: function() {
-            updateActiveTeaserLink(this.activeIndex);
+            updateActiveTeaserLink(this.realIndex);
             resetProgressBar();
-            console.log('Slide changed to index:', this.activeIndex);
+            startProgressBar();
+            console.log('Slide changed to index:', this.realIndex);
           },
           init: function() {
-            updateActiveTeaserLink(this.activeIndex);
-            resetProgressBar();
-            console.log('Swiper initialized successfully! Active index: ' + this.activeIndex);
+            updateActiveTeaserLink(this.realIndex);
+            startProgressBar();
+            console.log('Swiper initialized successfully! Active index: ' + this.realIndex);
             console.log('Total slides:', this.slides.length);
             console.log('Autoplay enabled:', this.autoplay.running);
           },
@@ -151,14 +152,14 @@
       }
       
       // Update active teaser link
-      function updateActiveTeaserLink(activeIndex) {
+      function updateActiveTeaserLink(realIndex) {
         for (var i = 0; i < teaserLinks.length; i++) {
           teaserLinks[i].classList.remove('active');
         }
         
         for (var j = 0; j < teaserLinks.length; j++) {
           var slideIndex = parseInt(teaserLinks[j].getAttribute('data-slide-to'), 10);
-          if (slideIndex === activeIndex) {
+          if (slideIndex === realIndex) {
             teaserLinks[j].classList.add('active');
             break;
           }
@@ -177,11 +178,12 @@
           }
           this.classList.add('active');
           
-          // Navigate to slide
-          swiper.slideTo(slideIndex);
+          // Navigate to slide (use slideToLoop for loop mode)
+          swiper.slideToLoop(slideIndex);
           
           // Reset and start progress bar
           resetProgressBar();
+          startProgressBar();
           
           // Resume autoplay after manual navigation
           swiper.autoplay.start();
