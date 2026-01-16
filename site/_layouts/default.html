@@ -74,10 +74,8 @@
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
     integrity="sha256-dQi2d16QZZTxCzF5oXvbVZqCCRiqPXLsEkgL36j1nPY=" crossorigin="anonymous"></script>
-  <!-- Carousel initialization (must load AFTER Swiper) -->
-  {% if page.path contains "index" %}
+  <!-- Carousel initialization (must load AFTER Swiper) - loads on all pages but only initializes if carousel exists -->
   <script src="/assets/carousel.js"></script>
-  {% endif %}
 </body>
 
 </html>
