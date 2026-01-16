@@ -21,6 +21,9 @@
     }
     
     console.log('Initializing Swiper carousel...');
+    console.log('Found container:', swiperContainer);
+    console.log('Found', teaserLinks.length, 'teaser links');
+    console.log('Swiper library version:', Swiper.version || 'unknown');
     
     try {
       // Initialize Swiper with progress bar pagination

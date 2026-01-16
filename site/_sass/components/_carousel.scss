@@ -11,13 +11,21 @@
     position: relative;
     min-height: 400px;
     padding-top: 2rem; // Space for progress bar
+    overflow: hidden;
   }
   
   .swiper-wrapper {
     padding-top: 1rem;
+    display: flex;
   }
   
   .swiper-slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: auto;
+    position: relative;
+    transition-property: transform;
+    
     // Remove outer border from carousel cards
     .blog-item {
       border: none !important;
