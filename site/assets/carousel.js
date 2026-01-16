@@ -31,38 +31,58 @@
         // Auto-rotation every 10 seconds
         autoplay: {
           delay: 10000,
-          disableOnInteraction: true,
+          disableOnInteraction: false,
           pauseOnMouseEnter: true
         },
         
         // Progress bar pagination
         pagination: {
           el: '.swiper-pagination',
-          type: 'progressbar'
+          type: 'progressbar',
+          progressbarOpposite: false
         },
         
         // Smooth transitions
         speed: 600,
         effect: 'slide',
         
+        // Enable touch/swipe gestures
+        touchEventsTarget: 'container',
+        simulateTouch: true,
+        
         // Keyboard navigation
         keyboard: {
-          enabled: true
+          enabled: true,
+          onlyInViewport: true
         },
         
-        // Mouse wheel navigation
+        // Mouse wheel navigation  
         mousewheel: {
-          forceToAxis: true
+          enabled: true,
+          forceToAxis: true,
+          releaseOnEdges: true
         },
+        
+        // Loop disabled to match number of slides
+        loop: false,
         
         // Events
         on: {
           slideChange: function() {
             updateActiveTeaserLink(this.activeIndex);
+            console.log('Slide changed to index:', this.activeIndex);
           },
           init: function() {
             updateActiveTeaserLink(this.activeIndex);
             console.log('Swiper initialized successfully! Active index: ' + this.activeIndex);
+            console.log('Total slides:', this.slides.length);
+            console.log('Autoplay enabled:', this.autoplay.running);
+          },
+          autoplayStart: function() {
+            console.log('Autoplay started');
+          },
+          autoplayStop: function() {
+            console.log('Autoplay stopped');
           }
         }
       });
