@@ -139,6 +139,4 @@ stylesheets:
       {% endif %}
     </div>
   </div>
-
-  <script src="/assets/carousel.js"></script>
 </section>
