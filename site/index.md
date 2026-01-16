@@ -65,10 +65,13 @@ stylesheets:
     {% endif %}
   </div>
 
-  <!-- Progress bar - now using Swiper's built-in progressbar -->
+  <!-- Progress bar - custom time-based progress indicator -->
+  <div class="carousel-progress">
+    <div class="carousel-progress__bar"></div>
+  </div>
   
   <div id="homeCarousel" class="swiper">
-    <!-- Swiper pagination (progress bar) -->
+    <!-- Swiper pagination (bullet dots) -->
     <div class="swiper-pagination"></div>
     
     <!-- Swiper slides -->

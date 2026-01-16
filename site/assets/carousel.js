@@ -26,7 +26,7 @@
     console.log('Swiper library version:', Swiper.version || 'unknown');
     
     try {
-      // Initialize Swiper with progress bar pagination
+      // Initialize Swiper with bullet pagination and custom progress bar
       var swiper = new Swiper('#homeCarousel', {
         // Auto-rotation every 10 seconds
         autoplay: {
@@ -35,11 +35,12 @@
           pauseOnMouseEnter: true
         },
         
-        // Progress bar pagination
+        // Bullet pagination (dots)
         pagination: {
           el: '.swiper-pagination',
-          type: 'progressbar',
-          progressbarOpposite: false
+          type: 'bullets',
+          clickable: true,
+          dynamicBullets: false
         },
         
         // Smooth transitions
@@ -70,22 +71,84 @@
         on: {
           slideChange: function() {
             updateActiveTeaserLink(this.activeIndex);
+            resetProgressBar();
             console.log('Slide changed to index:', this.activeIndex);
           },
           init: function() {
             updateActiveTeaserLink(this.activeIndex);
+            resetProgressBar();
             console.log('Swiper initialized successfully! Active index: ' + this.activeIndex);
             console.log('Total slides:', this.slides.length);
             console.log('Autoplay enabled:', this.autoplay.running);
           },
           autoplayStart: function() {
+            startProgressBar();
             console.log('Autoplay started');
           },
           autoplayStop: function() {
+            pauseProgressBar();
             console.log('Autoplay stopped');
+          },
+          autoplayPause: function() {
+            pauseProgressBar();
+          },
+          autoplayResume: function() {
+            resumeProgressBar();
           }
         }
       });
+      
+      // Custom progress bar management
+      var progressBar = document.querySelector('.carousel-progress__bar');
+      var progressBarAnimation = null;
+      
+      function resetProgressBar() {
+        if (!progressBar) return;
+        
+        // Remove animation class
+        progressBar.classList.remove('animating');
+        
+        // Force reflow
+        void progressBar.offsetWidth;
+        
+        // Reset to 0%
+        progressBar.style.width = '0%';
+      }
+      
+      function startProgressBar() {
+        if (!progressBar) return;
+        
+        // Reset first
+        resetProgressBar();
+        
+        // Small delay to ensure reset is rendered
+        setTimeout(function() {
+          progressBar.classList.add('animating');
+          progressBar.style.width = '100%';
+        }, 50);
+      }
+      
+      function pauseProgressBar() {
+        if (!progressBar) return;
+        
+        // Get current width and freeze it
+        var currentWidth = window.getComputedStyle(progressBar).width;
+        progressBar.classList.remove('animating');
+        progressBar.style.width = currentWidth;
+      }
+      
+      function resumeProgressBar() {
+        if (!progressBar) return;
+        
+        // Calculate remaining time based on current width
+        var currentWidthPercent = parseFloat(progressBar.style.width) || 0;
+        var remainingPercent = 100 - currentWidthPercent;
+        var remainingTime = (remainingPercent / 100) * 10000; // 10 seconds total
+        
+        // Resume animation with remaining time
+        progressBar.style.transition = 'width ' + (remainingTime / 1000) + 's linear';
+        progressBar.style.width = '100%';
+      }
       
       // Update active teaser link
       function updateActiveTeaserLink(activeIndex) {
@@ -116,6 +179,9 @@
           
           // Navigate to slide
           swiper.slideTo(slideIndex);
+          
+          // Reset and start progress bar
+          resetProgressBar();
           
           // Resume autoplay after manual navigation
           swiper.autoplay.start();

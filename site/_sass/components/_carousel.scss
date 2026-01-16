@@ -10,7 +10,7 @@
   .swiper {
     position: relative;
     min-height: 400px;
-    padding-top: 2rem; // Space for progress bar
+    padding-top: 3rem; // Space for pagination dots
     overflow: hidden;
   }
   
@@ -79,19 +79,62 @@
     }
   }
   
-  // Swiper progress bar pagination
-  .swiper-pagination-progressbar {
-    position: absolute;
-    top: 0;
-    left: 0;
+  // Custom time-based progress bar
+  .carousel-progress {
+    position: relative;
     width: 100%;
     height: 3px;
     background-color: rgba($link-color, 0.15);
     border-radius: 2px;
+    margin-bottom: 0.75rem;
+    overflow: hidden;
     
-    .swiper-pagination-progressbar-fill {
+    &__bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 0%;
       background: linear-gradient(90deg, rgba($link-color, 0.6) 0%, $link-color 100%);
       border-radius: 2px;
+      
+      &.animating {
+        transition: width 10s linear;
+      }
+    }
+  }
+  
+  // Swiper bullet pagination (dots)
+  .swiper-pagination {
+    position: absolute !important;
+    top: 0.5rem !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: auto !important;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    z-index: 10;
+  }
+  
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background: rgba($link-color, 0.3);
+    opacity: 1;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    
+    &:hover {
+      background: rgba($link-color, 0.5);
+      transform: scale(1.2);
+    }
+    
+    &-active {
+      background: $link-color;
+      transform: scale(1.3);
     }
   }
   
@@ -113,8 +156,12 @@
       transition: none;
     }
     
-    .swiper-pagination-progressbar-fill {
+    .carousel-progress__bar {
       transition: none !important;
+    }
+    
+    .swiper-pagination-bullet {
+      transition: none;
     }
   }
 }
