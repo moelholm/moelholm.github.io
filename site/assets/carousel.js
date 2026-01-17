@@ -122,6 +122,9 @@
       function startProgressBar() {
         if (!progressBar) return;
         
+        // Clear any inline transition from previous resume
+        progressBar.style.transition = '';
+        
         // Start animation immediately (caller handles reset if needed)
         progressBar.classList.add('animating');
         progressBar.style.width = '100%';
