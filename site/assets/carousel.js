@@ -89,13 +89,6 @@
             console.log('Total slides:', this.slides.length);
             console.log('Autoplay enabled:', this.autoplay.running);
           },
-          autoplayStart: function() {
-            resetProgressBar();
-            setTimeout(function() {
-              startProgressBar();
-            }, 10);
-            console.log('Autoplay started');
-          },
           autoplayStop: function() {
             pauseProgressBar();
             console.log('Autoplay stopped');
