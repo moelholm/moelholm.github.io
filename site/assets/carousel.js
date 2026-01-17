@@ -71,19 +71,29 @@
         on: {
           slideChange: function() {
             updateActiveTeaserLink(this.realIndex);
+            // Reset immediately then start after brief delay to avoid visual flash
             resetProgressBar();
-            startProgressBar();
+            setTimeout(function() {
+              startProgressBar();
+            }, 10);
             console.log('Slide changed to index:', this.realIndex);
           },
           init: function() {
             updateActiveTeaserLink(this.realIndex);
-            startProgressBar();
+            // Reset then start on init
+            resetProgressBar();
+            setTimeout(function() {
+              startProgressBar();
+            }, 10);
             console.log('Swiper initialized successfully! Active index: ' + this.realIndex);
             console.log('Total slides:', this.slides.length);
             console.log('Autoplay enabled:', this.autoplay.running);
           },
           autoplayStart: function() {
-            startProgressBar();
+            resetProgressBar();
+            setTimeout(function() {
+              startProgressBar();
+            }, 10);
             console.log('Autoplay started');
           },
           autoplayStop: function() {
@@ -119,14 +129,9 @@
       function startProgressBar() {
         if (!progressBar) return;
         
-        // Reset first
-        resetProgressBar();
-        
-        // Small delay to ensure reset is rendered
-        setTimeout(function() {
-          progressBar.classList.add('animating');
-          progressBar.style.width = '100%';
-        }, 50);
+        // Start animation immediately (caller handles reset if needed)
+        progressBar.classList.add('animating');
+        progressBar.style.width = '100%';
       }
       
       function pauseProgressBar() {
@@ -148,9 +153,8 @@
         if (currentWidthPercent >= 99) {
           resetProgressBar();
           setTimeout(function() {
-            progressBar.classList.add('animating');
-            progressBar.style.width = '100%';
-          }, 50);
+            startProgressBar();
+          }, 10);
         } else {
           // Calculate remaining time based on current width
           var remainingPercent = 100 - currentWidthPercent;
@@ -192,9 +196,11 @@
           // Navigate to slide (use slideToLoop for loop mode)
           swiper.slideToLoop(slideIndex);
           
-          // Reset and start progress bar
+          // Reset and start progress bar after brief delay
           resetProgressBar();
-          startProgressBar();
+          setTimeout(function() {
+            startProgressBar();
+          }, 10);
           
           // Resume autoplay after manual navigation
           swiper.autoplay.start();
