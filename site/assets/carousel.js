@@ -141,14 +141,25 @@
       function resumeProgressBar() {
         if (!progressBar) return;
         
-        // Calculate remaining time based on current width
+        // Check if progress bar is at 100% (completed)
         var currentWidthPercent = parseFloat(progressBar.style.width) || 0;
-        var remainingPercent = 100 - currentWidthPercent;
-        var remainingTime = (remainingPercent / 100) * 10000; // 10 seconds total
         
-        // Resume animation with remaining time
-        progressBar.style.transition = 'width ' + (remainingTime / 1000) + 's linear';
-        progressBar.style.width = '100%';
+        // If at 100% or very close, reset and restart
+        if (currentWidthPercent >= 99) {
+          resetProgressBar();
+          setTimeout(function() {
+            progressBar.classList.add('animating');
+            progressBar.style.width = '100%';
+          }, 50);
+        } else {
+          // Calculate remaining time based on current width
+          var remainingPercent = 100 - currentWidthPercent;
+          var remainingTime = (remainingPercent / 100) * 10000; // 10 seconds total
+          
+          // Resume animation with remaining time
+          progressBar.style.transition = 'width ' + (remainingTime / 1000) + 's linear';
+          progressBar.style.width = '100%';
+        }
       }
       
       // Update active teaser link
