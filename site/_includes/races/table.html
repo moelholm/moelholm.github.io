@@ -145,6 +145,96 @@ Inputs:
           </tr>
         {% endif %}
       {% endfor %}
+
+      {% comment %}Render upcoming races from data file{% endcomment %}
+      {% assign upcoming_races = site.data.upcoming_races_2026 %}
+      {% if upcoming_races and calendar_year == "2026" %}
+        {% for race in upcoming_races %}
+          {% assign race_year = race.race_date | date: "%Y" %}
+          {% if race_year == calendar_year %}
+            {% assign current_distance = race.distance_km | plus: 0 %}
+            {% assign row_classes = '' %}
+            {% if current_distance >= 50 %}
+              {% assign row_classes = row_classes | append: 'tag-ultra ' %}
+            {% else %}
+              {% assign row_classes = row_classes | append: 'tag-non-ultra ' %}
+            {% endif %}
+            {% if race.tags contains 'trailrunning' %}
+              {% assign row_classes = row_classes | append: 'tag-trail ' %}
+            {% else %}
+              {% assign row_classes = row_classes | append: 'tag-road ' %}
+            {% endif %}
+            {% if race.tags contains 'backyard-ultra' %}
+              {% assign row_classes = row_classes | append: 'tag-backyard ' %}
+            {% endif %}
+
+            <tr{% if row_classes != '' %} class="{{ row_classes | strip }}"{% endif %}>
+              <td class="race-details-cell" colspan="2">
+                {% capture title_html %}{{ race.title }}{% endcapture %}
+                {% capture body_html %}
+                  <div class="race-meta">
+                    {% if race.distance_km %}
+                      <span class="meta-item distance-value">{{ race.distance_km }} km</span>
+                    {% endif %}
+
+                    {% assign race_type_tags = 'trailrunning,ultrarunning,halfmarathon,marathon,backyard-ultra' | split: ',' %}
+                    {% assign display_tags = '' %}
+                    {% assign tag_classes = '' %}
+                    {% for tag in race.tags %}
+                      {% if race_type_tags contains tag %}
+                        {% if tag == 'trailrunning' %}
+                          {% assign display_tags = display_tags | append: 'trail,' %}
+                          {% assign tag_classes = tag_classes | append: 'race-tag-trail,' %}
+                        {% elsif tag == 'ultrarunning' %}
+                          {% assign display_tags = display_tags | append: 'ultra,' %}
+                          {% assign tag_classes = tag_classes | append: 'race-tag-ultra,' %}
+                        {% elsif tag == 'halfmarathon' %}
+                          {% assign display_tags = display_tags | append: 'half,' %}
+                          {% assign tag_classes = tag_classes | append: 'race-tag-half,' %}
+                        {% elsif tag == 'marathon' %}
+                          {% assign display_tags = display_tags | append: 'marathon,' %}
+                          {% assign tag_classes = tag_classes | append: 'race-tag-marathon,' %}
+                        {% elsif tag == 'backyard-ultra' %}
+                          {% assign display_tags = display_tags | append: 'backyard,' %}
+                          {% assign tag_classes = tag_classes | append: 'race-tag-backyard,' %}
+                        {% endif %}
+                      {% endif %}
+                    {% endfor %}
+                    {% if display_tags != '' %}
+                      <span class="race-tags-inline race-tags-group">
+                        {% assign tag_array = display_tags | split: ',' %}
+                        {% assign class_array = tag_classes | split: ',' %}
+                        {% for tag in tag_array %}
+                          {% if tag != '' %}
+                            {% assign filter_for = '' %}
+                            {% if tag == 'ultra' %}
+                              {% assign filter_for = 'filter-ultra-' | append: calendar_year %}
+                            {% elsif tag == 'trail' %}
+                              {% assign filter_for = 'filter-trail-' | append: calendar_year %}
+                            {% elsif tag == 'backyard' %}
+                              {% assign filter_for = 'filter-backyard-' | append: calendar_year %}
+                            {% elsif tag == 'half' or tag == 'marathon' %}
+                              {% assign filter_for = 'filter-road-' | append: calendar_year %}
+                            {% endif %}
+                            {% if filter_for != '' %}
+                              <label for="{{ filter_for }}" class="race-tag {{ class_array[forloop.index0] }}" title="Filter by {{ tag }}">{{ tag }}</label>
+                            {% else %}
+                              <span class="race-tag {{ class_array[forloop.index0] }}">{{ tag }}</span>
+                            {% endif %}
+                          {% endif %}
+                        {% endfor %}
+                      </span>
+                    {% endif %}
+                  </div>
+                {% endcapture %}
+                {% capture datetime_text %}{{ race.race_date | date: "%Y-%m-%d" }}{% endcapture %}
+                {% assign datetime_iso = race.race_date | date_to_xmlschema %}
+                {% include table_card.html datetime_text=datetime_text datetime_iso=datetime_iso title_html=title_html href=race.race_website body_html=body_html %}
+              </td>
+            </tr>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
     </tbody>
   </table>
 </div>
