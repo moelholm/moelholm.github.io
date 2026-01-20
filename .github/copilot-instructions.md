@@ -135,3 +135,57 @@ rm IMG_*.jpeg
 - ❌ Don't forget emojis
 - ❌ Don't leave original large files in the repo
 - ❌ Don't assume star ratings - confirm with user
+
+## Adding Races to the Calendar
+
+When adding **upcoming races** (not yet completed) to the race calendar, DO NOT create blog posts or modify templates. Simply update the race calendar markdown file:
+
+### Quick Guide: Adding a Race to the Calendar
+
+1. **Find the correct file**: `site/race_calendar_YYYY.md` (e.g., `site/race_calendar_2026.md`)
+2. **Add race entry** in the `races:` array in the YAML front matter
+3. **Insert in chronological order** by date
+4. **Use the following format**:
+
+```yaml
+  - date: "YYYY-MM-DD"
+    title: "Race Name"
+    distance: "21 km"  # or "42 km", "100 km", "24h", "♾️" for backyard ultras
+    tags: ["half"]  # or ["marathon"], ["ultra"], ["ultra", "trail"], ["ultra", "backyard", "trail"]
+    url: "https://race-website.com"
+    status: "pending"  # or "completed" (with blog_url) for finished races
+```
+
+### Example: Adding a Half Marathon
+
+```yaml
+  - date: "2026-04-12"
+    title: "Skjern Bank Løbet"
+    distance: "21 km"
+    tags: ["half"]
+    url: "https://www.sportstiming.dk/event/17237"
+    status: "pending"
+```
+
+### Common Tag Values
+
+- `["half"]` - Half marathon (21km)
+- `["marathon"]` - Marathon (42km)
+- `["ultra"]` - Ultra marathon (50km+)
+- `["ultra", "trail"]` - Trail ultra
+- `["ultra", "backyard", "trail"]` - Backyard ultra
+
+### After the Race is Completed
+
+1. Update the entry's `status` to `"completed"`
+2. Add `blog_url: "/blog/running/YYYY/MM/DD/race_name"` pointing to the race report
+3. Create a full race blog post in `site/blog_collections/_running/` following the Race Blog Posts guidelines above
+
+### Critical Lessons Learned
+
+- ❌ **DO NOT** create blog posts for upcoming races
+- ❌ **DO NOT** create data files in `_data/` for calendar entries
+- ❌ **DO NOT** modify template files like `site/_includes/races/table.html`
+- ✅ **DO** simply add the race entry to `site/race_calendar_YYYY.md`
+- ✅ **DO** keep the format consistent with existing entries
+- ✅ **DO** maintain chronological order by date
