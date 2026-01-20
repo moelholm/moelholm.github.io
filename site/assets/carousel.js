@@ -67,32 +67,20 @@
         // Enable loop so swiping past last slide goes to first
         loop: true,
         
-        // Events
+        // Events - single point of control for all slide changes
         on: {
-          slideChange: function() {
+          // This fires after slide transition completes - perfect for progress bar
+          slideChangeTransitionEnd: function() {
             updateActiveTeaserLink(this.realIndex);
-            // Reset immediately then start after brief delay to avoid visual flash
-            resetProgressBar();
-            setTimeout(function() {
-              startProgressBar();
-            }, 10);
-            console.log('Slide changed to index:', this.realIndex);
+            restartProgressBar();
           },
+          // Initial setup
           init: function() {
             updateActiveTeaserLink(this.realIndex);
-            // Reset then start on init
-            resetProgressBar();
-            setTimeout(function() {
-              startProgressBar();
-            }, 10);
+            restartProgressBar();
             console.log('Swiper initialized successfully! Active index: ' + this.realIndex);
-            console.log('Total slides:', this.slides.length);
-            console.log('Autoplay enabled:', this.autoplay.running);
           },
-          autoplayStop: function() {
-            pauseProgressBar();
-            console.log('Autoplay stopped');
-          },
+          // Pause/resume progress bar on hover
           autoplayPause: function() {
             pauseProgressBar();
           },
@@ -102,38 +90,33 @@
         }
       });
       
-      // Custom progress bar management
+      // Custom progress bar management - simplified and consolidated
       var progressBar = document.querySelector('.carousel-progress__bar');
-      var progressBarAnimation = null;
       
-      function resetProgressBar() {
+      function restartProgressBar() {
         if (!progressBar) return;
         
         // Remove animation class
         progressBar.classList.remove('animating');
         
-        // Force reflow
+        // Clear any inline styles from previous operations
+        progressBar.style.transition = '';
+        progressBar.style.width = '0%';
+        
+        // Force reflow to ensure reset is applied
         void progressBar.offsetWidth;
         
-        // Reset to 0%
-        progressBar.style.width = '0%';
-      }
-      
-      function startProgressBar() {
-        if (!progressBar) return;
-        
-        // Clear any inline transition from previous resume
-        progressBar.style.transition = '';
-        
-        // Start animation immediately (caller handles reset if needed)
-        progressBar.classList.add('animating');
-        progressBar.style.width = '100%';
+        // Start animation after brief delay
+        setTimeout(function() {
+          progressBar.classList.add('animating');
+          progressBar.style.width = '100%';
+        }, 10);
       }
       
       function pauseProgressBar() {
         if (!progressBar) return;
         
-        // Get current width and freeze it
+        // Get current computed width and freeze it
         var currentWidth = window.getComputedStyle(progressBar).width;
         progressBar.classList.remove('animating');
         progressBar.style.width = currentWidth;
@@ -142,24 +125,22 @@
       function resumeProgressBar() {
         if (!progressBar) return;
         
-        // Check if progress bar is at 100% (completed)
+        // Get current width percentage
         var currentWidthPercent = parseFloat(progressBar.style.width) || 0;
         
-        // If at 100% or very close, reset and restart
+        // If already at/near completion, restart fresh
         if (currentWidthPercent >= 99) {
-          resetProgressBar();
-          setTimeout(function() {
-            startProgressBar();
-          }, 10);
-        } else {
-          // Calculate remaining time based on current width
-          var remainingPercent = 100 - currentWidthPercent;
-          var remainingTime = (remainingPercent / 100) * 10000; // 10 seconds total
-          
-          // Resume animation with remaining time
-          progressBar.style.transition = 'width ' + (remainingTime / 1000) + 's linear';
-          progressBar.style.width = '100%';
+          restartProgressBar();
+          return;
         }
+        
+        // Calculate remaining time and resume
+        var remainingPercent = 100 - currentWidthPercent;
+        var remainingTime = (remainingPercent / 100) * 10000; // 10 seconds total
+        
+        // Apply calculated transition and resume to 100%
+        progressBar.style.transition = 'width ' + (remainingTime / 1000) + 's linear';
+        progressBar.style.width = '100%';
       }
       
       // Update active teaser link
@@ -183,7 +164,7 @@
           e.preventDefault();
           var slideIndex = parseInt(this.getAttribute('data-slide-to'), 10);
           
-          // Clear all active states immediately
+          // Clear all active states immediately for instant feedback
           for (var i = 0; i < teaserLinks.length; i++) {
             teaserLinks[i].classList.remove('active');
           }
@@ -192,14 +173,7 @@
           // Navigate to slide (use slideToLoop for loop mode)
           swiper.slideToLoop(slideIndex);
           
-          // Reset and start progress bar after brief delay
-          resetProgressBar();
-          setTimeout(function() {
-            startProgressBar();
-          }, 10);
-          
-          // Resume autoplay after manual navigation
-          swiper.autoplay.start();
+          // Note: Progress bar restarts automatically via slideChangeTransitionEnd event
         });
       });
       
