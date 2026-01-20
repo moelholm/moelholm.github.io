@@ -34,6 +34,13 @@ races:
     url: "https://www.wayout.dk/wbu"
     status: "pending"
   
+  - date: "2026-04-12"
+    title: "Skjern Bank Løbet"
+    distance: "21 km"
+    tags: ["half"]
+    url: "https://www.sportstiming.dk/event/17237"
+    status: "pending"
+  
   - date: "2026-05-10"
     title: "Copenhagen Marathon"
     distance: "42 km"
