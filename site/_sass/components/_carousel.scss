@@ -59,6 +59,11 @@
       border: 1px solid transparent;
       font-size: 0.9rem;
       
+      // Override visited link color to prevent red text
+      &:visited {
+        color: rgba($heading-secondary, 0.5);
+      }
+      
       &:hover {
         color: $link-color;
         text-decoration: none;
@@ -66,6 +71,11 @@
         border-color: rgba($link-color, 0.15);
         transform: translateY(-1px);
         box-shadow: 0 2px 8px rgba($link-color, 0.1);
+        
+        // Override visited color on hover too
+        &:visited {
+          color: $link-color;
+        }
       }
       
       &.active {
@@ -75,6 +85,11 @@
         border-color: $link-color;
         box-shadow: 0 2px 12px rgba($link-color, 0.25);
         transform: translateY(-1px);
+        
+        // Active link stays white even when visited
+        &:visited {
+          color: #fff;
+        }
       }
     }
     
