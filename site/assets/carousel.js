@@ -83,8 +83,11 @@
             console.log('Swiper initialized successfully! Active index: ' + this.realIndex);
           },
           afterInit: function() {
-            // Start progress bar after full initialization
-            restartProgressBar();
+            // Start progress bar after full initialization with small delay
+            setTimeout(function() {
+              restartProgressBar();
+              console.log('Progress bar started after init');
+            }, 100);
           },
           // Pause/resume progress bar on hover
           autoplayPause: function() {
