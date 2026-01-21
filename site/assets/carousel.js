@@ -69,13 +69,14 @@
         
         // Events - single point of control for all slide changes
         on: {
-          // This fires at the START of slide change - link and slide update together
+          // This fires at the START of slide change - reset progress bar and update link
           slideChange: function() {
             updateActiveTeaserLink(this.realIndex);
+            resetProgressBar();
           },
-          // This fires after transition completes - restart progress bar
+          // This fires after transition completes - start progress bar animation
           slideChangeTransitionEnd: function() {
-            restartProgressBar();
+            startProgressBar();
           },
           // Initial setup - use afterInit to ensure everything is ready
           init: function() {
@@ -102,7 +103,7 @@
       // Custom progress bar management - simplified and consolidated
       var progressBar = document.querySelector('.carousel-progress__bar');
       
-      function restartProgressBar() {
+      function resetProgressBar() {
         if (!progressBar) return;
         
         // Remove animation class
@@ -114,12 +115,25 @@
         
         // Force reflow to ensure reset is applied
         void progressBar.offsetWidth;
+      }
+      
+      function startProgressBar() {
+        if (!progressBar) return;
         
-        // Start animation after brief delay
-        setTimeout(function() {
-          progressBar.classList.add('animating');
-          progressBar.style.width = '100%';
-        }, 10);
+        // Ensure we're at 0% first
+        progressBar.style.width = '0%';
+        
+        // Force reflow
+        void progressBar.offsetWidth;
+        
+        // Start animation
+        progressBar.classList.add('animating');
+        progressBar.style.width = '100%';
+      }
+      
+      function restartProgressBar() {
+        resetProgressBar();
+        setTimeout(startProgressBar, 10);
       }
       
       function pauseProgressBar() {
@@ -182,7 +196,7 @@
           // Navigate to slide (use slideToLoop for loop mode)
           swiper.slideToLoop(slideIndex);
           
-          // Note: Progress bar restarts automatically via slideChangeTransitionEnd event
+          // Note: Progress bar resets in slideChange and starts in slideChangeTransitionEnd
         });
       });
       
