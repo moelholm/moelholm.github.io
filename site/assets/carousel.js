@@ -69,16 +69,22 @@
         
         // Events - single point of control for all slide changes
         on: {
-          // This fires after slide transition completes - perfect for progress bar
-          slideChangeTransitionEnd: function() {
+          // This fires at the START of slide change - link and slide update together
+          slideChange: function() {
             updateActiveTeaserLink(this.realIndex);
+          },
+          // This fires after transition completes - restart progress bar
+          slideChangeTransitionEnd: function() {
             restartProgressBar();
           },
-          // Initial setup
+          // Initial setup - use afterInit to ensure everything is ready
           init: function() {
             updateActiveTeaserLink(this.realIndex);
-            restartProgressBar();
             console.log('Swiper initialized successfully! Active index: ' + this.realIndex);
+          },
+          afterInit: function() {
+            // Start progress bar after full initialization
+            restartProgressBar();
           },
           // Pause/resume progress bar on hover
           autoplayPause: function() {
