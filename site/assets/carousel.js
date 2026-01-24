@@ -63,9 +63,12 @@
             console.log('Swiper initialized successfully! Active index: ' + this.realIndex);
           },
           afterInit: function() {
+            var self = this;
             setTimeout(function() {
+              // Force update of all styling including bullets, progress bar, and card titles
+              updateActiveTeaserLink(self.realIndex);
               restartProgressBar();
-              console.log('Progress bar started after init');
+              console.log('Progress bar started after init with index: ' + self.realIndex);
             }, 100);
           },
           autoplayPause: function() {
@@ -180,10 +183,12 @@
           }
           
           // Update active bullet color
-          var activeBullet = document.querySelector('.swiper-pagination-bullet-active');
-          if (activeBullet) {
-            activeBullet.style.background = activeColor;
-          }
+          setTimeout(function() {
+            var activeBullet = document.querySelector('.swiper-pagination-bullet-active');
+            if (activeBullet) {
+              activeBullet.style.background = activeColor;
+            }
+          }, 50);
           
           // Update card title colors
           var activeSlide = document.querySelector('.swiper-slide[data-slide-index="' + realIndex + '"]');
