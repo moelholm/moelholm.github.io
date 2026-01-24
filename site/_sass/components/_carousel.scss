@@ -110,11 +110,11 @@
     }
     
     &--upcoming {
-      background: linear-gradient(135deg, #fff9e6 0%, #fff1c7 100%);
-      color: #7a5b00;
+      background: linear-gradient(135deg, #fdfcf9 0%, #faf7f0 100%);
+      color: rgba(122, 91, 0, 0.6);
       
       &:visited {
-        color: #7a5b00;
+        color: rgba(122, 91, 0, 0.6);
       }
       
       &.active {
@@ -125,11 +125,11 @@
     }
     
     &--activities {
-      background: linear-gradient(135deg, #ffe9e0 0%, #ffd6c8 100%);
-      color: #cc4b00;
+      background: linear-gradient(135deg, #fffbf9 0%, #fff7f4 100%);
+      color: rgba(204, 75, 0, 0.6);
       
       &:visited {
-        color: #cc4b00;
+        color: rgba(204, 75, 0, 0.6);
       }
       
       &.active {
@@ -140,11 +140,11 @@
     }
     
     &--updates {
-      background: linear-gradient(135deg, #e4e8ff 0%, #d4daff 100%);
-      color: #3d4db3;
+      background: linear-gradient(135deg, #f9fafe 0%, #f5f7fe 100%);
+      color: rgba(61, 77, 179, 0.6);
       
       &:visited {
-        color: #3d4db3;
+        color: rgba(61, 77, 179, 0.6);
       }
       
       &.active {
@@ -155,11 +155,11 @@
     }
     
     &--posts {
-      background: linear-gradient(135deg, #e7f8ef 0%, #d5f2e5 100%);
-      color: #1e7b58;
+      background: linear-gradient(135deg, #f9fefb 0%, #f3fcf7 100%);
+      color: rgba(30, 123, 88, 0.6);
       
       &:visited {
-        color: #1e7b58;
+        color: rgba(30, 123, 88, 0.6);
       }
       
       &.active {
@@ -170,11 +170,11 @@
     }
     
     &--races {
-      background: linear-gradient(135deg, #e8f4ff 0%, #cfe6ff 100%);
-      color: #0f3166;
+      background: linear-gradient(135deg, #f9fcff 0%, #f2f8ff 100%);
+      color: rgba(15, 49, 102, 0.6);
       
       &:visited {
-        color: #0f3166;
+        color: rgba(15, 49, 102, 0.6);
       }
       
       &.active {
@@ -210,6 +210,27 @@
     }
   }
   
+  // Progress bar colors matching active slide
+  &[data-active-slide="0"] .carousel-progress__bar {
+    background: linear-gradient(90deg, rgba(122, 91, 0, 0.6) 0%, #7a5b00 100%);
+  }
+  
+  &[data-active-slide="1"] .carousel-progress__bar {
+    background: linear-gradient(90deg, rgba(204, 75, 0, 0.6) 0%, #cc4b00 100%);
+  }
+  
+  &[data-active-slide="2"] .carousel-progress__bar {
+    background: linear-gradient(90deg, rgba(61, 77, 179, 0.6) 0%, #3d4db3 100%);
+  }
+  
+  &[data-active-slide="3"] .carousel-progress__bar {
+    background: linear-gradient(90deg, rgba(30, 123, 88, 0.6) 0%, #1e7b58 100%);
+  }
+  
+  &[data-active-slide="4"] .carousel-progress__bar {
+    background: linear-gradient(90deg, rgba(15, 49, 102, 0.6) 0%, #0f3166 100%);
+  }
+  
   // Swiper bullet pagination (dots)
   .swiper-pagination {
     position: absolute !important;
@@ -242,6 +263,27 @@
       background: $link-color;
       transform: scale(1.3);
     }
+  }
+  
+  // Pagination bullet colors matching active slide
+  &[data-active-slide="0"] .swiper-pagination-bullet-active {
+    background: #7a5b00;
+  }
+  
+  &[data-active-slide="1"] .swiper-pagination-bullet-active {
+    background: #cc4b00;
+  }
+  
+  &[data-active-slide="2"] .swiper-pagination-bullet-active {
+    background: #3d4db3;
+  }
+  
+  &[data-active-slide="3"] .swiper-pagination-bullet-active {
+    background: #1e7b58;
+  }
+  
+  &[data-active-slide="4"] .swiper-pagination-bullet-active {
+    background: #0f3166;
   }
   
   // Responsive design

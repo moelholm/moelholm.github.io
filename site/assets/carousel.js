@@ -166,8 +166,9 @@
         progressBar.style.width = '100%';
       }
       
-      // Update active navigation card
+      // Update active navigation card and color indicators
       function updateActiveTeaserLink(realIndex) {
+        // Update active class on navigation cards
         for (var i = 0; i < navCards.length; i++) {
           navCards[i].classList.remove('active');
         }
@@ -178,6 +179,12 @@
             navCards[j].classList.add('active');
             break;
           }
+        }
+        
+        // Update data-active-slide on carousel section to change progress bar and dot colors
+        var carouselSection = document.querySelector('.home-carousel-section');
+        if (carouselSection) {
+          carouselSection.setAttribute('data-active-slide', realIndex);
         }
       }
       
