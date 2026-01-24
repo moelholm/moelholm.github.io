@@ -14,15 +14,15 @@
       return;
     }
     
-    var teaserLinks = document.querySelectorAll('.carousel-teaser__item');
-    if (teaserLinks.length === 0) {
-      console.warn('No teaser links found');
+    var navCards = document.querySelectorAll('.carousel-nav-card');
+    if (navCards.length === 0) {
+      console.warn('No navigation cards found');
       return;
     }
     
     console.log('Initializing Swiper carousel...');
     console.log('Found container:', swiperContainer);
-    console.log('Found', teaserLinks.length, 'teaser links');
+    console.log('Found', navCards.length, 'navigation cards');
     console.log('Swiper library version:', Swiper.version || 'unknown');
     
     try {
@@ -166,41 +166,39 @@
         progressBar.style.width = '100%';
       }
       
-      // Update active teaser link
+      // Update active navigation card
       function updateActiveTeaserLink(realIndex) {
-        for (var i = 0; i < teaserLinks.length; i++) {
-          teaserLinks[i].classList.remove('active');
+        for (var i = 0; i < navCards.length; i++) {
+          navCards[i].classList.remove('active');
         }
         
-        for (var j = 0; j < teaserLinks.length; j++) {
-          var slideIndex = parseInt(teaserLinks[j].getAttribute('data-slide-to'), 10);
+        for (var j = 0; j < navCards.length; j++) {
+          var slideIndex = parseInt(navCards[j].getAttribute('data-slide-to'), 10);
           if (slideIndex === realIndex) {
-            teaserLinks[j].classList.add('active');
+            navCards[j].classList.add('active');
             break;
           }
         }
       }
       
-      // Click handlers for teaser links
-      teaserLinks.forEach(function(link) {
-        link.addEventListener('click', function(e) {
+      // Click handlers for navigation cards
+      navCards.forEach(function(card) {
+        card.addEventListener('click', function(e) {
           e.preventDefault();
           var slideIndex = parseInt(this.getAttribute('data-slide-to'), 10);
           
           // Clear all active states immediately for instant feedback
-          for (var i = 0; i < teaserLinks.length; i++) {
-            teaserLinks[i].classList.remove('active');
+          for (var i = 0; i < navCards.length; i++) {
+            navCards[i].classList.remove('active');
           }
           this.classList.add('active');
           
           // Navigate to slide (use slideToLoop for loop mode)
           swiper.slideToLoop(slideIndex);
-          
-          // Note: Progress bar resets in slideChange and starts in slideChangeTransitionEnd
         });
       });
       
-      console.log('Swiper carousel ready with ' + teaserLinks.length + ' navigation links');
+      console.log('Swiper carousel ready with ' + navCards.length + ' navigation cards');
       
     } catch (error) {
       console.error('Error initializing Swiper:', error);
