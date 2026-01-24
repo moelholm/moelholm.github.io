@@ -74,7 +74,7 @@ posts|Posts|fa-solid fa-book-open|running|/running/|#1e7b58|#f9fefb|#f3fcf7|#c2e
     {% endif %}
   {% endcapture %}
   
-  {% assign carousel_cards = carousel_cards_data | strip | split: '||' %}
+  {% assign carousel_cards = carousel_cards_data | strip | split: newline | where_exp: "item", "item != ''" %}
 
   <!-- Carousel navigation cards -->
   <div class="carousel-nav-cards">
