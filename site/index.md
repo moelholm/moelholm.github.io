@@ -45,6 +45,9 @@ stylesheets:
   <!-- Carousel navigation cards -->
   <div class="carousel-nav-cards">
     {% if upcoming_races and upcoming_races.size > 0 %}
+      <a href="#homeCarousel" data-slide-to="4" class="carousel-nav-card carousel-nav-card--races" aria-label="Go to Previous Races slide">
+        <i class="fa-solid fa-trophy"></i> Previous Races
+      </a>
       <a href="#homeCarousel" data-slide-to="0" class="carousel-nav-card carousel-nav-card--upcoming" aria-label="Go to Upcoming Races slide">
         <i class="fa-solid fa-flag-checkered"></i> Upcoming Races
       </a>
@@ -57,10 +60,10 @@ stylesheets:
       <a href="#homeCarousel" data-slide-to="3" class="carousel-nav-card carousel-nav-card--posts" aria-label="Go to Posts slide">
         <i class="fa-solid fa-book-open"></i> Posts
       </a>
-      <a href="#homeCarousel" data-slide-to="4" class="carousel-nav-card carousel-nav-card--races" aria-label="Go to Previous Races slide">
+    {% else %}
+      <a href="#homeCarousel" data-slide-to="3" class="carousel-nav-card carousel-nav-card--races" aria-label="Go to Previous Races slide">
         <i class="fa-solid fa-trophy"></i> Previous Races
       </a>
-    {% else %}
       <a href="#homeCarousel" data-slide-to="0" class="carousel-nav-card carousel-nav-card--activities" aria-label="Go to Activities slide">
         <i class="fa-solid fa-person-running"></i> Activities
       </a>
@@ -69,9 +72,6 @@ stylesheets:
       </a>
       <a href="#homeCarousel" data-slide-to="2" class="carousel-nav-card carousel-nav-card--posts" aria-label="Go to Posts slide">
         <i class="fa-solid fa-book-open"></i> Posts
-      </a>
-      <a href="#homeCarousel" data-slide-to="3" class="carousel-nav-card carousel-nav-card--races" aria-label="Go to Previous Races slide">
-        <i class="fa-solid fa-trophy"></i> Previous Races
       </a>
     {% endif %}
   </div>

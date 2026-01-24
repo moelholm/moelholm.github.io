@@ -30,6 +30,42 @@
     .blog-item {
       border: none !important;
     }
+    
+    // Color card titles to match navigation cards
+    &[data-slide-index="0"] .home-post__title {
+      color: #7a5b00 !important; // Upcoming races yellow
+      &:hover, &:focus {
+        color: #5c4400 !important;
+      }
+    }
+    
+    &[data-slide-index="1"] .home-post__title {
+      color: #cc4b00 !important; // Activities orange
+      &:hover, &:focus {
+        color: #a33d00 !important;
+      }
+    }
+    
+    &[data-slide-index="2"] .home-post__title {
+      color: #3d4db3 !important; // Updates purple
+      &:hover, &:focus {
+        color: #2d3d8c !important;
+      }
+    }
+    
+    &[data-slide-index="3"] .home-post__title {
+      color: #1e7b58 !important; // Posts green
+      &:hover, &:focus {
+        color: #166044 !important;
+      }
+    }
+    
+    &[data-slide-index="4"] .home-post__title {
+      color: #0f3166 !important; // Previous races blue
+      &:hover, &:focus {
+        color: #0a244d !important;
+      }
+    }
   }
   
   // Carousel navigation cards
@@ -49,7 +85,7 @@
     font-size: 0.9rem;
     font-weight: 600;
     padding: 0.4rem 0.7rem;
-    border-radius: 12px;
+    border-radius: 4px;
     border: 1px solid rgba(252, 76, 2, 0.2);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     transition: transform 0.15s ease, box-shadow 0.15s ease;
