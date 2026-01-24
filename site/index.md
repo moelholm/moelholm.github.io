@@ -43,22 +43,34 @@ stylesheets:
   {% assign race_posts = site.running | where_exp: 'p','p.tags contains "race"' | sort: 'date' | reverse %}
 
   {% comment %}
-  Define carousel card groups with their colors and content.
-  Each group defines: id, title, icon, items, kind, more_url, color
-  To add a new card, simply add a new entry here.
+  Carousel card definitions - single source of truth for all card properties.
+  Format: id|title|icon|kind|url|color|lightBg1|lightBg2|activeBg1|activeBg2|activeText||
+  
+  Fields:
+  - id: unique identifier
+  - title: display title
+  - icon: Font Awesome icon class
+  - kind: content type (maps to items collection below)
+  - url: "more" link URL
+  - color: primary color (for progress bar, dots, titles)
+  - lightBg1, lightBg2: inactive card gradient colors
+  - activeBg1, activeBg2: active card gradient colors
+  - activeText: active card text color
+  
+  To add a new card: add one line with all 11 fields. No other file changes needed.
   {% endcomment %}
   {% capture carousel_cards_data %}
     {% if upcoming_races and upcoming_races.size > 0 %}
-      previous-races|Previous Races|fa-solid fa-trophy|{{ race_posts | jsonify }}|previous_races|/races|#0f3166||
-      upcoming-races|Upcoming Races|fa-solid fa-flag-checkered|{{ upcoming_races | jsonify }}|upcoming_races|/race-calendar-2026/|#7a5b00||
-      activities|Activities|fa-solid fa-person-running|{{ activities | jsonify }}|activities|/activities/|#cc4b00||
-      updates|Updates|fa-brands fa-mastodon|{{ entries | jsonify }}|toots|/toots/|#3d4db3||
-      posts|Posts|fa-solid fa-book-open|{{ latest | jsonify }}|running|/running/|#1e7b58
+previous-races|Previous Races|fa-solid fa-trophy|previous_races|/races|#0f3166|#f9fcff|#f2f8ff|#b5daff|#99c9ff|#0a244d||
+upcoming-races|Upcoming Races|fa-solid fa-flag-checkered|upcoming_races|/race-calendar-2026/|#7a5b00|#fdfcf9|#faf7f0|#ffeb99|#ffd966|#5c4400||
+activities|Activities|fa-solid fa-person-running|activities|/activities/|#cc4b00|#fffbf9|#fff7f4|#ffccb3|#ffb399|#a33d00||
+updates|Updates|fa-brands fa-mastodon|toots|/toots/|#3d4db3|#f9fafe|#f5f7fe|#c4ccff|#b0bbff|#2d3d8c||
+posts|Posts|fa-solid fa-book-open|running|/running/|#1e7b58|#f9fefb|#f3fcf7|#c2ebd5|#aee3c5|#166044
     {% else %}
-      previous-races|Previous Races|fa-solid fa-trophy|{{ race_posts | jsonify }}|previous_races|/races|#0f3166||
-      activities|Activities|fa-solid fa-person-running|{{ activities | jsonify }}|activities|/activities/|#cc4b00||
-      updates|Updates|fa-brands fa-mastodon|{{ entries | jsonify }}|toots|/toots/|#3d4db3||
-      posts|Posts|fa-solid fa-book-open|{{ latest | jsonify }}|running|/running/|#1e7b58
+previous-races|Previous Races|fa-solid fa-trophy|previous_races|/races|#0f3166|#f9fcff|#f2f8ff|#b5daff|#99c9ff|#0a244d||
+activities|Activities|fa-solid fa-person-running|activities|/activities/|#cc4b00|#fffbf9|#fff7f4|#ffccb3|#ffb399|#a33d00||
+updates|Updates|fa-brands fa-mastodon|toots|/toots/|#3d4db3|#f9fafe|#f5f7fe|#c4ccff|#b0bbff|#2d3d8c||
+posts|Posts|fa-solid fa-book-open|running|/running/|#1e7b58|#f9fefb|#f3fcf7|#c2ebd5|#aee3c5|#166044
     {% endif %}
   {% endcapture %}
   
@@ -68,20 +80,28 @@ stylesheets:
   <div class="carousel-nav-cards">
     {% for card_line in carousel_cards %}
       {% assign card_parts = card_line | strip | split: '|' %}
-      {% if card_parts.size >= 7 %}
-        {% assign card_id = card_parts[0] %}
-        {% assign card_title = card_parts[1] %}
-        {% assign card_icon = card_parts[2] %}
-        {% assign card_color = card_parts[6] %}
-        <a href="#homeCarousel" 
-           data-slide-to="{{ forloop.index0 }}" 
-           data-card-id="{{ card_id }}"
-           data-color="{{ card_color }}"
-           class="carousel-nav-card" 
-           aria-label="Go to {{ card_title }} slide">
-          <i class="{{ card_icon }}"></i> {{ card_title }}
-        </a>
-      {% endif %}
+      {% assign card_id = card_parts[0] %}
+      {% assign card_title = card_parts[1] %}
+      {% assign card_icon = card_parts[2] %}
+      {% assign card_color = card_parts[5] %}
+      {% assign card_light_bg1 = card_parts[6] %}
+      {% assign card_light_bg2 = card_parts[7] %}
+      {% assign card_active_bg1 = card_parts[8] %}
+      {% assign card_active_bg2 = card_parts[9] %}
+      {% assign card_active_text = card_parts[10] %}
+      <a href="#homeCarousel" 
+         data-slide-to="{{ forloop.index0 }}" 
+         data-card-id="{{ card_id }}"
+         data-color="{{ card_color }}"
+         data-light-bg1="{{ card_light_bg1 }}"
+         data-light-bg2="{{ card_light_bg2 }}"
+         data-active-bg1="{{ card_active_bg1 }}"
+         data-active-bg2="{{ card_active_bg2 }}"
+         data-active-text="{{ card_active_text }}"
+         class="carousel-nav-card" 
+         aria-label="Go to {{ card_title }} slide">
+        <i class="{{ card_icon }}"></i> {{ card_title }}
+      </a>
     {% endfor %}
   </div>
 
@@ -98,36 +118,34 @@ stylesheets:
     <div class="swiper-wrapper">
       {% for card_line in carousel_cards %}
         {% assign card_parts = card_line | strip | split: '|' %}
-        {% if card_parts.size >= 7 %}
-          {% assign card_id = card_parts[0] %}
-          {% assign card_title = card_parts[1] %}
-          {% assign card_items_json = card_parts[3] %}
-          {% assign card_kind = card_parts[4] %}
-          {% assign card_more_url = card_parts[5] %}
-          {% assign card_color = card_parts[6] %}
-          {% assign card_items = card_items_json | strip %}
-          
-          <div class="swiper-slide" 
-               data-slide-index="{{ forloop.index0 }}"
-               data-card-id="{{ card_id }}"
-               data-color="{{ card_color }}">
-            <div class="home-grid__main">
-              {% case card_kind %}
-                {% when 'upcoming_races' %}
-                  {% assign items_array = upcoming_races %}
-                {% when 'activities' %}
-                  {% assign items_array = activities %}
-                {% when 'toots' %}
-                  {% assign items_array = entries %}
-                {% when 'running' %}
-                  {% assign items_array = latest %}
-                {% when 'previous_races' %}
-                  {% assign items_array = race_posts %}
-              {% endcase %}
-              {% include home/section_list.html title=card_title items=items_array limit=2 kind=card_kind more_url=card_more_url grid='home-samples--two' hide_title=true %}
-            </div>
+        {% assign card_id = card_parts[0] %}
+        {% assign card_title = card_parts[1] %}
+        {% assign card_kind = card_parts[3] %}
+        {% assign card_more_url = card_parts[4] %}
+        {% assign card_color = card_parts[5] %}
+        
+        {% comment %}Map kind to actual items collection{% endcomment %}
+        {% case card_kind %}
+          {% when 'upcoming_races' %}
+            {% assign items_array = upcoming_races %}
+          {% when 'activities' %}
+            {% assign items_array = activities %}
+          {% when 'toots' %}
+            {% assign items_array = entries %}
+          {% when 'running' %}
+            {% assign items_array = latest %}
+          {% when 'previous_races' %}
+            {% assign items_array = race_posts %}
+        {% endcase %}
+        
+        <div class="swiper-slide" 
+             data-slide-index="{{ forloop.index0 }}"
+             data-card-id="{{ card_id }}"
+             data-color="{{ card_color }}">
+          <div class="home-grid__main">
+            {% include home/section_list.html title=card_title items=items_array limit=2 kind=card_kind more_url=card_more_url grid='home-samples--two' hide_title=true %}
           </div>
-        {% endif %}
+        </div>
       {% endfor %}
     </div>
   </div>

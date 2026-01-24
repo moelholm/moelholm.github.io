@@ -130,15 +130,14 @@
         return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + alpha + ')';
       }
       
-      function getColorPalette(color) {
-        var palettes = {
-          '#7a5b00': { lightBg1: '#fdfcf9', lightBg2: '#faf7f0', activeBg1: '#ffeb99', activeBg2: '#ffd966', activeText: '#5c4400' },
-          '#cc4b00': { lightBg1: '#fffbf9', lightBg2: '#fff7f4', activeBg1: '#ffccb3', activeBg2: '#ffb399', activeText: '#a33d00' },
-          '#3d4db3': { lightBg1: '#f9fafe', lightBg2: '#f5f7fe', activeBg1: '#c4ccff', activeBg2: '#b0bbff', activeText: '#2d3d8c' },
-          '#1e7b58': { lightBg1: '#f9fefb', lightBg2: '#f3fcf7', activeBg1: '#c2ebd5', activeBg2: '#aee3c5', activeText: '#166044' },
-          '#0f3166': { lightBg1: '#f9fcff', lightBg2: '#f2f8ff', activeBg1: '#b5daff', activeBg2: '#99c9ff', activeText: '#0a244d' }
+      function getColorPaletteFromCard(card) {
+        return {
+          lightBg1: card.getAttribute('data-light-bg1'),
+          lightBg2: card.getAttribute('data-light-bg2'),
+          activeBg1: card.getAttribute('data-active-bg1'),
+          activeBg2: card.getAttribute('data-active-bg2'),
+          activeText: card.getAttribute('data-active-text')
         };
-        return palettes[color] || palettes['#7a5b00'];
       }
       
       function updateActiveTeaserLink(realIndex) {
@@ -160,19 +159,19 @@
         
         if (activeCard && activeColor) {
           activeCard.classList.add('active');
-          var palette = getColorPalette(activeColor);
+          var activePalette = getColorPaletteFromCard(activeCard);
           
-          // Apply inactive colors to all cards based on their own color
+          // Apply inactive colors to all cards from their own data attributes
           navCards.forEach(function(card) {
             var cardColor = card.getAttribute('data-color');
-            var cardPalette = getColorPalette(cardColor);
+            var cardPalette = getColorPaletteFromCard(card);
             card.style.background = 'linear-gradient(135deg, ' + cardPalette.lightBg1 + ' 0%, ' + cardPalette.lightBg2 + ' 100%)';
             card.style.color = hexToRgba(cardColor, 0.6);
           });
           
-          // Apply active styling to the active card
-          activeCard.style.background = 'linear-gradient(135deg, ' + palette.activeBg1 + ' 0%, ' + palette.activeBg2 + ' 100%)';
-          activeCard.style.color = palette.activeText;
+          // Apply active styling to the active card from its data attributes
+          activeCard.style.background = 'linear-gradient(135deg, ' + activePalette.activeBg1 + ' 0%, ' + activePalette.activeBg2 + ' 100%)';
+          activeCard.style.color = activePalette.activeText;
           
           // Update progress bar color
           if (progressBar) {
