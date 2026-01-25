@@ -60,18 +60,14 @@
           },
           init: function() {
             console.log('Swiper initialized successfully! Active index: ' + this.realIndex);
-            // Don't call updateActiveTeaserLink here - bullets don't exist yet
-            // Wait for afterInit when everything is fully rendered
-          },
-          afterInit: function() {
             var self = this;
-            // Use longer delay to ensure all DOM elements (including bullets) are fully rendered
+            // Apply initial styling for nav cards immediately
+            updateActiveTeaserLink(self.realIndex);
+            // Start progress bar after a short delay to ensure DOM is ready
             setTimeout(function() {
-              // Apply all styling: nav cards, bullets, progress bar, and card titles
-              updateActiveTeaserLink(self.realIndex);
               restartProgressBar();
               console.log('Progress bar started after init with index: ' + self.realIndex);
-            }, 150);
+            }, 100);
           },
           autoplayPause: function() {
             pauseProgressBar();
@@ -219,6 +215,11 @@
       });
       
       console.log('Swiper carousel ready with ' + navCards.length, 'navigation cards');
+      
+      // Force immediate styling update after swiper is fully initialized
+      setTimeout(function() {
+        updateActiveTeaserLink(swiper.realIndex);
+      }, 200);
       
     } catch (error) {
       console.error('Error initializing Swiper:', error);
