@@ -202,8 +202,8 @@
             });
           });
           
-          // Set color for active slide titles
-          var activeSlide = document.querySelector('.swiper-slide[data-slide-index="' + realIndex + '"]');
+          // Set color for active slide titles using Swiper's active class
+          var activeSlide = document.querySelector('.swiper-slide-active');
           if (activeSlide) {
             var titles = activeSlide.querySelectorAll('.home-post__title');
             titles.forEach(function(title) {
