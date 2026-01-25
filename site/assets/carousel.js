@@ -85,7 +85,7 @@
         progressBar.classList.remove('animating');
         progressBar.style.transition = '';
         progressBar.style.width = '0%';
-        progressBar.style.background = '';
+        // Don't clear background - keep the color set by updateActiveTeaserLink
         void progressBar.offsetWidth;
       }
       
@@ -180,8 +180,12 @@
             progressBar.style.background = 'linear-gradient(90deg, ' + colorRgba + ' 0%, ' + activeColor + ' 100%)';
           }
           
-          // Update active bullet color
+          // Update bullet colors - clear all first, then set active
           setTimeout(function() {
+            var allBullets = document.querySelectorAll('.swiper-pagination-bullet');
+            allBullets.forEach(function(bullet) {
+              bullet.style.background = ''; // Clear any previous color
+            });
             var activeBullet = document.querySelector('.swiper-pagination-bullet-active');
             if (activeBullet) {
               activeBullet.style.background = activeColor;
@@ -189,6 +193,16 @@
           }, 50);
           
           // Update card title colors
+          // Clear all titles first
+          var allSlides = document.querySelectorAll('.swiper-slide');
+          allSlides.forEach(function(slide) {
+            var titles = slide.querySelectorAll('.home-post__title');
+            titles.forEach(function(title) {
+              title.style.color = ''; // Clear previous color
+            });
+          });
+          
+          // Set color for active slide titles
           var activeSlide = document.querySelector('.swiper-slide[data-slide-index="' + realIndex + '"]');
           if (activeSlide) {
             var titles = activeSlide.querySelectorAll('.home-post__title');
