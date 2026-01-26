@@ -59,14 +59,11 @@
             startProgressBar();
             
             // Update card title colors after transition completes
-            console.log('[Card Titles] slideChangeTransitionEnd - color:', window.carouselActiveColor);
             if (window.carouselActiveColor) {
               // Clear all titles first
               var allSlides = document.querySelectorAll('.swiper-slide');
-              console.log('[Card Titles] Found', allSlides.length, 'slides');
               allSlides.forEach(function(slide) {
-                var titles = slide.querySelectorAll('.home-post__title');
-                console.log('[Card Titles] Slide has', titles.length, 'titles');
+                var titles = slide.querySelectorAll('.post-title-link');
                 titles.forEach(function(title) {
                   title.style.color = ''; // Clear previous color
                 });
@@ -74,18 +71,12 @@
               
               // Set color for active slide titles
               var activeSlide = document.querySelector('.swiper-slide-active');
-              console.log('[Card Titles] Active slide:', activeSlide);
               if (activeSlide) {
-                var titles = activeSlide.querySelectorAll('.home-post__title');
-                console.log('[Card Titles] Active slide has', titles.length, 'titles, setting to', window.carouselActiveColor);
+                var titles = activeSlide.querySelectorAll('.post-title-link');
                 titles.forEach(function(title) {
-                  console.log('[Card Titles] Setting title:', title.textContent, 'to color:', window.carouselActiveColor);
                   title.style.color = window.carouselActiveColor;
-                  console.log('[Card Titles] Title now has color:', title.style.color);
                 });
               }
-            } else {
-              console.warn('[Card Titles] window.carouselActiveColor not set!');
             }
           },
           init: function() {
@@ -224,7 +215,6 @@
           
           // Store the color for later use in slideChangeTransitionEnd
           window.carouselActiveColor = activeColor;
-          console.log('[updateActiveTeaserLink] Set window.carouselActiveColor to:', activeColor);
         }
       }
       
@@ -251,21 +241,14 @@
         
         // Also update card titles initially
         setTimeout(function() {
-          console.log('[Init] Applying initial card title colors, color:', window.carouselActiveColor);
           if (window.carouselActiveColor) {
             var activeSlide = document.querySelector('.swiper-slide-active');
-            console.log('[Init] Active slide:', activeSlide);
             if (activeSlide) {
-              var titles = activeSlide.querySelectorAll('.home-post__title');
-              console.log('[Init] Found', titles.length, 'titles in active slide');
+              var titles = activeSlide.querySelectorAll('.post-title-link');
               titles.forEach(function(title) {
-                console.log('[Init] Setting title:', title.textContent, 'to color:', window.carouselActiveColor);
                 title.style.color = window.carouselActiveColor;
-                console.log('[Init] Title now has color:', title.style.color);
               });
             }
-          } else {
-            console.warn('[Init] window.carouselActiveColor not set during init!');
           }
         }, 100);
       }, 200);
