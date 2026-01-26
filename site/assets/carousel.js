@@ -27,8 +27,7 @@
       var swiper = new Swiper('#homeCarousel', {
         autoplay: {
           delay: 10000,
-          disableOnInteraction: false,
-          pauseOnMouseEnter: true
+          disableOnInteraction: false
         },
         pagination: {
           el: '.swiper-pagination',
@@ -60,12 +59,12 @@
             
             // Update card title colors after transition completes
             if (window.carouselActiveColor) {
-              // Clear all titles first
+              // Reset all titles to default content link color first
               var allSlides = document.querySelectorAll('.swiper-slide');
               allSlides.forEach(function(slide) {
                 var titles = slide.querySelectorAll('.post-title-link');
                 titles.forEach(function(title) {
-                  title.style.color = ''; // Clear previous color
+                  title.style.color = '#374151'; // Neutral slate color for inactive titles
                 });
               });
               
@@ -239,8 +238,18 @@
       setTimeout(function() {
         updateActiveTeaserLink(swiper.realIndex);
         
-        // Also update card titles initially
+        // Also update card titles initially - set all to neutral first, then active to category color
         setTimeout(function() {
+          // Set all titles to neutral color first
+          var allSlides = document.querySelectorAll('.swiper-slide');
+          allSlides.forEach(function(slide) {
+            var titles = slide.querySelectorAll('.post-title-link');
+            titles.forEach(function(title) {
+              title.style.color = '#374151'; // Neutral slate color for inactive titles
+            });
+          });
+          
+          // Then set active slide titles to category color
           if (window.carouselActiveColor) {
             var activeSlide = document.querySelector('.swiper-slide-active');
             if (activeSlide) {
