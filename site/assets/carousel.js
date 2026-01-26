@@ -193,23 +193,26 @@
           }, 50);
           
           // Update card title colors
-          // Clear all titles first
-          var allSlides = document.querySelectorAll('.swiper-slide');
-          allSlides.forEach(function(slide) {
-            var titles = slide.querySelectorAll('.home-post__title');
-            titles.forEach(function(title) {
-              title.style.color = ''; // Clear previous color
+          // Use a small delay to ensure Swiper has updated the active class
+          setTimeout(function() {
+            // Clear all titles first
+            var allSlides = document.querySelectorAll('.swiper-slide');
+            allSlides.forEach(function(slide) {
+              var titles = slide.querySelectorAll('.home-post__title');
+              titles.forEach(function(title) {
+                title.style.color = ''; // Clear previous color
+              });
             });
-          });
-          
-          // Set color for active slide titles using Swiper's active class
-          var activeSlide = document.querySelector('.swiper-slide-active');
-          if (activeSlide) {
-            var titles = activeSlide.querySelectorAll('.home-post__title');
-            titles.forEach(function(title) {
-              title.style.color = activeColor;
-            });
-          }
+            
+            // Set color for active slide titles using Swiper's active class
+            var activeSlide = document.querySelector('.swiper-slide-active');
+            if (activeSlide) {
+              var titles = activeSlide.querySelectorAll('.home-post__title');
+              titles.forEach(function(title) {
+                title.style.color = activeColor;
+              });
+            }
+          }, 100);
         }
       }
       
