@@ -57,6 +57,27 @@
           },
           slideChangeTransitionEnd: function() {
             startProgressBar();
+            
+            // Update card title colors after transition completes
+            if (window.carouselActiveColor) {
+              // Clear all titles first
+              var allSlides = document.querySelectorAll('.swiper-slide');
+              allSlides.forEach(function(slide) {
+                var titles = slide.querySelectorAll('.home-post__title');
+                titles.forEach(function(title) {
+                  title.style.color = ''; // Clear previous color
+                });
+              });
+              
+              // Set color for active slide titles
+              var activeSlide = document.querySelector('.swiper-slide-active');
+              if (activeSlide) {
+                var titles = activeSlide.querySelectorAll('.home-post__title');
+                titles.forEach(function(title) {
+                  title.style.color = window.carouselActiveColor;
+                });
+              }
+            }
           },
           init: function() {
             console.log('Swiper initialized successfully! Active index: ' + this.realIndex);
@@ -192,27 +213,8 @@
             }
           }, 50);
           
-          // Update card title colors
-          // Use a small delay to ensure Swiper has updated the active class
-          setTimeout(function() {
-            // Clear all titles first
-            var allSlides = document.querySelectorAll('.swiper-slide');
-            allSlides.forEach(function(slide) {
-              var titles = slide.querySelectorAll('.home-post__title');
-              titles.forEach(function(title) {
-                title.style.color = ''; // Clear previous color
-              });
-            });
-            
-            // Set color for active slide titles using Swiper's active class
-            var activeSlide = document.querySelector('.swiper-slide-active');
-            if (activeSlide) {
-              var titles = activeSlide.querySelectorAll('.home-post__title');
-              titles.forEach(function(title) {
-                title.style.color = activeColor;
-              });
-            }
-          }, 100);
+          // Store the color for later use in slideChangeTransitionEnd
+          window.carouselActiveColor = activeColor;
         }
       }
       
@@ -236,6 +238,19 @@
       // Force immediate styling update after swiper is fully initialized
       setTimeout(function() {
         updateActiveTeaserLink(swiper.realIndex);
+        
+        // Also update card titles initially
+        setTimeout(function() {
+          if (window.carouselActiveColor) {
+            var activeSlide = document.querySelector('.swiper-slide-active');
+            if (activeSlide) {
+              var titles = activeSlide.querySelectorAll('.home-post__title');
+              titles.forEach(function(title) {
+                title.style.color = window.carouselActiveColor;
+              });
+            }
+          }
+        }, 100);
       }, 200);
       
     } catch (error) {
