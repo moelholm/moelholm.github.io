@@ -64,7 +64,7 @@
               allSlides.forEach(function(slide) {
                 var titles = slide.querySelectorAll('.post-title-link');
                 titles.forEach(function(title) {
-                  title.style.color = '#374151'; // Neutral slate color for inactive titles
+                  title.style.setProperty('color', '#374151', 'important');
                 });
               });
               
@@ -73,7 +73,7 @@
               if (activeSlide) {
                 var titles = activeSlide.querySelectorAll('.post-title-link');
                 titles.forEach(function(title) {
-                  title.style.color = window.carouselActiveColor;
+                  title.style.setProperty('color', window.carouselActiveColor, 'important');
                 });
               }
             }
@@ -245,7 +245,7 @@
           allSlides.forEach(function(slide) {
             var titles = slide.querySelectorAll('.post-title-link');
             titles.forEach(function(title) {
-              title.style.color = '#374151'; // Neutral slate color for inactive titles
+              title.style.setProperty('color', '#374151', 'important');
             });
           });
           
@@ -255,7 +255,7 @@
             if (activeSlide) {
               var titles = activeSlide.querySelectorAll('.post-title-link');
               titles.forEach(function(title) {
-                title.style.color = window.carouselActiveColor;
+                title.style.setProperty('color', window.carouselActiveColor, 'important');
               });
             }
           }
