@@ -44,33 +44,36 @@ stylesheets:
 
   {% comment %}
   Carousel card definitions - single source of truth for all card properties.
-  Format: id|title|icon|kind|url|color|lightBg1|lightBg2|activeBg1|activeBg2|activeText||
+  Format: id|title|icon|items_var|url|base_color||
   
   Fields:
   - id: unique identifier
   - title: display title
   - icon: Font Awesome icon class
-  - kind: content type (maps to items collection below)
+  - items_var: variable name for items collection (e.g., 'race_posts', 'activities', 'entries', 'latest', 'upcoming_races')
   - url: "more" link URL
-  - color: primary color (for progress bar, dots, titles)
-  - lightBg1, lightBg2: inactive card gradient colors
-  - activeBg1, activeBg2: active card gradient colors
-  - activeText: active card text color
+  - base_color: primary color hex (all other colors derived automatically)
   
-  To add a new card: add one line with all 11 fields. No other file changes needed.
+  Colors derived from base_color:
+  - Primary: for progress bar, active bullet, card titles
+  - Inactive backgrounds: very light tints (2% and 5% opacity)
+  - Active backgrounds: medium tints (40% and 55% opacity)
+  - Active text: darkened version (70% brightness)
+  
+  To add a new card: add one line with 6 fields. No JavaScript or CSS changes needed.
   {% endcomment %}
   {% capture carousel_cards_data %}
     {% if upcoming_races and upcoming_races.size > 0 %}
-previous-races|Previous Races|fa-solid fa-trophy|previous_races|/races|#0f3166|#f9fcff|#f2f8ff|#b5daff|#99c9ff|#0a244d||
-upcoming-races|Upcoming Races|fa-solid fa-flag-checkered|upcoming_races|/race-calendar-2026/|#7a5b00|#fdfcf9|#faf7f0|#ffeb99|#ffd966|#5c4400||
-activities|Activities|fa-solid fa-person-running|activities|/activities/|#cc4b00|#fffbf9|#fff7f4|#ffccb3|#ffb399|#a33d00||
-updates|Updates|fa-brands fa-mastodon|toots|/toots/|#3d4db3|#f9fafe|#f5f7fe|#c4ccff|#b0bbff|#2d3d8c||
-posts|Posts|fa-solid fa-book-open|running|/running/|#1e7b58|#f9fefb|#f3fcf7|#c2ebd5|#aee3c5|#166044
+previous-races|Previous Races|fa-solid fa-trophy|race_posts|/races|#0f3166||
+upcoming-races|Upcoming Races|fa-solid fa-flag-checkered|upcoming_races|/race-calendar-2026/|#d4a300||
+activities|Activities|fa-solid fa-person-running|activities|/activities/|#ff6600||
+updates|Updates|fa-brands fa-mastodon|entries|/toots/|#5d6dcc||
+posts|Posts|fa-solid fa-book-open|latest|/running/|#28a975||
     {% else %}
-previous-races|Previous Races|fa-solid fa-trophy|previous_races|/races|#0f3166|#f9fcff|#f2f8ff|#b5daff|#99c9ff|#0a244d||
-activities|Activities|fa-solid fa-person-running|activities|/activities/|#cc4b00|#fffbf9|#fff7f4|#ffccb3|#ffb399|#a33d00||
-updates|Updates|fa-brands fa-mastodon|toots|/toots/|#3d4db3|#f9fafe|#f5f7fe|#c4ccff|#b0bbff|#2d3d8c||
-posts|Posts|fa-solid fa-book-open|running|/running/|#1e7b58|#f9fefb|#f3fcf7|#c2ebd5|#aee3c5|#166044
+previous-races|Previous Races|fa-solid fa-trophy|race_posts|/races|#0f3166||
+activities|Activities|fa-solid fa-person-running|activities|/activities/|#ff6600||
+updates|Updates|fa-brands fa-mastodon|entries|/toots/|#5d6dcc||
+posts|Posts|fa-solid fa-book-open|latest|/running/|#28a975||
     {% endif %}
   {% endcapture %}
   
@@ -84,21 +87,12 @@ posts|Posts|fa-solid fa-book-open|running|/running/|#1e7b58|#f9fefb|#f3fcf7|#c2e
       {% assign card_id = card_parts[0] %}
       {% assign card_title = card_parts[1] %}
       {% assign card_icon = card_parts[2] %}
-      {% assign card_color = card_parts[5] %}
-      {% assign card_light_bg1 = card_parts[6] %}
-      {% assign card_light_bg2 = card_parts[7] %}
-      {% assign card_active_bg1 = card_parts[8] %}
-      {% assign card_active_bg2 = card_parts[9] %}
-      {% assign card_active_text = card_parts[10] %}
+      {% assign base_color = card_parts[5] %}
+      
       <a href="#homeCarousel" 
          data-slide-to="{{ forloop.index0 }}" 
          data-card-id="{{ card_id }}"
-         data-color="{{ card_color }}"
-         data-light-bg1="{{ card_light_bg1 }}"
-         data-light-bg2="{{ card_light_bg2 }}"
-         data-active-bg1="{{ card_active_bg1 }}"
-         data-active-bg2="{{ card_active_bg2 }}"
-         data-active-text="{{ card_active_text }}"
+         data-color="{{ base_color }}"
          class="carousel-nav-card" 
          aria-label="Go to {{ card_title }} slide">
         <i class="{{ card_icon }}"></i> {{ card_title }}
@@ -121,30 +115,29 @@ posts|Posts|fa-solid fa-book-open|running|/running/|#1e7b58|#f9fefb|#f3fcf7|#c2e
         {% assign card_parts = card_line | strip | split: '|' %}
         {% assign card_id = card_parts[0] %}
         {% assign card_title = card_parts[1] %}
-        {% assign card_kind = card_parts[3] %}
+        {% assign items_var_name = card_parts[3] %}
         {% assign card_more_url = card_parts[4] %}
-        {% assign card_color = card_parts[5] %}
+        {% assign base_color = card_parts[5] %}
         
-        {% comment %}Map kind to actual items collection{% endcomment %}
-        {% case card_kind %}
-          {% when 'upcoming_races' %}
-            {% assign items_array = upcoming_races %}
-          {% when 'activities' %}
-            {% assign items_array = activities %}
-          {% when 'toots' %}
-            {% assign items_array = entries %}
-          {% when 'running' %}
-            {% assign items_array = latest %}
-          {% when 'previous_races' %}
-            {% assign items_array = race_posts %}
-        {% endcase %}
+        {% comment %}Get items from variable name{% endcomment %}
+        {% if items_var_name == 'race_posts' %}
+          {% assign items_array = race_posts %}
+        {% elsif items_var_name == 'upcoming_races' %}
+          {% assign items_array = upcoming_races %}
+        {% elsif items_var_name == 'activities' %}
+          {% assign items_array = activities %}
+        {% elsif items_var_name == 'entries' %}
+          {% assign items_array = entries %}
+        {% elsif items_var_name == 'latest' %}
+          {% assign items_array = latest %}
+        {% endif %}
         
         <div class="swiper-slide" 
              data-slide-index="{{ forloop.index0 }}"
              data-card-id="{{ card_id }}"
-             data-color="{{ card_color }}">
+             data-color="{{ base_color }}">
           <div class="home-grid__main">
-            {% include home/section_list.html title=card_title items=items_array limit=2 kind=card_kind more_url=card_more_url grid='home-samples--two' hide_title=true %}
+            {% include home/section_list.html title=card_title items=items_array limit=2 kind=items_var_name more_url=card_more_url grid='home-samples--two' hide_title=true %}
           </div>
         </div>
       {% endfor %}

@@ -151,13 +151,35 @@
         return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + alpha + ')';
       }
       
-      function getColorPaletteFromCard(card) {
+      function darkenColor(hex, percent) {
+        var r = parseInt(hex.slice(1, 3), 16);
+        var g = parseInt(hex.slice(3, 5), 16);
+        var b = parseInt(hex.slice(5, 7), 16);
+        
+        r = Math.floor(r * (1 - percent));
+        g = Math.floor(g * (1 - percent));
+        b = Math.floor(b * (1 - percent));
+        
+        r = Math.max(0, Math.min(255, r));
+        g = Math.max(0, Math.min(255, g));
+        b = Math.max(0, Math.min(255, b));
+        
+        var rr = r.toString(16).padStart(2, '0');
+        var gg = g.toString(16).padStart(2, '0');
+        var bb = b.toString(16).padStart(2, '0');
+        
+        return '#' + rr + gg + bb;
+      }
+      
+      function deriveColorPalette(baseColor) {
+        // Derive all color variations from a single base color
         return {
-          lightBg1: card.getAttribute('data-light-bg1'),
-          lightBg2: card.getAttribute('data-light-bg2'),
-          activeBg1: card.getAttribute('data-active-bg1'),
-          activeBg2: card.getAttribute('data-active-bg2'),
-          activeText: card.getAttribute('data-active-text')
+          primary: baseColor,
+          inactiveGradient1: hexToRgba(baseColor, 0.02),  // Very light tint for inactive bg start
+          inactiveGradient2: hexToRgba(baseColor, 0.05),  // Slightly darker tint for inactive bg end
+          activeGradient1: hexToRgba(baseColor, 0.40),    // Medium tint for active bg start
+          activeGradient2: hexToRgba(baseColor, 0.55),    // Darker tint for active bg end
+          activeText: darkenColor(baseColor, 0.30)         // Darkened version for text (30% darker)
         };
       }
       
@@ -180,18 +202,18 @@
         
         if (activeCard && activeColor) {
           activeCard.classList.add('active');
-          var activePalette = getColorPaletteFromCard(activeCard);
+          var activePalette = deriveColorPalette(activeColor);
           
-          // Apply inactive colors to all cards from their own data attributes
+          // Apply inactive colors to all cards
           navCards.forEach(function(card) {
             var cardColor = card.getAttribute('data-color');
-            var cardPalette = getColorPaletteFromCard(card);
-            card.style.background = 'linear-gradient(135deg, ' + cardPalette.lightBg1 + ' 0%, ' + cardPalette.lightBg2 + ' 100%)';
+            var cardPalette = deriveColorPalette(cardColor);
+            card.style.background = 'linear-gradient(135deg, ' + cardPalette.inactiveGradient1 + ' 0%, ' + cardPalette.inactiveGradient2 + ' 100%)';
             card.style.color = hexToRgba(cardColor, 0.6);
           });
           
-          // Apply active styling to the active card from its data attributes
-          activeCard.style.background = 'linear-gradient(135deg, ' + activePalette.activeBg1 + ' 0%, ' + activePalette.activeBg2 + ' 100%)';
+          // Apply active styling to the active card
+          activeCard.style.background = 'linear-gradient(135deg, ' + activePalette.activeGradient1 + ' 0%, ' + activePalette.activeGradient2 + ' 100%)';
           activeCard.style.color = activePalette.activeText;
           
           // Update progress bar color
