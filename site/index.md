@@ -92,12 +92,12 @@ stylesheets:
     {% assign latest = "" | split: "" %}
   {% endif %}
   
-  {% comment %}=== STEP 2: Card definitions (id|title|icon|var_name|url|base_color||) ==={% endcomment %}
-  {% capture card_definitions %}previous-races|Previous Races|fa-solid fa-trophy|race_posts|/races|#0f3166||
-upcoming-races|Upcoming Races|fa-solid fa-flag-checkered|upcoming_races|/race-calendar-2026/|#d4a300||
-activities|Activities|fa-solid fa-person-running|activities|/activities/|#ff6600||
-updates|Updates|fa-brands fa-mastodon|entries|/toots/|#5d6dcc||
-posts|Posts|fa-solid fa-book-open|latest|/running/|#28a975||{% endcapture %}
+  {% comment %}=== STEP 2: Card definitions (id|title|icon|var_name|kind|url|base_color||) ==={% endcomment %}
+  {% capture card_definitions %}previous-races|Previous Races|fa-solid fa-trophy|race_posts|previous_races|/races|#0f3166||
+upcoming-races|Upcoming Races|fa-solid fa-flag-checkered|upcoming_races|upcoming_races|/race-calendar-2026/|#d4a300||
+activities|Activities|fa-solid fa-person-running|activities|activities|/activities/|#ff6600||
+updates|Updates|fa-brands fa-mastodon|entries|toots|/toots/|#5d6dcc||
+posts|Posts|fa-solid fa-book-open|latest|running|/running/|#28a975||{% endcapture %}
   
   {% comment %}=== Filter cards based on content availability ==={% endcomment %}
   {% assign carousel_cards_temp = "" | split: "" %}
@@ -124,7 +124,7 @@ posts|Posts|fa-solid fa-book-open|latest|/running/|#28a975||{% endcapture %}
       {% assign card_id = card_parts[0] %}
       {% assign card_title = card_parts[1] %}
       {% assign card_icon = card_parts[2] %}
-      {% assign base_color = card_parts[5] %}
+      {% assign base_color = card_parts[6] %}
       
       <a href="#homeCarousel" 
          data-slide-to="{{ forloop.index0 }}" 
@@ -153,8 +153,9 @@ posts|Posts|fa-solid fa-book-open|latest|/running/|#28a975||{% endcapture %}
         {% assign card_id = card_parts[0] %}
         {% assign card_title = card_parts[1] %}
         {% assign items_var_name = card_parts[3] %}
-        {% assign card_more_url = card_parts[4] %}
-        {% assign base_color = card_parts[5] %}
+        {% assign card_kind = card_parts[4] %}
+        {% assign card_more_url = card_parts[5] %}
+        {% assign base_color = card_parts[6] %}
         
         {% comment %}=== Step 3: Variable lookup (Liquid limitation - must map string to variable) ==={% endcomment %}
         {% if items_var_name == 'race_posts' %}
@@ -174,7 +175,7 @@ posts|Posts|fa-solid fa-book-open|latest|/running/|#28a975||{% endcapture %}
              data-card-id="{{ card_id }}"
              data-color="{{ base_color }}">
           <div class="home-grid__main">
-            {% include home/section_list.html title=card_title items=items_array limit=2 kind=items_var_name more_url=card_more_url grid='home-samples--two' hide_title=true %}
+            {% include home/section_list.html title=card_title items=items_array limit=2 kind=card_kind more_url=card_more_url grid='home-samples--two' hide_title=true %}
           </div>
         </div>
       {% endfor %}
