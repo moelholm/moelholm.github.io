@@ -58,7 +58,11 @@ stylesheets:
   {% endcomment %}
   
   {% comment %}=== STEP 1: Define collection variables ==={% endcomment %}
-  {% assign race_posts = site.running | where: "layout", "post" | where_exp: "item", "item.race_date != nil" | sort: "race_date" | reverse %}
+  {% if site.running %}
+    {% assign race_posts = site.running | where: "layout", "post" | where_exp: "item", "item.race_date != nil" | sort: "race_date" | reverse %}
+  {% else %}
+    {% assign race_posts = "" | split: "" %}
+  {% endif %}
   {% assign today_timestamp = site.time | date: "%s" | plus: 0 %}
   {% assign upcoming_races_temp = "" | split: "" %}
   {% for race in race_posts %}
@@ -67,10 +71,26 @@ stylesheets:
       {% assign upcoming_races_temp = upcoming_races_temp | push: race %}
     {% endif %}
   {% endfor %}
-  {% assign upcoming_races = upcoming_races_temp | sort: "race_date" %}
-  {% assign activities = site.strava_activities | sort: "start_date" | reverse | limit: 30 %}
-  {% assign entries = site.data.mastodon_entries | sort: "created_at" | reverse | limit: 30 %}
-  {% assign latest = site.running | where: "layout", "post" | sort: "date" | reverse %}
+  {% if upcoming_races_temp.size > 0 %}
+    {% assign upcoming_races = upcoming_races_temp | sort: "race_date" %}
+  {% else %}
+    {% assign upcoming_races = upcoming_races_temp %}
+  {% endif %}
+  {% if site.strava_activities %}
+    {% assign activities = site.strava_activities | sort: "start_date" | reverse | limit: 30 %}
+  {% else %}
+    {% assign activities = "" | split: "" %}
+  {% endif %}
+  {% if site.data.mastodon_entries %}
+    {% assign entries = site.data.mastodon_entries | sort: "created_at" | reverse | limit: 30 %}
+  {% else %}
+    {% assign entries = "" | split: "" %}
+  {% endif %}
+  {% if site.running %}
+    {% assign latest = site.running | where: "layout", "post" | sort: "date" | reverse %}
+  {% else %}
+    {% assign latest = "" | split: "" %}
+  {% endif %}
   
   {% comment %}=== STEP 2: Card definitions (id|title|icon|var_name|url|base_color||) ==={% endcomment %}
   {% capture card_definitions %}previous-races|Previous Races|fa-solid fa-trophy|race_posts|/races|#0f3166||
