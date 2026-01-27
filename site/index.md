@@ -32,16 +32,6 @@ stylesheets:
 
 <!-- Main: latest posts + sidebar in carousel -->
 <section class="home-carousel-section">
-  {% comment %}Prepare all data for carousel slides{% endcomment %}
-  {% assign race_calendar_page = site.pages | where: "name", "race_calendar_2026.md" | first %}
-  {% if race_calendar_page and race_calendar_page.races %}
-    {% assign upcoming_races = race_calendar_page.races | where: "status", "pending" | sort: "date" %}
-  {% endif %}
-  {% assign activities = site.activities | where_exp: 'a', 'a.is_meta != true' | sort: 'date' | reverse %}
-  {% assign entries = site.toots | where_exp: 't', 't.is_meta != true' | sort: 'date' | reverse %}
-  {% assign latest = site.running | sort: 'date' | reverse %}
-  {% assign race_posts = site.running | where_exp: 'p','p.tags contains "race"' | sort: 'date' | reverse %}
-
   {% comment %}
   ==================================================================================
   CAROUSEL CONFIGURATION - Complete Single Source of Truth
@@ -63,29 +53,26 @@ stylesheets:
   {% else %}
     {% assign race_posts = "" | split: "" %}
   {% endif %}
-  {% assign today_timestamp = site.time | date: "%s" | plus: 0 %}
-  {% assign upcoming_races_temp = "" | split: "" %}
-  {% for race in race_posts %}
-    {% assign race_timestamp = race.race_date | date: "%s" | plus: 0 %}
-    {% if race_timestamp >= today_timestamp %}
-      {% assign upcoming_races_temp = upcoming_races_temp | push: race %}
-    {% endif %}
-  {% endfor %}
-  {% if upcoming_races_temp.size > 0 %}
-    {% assign upcoming_races = upcoming_races_temp | sort: "race_date" %}
+  
+  {% assign race_calendar_page = site.pages | where: "name", "race_calendar_2026.md" | first %}
+  {% if race_calendar_page and race_calendar_page.races %}
+    {% assign upcoming_races = race_calendar_page.races | where: "status", "pending" | sort: "date" %}
   {% else %}
-    {% assign upcoming_races = upcoming_races_temp %}
+    {% assign upcoming_races = "" | split: "" %}
   {% endif %}
+  
   {% if site.strava_activities %}
     {% assign activities = site.strava_activities | sort: "start_date" | reverse | limit: 30 %}
   {% else %}
     {% assign activities = "" | split: "" %}
   {% endif %}
+  
   {% if site.data.mastodon_entries %}
     {% assign entries = site.data.mastodon_entries | sort: "created_at" | reverse | limit: 30 %}
   {% else %}
     {% assign entries = "" | split: "" %}
   {% endif %}
+  
   {% if site.running %}
     {% assign latest = site.running | where: "layout", "post" | sort: "date" | reverse %}
   {% else %}
