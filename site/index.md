@@ -100,20 +100,22 @@ updates|Updates|fa-brands fa-mastodon|entries|/toots/|#5d6dcc||
 posts|Posts|fa-solid fa-book-open|latest|/running/|#28a975||{% endcapture %}
   
   {% comment %}=== Filter cards based on content availability ==={% endcomment %}
-  {% capture carousel_cards_data %}
-    {% assign card_lines = card_definitions | strip | split: "
+  {% assign carousel_cards_temp = "" | split: "" %}
+  {% assign card_lines = card_definitions | strip | split: "
 " %}
-    {% for line in card_lines %}
-      {% if line contains "upcoming-races" %}
-        {% if upcoming_races and upcoming_races.size > 0 %}{{ line }}
-{% endif %}
-      {% else %}{{ line }}
-{% endif %}
-    {% endfor %}
-  {% endcapture %}
-  
-  {% assign carousel_cards = carousel_cards_data | strip | split: "
-" | where_exp: "item", "item != ''" %}
+  {% for line in card_lines %}
+    {% assign trimmed_line = line | strip %}
+    {% if trimmed_line != "" %}
+      {% if trimmed_line contains "upcoming-races" %}
+        {% if upcoming_races.size > 0 %}
+          {% assign carousel_cards_temp = carousel_cards_temp | push: trimmed_line %}
+        {% endif %}
+      {% else %}
+        {% assign carousel_cards_temp = carousel_cards_temp | push: trimmed_line %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+  {% assign carousel_cards = carousel_cards_temp %}
 
   <!-- Carousel navigation cards -->
   <div class="carousel-nav-cards">
