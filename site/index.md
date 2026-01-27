@@ -43,38 +43,45 @@ stylesheets:
   {% assign race_posts = site.running | where_exp: 'p','p.tags contains "race"' | sort: 'date' | reverse %}
 
   {% comment %}
-  Carousel card definitions - single source of truth for all card properties.
-  Format: id|title|icon|items_var|url|base_color||
+  ==================================================================================
+  CAROUSEL CONFIGURATION - Complete Single Source of Truth
+  ==================================================================================
   
-  Fields:
-  - id: unique identifier
-  - title: display title
-  - icon: Font Awesome icon class
-  - items_var: variable name for items collection (e.g., 'race_posts', 'activities', 'entries', 'latest', 'upcoming_races')
-  - url: "more" link URL
-  - base_color: primary color hex (all other colors derived automatically)
+  To add a new carousel category, follow these THREE simple steps:
   
-  Colors derived from base_color:
-  - Primary: for progress bar, active bullet, card titles
-  - Inactive backgrounds: very light tints (2% and 5% opacity)
-  - Active backgrounds: medium tints (40% and 55% opacity)
-  - Active text: darkened version (70% brightness)
+  STEP 1: Define your collection variable (if it doesn't exist)
+  STEP 2: Add your card line in the card_definitions section  
+  STEP 3: Add your variable to the lookup section below
   
-  To add a new card: add one line with 6 fields. No JavaScript or CSS changes needed.
+  All three steps are clearly marked and located near each other for easy maintenance.
+  Everything else (colors, styling, JavaScript) is completely automatic.
   {% endcomment %}
-  {% capture carousel_cards_data %}
-    {% if upcoming_races and upcoming_races.size > 0 %}
-previous-races|Previous Races|fa-solid fa-trophy|race_posts|/races|#0f3166||
+  
+  {% comment %}=== STEP 1: Define collection variables ==={% endcomment %}
+  {% assign race_posts = site.running | where: "layout", "post" | where_exp: "item", "item.race_date != nil" | sort: "race_date" | reverse %}
+  {% assign upcoming_races = race_posts | where_exp: "item", "item.race_date >= site.time" | sort: "race_date" %}
+  {% assign activities = site.strava_activities | sort: "start_date" | reverse | limit: 30 %}
+  {% assign entries = site.data.mastodon_entries | sort: "created_at" | reverse | limit: 30 %}
+  {% assign latest = site.running | where: "layout", "post" | sort: "date" | reverse %}
+  
+  {% comment %}=== STEP 2: Card definitions (id|title|icon|var_name|url|base_color||) ==={% endcomment %}
+  {% capture card_definitions %}previous-races|Previous Races|fa-solid fa-trophy|race_posts|/races|#0f3166||
 upcoming-races|Upcoming Races|fa-solid fa-flag-checkered|upcoming_races|/race-calendar-2026/|#d4a300||
 activities|Activities|fa-solid fa-person-running|activities|/activities/|#ff6600||
 updates|Updates|fa-brands fa-mastodon|entries|/toots/|#5d6dcc||
-posts|Posts|fa-solid fa-book-open|latest|/running/|#28a975||
-    {% else %}
-previous-races|Previous Races|fa-solid fa-trophy|race_posts|/races|#0f3166||
-activities|Activities|fa-solid fa-person-running|activities|/activities/|#ff6600||
-updates|Updates|fa-brands fa-mastodon|entries|/toots/|#5d6dcc||
-posts|Posts|fa-solid fa-book-open|latest|/running/|#28a975||
-    {% endif %}
+posts|Posts|fa-solid fa-book-open|latest|/running/|#28a975||{% endcapture %}
+  
+  {% comment %}=== Filter cards based on content availability ==={% endcomment %}
+  {% capture carousel_cards_data %}
+    {% assign card_lines = card_definitions | strip | split: "
+" %}
+    {% for line in card_lines %}
+      {% if line contains "upcoming-races" %}
+        {% if upcoming_races and upcoming_races.size > 0 %}{{ line }}
+{% endif %}
+      {% else %}{{ line }}
+{% endif %}
+    {% endfor %}
   {% endcapture %}
   
   {% assign carousel_cards = carousel_cards_data | strip | split: "
@@ -119,7 +126,7 @@ posts|Posts|fa-solid fa-book-open|latest|/running/|#28a975||
         {% assign card_more_url = card_parts[4] %}
         {% assign base_color = card_parts[5] %}
         
-        {% comment %}Get items from variable name{% endcomment %}
+        {% comment %}=== Step 3: Variable lookup (Liquid limitation - must map string to variable) ==={% endcomment %}
         {% if items_var_name == 'race_posts' %}
           {% assign items_array = race_posts %}
         {% elsif items_var_name == 'upcoming_races' %}
