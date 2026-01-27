@@ -60,7 +60,7 @@ stylesheets:
   {% comment %}=== STEP 1: Define collection variables ==={% endcomment %}
   {% assign race_posts = site.running | where: "layout", "post" | where_exp: "item", "item.race_date != nil" | sort: "race_date" | reverse %}
   {% assign today = site.time | date: "%Y-%m-%d" %}
-  {% assign upcoming_races = race_posts | where_exp: "item", "item.race_date >= today" | sort: "race_date" %}
+  {% assign upcoming_races = race_posts | where_exp: "item", "item.race_date | date: '%Y-%m-%d' >= today" | sort: "race_date" %}
   {% assign activities = site.strava_activities | sort: "start_date" | reverse | limit: 30 %}
   {% assign entries = site.data.mastodon_entries | sort: "created_at" | reverse | limit: 30 %}
   {% assign latest = site.running | where: "layout", "post" | sort: "date" | reverse %}
