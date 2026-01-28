@@ -61,14 +61,14 @@ stylesheets:
     {% assign upcoming_races = "" | split: "" %}
   {% endif %}
   
-  {% if site.strava_activities %}
-    {% assign activities = site.strava_activities | sort: "start_date" | reverse | limit: 30 %}
+  {% if site.activities %}
+    {% assign activities = site.activities | where_exp: 'a', 'a.is_meta != true' | sort: 'date' | reverse %}
   {% else %}
     {% assign activities = "" | split: "" %}
   {% endif %}
   
-  {% if site.data.mastodon_entries %}
-    {% assign entries = site.data.mastodon_entries | sort: "created_at" | reverse | limit: 30 %}
+  {% if site.toots %}
+    {% assign entries = site.toots | where_exp: 't', 't.is_meta != true' | sort: 'date' | reverse %}
   {% else %}
     {% assign entries = "" | split: "" %}
   {% endif %}
