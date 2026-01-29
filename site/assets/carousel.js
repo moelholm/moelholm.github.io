@@ -69,39 +69,45 @@
       };
     }
     
+    // ==============================================================================
+    // PROGRESS BAR MANAGEMENT - Rebuilt from scratch for page load reliability
+    // ==============================================================================
+    
     function resetProgressBar() {
       if (!progressBar) return;
+      // Remove animation class and reset to 0%
       progressBar.classList.remove('animating');
-      progressBar.style.transition = '';
       progressBar.style.width = '0%';
-      // Don't clear background - keep the color set by updateActiveTeaserLink
     }
     
     function startProgressBar() {
       if (!progressBar) return;
-      // Ensure clean state - remove any existing animation
-      progressBar.classList.remove('animating');
+      
+      // Step 1: Set to 0% WITHOUT animation class
       progressBar.style.width = '0%';
+      progressBar.classList.remove('animating');
       
-      // Force browser to apply the 0% width
-      void progressBar.offsetWidth;
+      // Step 2: Force browser reflow - critical for CSS transitions
+      progressBar.offsetWidth;
       
-      // Add animation class FIRST
+      // Step 3: Add animation class (with CSS transition)
       progressBar.classList.add('animating');
       
-      // Then use RAF to set target width (ensures transition is active)
-      requestAnimationFrame(function() {
-        progressBar.style.width = '100%';
-      });
+      // Step 4: Set target width to 100% - the CSS transition will animate this
+      progressBar.style.width = '100%';
     }
     
     function restartProgressBar() {
       resetProgressBar();
-      startProgressBar();
+      // Small delay to ensure browser processes the reset
+      setTimeout(function() {
+        startProgressBar();
+      }, 10);
     }
     
     function pauseProgressBar() {
       if (!progressBar) return;
+      // Get current computed width and freeze it
       var currentWidth = window.getComputedStyle(progressBar).width;
       progressBar.classList.remove('animating');
       progressBar.style.width = currentWidth;
@@ -112,10 +118,12 @@
       var currentWidthPercent = parseFloat(progressBar.style.width) || 0;
       
       if (currentWidthPercent >= 99) {
+        // Near completion - just restart
         restartProgressBar();
         return;
       }
       
+      // Resume from current position with adjusted timing
       var remainingPercent = 100 - currentWidthPercent;
       var remainingTime = (remainingPercent / 100) * 10000;
       progressBar.style.transition = 'width ' + (remainingTime / 1000) + 's linear';
@@ -186,27 +194,18 @@
           init: function() {
             console.log('Swiper initialized successfully! Active index: ' + this.realIndex);
             var self = this;
+            
             // Apply initial styling for nav cards immediately
             updateActiveTeaserLink(self.realIndex);
             
-            // Mark as initialized immediately to prevent slideChange interference
+            // Mark as initialized to allow normal slide change behavior
             isInitialized = true;
             
-            // Start progress bar immediately if page is visible, or when it becomes visible
-            if (!document.hidden) {
-              restartProgressBar();
-            } else {
-              // Page is hidden during init - start when it becomes visible
-              var visibilityHandler = function() {
-                if (!document.hidden) {
-                  document.removeEventListener('visibilitychange', visibilityHandler);
-                  restartProgressBar();
-                }
-              };
-              document.addEventListener('visibilitychange', visibilityHandler);
-            }
+            // Start progress bar - use direct approach optimized for page load
+            // The CSS transition will handle the animation smoothly
+            startProgressBar();
             
-            console.log('Progress bar started and initialization marked complete. Index: ' + self.realIndex);
+            console.log('Progress bar started. Index: ' + self.realIndex);
           },
           autoplayPause: function() {
             pauseProgressBar();
