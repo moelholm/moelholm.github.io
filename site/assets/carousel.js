@@ -181,10 +181,6 @@
             // Apply initial styling for nav cards immediately
             updateActiveTeaserLink(self.realIndex);
             
-            // Mark initialization complete BEFORE starting progress bar
-            // This ensures slideChange events during init don't interfere
-            isInitialized = true;
-            
             // Start progress bar after ensuring styling is applied
             initTimeoutId = setTimeout(function() {
               // Double-check progress bar has its gradient set before animating
@@ -194,7 +190,11 @@
                 progressBar.style.background = 'linear-gradient(90deg, ' + colorRgba + ' 0%, ' + activeColor + ' 100%)';
               }
               restartProgressBar();
-              console.log('Progress bar started after init with index: ' + self.realIndex);
+              
+              // CRITICAL: Mark initialization complete AFTER progress bar starts
+              // This prevents slideChange events from resetting the bar during the setTimeout window
+              isInitialized = true;
+              console.log('Progress bar started and initialization marked complete. Index: ' + self.realIndex);
             }, 150);
           },
           autoplayPause: function() {
