@@ -83,11 +83,17 @@
             var self = this;
             // Apply initial styling for nav cards immediately
             updateActiveTeaserLink(self.realIndex);
-            // Start progress bar after a short delay to ensure DOM is ready
+            // Start progress bar after ensuring styling is applied
             setTimeout(function() {
+              // Double-check progress bar has its gradient set before animating
+              if (progressBar && window.carouselActiveColor) {
+                var activeColor = window.carouselActiveColor;
+                var colorRgba = hexToRgba(activeColor, 0.6);
+                progressBar.style.background = 'linear-gradient(90deg, ' + colorRgba + ' 0%, ' + activeColor + ' 100%)';
+              }
               restartProgressBar();
               console.log('Progress bar started after init with index: ' + self.realIndex);
-            }, 100);
+            }, 150);
           },
           autoplayPause: function() {
             pauseProgressBar();
