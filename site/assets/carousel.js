@@ -188,8 +188,19 @@
             // Mark as initialized immediately to prevent slideChange interference
             isInitialized = true;
             
-            // Start progress bar - the double requestAnimationFrame in startProgressBar handles timing
-            restartProgressBar();
+            // Start progress bar immediately if page is visible, or when it becomes visible
+            if (!document.hidden) {
+              restartProgressBar();
+            } else {
+              // Page is hidden during init - start when it becomes visible
+              var visibilityHandler = function() {
+                if (!document.hidden) {
+                  document.removeEventListener('visibilitychange', visibilityHandler);
+                  restartProgressBar();
+                }
+              };
+              document.addEventListener('visibilitychange', visibilityHandler);
+            }
             
             console.log('Progress bar started and initialization marked complete. Index: ' + self.realIndex);
           },
