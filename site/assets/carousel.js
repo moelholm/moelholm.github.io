@@ -70,36 +70,25 @@
     }
     
     // ==============================================================================
-    // PROGRESS BAR MANAGEMENT - Rebuilt from scratch for page load reliability
+    // PROGRESS BAR MANAGEMENT - Simplified for reliable operation
     // ==============================================================================
-    
-    function resetProgressBar() {
-      if (!progressBar) return;
-      // Remove animation class and reset to 0%
-      progressBar.classList.remove('animating');
-      progressBar.style.width = '0%';
-    }
     
     function startProgressBar() {
       if (!progressBar) return;
       
-      // Ensure we're starting from a clean state
+      // Clean state: remove animation and set to 0%
       progressBar.classList.remove('animating');
       progressBar.style.width = '0%';
       
-      // Use setTimeout to ensure the browser processes the reset before starting animation
-      // This is more reliable than just offsetWidth for ensuring CSS transition triggers
+      // Force browser reflow - critical for CSS transition to trigger
+      void progressBar.offsetWidth;
+      
+      // Add animation class and start transition
+      progressBar.classList.add('animating');
+      
+      // Use setTimeout to defer width change to ensure transition triggers
       setTimeout(function() {
-        progressBar.classList.add('animating');
         progressBar.style.width = '100%';
-      }, 50);
-    }
-    
-    function restartProgressBar() {
-      resetProgressBar();
-      // Small delay to ensure browser processes the reset
-      setTimeout(function() {
-        startProgressBar();
       }, 10);
     }
     
@@ -115,16 +104,14 @@
       if (!progressBar) return;
       var currentWidthPercent = parseFloat(progressBar.style.width) || 0;
       
-      if (currentWidthPercent >= 99) {
+      if (currentWidthPercent >= 95) {
         // Near completion - just restart
-        restartProgressBar();
+        startProgressBar();
         return;
       }
       
-      // Resume from current position with adjusted timing
-      var remainingPercent = 100 - currentWidthPercent;
-      var remainingTime = (remainingPercent / 100) * 10000;
-      progressBar.style.transition = 'width ' + (remainingTime / 1000) + 's linear';
+      // Resume from current position
+      progressBar.classList.add('animating');
       progressBar.style.width = '100%';
     }
     
@@ -156,14 +143,13 @@
         loop: true,
         on: {
           slideChange: function() {
-            // Only reset progress bar if we're past initialization
+            // Update styling immediately on slide change
             if (isInitialized) {
               updateActiveTeaserLink(this.realIndex);
-              resetProgressBar();
             }
           },
           slideChangeTransitionEnd: function() {
-            // Only start progress bar if initialization is complete
+            // Restart progress bar after slide transition completes
             if (isInitialized) {
               startProgressBar();
             }
