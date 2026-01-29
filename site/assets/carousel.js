@@ -83,18 +83,16 @@
     function startProgressBar() {
       if (!progressBar) return;
       
-      // Step 1: Set to 0% WITHOUT animation class
-      progressBar.style.width = '0%';
+      // Ensure we're starting from a clean state
       progressBar.classList.remove('animating');
+      progressBar.style.width = '0%';
       
-      // Step 2: Force browser reflow - critical for CSS transitions
-      progressBar.offsetWidth;
-      
-      // Step 3: Add animation class (with CSS transition)
-      progressBar.classList.add('animating');
-      
-      // Step 4: Set target width to 100% - the CSS transition will animate this
-      progressBar.style.width = '100%';
+      // Use setTimeout to ensure the browser processes the reset before starting animation
+      // This is more reliable than just offsetWidth for ensuring CSS transition triggers
+      setTimeout(function() {
+        progressBar.classList.add('animating');
+        progressBar.style.width = '100%';
+      }, 50);
     }
     
     function restartProgressBar() {
