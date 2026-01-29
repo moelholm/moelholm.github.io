@@ -82,9 +82,13 @@
     function startProgressBar() {
       if (!progressBar) return;
       progressBar.style.width = '0%';
-      void progressBar.offsetWidth;
       progressBar.classList.add('animating');
-      progressBar.style.width = '100%';
+      // Force browser to process the class addition before changing width
+      void progressBar.offsetWidth;
+      // Use requestAnimationFrame to ensure transition is applied
+      requestAnimationFrame(function() {
+        progressBar.style.width = '100%';
+      });
     }
     
     function restartProgressBar() {
