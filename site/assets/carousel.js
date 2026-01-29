@@ -26,6 +26,10 @@
     // Get progress bar reference BEFORE creating Swiper so it's available in event handlers
     var progressBar = document.querySelector('.carousel-progress__bar');
     
+    // Track initialization state to prevent race conditions
+    var isInitialized = false;
+    var initTimeoutId = null;
+    
     // Helper functions defined before Swiper creation so they're available in event handlers
     function hexToRgba(hex, alpha) {
       var r = parseInt(hex.slice(1, 3), 16);
@@ -138,11 +142,17 @@
         loop: true,
         on: {
           slideChange: function() {
-            updateActiveTeaserLink(this.realIndex);
-            resetProgressBar();
+            // Only reset progress bar if we're past initialization
+            if (isInitialized) {
+              updateActiveTeaserLink(this.realIndex);
+              resetProgressBar();
+            }
           },
           slideChangeTransitionEnd: function() {
-            startProgressBar();
+            // Only start progress bar if initialization is complete
+            if (isInitialized) {
+              startProgressBar();
+            }
             
             // Update card title colors after transition completes
             if (window.carouselActiveColor) {
@@ -170,8 +180,13 @@
             var self = this;
             // Apply initial styling for nav cards immediately
             updateActiveTeaserLink(self.realIndex);
+            
+            // Mark initialization complete BEFORE starting progress bar
+            // This ensures slideChange events during init don't interfere
+            isInitialized = true;
+            
             // Start progress bar after ensuring styling is applied
-            setTimeout(function() {
+            initTimeoutId = setTimeout(function() {
               // Double-check progress bar has its gradient set before animating
               if (progressBar && window.carouselActiveColor) {
                 var activeColor = window.carouselActiveColor;
