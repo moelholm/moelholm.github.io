@@ -23,6 +23,93 @@
     console.log('Found', navCards.length, 'navigation cards');
     console.log('Swiper library version:', Swiper.version || 'unknown');
     
+    // Get progress bar reference BEFORE creating Swiper so it's available in event handlers
+    var progressBar = document.querySelector('.carousel-progress__bar');
+    
+    // Helper functions defined before Swiper creation so they're available in event handlers
+    function hexToRgba(hex, alpha) {
+      var r = parseInt(hex.slice(1, 3), 16);
+      var g = parseInt(hex.slice(3, 5), 16);
+      var b = parseInt(hex.slice(5, 7), 16);
+      return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + alpha + ')';
+    }
+    
+    function darkenColor(hex, percent) {
+      var r = parseInt(hex.slice(1, 3), 16);
+      var g = parseInt(hex.slice(3, 5), 16);
+      var b = parseInt(hex.slice(5, 7), 16);
+      
+      r = Math.floor(r * (1 - percent));
+      g = Math.floor(g * (1 - percent));
+      b = Math.floor(b * (1 - percent));
+      
+      r = Math.max(0, Math.min(255, r));
+      g = Math.max(0, Math.min(255, g));
+      b = Math.max(0, Math.min(255, b));
+      
+      var rr = r.toString(16).padStart(2, '0');
+      var gg = g.toString(16).padStart(2, '0');
+      var bb = b.toString(16).padStart(2, '0');
+      
+      return '#' + rr + gg + bb;
+    }
+    
+    function deriveColorPalette(baseColor) {
+      // Derive all color variations from a single base color
+      return {
+        primary: baseColor,
+        inactiveGradient1: hexToRgba(baseColor, 0.02),  // Very light tint for inactive bg start
+        inactiveGradient2: hexToRgba(baseColor, 0.05),  // Slightly darker tint for inactive bg end
+        activeGradient1: hexToRgba(baseColor, 0.40),    // Medium tint for active bg start
+        activeGradient2: hexToRgba(baseColor, 0.55),    // Darker tint for active bg end
+        activeText: darkenColor(baseColor, 0.30)         // Darkened version for text (30% darker)
+      };
+    }
+    
+    function resetProgressBar() {
+      if (!progressBar) return;
+      progressBar.classList.remove('animating');
+      progressBar.style.transition = '';
+      progressBar.style.width = '0%';
+      // Don't clear background - keep the color set by updateActiveTeaserLink
+      void progressBar.offsetWidth;
+    }
+    
+    function startProgressBar() {
+      if (!progressBar) return;
+      progressBar.style.width = '0%';
+      void progressBar.offsetWidth;
+      progressBar.classList.add('animating');
+      progressBar.style.width = '100%';
+    }
+    
+    function restartProgressBar() {
+      resetProgressBar();
+      setTimeout(startProgressBar, 10);
+    }
+    
+    function pauseProgressBar() {
+      if (!progressBar) return;
+      var currentWidth = window.getComputedStyle(progressBar).width;
+      progressBar.classList.remove('animating');
+      progressBar.style.width = currentWidth;
+    }
+    
+    function resumeProgressBar() {
+      if (!progressBar) return;
+      var currentWidthPercent = parseFloat(progressBar.style.width) || 0;
+      
+      if (currentWidthPercent >= 99) {
+        restartProgressBar();
+        return;
+      }
+      
+      var remainingPercent = 100 - currentWidthPercent;
+      var remainingTime = (remainingPercent / 100) * 10000;
+      progressBar.style.transition = 'width ' + (remainingTime / 1000) + 's linear';
+      progressBar.style.width = '100%';
+    }
+    
     try {
       var swiper = new Swiper('#homeCarousel', {
         autoplay: {
@@ -103,91 +190,6 @@
           }
         }
       });
-      
-      var progressBar = document.querySelector('.carousel-progress__bar');
-      
-      function resetProgressBar() {
-        if (!progressBar) return;
-        progressBar.classList.remove('animating');
-        progressBar.style.transition = '';
-        progressBar.style.width = '0%';
-        // Don't clear background - keep the color set by updateActiveTeaserLink
-        void progressBar.offsetWidth;
-      }
-      
-      function startProgressBar() {
-        if (!progressBar) return;
-        progressBar.style.width = '0%';
-        void progressBar.offsetWidth;
-        progressBar.classList.add('animating');
-        progressBar.style.width = '100%';
-      }
-      
-      function restartProgressBar() {
-        resetProgressBar();
-        setTimeout(startProgressBar, 10);
-      }
-      
-      function pauseProgressBar() {
-        if (!progressBar) return;
-        var currentWidth = window.getComputedStyle(progressBar).width;
-        progressBar.classList.remove('animating');
-        progressBar.style.width = currentWidth;
-      }
-      
-      function resumeProgressBar() {
-        if (!progressBar) return;
-        var currentWidthPercent = parseFloat(progressBar.style.width) || 0;
-        
-        if (currentWidthPercent >= 99) {
-          restartProgressBar();
-          return;
-        }
-        
-        var remainingPercent = 100 - currentWidthPercent;
-        var remainingTime = (remainingPercent / 100) * 10000;
-        progressBar.style.transition = 'width ' + (remainingTime / 1000) + 's linear';
-        progressBar.style.width = '100%';
-      }
-      
-      function hexToRgba(hex, alpha) {
-        var r = parseInt(hex.slice(1, 3), 16);
-        var g = parseInt(hex.slice(3, 5), 16);
-        var b = parseInt(hex.slice(5, 7), 16);
-        return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + alpha + ')';
-      }
-      
-      function darkenColor(hex, percent) {
-        var r = parseInt(hex.slice(1, 3), 16);
-        var g = parseInt(hex.slice(3, 5), 16);
-        var b = parseInt(hex.slice(5, 7), 16);
-        
-        r = Math.floor(r * (1 - percent));
-        g = Math.floor(g * (1 - percent));
-        b = Math.floor(b * (1 - percent));
-        
-        r = Math.max(0, Math.min(255, r));
-        g = Math.max(0, Math.min(255, g));
-        b = Math.max(0, Math.min(255, b));
-        
-        var rr = r.toString(16).padStart(2, '0');
-        var gg = g.toString(16).padStart(2, '0');
-        var bb = b.toString(16).padStart(2, '0');
-        
-        return '#' + rr + gg + bb;
-      }
-      
-      function deriveColorPalette(baseColor) {
-        // Derive all color variations from a single base color
-        return {
-          primary: baseColor,
-          inactiveGradient1: hexToRgba(baseColor, 0.02),  // Very light tint for inactive bg start
-          inactiveGradient2: hexToRgba(baseColor, 0.05),  // Slightly darker tint for inactive bg end
-          activeGradient1: hexToRgba(baseColor, 0.40),    // Medium tint for active bg start
-          activeGradient2: hexToRgba(baseColor, 0.55),    // Darker tint for active bg end
-          activeText: darkenColor(baseColor, 0.30)         // Darkened version for text (30% darker)
-        };
-      }
       
       function updateActiveTeaserLink(realIndex) {
         for (var i = 0; i < navCards.length; i++) {
