@@ -28,7 +28,6 @@
     
     // Track initialization state to prevent race conditions
     var isInitialized = false;
-    var initTimeoutId = null;
     
     // Helper functions defined before Swiper creation so they're available in event handlers
     function hexToRgba(hex, alpha) {
@@ -76,24 +75,25 @@
       progressBar.style.transition = '';
       progressBar.style.width = '0%';
       // Don't clear background - keep the color set by updateActiveTeaserLink
-      void progressBar.offsetWidth;
     }
     
     function startProgressBar() {
       if (!progressBar) return;
+      // Start from 0% without animation class
       progressBar.style.width = '0%';
-      progressBar.classList.add('animating');
-      // Force browser to process the class addition before changing width
-      void progressBar.offsetWidth;
-      // Use requestAnimationFrame to ensure transition is applied
+      // Use double requestAnimationFrame to ensure browser processes the width change
       requestAnimationFrame(function() {
-        progressBar.style.width = '100%';
+        requestAnimationFrame(function() {
+          // Now add animation class and set target width
+          progressBar.classList.add('animating');
+          progressBar.style.width = '100%';
+        });
       });
     }
     
     function restartProgressBar() {
       resetProgressBar();
-      setTimeout(startProgressBar, 10);
+      startProgressBar();
     }
     
     function pauseProgressBar() {
@@ -185,21 +185,13 @@
             // Apply initial styling for nav cards immediately
             updateActiveTeaserLink(self.realIndex);
             
-            // Start progress bar after ensuring styling is applied
-            initTimeoutId = setTimeout(function() {
-              // Double-check progress bar has its gradient set before animating
-              if (progressBar && window.carouselActiveColor) {
-                var activeColor = window.carouselActiveColor;
-                var colorRgba = hexToRgba(activeColor, 0.6);
-                progressBar.style.background = 'linear-gradient(90deg, ' + colorRgba + ' 0%, ' + activeColor + ' 100%)';
-              }
-              restartProgressBar();
-              
-              // CRITICAL: Mark initialization complete AFTER progress bar starts
-              // This prevents slideChange events from resetting the bar during the setTimeout window
-              isInitialized = true;
-              console.log('Progress bar started and initialization marked complete. Index: ' + self.realIndex);
-            }, 150);
+            // Mark as initialized immediately to prevent slideChange interference
+            isInitialized = true;
+            
+            // Start progress bar - the double requestAnimationFrame in startProgressBar handles timing
+            restartProgressBar();
+            
+            console.log('Progress bar started and initialization marked complete. Index: ' + self.realIndex);
           },
           autoplayPause: function() {
             pauseProgressBar();
