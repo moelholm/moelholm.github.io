@@ -36,8 +36,23 @@ race_website: "URL"
 
 #### Race Summary Table
 - Place after intro paragraph
-- Use Jekyll capture blocks with pipe-separated key-value pairs
-- Fields: Race, Date, Www, Type, Position, Duration, Distance, Elevation
+- Use Jekyll capture blocks with pipe-separated key-value pairs ending with semicolons
+- Use `{% include blog_race_summary.html rows=rows_array %}` (NOT `race-table.html`)
+- Fields: Race, Date, Www, Type, Position, Duration, Distance
+- Format example:
+  ```
+  {% capture rows %}
+  Race|Race Name;
+  Date|{{ page.race_date }};
+  Www|[URL](URL);
+  Type|Road/Trail;
+  Position|X of Y finishers;
+  Duration|{{ page.duration_formatted }};
+  Distance|{{ page.distance_km }}k
+  {% endcapture %}
+  {% assign rows_array = rows | split: ";" %}
+  {% include blog_race_summary.html rows=rows_array %}
+  ```
 - No "DNF" counts in Position field
 - No "(no trails)" clarifications in Type field
 
@@ -60,8 +75,16 @@ race_website: "URL"
 
 **Photo Placement:**
 - Check EXIF timestamps to place chronologically
-- Arrange in 2-column tables using Jekyll capture blocks
-- Format: `<img src="/img_running/YYYY-MM-DD/filename.jpg" data-src="..." alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" />`
+- Arrange in 2-column tables using Jekyll capture blocks with markdown tables
+- Use inline markdown tables (NOT Jekyll includes like `race-photos.html`)
+- Format example:
+  ```
+  {% capture table_content %}
+  |------------|------------|
+  | <img src="/img_running/YYYY-MM-DD/file1.jpg" data-src="/img_running/YYYY-MM-DD/file1.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/YYYY-MM-DD/file2.jpg" data-src="/img_running/YYYY-MM-DD/file2.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+  {% endcapture %}
+  {{ table_content | markdownify }}
+  ```
 - Place photos throughout narrative at logical points (early race, mid race, late race)
 - Strava summary screenshots go at the top after the race table
 
@@ -140,6 +163,8 @@ rm IMG_*.jpeg
 - ❌ Don't forget emojis
 - ❌ Don't leave original large files in the repo
 - ❌ Don't assume star ratings - confirm with user
+- ❌ Don't use non-existent Jekyll include files (e.g., `race-table.html`, `race-photos.html`)
+- ❌ Don't declare job complete without testing the build locally
 
 ## Your Role
 
@@ -150,6 +175,10 @@ When the user asks you to create a race blog post:
 4. Use a casual, enthusiastic tone with emojis
 5. Integrate year-over-year comparisons naturally in the narrative
 6. Always include a recommendation section with star rating
+7. **CRITICAL: Test the Jekyll build locally before declaring the job complete**
+   - Run `cd site && bundle install && bundle exec jekyll build --drafts --future`
+   - Fix any build errors before finishing
+   - Ensure all include files and markdown syntax are correct
 
 Focus ONLY on race blog post creation. Do NOT handle:
 - Adding races to the calendar (that's a separate task)
