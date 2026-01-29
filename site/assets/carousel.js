@@ -79,15 +79,19 @@
     
     function startProgressBar() {
       if (!progressBar) return;
-      // Start from 0% without animation class
+      // Ensure clean state - remove any existing animation
+      progressBar.classList.remove('animating');
       progressBar.style.width = '0%';
-      // Use double requestAnimationFrame to ensure browser processes the width change
+      
+      // Force browser to apply the 0% width
+      void progressBar.offsetWidth;
+      
+      // Add animation class FIRST
+      progressBar.classList.add('animating');
+      
+      // Then use RAF to set target width (ensures transition is active)
       requestAnimationFrame(function() {
-        requestAnimationFrame(function() {
-          // Now add animation class and set target width
-          progressBar.classList.add('animating');
-          progressBar.style.width = '100%';
-        });
+        progressBar.style.width = '100%';
       });
     }
     
