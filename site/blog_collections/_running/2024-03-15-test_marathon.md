@@ -18,17 +18,18 @@ race_website: "https://example.com/testmarathon"
 
 This is my race report from the Test Marathon 2024 - a challenging 42km road race through the beautiful (fictional) Test Valley! 🏃‍♂️💨
 
-{% capture race_summary %}
-Race|Test Marathon 2024
-Date|March 15, 2024
-Www|[testmarathon.example.com](https://example.com/testmarathon)
-Type|Road running
-Position|42 of 150
-Duration|3h45m30s
-Distance|42 km
-Elevation|200 m
+{% capture rows %}
+Race|Test Marathon 2024;
+Date|{{ page.race_date }};
+Www|[https://example.com/testmarathon](https://example.com/testmarathon);
+Type|Road running;
+Position|42 of 150 finishers;
+Duration|{{ page.duration_formatted }};
+Distance|{{ page.distance_km }}k
 {% endcapture %}
-{% include race-table.html content=race_summary %}
+{% assign rows_array = rows | split: ";" %}
+
+{% include blog_race_summary.html rows=rows_array %}
 
 I woke up at 5:30 AM (way too early! 😴) to make the drive to Test Valley. The race started at 8:00 AM, and I wanted plenty of time for breakfast and nervous bathroom visits. 🚽
 
@@ -36,10 +37,11 @@ I woke up at 5:30 AM (way too early! 😴) to make the drive to Test Valley. The
 
 The morning was perfect for running - around 12°C with a light breeze. The course started with a nice flat section through the town center, where all the spectators were cheering us on. So much energy! 🎉
 
-{% capture photo_row_1 %}
-[Test Start Photo]|[Test Mid-race Photo]
+{% capture table_content %}
+|------------|------------|
+| [Test Start Photo Placeholder] | [Test Mid-race Photo Placeholder] |
 {% endcapture %}
-{% include race-photos.html content=photo_row_1 %}
+{{ table_content | markdownify }}
 
 Around kilometer 15, we hit the first real climb - about 100m elevation gain over 3km. My legs were feeling good, but I definitely felt the effort! 💪🏻 I kept my pace steady and just focused on maintaining good form.
 
@@ -49,10 +51,11 @@ The middle section (km 20-30) was where things got interesting. The temperature 
 
 At kilometer 35, I hit the infamous "test wall" 😬 - that moment where your legs start questioning all your life choices. But I remembered my training and just kept putting one foot in front of the other. The crowd support was AMAZING here! 👏🏻
 
-{% capture photo_row_2 %}
-[Test Finish Photo]|[Test Post-race Photo]
+{% capture table_content %}
+|------------|------------|
+| [Test Finish Photo Placeholder] | [Test Post-race Photo Placeholder] |
 {% endcapture %}
-{% include race-photos.html content=photo_row_2 %}
+{{ table_content | markdownify }}
 
 The last 2 kilometers felt like they went on forever, but I could hear the finish line music and that gave me the boost I needed. I crossed the line in 3h45m30s - absolutely thrilled with my time! 🤩
 
