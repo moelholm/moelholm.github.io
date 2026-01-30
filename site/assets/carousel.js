@@ -86,6 +86,9 @@
       // Add animation class and start transition
       progressBar.classList.add('animating');
       
+      // Set transition duration to match autoplay delay exactly (10 seconds)
+      progressBar.style.transition = 'width 10s linear';
+      
       // Use setTimeout to defer width change to ensure transition triggers
       setTimeout(function() {
         progressBar.style.width = '100%';
@@ -110,8 +113,13 @@
         return;
       }
       
-      // Resume from current position
+      // Calculate remaining time based on current progress
+      var remainingPercent = 100 - currentWidthPercent;
+      var remainingTime = (remainingPercent / 100) * 10; // 10 seconds total
+      
+      // Resume with adjusted transition duration
       progressBar.classList.add('animating');
+      progressBar.style.transition = 'width ' + remainingTime + 's linear';
       progressBar.style.width = '100%';
     }
     
