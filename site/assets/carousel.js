@@ -149,7 +149,14 @@
             }
           },
           slideChangeTransitionEnd: function() {
-            // Restart progress bar after slide transition completes
+            // Update progress bar color BEFORE restarting it
+            // This ensures the bar is at 0% in the old color, then starts in the new color
+            if (window.carouselActiveColor && progressBar) {
+              var colorRgba = hexToRgba(window.carouselActiveColor, 0.6);
+              progressBar.style.background = 'linear-gradient(90deg, ' + colorRgba + ' 0%, ' + window.carouselActiveColor + ' 100%)';
+            }
+            
+            // Restart progress bar after slide transition completes and color is updated
             if (isInitialized) {
               startProgressBar();
             }
@@ -233,11 +240,8 @@
           activeCard.style.background = 'linear-gradient(135deg, ' + activePalette.activeGradient1 + ' 0%, ' + activePalette.activeGradient2 + ' 100%)';
           activeCard.style.color = activePalette.activeText;
           
-          // Update progress bar color
-          if (progressBar) {
-            var colorRgba = hexToRgba(activeColor, 0.6);
-            progressBar.style.background = 'linear-gradient(90deg, ' + colorRgba + ' 0%, ' + activeColor + ' 100%)';
-          }
+          // DON'T update progress bar color here - do it in slideChangeTransitionEnd
+          // This prevents the color from changing while the bar is still animating
           
           // Update bullet colors - clear all first, then set active
           setTimeout(function() {
