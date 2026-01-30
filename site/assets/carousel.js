@@ -283,34 +283,6 @@
       
       console.log('Swiper carousel ready with ' + navCards.length, 'navigation cards');
       
-      // Force immediate styling update after swiper is fully initialized
-      setTimeout(function() {
-        updateActiveTeaserLink(swiper.realIndex);
-        
-        // Also update card titles initially - set all to neutral first, then active to category color
-        setTimeout(function() {
-          // Set all titles to neutral color first
-          var allSlides = document.querySelectorAll('.swiper-slide');
-          allSlides.forEach(function(slide) {
-            var titles = slide.querySelectorAll('.post-title-link');
-            titles.forEach(function(title) {
-              title.style.setProperty('color', '#374151', 'important');
-            });
-          });
-          
-          // Then set active slide titles to category color
-          if (window.carouselActiveColor) {
-            var activeSlide = document.querySelector('.swiper-slide-active');
-            if (activeSlide) {
-              var titles = activeSlide.querySelectorAll('.post-title-link');
-              titles.forEach(function(title) {
-                title.style.setProperty('color', window.carouselActiveColor, 'important');
-              });
-            }
-          }
-        }, 100);
-      }, 200);
-      
     } catch (error) {
       console.error('Error initializing Swiper:', error);
     }
