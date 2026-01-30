@@ -192,6 +192,12 @@
             // Mark as initialized to allow normal slide change behavior
             isInitialized = true;
             
+            // Initialize progress bar color BEFORE starting animation
+            if (window.carouselActiveColor && progressBar) {
+              var colorRgba = hexToRgba(window.carouselActiveColor, 0.6);
+              progressBar.style.background = 'linear-gradient(90deg, ' + colorRgba + ' 0%, ' + window.carouselActiveColor + ' 100%)';
+            }
+            
             // Start progress bar - use direct approach optimized for page load
             // The CSS transition will handle the animation smoothly
             startProgressBar();
