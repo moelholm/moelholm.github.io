@@ -76,20 +76,19 @@
     function startProgressBar() {
       if (!progressBar) return;
       
-      // Clean state: remove animation and set to 0%
+      // Step 1: Remove any existing transition and set to 0% WITHOUT animation
       progressBar.classList.remove('animating');
+      progressBar.style.transition = 'none';
       progressBar.style.width = '0%';
       
-      // Force browser reflow - critical for CSS transition to trigger
+      // Step 2: Force browser to render the 0% state
       void progressBar.offsetWidth;
       
-      // Add animation class and start transition
+      // Step 3: Add animation class and set transition duration
       progressBar.classList.add('animating');
-      
-      // Set transition duration to match autoplay delay exactly (10 seconds)
       progressBar.style.transition = 'width 10s linear';
       
-      // Use setTimeout to defer width change to ensure transition triggers
+      // Step 4: Use setTimeout to defer width change to ensure transition triggers
       setTimeout(function() {
         progressBar.style.width = '100%';
       }, 10);
@@ -154,13 +153,6 @@
             // Update styling immediately on slide change
             if (isInitialized) {
               updateActiveTeaserLink(this.realIndex);
-              
-              // Reset progress bar to 0% as card is about to hide
-              if (progressBar) {
-                progressBar.classList.remove('animating');
-                progressBar.style.transition = '';
-                progressBar.style.width = '0%';
-              }
             }
           },
           slideChangeTransitionEnd: function() {
