@@ -154,17 +154,23 @@
             // Update styling immediately on slide change
             if (isInitialized) {
               updateActiveTeaserLink(this.realIndex);
+              
+              // Reset progress bar to 0% as card is about to hide
+              if (progressBar) {
+                progressBar.classList.remove('animating');
+                progressBar.style.transition = '';
+                progressBar.style.width = '0%';
+              }
             }
           },
           slideChangeTransitionEnd: function() {
-            // Update progress bar color BEFORE restarting it
-            // This ensures the bar is at 0% in the old color, then starts in the new color
+            // Update progress bar color after transition completes (bar is at 0%)
             if (window.carouselActiveColor && progressBar) {
               var colorRgba = hexToRgba(window.carouselActiveColor, 0.6);
               progressBar.style.background = 'linear-gradient(90deg, ' + colorRgba + ' 0%, ' + window.carouselActiveColor + ' 100%)';
             }
             
-            // Restart progress bar after slide transition completes and color is updated
+            // Start progress bar now that card is fully showing
             if (isInitialized) {
               startProgressBar();
             }
