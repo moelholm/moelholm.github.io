@@ -18,7 +18,7 @@ races:
     distance: "46 km"
     tags: ["ultra", "trail"]
     url: "https://www.sportstiming.dk/event/17044"
-    status: "pending"
+    status: "cancelled"
   
   - date: "2026-03-14"
     title: "Grenaa Halvmarathon – 6 timers ultraløb 2026"
