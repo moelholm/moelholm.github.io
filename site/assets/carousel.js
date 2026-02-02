@@ -153,15 +153,15 @@
             // Update styling immediately on slide change
             if (isInitialized) {
               updateActiveTeaserLink(this.realIndex);
+              
+              // Update progress bar color immediately (while bar is at 0%)
+              if (window.carouselActiveColor && progressBar) {
+                var colorRgba = hexToRgba(window.carouselActiveColor, 0.6);
+                progressBar.style.background = 'linear-gradient(90deg, ' + colorRgba + ' 0%, ' + window.carouselActiveColor + ' 100%)';
+              }
             }
           },
           slideChangeTransitionEnd: function() {
-            // Update progress bar color after transition completes (bar is at 0%)
-            if (window.carouselActiveColor && progressBar) {
-              var colorRgba = hexToRgba(window.carouselActiveColor, 0.6);
-              progressBar.style.background = 'linear-gradient(90deg, ' + colorRgba + ' 0%, ' + window.carouselActiveColor + ' 100%)';
-            }
-            
             // Start progress bar now that card is fully showing
             if (isInitialized) {
               startProgressBar();
