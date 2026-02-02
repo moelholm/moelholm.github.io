@@ -152,9 +152,18 @@
           slideChange: function() {
             // Update styling immediately on slide change
             if (isInitialized) {
+              // FIRST: Reset progress bar to 0% (invisible) before changing color
+              if (progressBar) {
+                progressBar.classList.remove('animating');
+                progressBar.style.transition = 'none';
+                progressBar.style.width = '0%';
+                void progressBar.offsetWidth;  // Force reflow
+              }
+              
+              // SECOND: Update nav cards and get new color
               updateActiveTeaserLink(this.realIndex);
               
-              // Update progress bar color immediately (while bar is at 0%)
+              // THIRD: Update progress bar color (now bar is at 0%, so color change is invisible)
               if (window.carouselActiveColor && progressBar) {
                 var colorRgba = hexToRgba(window.carouselActiveColor, 0.6);
                 progressBar.style.background = 'linear-gradient(90deg, ' + colorRgba + ' 0%, ' + window.carouselActiveColor + ' 100%)';
