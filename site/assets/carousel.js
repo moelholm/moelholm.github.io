@@ -28,6 +28,7 @@
     
     // Track initialization state to prevent race conditions
     var isInitialized = false;
+    var isFirstSlide = true;  // Track if this is the first slide after init
     
     // Helper functions defined before Swiper creation so they're available in event handlers
     function hexToRgba(hex, alpha) {
@@ -152,12 +153,16 @@
           slideChange: function() {
             // Update styling immediately on slide change
             if (isInitialized) {
-              // FIRST: Reset progress bar to 0% (invisible) before changing color
-              if (progressBar) {
-                progressBar.classList.remove('animating');
-                progressBar.style.transition = 'none';
-                progressBar.style.width = '0%';
-                void progressBar.offsetWidth;  // Force reflow
+              // Skip progress bar reset on the very first slide change after init
+              // to prevent race condition that stops the initial progress bar from starting
+              if (!isFirstSlide) {
+                // FIRST: Reset progress bar to 0% (invisible) before changing color
+                if (progressBar) {
+                  progressBar.classList.remove('animating');
+                  progressBar.style.transition = 'none';
+                  progressBar.style.width = '0%';
+                  void progressBar.offsetWidth;  // Force reflow
+                }
               }
               
               // SECOND: Update nav cards and get new color
@@ -168,6 +173,9 @@
                 var colorRgba = hexToRgba(window.carouselActiveColor, 0.6);
                 progressBar.style.background = 'linear-gradient(90deg, ' + colorRgba + ' 0%, ' + window.carouselActiveColor + ' 100%)';
               }
+              
+              // Mark that we're no longer on the first slide
+              isFirstSlide = false;
             }
           },
           slideChangeTransitionEnd: function() {
