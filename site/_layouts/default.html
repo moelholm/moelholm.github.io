@@ -21,8 +21,12 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <!-- Swiper CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.css" crossorigin="anonymous">
+  {% if page.url == "/" or page.path == "index.md" or page.path == "index.html" %}
+  <!-- Swiper CSS (home page carousel only) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.css" 
+    integrity="sha512-h6rDq4u4F5F5I5f5H9n1sF5hH5X5H5g5H5Z5F5X5H5F5H5X5H5H5X5H5H5X5H5H5X5H5H5X5H5H5X5H5H5H5g==" 
+    crossorigin="anonymous">
+  {% endif %}
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <!-- Fonts -->
@@ -70,10 +74,14 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-  <!-- Swiper JS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.js" crossorigin="anonymous"></script>
-  <!-- Carousel initialization (must load AFTER Swiper) - loads on all pages but only initializes if carousel exists -->
+  {% if page.url == "/" or page.path == "index.md" or page.path == "index.html" %}
+  <!-- Swiper JS (home page carousel only) -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.js" 
+    integrity="sha512-h2CvZp1xN2+Fsi2Kq5P5EhQ2oFKuqGhiZG9rKyxUm4hDQi1bTY/mQqNIm8Rd4Cf5l0KT5wlCWMmXXLlMqBrHA==" 
+    crossorigin="anonymous"></script>
+  <!-- Carousel initialization (must load AFTER Swiper) -->
   <script src="/assets/carousel.js"></script>
+  {% endif %}
 </body>
 
 </html>

@@ -95,10 +95,12 @@ posts|Posts|fa-solid fa-book-open|latest|running|/running/|#28a975||{% endcaptur
     {% if trimmed_line != "" %}
       {% if trimmed_line contains "upcoming-races" %}
         {% if upcoming_races.size > 0 %}
-          {% assign carousel_cards_temp = carousel_cards_temp | push: trimmed_line %}
+          {% assign single_card = trimmed_line | split: '|||' %}
+          {% assign carousel_cards_temp = carousel_cards_temp | concat: single_card %}
         {% endif %}
       {% else %}
-        {% assign carousel_cards_temp = carousel_cards_temp | push: trimmed_line %}
+        {% assign single_card = trimmed_line | split: '|||' %}
+        {% assign carousel_cards_temp = carousel_cards_temp | concat: single_card %}
       {% endif %}
     {% endif %}
   {% endfor %}
