@@ -1,44 +1,58 @@
+/**
+ * Carousel Module for moelholm.com
+ * Manages Swiper.js carousel with dynamic color theming and progress bar animation
+ * 
+ * Browser Support: Chrome 60+, Firefox 55+, Safari 11+, Edge 79+
+ * @version 2.0.0
+ */
 (function() {
   'use strict';
   
-  function initSwiper() {
-    if (typeof Swiper === 'undefined') {
-      console.error('Swiper library not loaded!');
-      return;
-    }
+  // ==========================================================================
+  // Color Utilities - Single Responsibility: Color manipulation and validation
+  // ==========================================================================
+  
+  var ColorUtils = {
+    /**
+     * Validate hex color format
+     * @param {string} hex - Hex color string
+     * @returns {boolean} True if valid
+     */
+    isValidHex: function(hex) {
+      return typeof hex === 'string' && /^#[0-9A-Fa-f]{6}$/.test(hex);
+    },
     
-    var swiperContainer = document.getElementById('homeCarousel');
-    if (!swiperContainer) {
-      return;
-    }
-    
-    var navCards = document.querySelectorAll('.carousel-nav-card');
-    if (navCards.length === 0) {
-      console.warn('No navigation cards found');
-      return;
-    }
-    
-    console.log('Initializing Swiper carousel...');
-    console.log('Found container:', swiperContainer);
-    console.log('Found', navCards.length, 'navigation cards');
-    console.log('Swiper library version:', Swiper.version || 'unknown');
-    
-    // Get progress bar reference BEFORE creating Swiper so it's available in event handlers
-    var progressBar = document.querySelector('.carousel-progress__bar');
-    
-    // Track initialization state to prevent race conditions
-    var isInitialized = false;
-    var isFirstSlide = true;  // Track if this is the first slide after init
-    
-    // Helper functions defined before Swiper creation so they're available in event handlers
-    function hexToRgba(hex, alpha) {
+    /**
+     * Convert hex color to RGBA format
+     * @param {string} hex - Hex color string (e.g., '#ff5733')
+     * @param {number} alpha - Alpha value between 0 and 1
+     * @returns {string} RGBA color string
+     */
+    hexToRgba: function(hex, alpha) {
+      if (!this.isValidHex(hex)) {
+        console.warn('Invalid hex color:', hex);
+        return 'rgba(0, 0, 0, ' + alpha + ')';
+      }
+      
       var r = parseInt(hex.slice(1, 3), 16);
       var g = parseInt(hex.slice(3, 5), 16);
       var b = parseInt(hex.slice(5, 7), 16);
+      
       return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + alpha + ')';
-    }
+    },
     
-    function darkenColor(hex, percent) {
+    /**
+     * Darken a hex color by a percentage
+     * @param {string} hex - Hex color string
+     * @param {number} percent - Percentage to darken (0-1)
+     * @returns {string} Darkened hex color
+     */
+    darkenColor: function(hex, percent) {
+      if (!this.isValidHex(hex)) {
+        console.warn('Invalid hex color:', hex);
+        return '#000000';
+      }
+      
       var r = parseInt(hex.slice(1, 3), 16);
       var g = parseInt(hex.slice(3, 5), 16);
       var b = parseInt(hex.slice(5, 7), 16);
@@ -51,77 +65,321 @@
       g = Math.max(0, Math.min(255, g));
       b = Math.max(0, Math.min(255, b));
       
-      var rr = r.toString(16).padStart(2, '0');
-      var gg = g.toString(16).padStart(2, '0');
-      var bb = b.toString(16).padStart(2, '0');
+      // Manual padding for browser compatibility (no padStart)
+      var rr = ('0' + r.toString(16)).slice(-2);
+      var gg = ('0' + g.toString(16)).slice(-2);
+      var bb = ('0' + b.toString(16)).slice(-2);
       
       return '#' + rr + gg + bb;
-    }
+    },
     
-    function deriveColorPalette(baseColor) {
-      // Derive all color variations from a single base color
+    /**
+     * Derive complete color palette from a single base color
+     * @param {string} baseColor - Base hex color
+     * @returns {Object} Color palette object
+     */
+    deriveColorPalette: function(baseColor) {
+      if (!this.isValidHex(baseColor)) {
+        baseColor = '#3B82F6'; // Fallback to blue
+      }
+      
       return {
         primary: baseColor,
-        inactiveGradient1: hexToRgba(baseColor, 0.02),  // Very light tint for inactive bg start
-        inactiveGradient2: hexToRgba(baseColor, 0.05),  // Slightly darker tint for inactive bg end
-        activeGradient1: hexToRgba(baseColor, 0.40),    // Medium tint for active bg start
-        activeGradient2: hexToRgba(baseColor, 0.55),    // Darker tint for active bg end
-        activeText: darkenColor(baseColor, 0.30)         // Darkened version for text (30% darker)
+        inactiveGradient1: this.hexToRgba(baseColor, 0.02),
+        inactiveGradient2: this.hexToRgba(baseColor, 0.05),
+        activeGradient1: this.hexToRgba(baseColor, 0.40),
+        activeGradient2: this.hexToRgba(baseColor, 0.55),
+        activeText: this.darkenColor(baseColor, 0.30)
       };
     }
+  };
+  
+  // ==========================================================================
+  // Progress Bar Controller - Single Responsibility: Progress bar animation
+  // ==========================================================================
+  
+  var ProgressBarController = {
+    ANIMATION_DURATION: 10, // seconds
+    NEAR_COMPLETION_THRESHOLD: 95, // percent
+    ANIMATION_START_DELAY: 10, // milliseconds
     
-    // ==============================================================================
-    // PROGRESS BAR MANAGEMENT - Simplified for reliable operation
-    // ==============================================================================
+    element: null,
     
-    function startProgressBar() {
-      if (!progressBar) return;
+    /**
+     * Initialize the progress bar controller
+     * @param {HTMLElement} progressBarElement - The progress bar DOM element
+     */
+    init: function(progressBarElement) {
+      this.element = progressBarElement;
+    },
+    
+    /**
+     * Start progress bar animation from 0% to 100%
+     */
+    start: function() {
+      if (!this.element) return;
       
-      // Step 1: Remove any existing transition and set to 0% WITHOUT animation
-      progressBar.classList.remove('animating');
-      progressBar.style.transition = 'none';
-      progressBar.style.width = '0%';
+      // Remove transition and reset to 0%
+      this.element.classList.remove('animating');
+      this.element.style.transition = 'none';
+      this.element.style.width = '0%';
       
-      // Step 2: Force browser to render the 0% state
-      void progressBar.offsetWidth;
+      // Force browser reflow
+      void this.element.offsetWidth;
       
-      // Step 3: Add animation class and set transition duration
-      progressBar.classList.add('animating');
-      progressBar.style.transition = 'width 10s linear';
+      // Add transition and prepare to animate
+      this.element.classList.add('animating');
+      this.element.style.transition = 'width ' + this.ANIMATION_DURATION + 's linear';
       
-      // Step 4: Use setTimeout to defer width change to ensure transition triggers
+      // Defer width change to trigger transition
+      var self = this;
       setTimeout(function() {
-        progressBar.style.width = '100%';
-      }, 10);
-    }
+        if (self.element) {
+          self.element.style.width = '100%';
+        }
+      }, this.ANIMATION_START_DELAY);
+    },
     
-    function pauseProgressBar() {
-      if (!progressBar) return;
-      // Get current computed width and freeze it
-      var currentWidth = window.getComputedStyle(progressBar).width;
-      progressBar.classList.remove('animating');
-      progressBar.style.width = currentWidth;
-    }
-    
-    function resumeProgressBar() {
-      if (!progressBar) return;
-      var currentWidthPercent = parseFloat(progressBar.style.width) || 0;
+    /**
+     * Pause progress bar animation at current position
+     */
+    pause: function() {
+      if (!this.element) return;
       
-      if (currentWidthPercent >= 95) {
-        // Near completion - just restart
-        startProgressBar();
+      var currentWidth = window.getComputedStyle(this.element).width;
+      this.element.classList.remove('animating');
+      this.element.style.width = currentWidth;
+    },
+    
+    /**
+     * Resume progress bar animation from current position
+     */
+    resume: function() {
+      if (!this.element) return;
+      
+      var currentWidthPercent = parseFloat(this.element.style.width) || 0;
+      
+      // If near completion, restart instead
+      if (currentWidthPercent >= this.NEAR_COMPLETION_THRESHOLD) {
+        this.start();
         return;
       }
       
-      // Calculate remaining time based on current progress
+      // Calculate remaining time proportionally
       var remainingPercent = 100 - currentWidthPercent;
-      var remainingTime = (remainingPercent / 100) * 10; // 10 seconds total
+      var remainingTime = (remainingPercent / 100) * this.ANIMATION_DURATION;
       
-      // Resume with adjusted transition duration
-      progressBar.classList.add('animating');
-      progressBar.style.transition = 'width ' + remainingTime + 's linear';
-      progressBar.style.width = '100%';
+      // Resume with adjusted duration
+      this.element.classList.add('animating');
+      this.element.style.transition = 'width ' + remainingTime + 's linear';
+      this.element.style.width = '100%';
+    },
+    
+    /**
+     * Update progress bar color
+     * @param {string} color - Hex color string
+     */
+    setColor: function(color) {
+      if (!this.element || !ColorUtils.isValidHex(color)) return;
+      
+      var colorRgba = ColorUtils.hexToRgba(color, 0.6);
+      this.element.style.background = 
+        'linear-gradient(90deg, ' + colorRgba + ' 0%, ' + color + ' 100%)';
     }
+  };
+  
+  // ==========================================================================
+  // Navigation Controller - Single Responsibility: Navigation card styling
+  // ==========================================================================
+  
+  var NavigationController = {
+    cards: null,
+    activeColor: null,
+    
+    /**
+     * Initialize the navigation controller
+     * @param {NodeList} navCards - Navigation card elements
+     */
+    init: function(navCards) {
+      this.cards = navCards;
+    },
+    
+    /**
+     * Update active navigation card and apply styling
+     * @param {number} realIndex - Swiper real index of active slide
+     * @returns {string|null} Active color or null
+     */
+    updateActive: function(realIndex) {
+      if (!this.cards) return null;
+      
+      // Remove active class from all cards
+      for (var i = 0; i < this.cards.length; i++) {
+        this.cards[i].classList.remove('active');
+      }
+      
+      // Find and activate the matching card
+      var activeCard = this._findCardByIndex(realIndex);
+      if (!activeCard) return null;
+      
+      var activeColor = activeCard.getAttribute('data-color');
+      if (!ColorUtils.isValidHex(activeColor)) {
+        console.warn('Invalid color on card:', activeColor);
+        return null;
+      }
+      
+      activeCard.classList.add('active');
+      this.activeColor = activeColor;
+      
+      // Apply color styling to all cards
+      this._applyCardStyling(activeCard, activeColor);
+      
+      // Update bullet pagination colors
+      this._updateBulletColors(activeColor);
+      
+      return activeColor;
+    },
+    
+    /**
+     * Find navigation card by slide index
+     * @private
+     * @param {number} realIndex - Slide index
+     * @returns {HTMLElement|null} Card element or null
+     */
+    _findCardByIndex: function(realIndex) {
+      for (var i = 0; i < this.cards.length; i++) {
+        var slideIndex = parseInt(this.cards[i].getAttribute('data-slide-to'), 10);
+        if (slideIndex === realIndex) {
+          return this.cards[i];
+        }
+      }
+      return null;
+    },
+    
+    /**
+     * Apply color styling to navigation cards
+     * @private
+     * @param {HTMLElement} activeCard - Active card element
+     * @param {string} activeColor - Active color
+     */
+    _applyCardStyling: function(activeCard, activeColor) {
+      var activePalette = ColorUtils.deriveColorPalette(activeColor);
+      
+      // Apply inactive colors to all cards
+      for (var i = 0; i < this.cards.length; i++) {
+        var card = this.cards[i];
+        var cardColor = card.getAttribute('data-color');
+        var cardPalette = ColorUtils.deriveColorPalette(cardColor);
+        
+        card.style.background = 'linear-gradient(135deg, ' + 
+          cardPalette.inactiveGradient1 + ' 0%, ' + 
+          cardPalette.inactiveGradient2 + ' 100%)';
+        card.style.color = ColorUtils.hexToRgba(cardColor, 0.6);
+      }
+      
+      // Apply active styling to active card
+      activeCard.style.background = 'linear-gradient(135deg, ' + 
+        activePalette.activeGradient1 + ' 0%, ' + 
+        activePalette.activeGradient2 + ' 100%)';
+      activeCard.style.color = activePalette.activeText;
+    },
+    
+    /**
+     * Update Swiper bullet pagination colors
+     * @private
+     * @param {string} activeColor - Active color
+     */
+    _updateBulletColors: function(activeColor) {
+      // Use setTimeout to ensure bullets are rendered
+      setTimeout(function() {
+        var allBullets = document.querySelectorAll('.swiper-pagination-bullet');
+        
+        // Clear all bullet colors
+        for (var i = 0; i < allBullets.length; i++) {
+          allBullets[i].style.background = '';
+        }
+        
+        // Set active bullet color
+        var activeBullet = document.querySelector('.swiper-pagination-bullet-active');
+        if (activeBullet && ColorUtils.isValidHex(activeColor)) {
+          activeBullet.style.background = activeColor;
+        }
+      }, 50);
+    }
+  };
+  
+  // ==========================================================================
+  // Title Color Controller - Single Responsibility: Slide title styling
+  // ==========================================================================
+  
+  var TitleColorController = {
+    DEFAULT_COLOR: '#374151',
+    
+    /**
+     * Update slide title colors after transition
+     * @param {string} activeColor - Active card color
+     */
+    updateTitleColors: function(activeColor) {
+      if (!ColorUtils.isValidHex(activeColor)) {
+        activeColor = this.DEFAULT_COLOR;
+      }
+      
+      // Reset all titles to default color
+      var allSlides = document.querySelectorAll('.swiper-slide');
+      for (var i = 0; i < allSlides.length; i++) {
+        var titles = allSlides[i].querySelectorAll('.post-title-link');
+        for (var j = 0; j < titles.length; j++) {
+          titles[j].style.setProperty('color', this.DEFAULT_COLOR, 'important');
+        }
+      }
+      
+      // Set active slide titles to active color
+      var activeSlide = document.querySelector('.swiper-slide-active');
+      if (activeSlide) {
+        var activeTitles = activeSlide.querySelectorAll('.post-title-link');
+        for (var k = 0; k < activeTitles.length; k++) {
+          activeTitles[k].style.setProperty('color', activeColor, 'important');
+        }
+      }
+    }
+  };
+  
+  // ==========================================================================
+  // Main Initialization Function - Open/Closed Principle: Extensible design
+  // ==========================================================================
+  
+  function initSwiper() {
+    // Validate dependencies
+    if (typeof Swiper === 'undefined') {
+      console.error('Swiper library not loaded!');
+      return;
+    }
+    
+    // Get required DOM elements
+    var swiperContainer = document.getElementById('homeCarousel');
+    if (!swiperContainer) return;
+    
+    var navCards = document.querySelectorAll('.carousel-nav-card');
+    if (navCards.length === 0) {
+      console.warn('No navigation cards found');
+      return;
+    }
+    
+    var progressBar = document.querySelector('.carousel-progress__bar');
+    
+    console.log('Initializing Swiper carousel...');
+    console.log('Found container:', swiperContainer);
+    console.log('Found', navCards.length, 'navigation cards');
+    console.log('Swiper library version:', Swiper.version || 'unknown');
+    
+    // Initialize all controllers
+    ProgressBarController.init(progressBar);
+    NavigationController.init(navCards);
+    
+    // State management for initialization
+    var state = {
+      isInitialized: false,
+      isFirstSlide: true
+    };
     
     try {
       var swiper = new Swiper('#homeCarousel', {
@@ -151,166 +409,89 @@
         loop: true,
         on: {
           slideChange: function() {
-            // Update styling immediately on slide change
-            if (isInitialized) {
-              // Skip progress bar reset on the very first slide change after init
-              // to prevent race condition that stops the initial progress bar from starting
-              if (!isFirstSlide) {
-                // FIRST: Reset progress bar to 0% (invisible) before changing color
-                if (progressBar) {
-                  progressBar.classList.remove('animating');
-                  progressBar.style.transition = 'none';
-                  progressBar.style.width = '0%';
-                  void progressBar.offsetWidth;  // Force reflow
-                }
-              }
-              
-              // SECOND: Update nav cards and get new color
-              updateActiveTeaserLink(this.realIndex);
-              
-              // THIRD: Update progress bar color (now bar is at 0%, so color change is invisible)
-              if (window.carouselActiveColor && progressBar) {
-                var colorRgba = hexToRgba(window.carouselActiveColor, 0.6);
-                progressBar.style.background = 'linear-gradient(90deg, ' + colorRgba + ' 0%, ' + window.carouselActiveColor + ' 100%)';
-              }
-              
-              // Mark that we're no longer on the first slide
-              isFirstSlide = false;
-            }
-          },
-          slideChangeTransitionEnd: function() {
-            // Start progress bar now that card is fully showing
-            if (isInitialized) {
-              startProgressBar();
+            if (!state.isInitialized) return;
+            
+            // Skip progress bar reset on first slide to prevent race condition
+            if (!state.isFirstSlide && progressBar) {
+              progressBar.classList.remove('animating');
+              progressBar.style.transition = 'none';
+              progressBar.style.width = '0%';
+              void progressBar.offsetWidth;
             }
             
-            // Update card title colors after transition completes
-            if (window.carouselActiveColor) {
-              // Reset all titles to default content link color first
-              var allSlides = document.querySelectorAll('.swiper-slide');
-              allSlides.forEach(function(slide) {
-                var titles = slide.querySelectorAll('.post-title-link');
-                titles.forEach(function(title) {
-                  title.style.setProperty('color', '#374151', 'important');
-                });
-              });
-              
-              // Set color for active slide titles
-              var activeSlide = document.querySelector('.swiper-slide-active');
-              if (activeSlide) {
-                var titles = activeSlide.querySelectorAll('.post-title-link');
-                titles.forEach(function(title) {
-                  title.style.setProperty('color', window.carouselActiveColor, 'important');
-                });
-              }
+            // Update navigation and get active color
+            var activeColor = NavigationController.updateActive(this.realIndex);
+            
+            // Update progress bar color
+            if (activeColor) {
+              ProgressBarController.setColor(activeColor);
+            }
+            
+            // Mark that we're past the first slide
+            state.isFirstSlide = false;
+          },
+          slideChangeTransitionEnd: function() {
+            if (!state.isInitialized) return;
+            
+            // Start progress bar animation
+            ProgressBarController.start();
+            
+            // Update title colors
+            if (NavigationController.activeColor) {
+              TitleColorController.updateTitleColors(NavigationController.activeColor);
             }
           },
           init: function() {
-            console.log('Swiper initialized successfully! Active index: ' + this.realIndex);
-            var self = this;
+            console.log('Swiper initialized! Active index:', this.realIndex);
             
-            // Apply initial styling for nav cards immediately
-            updateActiveTeaserLink(self.realIndex);
+            // Update navigation and get initial color
+            var activeColor = NavigationController.updateActive(this.realIndex);
             
-            // Mark as initialized to allow normal slide change behavior
-            isInitialized = true;
+            // Mark as initialized
+            state.isInitialized = true;
             
-            // Initialize progress bar color BEFORE starting animation
-            if (window.carouselActiveColor && progressBar) {
-              var colorRgba = hexToRgba(window.carouselActiveColor, 0.6);
-              progressBar.style.background = 'linear-gradient(90deg, ' + colorRgba + ' 0%, ' + window.carouselActiveColor + ' 100%)';
+            // Initialize progress bar color and start animation
+            if (activeColor) {
+              ProgressBarController.setColor(activeColor);
             }
+            ProgressBarController.start();
             
-            // Start progress bar - use direct approach optimized for page load
-            // The CSS transition will handle the animation smoothly
-            startProgressBar();
-            
-            console.log('Progress bar started. Index: ' + self.realIndex);
+            console.log('Progress bar started. Index:', this.realIndex);
           },
           autoplayPause: function() {
-            pauseProgressBar();
+            ProgressBarController.pause();
           },
           autoplayResume: function() {
-            resumeProgressBar();
+            ProgressBarController.resume();
           }
         }
       });
       
-      function updateActiveTeaserLink(realIndex) {
-        for (var i = 0; i < navCards.length; i++) {
-          navCards[i].classList.remove('active');
-        }
-        
-        var activeCard = null;
-        var activeColor = null;
-        
-        for (var j = 0; j < navCards.length; j++) {
-          var slideIndex = parseInt(navCards[j].getAttribute('data-slide-to'), 10);
-          if (slideIndex === realIndex) {
-            activeCard = navCards[j];
-            activeColor = navCards[j].getAttribute('data-color');
-            break;
-          }
-        }
-        
-        if (activeCard && activeColor) {
-          activeCard.classList.add('active');
-          var activePalette = deriveColorPalette(activeColor);
-          
-          // Apply inactive colors to all cards
-          navCards.forEach(function(card) {
-            var cardColor = card.getAttribute('data-color');
-            var cardPalette = deriveColorPalette(cardColor);
-            card.style.background = 'linear-gradient(135deg, ' + cardPalette.inactiveGradient1 + ' 0%, ' + cardPalette.inactiveGradient2 + ' 100%)';
-            card.style.color = hexToRgba(cardColor, 0.6);
-          });
-          
-          // Apply active styling to the active card
-          activeCard.style.background = 'linear-gradient(135deg, ' + activePalette.activeGradient1 + ' 0%, ' + activePalette.activeGradient2 + ' 100%)';
-          activeCard.style.color = activePalette.activeText;
-          
-          // DON'T update progress bar color here - do it in slideChangeTransitionEnd
-          // This prevents the color from changing while the bar is still animating
-          
-          // Update bullet colors - clear all first, then set active
-          setTimeout(function() {
-            var allBullets = document.querySelectorAll('.swiper-pagination-bullet');
-            allBullets.forEach(function(bullet) {
-              bullet.style.background = ''; // Clear any previous color
-            });
-            var activeBullet = document.querySelector('.swiper-pagination-bullet-active');
-            if (activeBullet) {
-              activeBullet.style.background = activeColor;
-            }
-          }, 50);
-          
-          // Store the color for later use in slideChangeTransitionEnd
-          window.carouselActiveColor = activeColor;
-        }
-      }
-      
-      // Click handlers for navigation cards
-      navCards.forEach(function(card) {
-        card.addEventListener('click', function(e) {
+      // Attach click handlers to navigation cards
+      for (var i = 0; i < navCards.length; i++) {
+        navCards[i].addEventListener('click', function(e) {
           e.preventDefault();
           var slideIndex = parseInt(this.getAttribute('data-slide-to'), 10);
           
-          for (var i = 0; i < navCards.length; i++) {
-            navCards[i].classList.remove('active');
+          // Update active card
+          for (var j = 0; j < navCards.length; j++) {
+            navCards[j].classList.remove('active');
           }
           this.classList.add('active');
           
+          // Navigate to slide
           swiper.slideToLoop(slideIndex);
         });
-      });
+      }
       
-      console.log('Swiper carousel ready with ' + navCards.length, 'navigation cards');
+      console.log('Swiper carousel ready with', navCards.length, 'navigation cards');
       
     } catch (error) {
       console.error('Error initializing Swiper:', error);
     }
   }
   
+  // Initialize when DOM is ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initSwiper);
   } else {
