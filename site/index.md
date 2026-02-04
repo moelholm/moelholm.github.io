@@ -79,12 +79,21 @@ stylesheets:
     {% assign latest = "" | split: "" %}
   {% endif %}
   
+  {% comment %}Static page: About{% endcomment %}
+  {% assign about_page = site.pages | where: "name", "about.md" | first %}
+  {% if about_page %}
+    {% assign about_page_array = about_page | split: '|||' %}
+  {% else %}
+    {% assign about_page_array = "" | split: "" %}
+  {% endif %}
+  
   {% comment %}=== STEP 2: Card definitions (id|title|icon|var_name|kind|url|base_color||) ==={% endcomment %}
   {% capture card_definitions %}previous-races|Previous Races|fa-solid fa-trophy|race_posts|previous_races|/races|#0f3166||
 upcoming-races|Upcoming Races|fa-solid fa-flag-checkered|upcoming_races|upcoming_races|/race-calendar-2026/|#d4a300||
 activities|Activities|fa-solid fa-person-running|activities|activities|/activities/|#ff6600||
 updates|Updates|fa-brands fa-mastodon|entries|toots|/toots/|#5d6dcc||
-posts|Posts|fa-solid fa-book-open|latest|running|/running/|#28a975||{% endcapture %}
+posts|Posts|fa-solid fa-book-open|latest|running|/running/|#28a975||
+about|About|fa-solid fa-user|about_page|about|/about|#6c757d||{% endcapture %}
   
   {% comment %}=== Filter cards based on content availability ==={% endcomment %}
   {% assign carousel_cards_temp = "" | split: "" %}
@@ -157,6 +166,8 @@ posts|Posts|fa-solid fa-book-open|latest|running|/running/|#28a975||{% endcaptur
           {% assign items_array = entries %}
         {% elsif items_var_name == 'latest' %}
           {% assign items_array = latest %}
+        {% elsif items_var_name == 'about_page' %}
+          {% assign items_array = about_page_array %}
         {% endif %}
         
         <div class="swiper-slide" 

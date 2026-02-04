@@ -2,6 +2,27 @@
 <div class="card{% if include.kind != 'toots' %} mb-3{% endif %}">
   <div class="card-body">
     {% unless include.hide_title %}<h5 class="mb-2 d-flex align-items-center gap-1">{{ include.title }}{% if include.emoji %} <span class="emoji-badge ml-1">{{ include.emoji }}</span>{% endif %}</h5>{% endunless %}
+    {%- if include.kind == 'about' -%}
+      {%- comment -%}Static About content{%- endcomment -%}
+      <div class="home-samples home-samples--two">
+        <div class="card position-relative">
+          <div class="card-body">
+            <h5 class="mb-2 d-flex align-items-center gap-1 post-title-link">About <span class="emoji-badge ml-1">👤</span></h5>
+            <p>I run a lot these days. In fact it may be borderline crazy to most folks; I am primarily a trail and ultra runner. Trail runs are just everything besides normal road running. Ultra running is...</p>
+            <div class="text-right"><a class="btn btn-sm stretched-link" href="/about">More</a></div>
+          </div>
+        </div>
+        <div class="card position-relative">
+          <div class="card-body">
+            <h5 class="mb-2 d-flex align-items-center gap-1 post-title-link">Contact <span class="emoji-badge ml-1">📧</span></h5>
+            <p>Feel free to reach out on <a href="https://www.strava.com/athletes/89837533" target="_blank" rel="noopener">Strava</a> or <a href="https://fosstodon.org/@nicky" target="_blank" rel="noopener">Mastodon</a>. I'm always happy to connect with fellow runners!</p>
+          </div>
+        </div>
+      </div>
+      {%- if include.more_url -%}
+      <div class="text-right"><a class="btn btn-sm" href="{{ include.more_url }}">More</a></div>
+      {%- endif -%}
+    {%- else -%}
     {%- assign list = include.items -%}
     {%- if list and list.size > 0 -%}
       <div class="home-samples{% if include.grid %} {{ include.grid }}{% endif %}">
@@ -168,6 +189,7 @@
       {%- endif -%}
     {%- else -%}
   <p>No {% if include.kind == 'toots' %}updates{% elsif include.kind == 'activities' %}activities{% elsif include.kind == 'running' %}posts{% elsif include.kind == 'upcoming_races' %}upcoming races{% elsif include.kind == 'previous_races' %}previous races{% else %}results{% endif %} found.</p>
+    {%- endif -%}
     {%- endif -%}
   </div>
 </div>
