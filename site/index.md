@@ -37,14 +37,34 @@ stylesheets:
   CAROUSEL CONFIGURATION - Complete Single Source of Truth
   ==================================================================================
   
-  To add a new carousel category, follow these THREE simple steps:
+  To add a new carousel category, follow these steps:
   
   STEP 1: Define your collection variable (if it doesn't exist)
-  STEP 2: Add your card line in the card_definitions section  
-  STEP 3: Add your variable to the lookup section below
+         For Jekyll collections: {% assign my_var = site.collection_name | where_exp: ... %}
+         For static content: {% assign my_var = some_value %}
+         
+  STEP 2: Add your card line in the card_definitions section
+         Format: id|title|icon|var_name|kind|url|base_color||
+         - id: unique identifier (kebab-case)
+         - title: display name
+         - icon: Font Awesome class (e.g., "fa-solid fa-user")
+         - var_name: variable name from STEP 1
+         - kind: template type (e.g., "running", "toots", "activities", "about")
+         - url: "More" button URL
+         - base_color: hex color (e.g., "#6c757d") - all other colors auto-derived
+         - ||: two trailing pipes required
   
-  All three steps are clearly marked and located near each other for easy maintenance.
-  Everything else (colors, styling, JavaScript) is completely automatic.
+  STEP 3: Add your variable to the lookup section (line ~159)
+         {% elsif items_var_name == 'my_var' %}
+           {% assign items_array = my_var %}
+         
+  STEP 4: (Only for new 'kind' types) Add template handling in section_list.html
+         Add {% if include.kind == 'my_kind' %} block with your HTML.
+         CRITICAL: Add class="post-title-link" to ALL <a> links and <h5> titles
+         that should change color with the carousel theme. Without this class,
+         links will appear inactive!
+  
+  All colors, styling, and JavaScript behavior are completely automatic.
   {% endcomment %}
   
   {% comment %}=== STEP 1: Define collection variables ==={% endcomment %}
