@@ -1,10 +1,10 @@
 name: Test Carousel
 
 on:
-  push:
-    branches: [ master, copilot/** ]
   pull_request:
-    branches: [ master ]
+    branches-ignore:
+      - 'toot/**'
+      - 'strava/**'
 
 jobs:
   test:
@@ -18,7 +18,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.0'
+          ruby-version: '3.1'
           bundler-cache: true
           working-directory: site
 
