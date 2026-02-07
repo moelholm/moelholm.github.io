@@ -158,6 +158,8 @@ about|About|fa-solid fa-user|||about|/about/|#6c757d||{% endcapture %}
           {% assign items_array = entries %}
         {% elsif items_var_name == 'latest' %}
           {% assign items_array = latest %}
+        {% else %}
+          {% assign items_array = "" | split: "" %}
         {% endif %}
         
         <div class="swiper-slide" 
