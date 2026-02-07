@@ -100,6 +100,7 @@
   
   var ProgressBarController = {
     ANIMATION_DURATION: 10, // seconds
+    NEAR_COMPLETION_THRESHOLD: 95, // percent
     ANIMATION_START_DELAY: 10, // milliseconds
     
     element: null,
@@ -137,6 +138,41 @@
           self.element.style.width = '100%';
         }
       }, this.ANIMATION_START_DELAY);
+    },
+    
+    /**
+     * Pause progress bar animation at current position
+     */
+    pause: function() {
+      if (!this.element) return;
+      
+      var currentWidth = window.getComputedStyle(this.element).width;
+      this.element.classList.remove('animating');
+      this.element.style.width = currentWidth;
+    },
+    
+    /**
+     * Resume progress bar animation from current position
+     */
+    resume: function() {
+      if (!this.element) return;
+      
+      var currentWidthPercent = parseFloat(this.element.style.width) || 0;
+      
+      // If near completion, restart instead
+      if (currentWidthPercent >= this.NEAR_COMPLETION_THRESHOLD) {
+        this.start();
+        return;
+      }
+      
+      // Calculate remaining time proportionally
+      var remainingPercent = 100 - currentWidthPercent;
+      var remainingTime = (remainingPercent / 100) * this.ANIMATION_DURATION;
+      
+      // Resume with adjusted duration
+      this.element.classList.add('animating');
+      this.element.style.transition = 'width ' + remainingTime + 's linear';
+      this.element.style.width = '100%';
     },
     
     /**
@@ -323,9 +359,17 @@
     if (!swiperContainer) return;
     
     var navCards = document.querySelectorAll('.carousel-nav-card');
-    if (navCards.length === 0) return;
+    if (navCards.length === 0) {
+      console.warn('No navigation cards found');
+      return;
+    }
     
     var progressBar = document.querySelector('.carousel-progress__bar');
+    
+    console.log('Initializing Swiper carousel...');
+    console.log('Found container:', swiperContainer);
+    console.log('Found', navCards.length, 'navigation cards');
+    console.log('Swiper library version:', Swiper.version || 'unknown');
     
     // Initialize all controllers
     ProgressBarController.init(progressBar);
@@ -398,6 +442,8 @@
             }
           },
           init: function() {
+            console.log('Swiper initialized! Active index:', this.realIndex);
+            
             // Update navigation and get initial color
             var activeColor = NavigationController.updateActive(this.realIndex);
             
@@ -409,6 +455,14 @@
               ProgressBarController.setColor(activeColor);
             }
             ProgressBarController.start();
+            
+            console.log('Progress bar started. Index:', this.realIndex);
+          },
+          autoplayPause: function() {
+            ProgressBarController.pause();
+          },
+          autoplayResume: function() {
+            ProgressBarController.resume();
           }
         }
       });
