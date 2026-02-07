@@ -1,0 +1,59 @@
+name: Test Carousel
+
+on:
+  push:
+    branches: [ master, copilot/** ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'
+          bundler-cache: true
+          working-directory: site
+
+      - name: Install Jekyll dependencies
+        run: cd site && bundle install
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install Playwright dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Start Jekyll server
+        run: |
+          cd site
+          bundle exec jekyll serve --host 0.0.0.0 --port 4000 &
+          echo "Waiting for Jekyll to start..."
+          timeout 60 bash -c 'until curl -s http://localhost:4000 > /dev/null; do sleep 2; done'
+          echo "Jekyll is running!"
+
+      - name: Run Playwright tests
+        run: npm test
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-results
+          path: |
+            test-results/
+            playwright-report/
+          retention-days: 7
