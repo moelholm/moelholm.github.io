@@ -84,8 +84,7 @@ stylesheets:
 upcoming-races|Upcoming Races|fa-solid fa-flag-checkered|upcoming_races|upcoming_races|/race-calendar-2026/|#d4a300||
 activities|Activities|fa-solid fa-person-running|activities|activities|/activities/|#ff6600||
 updates|Updates|fa-brands fa-mastodon|entries|toots|/toots/|#5d6dcc||
-posts|Posts|fa-solid fa-book-open|latest|running|/running/|#28a975||
-about|About|fa-solid fa-user|||about|/about/|#6c757d||{% endcapture %}
+posts|Posts|fa-solid fa-book-open|latest|running|/running/|#28a975||{% endcapture %}
   
   {% comment %}=== Filter cards based on content availability ==={% endcomment %}
   {% assign carousel_cards_temp = "" | split: "" %}
@@ -158,8 +157,6 @@ about|About|fa-solid fa-user|||about|/about/|#6c757d||{% endcapture %}
           {% assign items_array = entries %}
         {% elsif items_var_name == 'latest' %}
           {% assign items_array = latest %}
-        {% else %}
-          {% assign items_array = "" | split: "" %}
         {% endif %}
         
         <div class="swiper-slide" 
