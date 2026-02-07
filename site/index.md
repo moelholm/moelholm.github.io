@@ -99,13 +99,9 @@ stylesheets:
     {% assign latest = "" | split: "" %}
   {% endif %}
   
-  {% comment %}Static page: About{% endcomment %}
+  {% comment %}Static page: About - not using items_array, just a placeholder{% endcomment %}
   {% assign about_page = site.pages | where: "name", "about.md" | first %}
-  {% if about_page %}
-    {% assign about_page_array = about_page | split: '|||' %}
-  {% else %}
-    {% assign about_page_array = "" | split: "" %}
-  {% endif %}
+  {% assign about_page_array = "" | split: "" %}
   
   {% comment %}=== STEP 2: Card definitions (id|title|icon|var_name|kind|url|base_color||) ==={% endcomment %}
   {% capture card_definitions %}previous-races|Previous Races|fa-solid fa-trophy|race_posts|previous_races|/races|#0f3166||
