@@ -37,34 +37,14 @@ stylesheets:
   CAROUSEL CONFIGURATION - Complete Single Source of Truth
   ==================================================================================
   
-  To add a new carousel category, follow these steps:
+  To add a new carousel category, follow these THREE simple steps:
   
   STEP 1: Define your collection variable (if it doesn't exist)
-         For Jekyll collections: assign my_var = site.collection_name | where_exp: ...
-         For static content: assign my_var = some_value
-         
-  STEP 2: Add your card line in the card_definitions section
-         Format: id|title|icon|var_name|kind|url|base_color||
-         - id: unique identifier (kebab-case)
-         - title: display name
-         - icon: Font Awesome class (e.g., "fa-solid fa-user")
-         - var_name: variable name from STEP 1
-         - kind: template type (e.g., "running", "toots", "activities", "about")
-         - url: "More" button URL
-         - base_color: hex color (e.g., "#6c757d") - all other colors auto-derived
-         - ||: two trailing pipes required
+  STEP 2: Add your card line in the card_definitions section  
+  STEP 3: Add your variable to the lookup section below
   
-  STEP 3: Add your variable to the lookup section (line ~159)
-         elsif items_var_name == 'my_var'
-           assign items_array = my_var
-         
-  STEP 4: (Only for new 'kind' types) Add template handling in section_list.html
-         Add an 'if include.kind == my_kind' block with your HTML.
-         CRITICAL: Add class="post-title-link" to ALL <a> links and <h5> titles
-         that should change color with the carousel theme. Without this class,
-         links will appear inactive!
-  
-  All colors, styling, and JavaScript behavior are completely automatic.
+  All three steps are clearly marked and located near each other for easy maintenance.
+  Everything else (colors, styling, JavaScript) is completely automatic.
   {% endcomment %}
   
   {% comment %}=== STEP 1: Define collection variables ==={% endcomment %}
@@ -99,17 +79,13 @@ stylesheets:
     {% assign latest = "" | split: "" %}
   {% endif %}
   
-  {% comment %}Static page: About - not using items_array, just a placeholder{% endcomment %}
-  {% assign about_page = site.pages | where: "name", "about.md" | first %}
-  {% assign about_page_array = "" | split: "" %}
-  
   {% comment %}=== STEP 2: Card definitions (id|title|icon|var_name|kind|url|base_color||) ==={% endcomment %}
   {% capture card_definitions %}previous-races|Previous Races|fa-solid fa-trophy|race_posts|previous_races|/races|#0f3166||
 upcoming-races|Upcoming Races|fa-solid fa-flag-checkered|upcoming_races|upcoming_races|/race-calendar-2026/|#d4a300||
 activities|Activities|fa-solid fa-person-running|activities|activities|/activities/|#ff6600||
 updates|Updates|fa-brands fa-mastodon|entries|toots|/toots/|#5d6dcc||
 posts|Posts|fa-solid fa-book-open|latest|running|/running/|#28a975||
-about|About|fa-solid fa-user|about_page|about|/about|#6c757d||{% endcapture %}
+about|About|fa-solid fa-user|||about|/about/|#6c757d||{% endcapture %}
   
   {% comment %}=== Filter cards based on content availability ==={% endcomment %}
   {% assign carousel_cards_temp = "" | split: "" %}
@@ -182,8 +158,6 @@ about|About|fa-solid fa-user|about_page|about|/about|#6c757d||{% endcapture %}
           {% assign items_array = entries %}
         {% elsif items_var_name == 'latest' %}
           {% assign items_array = latest %}
-        {% elsif items_var_name == 'about_page' %}
-          {% assign items_array = about_page_array %}
         {% endif %}
         
         <div class="swiper-slide" 
