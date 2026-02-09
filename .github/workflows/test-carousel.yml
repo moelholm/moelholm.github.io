@@ -37,13 +37,20 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
+      - name: Build Jekyll site
+        run: |
+          cd site
+          bundle exec jekyll build --verbose
+
       - name: Start Jekyll server
         run: |
           cd site
-          bundle exec jekyll serve --host 0.0.0.0 --port 4000 &
+          bundle exec jekyll serve --host 0.0.0.0 --port 4000 --skip-initial-build &
           echo "Waiting for Jekyll to start..."
+          sleep 5
           timeout 60 bash -c 'until curl -s http://localhost:4000 > /dev/null; do sleep 2; done'
           echo "Jekyll is running!"
+          curl -s http://localhost:4000 | head -20
 
       - name: Run Playwright tests
         run: npm test
