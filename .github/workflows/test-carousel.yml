@@ -41,6 +41,12 @@ jobs:
         run: |
           cd site
           bundle exec jekyll build --verbose
+          echo "=== Jekyll build completed ==="
+          ls -la _site/
+          echo "=== Checking if carousel HTML is in built index.html ==="
+          grep -c "swiper-container" _site/index.html || echo "WARNING: swiper-container not found in _site/index.html!"
+          echo "=== First 50 lines of built index.html ==="
+          head -50 _site/index.html
 
       - name: Start Jekyll server
         run: |
@@ -50,7 +56,10 @@ jobs:
           sleep 5
           timeout 60 bash -c 'until curl -s http://localhost:4000 > /dev/null; do sleep 2; done'
           echo "Jekyll is running!"
-          curl -s http://localhost:4000 | head -20
+          echo "=== Checking homepage from server ==="
+          curl -s http://localhost:4000 | grep -c "swiper-container" || echo "WARNING: swiper-container not found on served page!"
+          echo "=== First 50 lines of served page ==="
+          curl -s http://localhost:4000 | head -50
 
       - name: Run Playwright tests
         run: npm test
