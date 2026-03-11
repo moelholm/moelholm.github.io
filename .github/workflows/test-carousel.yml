@@ -1,0 +1,75 @@
+name: Test Carousel
+
+on:
+  pull_request:
+    branches-ignore:
+      - 'toot/**'
+      - 'strava/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'
+          bundler-cache: false
+
+      - name: Install Jekyll dependencies
+        run: |
+          cd site
+          bundle install
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install Playwright dependencies
+        run: npm install
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Build Jekyll site
+        run: |
+          cd site
+          bundle exec jekyll build --verbose
+          echo "=== Jekyll build completed ==="
+          ls -la _site/
+          echo "=== Checking if carousel HTML is in built index.html ==="
+          grep -c "swiper-container" _site/index.html || echo "WARNING: swiper-container not found in _site/index.html!"
+          echo "=== First 50 lines of built index.html ==="
+          head -50 _site/index.html
+
+      - name: Start Jekyll server
+        run: |
+          cd site
+          bundle exec jekyll serve --host 0.0.0.0 --port 4000 --skip-initial-build &
+          echo "Waiting for Jekyll to start..."
+          sleep 5
+          timeout 60 bash -c 'until curl -s http://localhost:4000 > /dev/null; do sleep 2; done'
+          echo "Jekyll is running!"
+          echo "=== Checking homepage from server ==="
+          curl -s http://localhost:4000 | grep -c "swiper-container" || echo "WARNING: swiper-container not found on served page!"
+          echo "=== First 50 lines of served page ==="
+          curl -s http://localhost:4000 | head -50
+
+      - name: Run Playwright tests
+        run: npm test
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-results
+          path: |
+            test-results/
+            playwright-report/
+          retention-days: 7

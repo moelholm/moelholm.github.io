@@ -164,7 +164,7 @@
 
 // Home post title color behavior
 .home-post__title {
-  color: $link-color !important;
+  color: $link-color;
   &:hover,
   &:focus { color: $link-hover-color !important; }
 }
