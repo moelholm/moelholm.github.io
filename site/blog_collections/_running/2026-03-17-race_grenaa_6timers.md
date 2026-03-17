@@ -70,6 +70,8 @@ The course itself was a blue forest route of 5.5 kilometers per loop. We were ve
 {% endcapture %}
 {{ table_content | markdownify }}
 
+After each 5.5K loop we passed the aid station, which was conveniently positioned right alongside the gravel path near the start/finish area. Like most of the other runners, I had set up my own little supply box at the edge of the path — stocked with gels, chews, salt tablets and soft flasks filled with energy drink. The system worked brilliantly: just veer slightly to the side, grab what you need, and carry straight on into the next loop 👌🏻. At the aid station there was always enthusiastic encouragement every single lap.
+
 I managed to successfully execute an **almost negative split** pace strategy 🤩! The plan was to start at a comfortable controlled pace and then progressively push harder as the race went on. After the first 2 hours I cranked it up a notch, and then after 4 hours I pushed it just a little more again. Looking back, those last two 2-hour blocks probably converged on just below 5:00/km pace in reality.
 
 {% capture table_content %}
@@ -94,7 +96,7 @@ Along the way I also set a new **50K PB of 4:06:56** 🎉🥳 - which was a very
 {% endcapture %}
 {{ table_content | markdownify }}
 
-After 6 hours on the clock, I crossed the finishline with **{{ page.distance_km }} kilometers** covered - finishing **2nd out of 60 finishers** 🥈! To say I'm happy with that result would be a massive understatement! At the aid station there was always enthusiastic encouragement every single lap.
+After 6 hours on the clock, I crossed the finishline with **{{ page.distance_km }} kilometers** covered - finishing **2nd out of 60 finishers** 🥈! To say I'm happy with that result would be a massive understatement!
 
 {% capture table_content %}
 |------------|------------|
