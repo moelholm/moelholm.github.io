@@ -13,7 +13,7 @@ race_results_strava: "https://www.strava.com/activities/17719811781/overview"
 race_website: "https://facebook.com/events/s/grenaa-halvmarathon-6-timers-u/1288865012330638/"
 ---
 
-Time to race Grenaa Halvmarathon - 6 timers ULTRA løb! A 6-hour endurance race where you simply run as far as you possibly can. No fixed distance, just you, a 5.5K loop through the forest, and a ticking clock ⏱️💪🏻.
+Time to race Grenaa Halvmarathon - 6 timers ULTRA løb! A 6-hour endurance race where you simply run as far as you possibly can.
 
 {% capture rows %}
 Race|Grenaa Halvmarathon - 6 timers ULTRA løb;
@@ -48,7 +48,7 @@ Distance|{{ page.distance_km }}k;
 
 The alarm went off at 04:40 🌅😅. Yes, you read that right - 04:40am! Parking in Grenaa is limited and I wanted to secure a good spot before the race start at 09:00, so I had to be there before 08:00. Nothing like an early morning drive to get the legs going before they actually have to go for 6 hours! 😬
 
-The race started in race director Kenneth Pedersen's garden, which set the tone perfectly for the whole event - super relaxed, super cosy, and just a very welcoming atmosphere 🤗. Around **60 runners** had gathered to take on the challenge - a great turnout!
+The race started in race director Kenneth Pedersen's garden, which set the tone perfectly for the whole event - super relaxed, super cosy, and just a very welcoming atmosphere 🤗. Around **60 runners** had gathered to take on the challenge.
 
 {% capture table_content %}
 |------------|
@@ -70,7 +70,7 @@ The course itself was a blue forest route of 5.5 kilometers per loop. We were ve
 {% endcapture %}
 {{ table_content | markdownify }}
 
-For the first time ever, I managed to successfully execute an **almost negative split** pace strategy 🤩! The plan was to start at a comfortable controlled pace and then progressively push harder as the race went on. After the first 2 hours I cranked it up a notch, and then after 4 hours I pushed it just a little more again. Looking back, those last two 2-hour blocks probably converged on just below 5:00/km pace in reality.
+I managed to successfully execute an **almost negative split** pace strategy 🤩! The plan was to start at a comfortable controlled pace and then progressively push harder as the race went on. After the first 2 hours I cranked it up a notch, and then after 4 hours I pushed it just a little more again. Looking back, those last two 2-hour blocks probably converged on just below 5:00/km pace in reality.
 
 {% capture table_content %}
 |------------|------------|
@@ -84,9 +84,9 @@ For the first time ever, I managed to successfully execute an **almost negative 
 {% endcapture %}
 {{ table_content | markdownify }}
 
-I honestly would not have thought I'd be able to hold a sub-5:00/km pace in the 50-60 kilometer range 😲 I think my recent marathon training combined with building more running volume overall has had a genuinely positive effect on my ability to recruit and maintain power deep into a long effort.
+I was slightly surprised to realize I could hold a sub-5:00/km pace in the 50-60 kilometer range 😲 I think my recent marathon training combined with building more running volume overall has had a genuinely positive effect on my ability to recruit and maintain power deep into a long effort.
 
-Along the way I also set a new **50K PB of 4:06:56** 🎉🥳 - which was a very nice bonus! When you're running a timed race and you realize mid-race that you're on course for a personal best at an arbitrary distance, it just adds a little extra spring to your step.
+Along the way I also set a new **50K PB of 4:06:56** 🎉🥳 - which was a very nice bonus!
 
 {% capture table_content %}
 |------------|------------|
@@ -106,7 +106,7 @@ Along the way I also set a new **50K PB of 4:06:56** 🎉🥳 - which was a very
 {% endcapture %}
 {{ table_content | markdownify }}
 
-After 6 hours on the clock, I crossed the line with **{{ page.distance_km }} kilometers** covered - finishing **2nd out of 60 finishers** 🥈! To say I'm happy with that result would be a massive understatement! The volunteers and race organisation were fantastic throughout - always a helping hand at the aid station, always a smile, always enthusiastic encouragement every single lap. A huge thank you to Kenneth and the whole team 👏🏻🙌.
+After 6 hours on the clock, I crossed the finishline with **{{ page.distance_km }} kilometers** covered - finishing **2nd out of 60 finishers** 🥈! To say I'm happy with that result would be a massive understatement! At the aid station there was always enthusiastic encouragement every single lap.
 
 {% capture table_content %}
 |------------|
