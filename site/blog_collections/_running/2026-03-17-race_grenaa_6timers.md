@@ -29,14 +29,8 @@ Distance|{{ page.distance_km }}k;
 {% include blog_race_summary.html rows=rows_array %}
 
 {% capture table_content %}
-|------------|------------|
-| <img src="/img_running/2026-03-14/2026-03-14_019_small.jpg" data-src="/img_running/2026-03-14/2026-03-14_019_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-14/2026-03-14_020_small.jpg" data-src="/img_running/2026-03-14/2026-03-14_020_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-{% endcapture %}
-{{ table_content | markdownify }}
-
-{% capture table_content %}
 |------------|
-| <img src="/img_running/2026-03-14/2026-03-14_021_small.jpg" data-src="/img_running/2026-03-14/2026-03-14_021_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-03-14/2026-03-14_019_small.jpg" data-src="/img_running/2026-03-14/2026-03-14_019_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -81,6 +75,12 @@ I managed to successfully execute an **almost negative split** pace strategy ðŸ¤
 {% capture table_content %}
 |------------|
 | <img src="/img_running/2026-03-14/2026-03-14_010_small.jpg" data-src="/img_running/2026-03-14/2026-03-14_010_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 600px" /> |
+{% endcapture %}
+{{ table_content | markdownify }}
+
+{% capture table_content %}
+|------------|------------|
+| <img src="/img_running/2026-03-14/2026-03-14_020_small.jpg" data-src="/img_running/2026-03-14/2026-03-14_020_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-14/2026-03-14_021_small.jpg" data-src="/img_running/2026-03-14/2026-03-14_021_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
