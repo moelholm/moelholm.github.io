@@ -30,19 +30,13 @@ Distance|{{ page.distance_km }}k;
 
 {% capture table_content %}
 |------------|------------|
-| <img src="https://github.com/user-attachments/assets/61b932ca-face-427e-a9cd-5a96e87f4258" data-src="https://github.com/user-attachments/assets/61b932ca-face-427e-a9cd-5a96e87f4258" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="https://github.com/user-attachments/assets/a83e9051-aa62-4cb5-94bc-5ae4937e8caa" data-src="https://github.com/user-attachments/assets/a83e9051-aa62-4cb5-94bc-5ae4937e8caa" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-{% endcapture %}
-{{ table_content | markdownify }}
-
-{% capture table_content %}
-|------------|------------|
-| <img src="https://github.com/user-attachments/assets/cc141c61-caf2-4b70-bcd0-4c00e4551304" data-src="https://github.com/user-attachments/assets/cc141c61-caf2-4b70-bcd0-4c00e4551304" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="https://github.com/user-attachments/assets/d962174b-fe75-4ff0-94fa-6460609e4882" data-src="https://github.com/user-attachments/assets/d962174b-fe75-4ff0-94fa-6460609e4882" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-03-14/2026-03-14_019_small.jpg" data-src="/img_running/2026-03-14/2026-03-14_019_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-14/2026-03-14_020_small.jpg" data-src="/img_running/2026-03-14/2026-03-14_020_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
 {% capture table_content %}
 |------------|
-| <img src="https://github.com/user-attachments/assets/c0e2cc35-55e9-4c93-b057-a4157434f07d" data-src="https://github.com/user-attachments/assets/c0e2cc35-55e9-4c93-b057-a4157434f07d" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-03-14/2026-03-14_021_small.jpg" data-src="/img_running/2026-03-14/2026-03-14_021_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -51,8 +45,20 @@ The alarm went off at 04:40 🌅😅. Yes, you read that right - 04:40am! Parkin
 The race started in race director Kenneth Pedersen's garden, which set the tone perfectly for the whole event - super relaxed, super cosy, and just a very welcoming atmosphere 🤗. Around **60 runners** had gathered to take on the challenge.
 
 {% capture table_content %}
+|------------|------------|
+| <img src="/img_running/2026-03-14/2026-03-14_001_small.jpg" data-src="/img_running/2026-03-14/2026-03-14_001_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-14/2026-03-14_002_small.jpg" data-src="/img_running/2026-03-14/2026-03-14_002_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+{% endcapture %}
+{{ table_content | markdownify }}
+
+{% capture table_content %}
+|------------|------------|
+| <img src="/img_running/2026-03-14/2026-03-14_003_small.jpg" data-src="/img_running/2026-03-14/2026-03-14_003_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-14/2026-03-14_004_small.jpg" data-src="/img_running/2026-03-14/2026-03-14_004_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+{% endcapture %}
+{{ table_content | markdownify }}
+
+{% capture table_content %}
 |------------|
-| <img src="https://github.com/user-attachments/assets/1c80b727-9c99-42aa-8896-e37686835859" data-src="https://github.com/user-attachments/assets/1c80b727-9c99-42aa-8896-e37686835859" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 600px" /> |
+| <img src="/img_running/2026-03-14/2026-03-14_005_small.jpg" data-src="/img_running/2026-03-14/2026-03-14_005_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 600px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -60,27 +66,21 @@ The course itself was a blue forest route of 5.5 kilometers per loop. We were ve
 
 {% capture table_content %}
 |------------|------------|
-| <img src="https://github.com/user-attachments/assets/8cba3786-f88f-4a63-b107-883ee9c1c6c7" data-src="https://github.com/user-attachments/assets/8cba3786-f88f-4a63-b107-883ee9c1c6c7" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="https://github.com/user-attachments/assets/03c57a50-b33e-425a-9f97-f95f8b03f778" data-src="https://github.com/user-attachments/assets/03c57a50-b33e-425a-9f97-f95f8b03f778" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-03-14/2026-03-14_006_small.jpg" data-src="/img_running/2026-03-14/2026-03-14_006_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-14/2026-03-14_007_small.jpg" data-src="/img_running/2026-03-14/2026-03-14_007_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
 {% capture table_content %}
 |------------|------------|
-| <img src="https://github.com/user-attachments/assets/5ba828a6-7e35-416d-aacd-828be2f0dd26" data-src="https://github.com/user-attachments/assets/5ba828a6-7e35-416d-aacd-828be2f0dd26" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="https://github.com/user-attachments/assets/2cc110fa-468e-4dc8-bc49-538c6c00d604" data-src="https://github.com/user-attachments/assets/2cc110fa-468e-4dc8-bc49-538c6c00d604" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-03-14/2026-03-14_008_small.jpg" data-src="/img_running/2026-03-14/2026-03-14_008_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-14/2026-03-14_009_small.jpg" data-src="/img_running/2026-03-14/2026-03-14_009_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
 I managed to successfully execute an **almost negative split** pace strategy 🤩! The plan was to start at a comfortable controlled pace and then progressively push harder as the race went on. After the first 2 hours I cranked it up a notch, and then after 4 hours I pushed it just a little more again. Looking back, those last two 2-hour blocks probably converged on just below 5:00/km pace in reality.
 
 {% capture table_content %}
-|------------|------------|
-| <img src="https://github.com/user-attachments/assets/1074643b-6add-4afc-82ce-ff6f4517fa9b" data-src="https://github.com/user-attachments/assets/1074643b-6add-4afc-82ce-ff6f4517fa9b" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="https://github.com/user-attachments/assets/26b29405-84a1-4497-b8e3-ded05d170bec" data-src="https://github.com/user-attachments/assets/26b29405-84a1-4497-b8e3-ded05d170bec" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-{% endcapture %}
-{{ table_content | markdownify }}
-
-{% capture table_content %}
-|------------|------------|
-| <img src="https://github.com/user-attachments/assets/446b3cb1-652f-475a-9b55-8b88c10cdb94" data-src="https://github.com/user-attachments/assets/446b3cb1-652f-475a-9b55-8b88c10cdb94" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="https://github.com/user-attachments/assets/4894a8d7-72d7-40f9-9028-e73c1eba94ff" data-src="https://github.com/user-attachments/assets/4894a8d7-72d7-40f9-9028-e73c1eba94ff" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+|------------|
+| <img src="/img_running/2026-03-14/2026-03-14_010_small.jpg" data-src="/img_running/2026-03-14/2026-03-14_010_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 600px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -90,27 +90,27 @@ Along the way I also set a new **50K PB of 4:06:56** 🎉🥳 - which was a very
 
 {% capture table_content %}
 |------------|------------|
-| <img src="https://github.com/user-attachments/assets/0662e3a6-9546-4dc9-8d11-a6359a51bf99" data-src="https://github.com/user-attachments/assets/0662e3a6-9546-4dc9-8d11-a6359a51bf99" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="https://github.com/user-attachments/assets/b1407fbe-dc4f-4ff8-bdf5-a947862fd82d" data-src="https://github.com/user-attachments/assets/b1407fbe-dc4f-4ff8-bdf5-a947862fd82d" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-{% endcapture %}
-{{ table_content | markdownify }}
-
-{% capture table_content %}
-|------------|------------|
-| <img src="https://github.com/user-attachments/assets/760cbb86-801c-44a9-89b1-711bb2dbb4b1" data-src="https://github.com/user-attachments/assets/760cbb86-801c-44a9-89b1-711bb2dbb4b1" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="https://github.com/user-attachments/assets/8918e9f8-50e4-49d4-8dd4-f1e89365e40a" data-src="https://github.com/user-attachments/assets/8918e9f8-50e4-49d4-8dd4-f1e89365e40a" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-{% endcapture %}
-{{ table_content | markdownify }}
-
-{% capture table_content %}
-|------------|------------|
-| <img src="https://github.com/user-attachments/assets/41346f03-0158-425c-9fe1-8f2296a097b9" data-src="https://github.com/user-attachments/assets/41346f03-0158-425c-9fe1-8f2296a097b9" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="https://github.com/user-attachments/assets/cd549548-d80d-49e7-9c93-55fc3b91171a" data-src="https://github.com/user-attachments/assets/cd549548-d80d-49e7-9c93-55fc3b91171a" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-03-14/2026-03-14_011_small.jpg" data-src="/img_running/2026-03-14/2026-03-14_011_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-14/2026-03-14_012_small.jpg" data-src="/img_running/2026-03-14/2026-03-14_012_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
 After 6 hours on the clock, I crossed the finishline with **{{ page.distance_km }} kilometers** covered - finishing **2nd out of 60 finishers** 🥈! To say I'm happy with that result would be a massive understatement! At the aid station there was always enthusiastic encouragement every single lap.
 
 {% capture table_content %}
-|------------|
-| <img src="https://github.com/user-attachments/assets/fba9694a-6904-4633-986e-73935d44ec52" data-src="https://github.com/user-attachments/assets/fba9694a-6904-4633-986e-73935d44ec52" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+|------------|------------|
+| <img src="/img_running/2026-03-14/2026-03-14_013_small.jpg" data-src="/img_running/2026-03-14/2026-03-14_013_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-14/2026-03-14_014_small.jpg" data-src="/img_running/2026-03-14/2026-03-14_014_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+{% endcapture %}
+{{ table_content | markdownify }}
+
+{% capture table_content %}
+|------------|------------|
+| <img src="/img_running/2026-03-14/2026-03-14_015_small.jpg" data-src="/img_running/2026-03-14/2026-03-14_015_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-14/2026-03-14_016_small.jpg" data-src="/img_running/2026-03-14/2026-03-14_016_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+{% endcapture %}
+{{ table_content | markdownify }}
+
+{% capture table_content %}
+|------------|------------|
+| <img src="/img_running/2026-03-14/2026-03-14_017_small.jpg" data-src="/img_running/2026-03-14/2026-03-14_017_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-14/2026-03-14_018_small.jpg" data-src="/img_running/2026-03-14/2026-03-14_018_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
