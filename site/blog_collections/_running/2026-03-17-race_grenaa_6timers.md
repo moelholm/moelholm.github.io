@@ -3,7 +3,7 @@ layout: post
 title: "Grenaa Halvmarathon - 6 timers ULTRA løb"
 description: "Race notes for Grenaa Halvmarathon - 6 timers ULTRA løb"
 date: 2026-03-17 18:00:00 +0100
-race_date: 2026-03-17
+race_date: 2026-03-14
 comments: true
 tags: race running ultrarunning
 distance_km: 71
@@ -30,19 +30,19 @@ Distance|{{ page.distance_km }}k;
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2026-03-17/2026-03-17_001_small.jpg" data-src="/img_running/2026-03-17/2026-03-17_001_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-17/2026-03-17_002_small.jpg" data-src="/img_running/2026-03-17/2026-03-17_002_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="https://github.com/user-attachments/assets/61b932ca-face-427e-a9cd-5a96e87f4258" data-src="https://github.com/user-attachments/assets/61b932ca-face-427e-a9cd-5a96e87f4258" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="https://github.com/user-attachments/assets/a83e9051-aa62-4cb5-94bc-5ae4937e8caa" data-src="https://github.com/user-attachments/assets/a83e9051-aa62-4cb5-94bc-5ae4937e8caa" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2026-03-17/2026-03-17_003_small.jpg" data-src="/img_running/2026-03-17/2026-03-17_003_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-17/2026-03-17_004_small.jpg" data-src="/img_running/2026-03-17/2026-03-17_004_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="https://github.com/user-attachments/assets/cc141c61-caf2-4b70-bcd0-4c00e4551304" data-src="https://github.com/user-attachments/assets/cc141c61-caf2-4b70-bcd0-4c00e4551304" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="https://github.com/user-attachments/assets/d962174b-fe75-4ff0-94fa-6460609e4882" data-src="https://github.com/user-attachments/assets/d962174b-fe75-4ff0-94fa-6460609e4882" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
 {% capture table_content %}
 |------------|
-| <img src="/img_running/2026-03-17/2026-03-17_005_small.jpg" data-src="/img_running/2026-03-17/2026-03-17_005_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="https://github.com/user-attachments/assets/c0e2cc35-55e9-4c93-b057-a4157434f07d" data-src="https://github.com/user-attachments/assets/c0e2cc35-55e9-4c93-b057-a4157434f07d" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -52,7 +52,7 @@ The race started in race director Kenneth Pedersen's garden, which set the tone 
 
 {% capture table_content %}
 |------------|
-| <img src="/img_running/2026-03-17/2026-03-17_006_small.jpg" data-src="/img_running/2026-03-17/2026-03-17_006_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 600px" /> |
+| <img src="https://github.com/user-attachments/assets/1c80b727-9c99-42aa-8896-e37686835859" data-src="https://github.com/user-attachments/assets/1c80b727-9c99-42aa-8896-e37686835859" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 600px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -60,13 +60,13 @@ The course itself was a blue forest route of 5.5 kilometers per loop. We were ve
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2026-03-17/2026-03-17_007_small.jpg" data-src="/img_running/2026-03-17/2026-03-17_007_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-17/2026-03-17_008_small.jpg" data-src="/img_running/2026-03-17/2026-03-17_008_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="https://github.com/user-attachments/assets/8cba3786-f88f-4a63-b107-883ee9c1c6c7" data-src="https://github.com/user-attachments/assets/8cba3786-f88f-4a63-b107-883ee9c1c6c7" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="https://github.com/user-attachments/assets/03c57a50-b33e-425a-9f97-f95f8b03f778" data-src="https://github.com/user-attachments/assets/03c57a50-b33e-425a-9f97-f95f8b03f778" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2026-03-17/2026-03-17_009_small.jpg" data-src="/img_running/2026-03-17/2026-03-17_009_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-17/2026-03-17_010_small.jpg" data-src="/img_running/2026-03-17/2026-03-17_010_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="https://github.com/user-attachments/assets/5ba828a6-7e35-416d-aacd-828be2f0dd26" data-src="https://github.com/user-attachments/assets/5ba828a6-7e35-416d-aacd-828be2f0dd26" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="https://github.com/user-attachments/assets/2cc110fa-468e-4dc8-bc49-538c6c00d604" data-src="https://github.com/user-attachments/assets/2cc110fa-468e-4dc8-bc49-538c6c00d604" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -74,13 +74,13 @@ For the first time ever, I managed to successfully execute an **almost negative 
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2026-03-17/2026-03-17_011_small.jpg" data-src="/img_running/2026-03-17/2026-03-17_011_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-17/2026-03-17_012_small.jpg" data-src="/img_running/2026-03-17/2026-03-17_012_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="https://github.com/user-attachments/assets/1074643b-6add-4afc-82ce-ff6f4517fa9b" data-src="https://github.com/user-attachments/assets/1074643b-6add-4afc-82ce-ff6f4517fa9b" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="https://github.com/user-attachments/assets/26b29405-84a1-4497-b8e3-ded05d170bec" data-src="https://github.com/user-attachments/assets/26b29405-84a1-4497-b8e3-ded05d170bec" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2026-03-17/2026-03-17_013_small.jpg" data-src="/img_running/2026-03-17/2026-03-17_013_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-17/2026-03-17_014_small.jpg" data-src="/img_running/2026-03-17/2026-03-17_014_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="https://github.com/user-attachments/assets/446b3cb1-652f-475a-9b55-8b88c10cdb94" data-src="https://github.com/user-attachments/assets/446b3cb1-652f-475a-9b55-8b88c10cdb94" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="https://github.com/user-attachments/assets/4894a8d7-72d7-40f9-9028-e73c1eba94ff" data-src="https://github.com/user-attachments/assets/4894a8d7-72d7-40f9-9028-e73c1eba94ff" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -90,19 +90,19 @@ Along the way I also set a new **50K PB of 4:06:56** 🎉🥳 - which was a very
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2026-03-17/2026-03-17_015_small.jpg" data-src="/img_running/2026-03-17/2026-03-17_015_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-17/2026-03-17_016_small.jpg" data-src="/img_running/2026-03-17/2026-03-17_016_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="https://github.com/user-attachments/assets/0662e3a6-9546-4dc9-8d11-a6359a51bf99" data-src="https://github.com/user-attachments/assets/0662e3a6-9546-4dc9-8d11-a6359a51bf99" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="https://github.com/user-attachments/assets/b1407fbe-dc4f-4ff8-bdf5-a947862fd82d" data-src="https://github.com/user-attachments/assets/b1407fbe-dc4f-4ff8-bdf5-a947862fd82d" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2026-03-17/2026-03-17_017_small.jpg" data-src="/img_running/2026-03-17/2026-03-17_017_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-17/2026-03-17_018_small.jpg" data-src="/img_running/2026-03-17/2026-03-17_018_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="https://github.com/user-attachments/assets/760cbb86-801c-44a9-89b1-711bb2dbb4b1" data-src="https://github.com/user-attachments/assets/760cbb86-801c-44a9-89b1-711bb2dbb4b1" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="https://github.com/user-attachments/assets/8918e9f8-50e4-49d4-8dd4-f1e89365e40a" data-src="https://github.com/user-attachments/assets/8918e9f8-50e4-49d4-8dd4-f1e89365e40a" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2026-03-17/2026-03-17_019_small.jpg" data-src="/img_running/2026-03-17/2026-03-17_019_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-17/2026-03-17_020_small.jpg" data-src="/img_running/2026-03-17/2026-03-17_020_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="https://github.com/user-attachments/assets/41346f03-0158-425c-9fe1-8f2296a097b9" data-src="https://github.com/user-attachments/assets/41346f03-0158-425c-9fe1-8f2296a097b9" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="https://github.com/user-attachments/assets/cd549548-d80d-49e7-9c93-55fc3b91171a" data-src="https://github.com/user-attachments/assets/cd549548-d80d-49e7-9c93-55fc3b91171a" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -110,7 +110,7 @@ After 6 hours on the clock, I crossed the line with **{{ page.distance_km }} kil
 
 {% capture table_content %}
 |------------|
-| <img src="/img_running/2026-03-17/2026-03-17_021_small.jpg" data-src="/img_running/2026-03-17/2026-03-17_021_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="https://github.com/user-attachments/assets/fba9694a-6904-4633-986e-73935d44ec52" data-src="https://github.com/user-attachments/assets/fba9694a-6904-4633-986e-73935d44ec52" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
