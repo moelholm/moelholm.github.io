@@ -70,15 +70,21 @@ The course itself was the blue forest route of 5.5 kilometers per loop. We were 
 {% endcapture %}
 {{ table_content | markdownify }}
 
-After each 5.5K loop we passed the aid station, which was conveniently positioned right alongside the gravel path near the start/finish area. Like most of the other runners, I had set up my own little supply box at the edge of the path — stocked with gels, chews, salt tablets and soft flasks filled with energy drink. The system worked brilliantly: just veer slightly to the side, grab what you need, and carry straight on into the next loop 👌🏻. At the aid station there was always enthusiastic encouragement every single lap.
+After each 5.5K loop we passed the aid station, which was conveniently positioned right alongside the gravel path near the start/finish area.
 
-I managed to successfully execute an **almost negative split** pace strategy 🤩! The plan was to start at a comfortable controlled pace and then progressively push harder as the race went on. After the first 2 hours I cranked it up a notch, and then after 4 hours I pushed it just a little more again. Looking back, those last two 2-hour blocks probably converged on just below 5:00/km pace in reality.
+Like many of the other runners, I had set up my own little supply (box) at the edge of the path — stocked with gels, chews, salt tablets and soft flasks filled with energy drink. The system worked very well: just veer slightly to the side, grab what you need, and carry straight on into the next loop 👌🏻.
+
+At the aid station there was increasingly enthusiastic encouragement as the laps progressed.
+
+Simultaneously I noticed that the loop became less crowded as the hours progressed. I guess it was because some runners were either stopping earlier than the 6 hours and/or were taking longer breaks. Don't know why, but apparently I was a bit surprised about that 😆 out there on the route (but ofc it makes totally sense that not everybody can/will run for the entire 6 hours 💯
 
 {% capture table_content %}
 |------------|
 | <img src="/img_running/2026-03-14/2026-03-14_010_small.jpg" data-src="/img_running/2026-03-14/2026-03-14_010_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 600px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
+
+I managed to successfully execute an **almost negative split** pace strategy 🤩! The plan was to start at a comfortable controlled pace and then progressively push harder as the race went on. After the first 2 hours I cranked it up a notch, and then after 4 hours I pushed it just a little more again. Looking back, those last two 2-hour blocks probably converged on just below 5:00/km pace in reality.
 
 {% capture table_content %}
 |------------|------------|
