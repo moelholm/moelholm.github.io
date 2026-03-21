@@ -126,7 +126,7 @@ After 6 hours on the clock, I crossed the finishline with **{{ page.distance_km 
 
 Absolutely, without hesitation! ✅
 
-The race has a wonderful, friendly atmosphere, a beautiful forest loop, a great race director in Kenneth Pedersen, and it's really well organised. Whether you're gunning for a podium finish or just want to see how far your legs can carry you in 6 hours, this race is a gem 💎.
+The race has a wonderful, friendly atmosphere, a beautiful forest loop, a great race director, and it's really well organised. Whether you're running for a PB or just want to see how far your legs can carry you in 6 hours, this race is a gem 💎.
 
 I'll definitely be back 🤠👍🏻.
 
