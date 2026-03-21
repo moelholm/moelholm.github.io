@@ -76,7 +76,7 @@ Like many of the other runners, I had set up my own little supply (box) at the e
 
 At the aid station there was increasingly enthusiastic encouragement as the laps progressed.
 
-Simultaneously I noticed that the loop became less crowded as the hours progressed. I guess it was because some runners were either stopping earlier than the 6 hours and/or were taking longer breaks. Don't know why, but apparently I was a bit surprised about that 😆 out there on the route (but ofc it makes totally sense that not everybody can/will run for the entire 6 hours 💯
+Simultaneously I noticed that the loop became less crowded as the hours progressed. I guess it was because some runners were either stopping earlier than the 6 hours and/or were taking longer breaks. Don't know why, but apparently I was a bit surprised about that 😆 out there on the route. But ofc it makes totally sense that not everybody could/would run for the entire 6 hours 💯.
 
 {% capture table_content %}
 |------------|
@@ -92,7 +92,7 @@ I managed to successfully execute an **almost negative split** pace strategy �
 {% endcapture %}
 {{ table_content | markdownify }}
 
-I was slightly surprised to realize I could hold a sub-5:00/km pace in the 50-60 kilometer range 😲. I think my recent marathon training combined with building more running volume overall has had a genuinely positive effect on my ability to recruit and maintain power deep into a long effort.
+I was slightly surprised to realize I could hold a sub-5:00/km pace in the 50-60 kilometer range 😲. I think a consistently larger running volume combined with my recent marathon training overall has had a good effect 🧐🙂.
 
 Along the way I also set a new **50K PB of 4:06:56** 🎉🥳 - which was a very nice bonus!
 
