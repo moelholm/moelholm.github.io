@@ -25,7 +25,7 @@ races:
     distance: "6h"
     tags: ["ultra"]
     url: "https://ultralob.dk/grenaa-halvmarathon-6-timers-ultraloeb-2026/"
-    blog_url: "/blog/running/2026/03/17/race_grenaa_6timers"
+    blog_url: "/blog/running/2026/03/21/race_grenaa_6timers"
     status: "completed"
   
   - date: "2026-03-27"
