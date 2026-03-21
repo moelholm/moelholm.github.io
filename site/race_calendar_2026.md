@@ -25,7 +25,8 @@ races:
     distance: "6h"
     tags: ["ultra"]
     url: "https://ultralob.dk/grenaa-halvmarathon-6-timers-ultraloeb-2026/"
-    status: "pending"
+    blog_url: "/blog/running/2026/03/21/race_grenaa_6timers"
+    status: "completed"
   
   - date: "2026-03-27"
     title: "Wayout Backyard Ultra"
