@@ -34,7 +34,7 @@ Distance|{{ page.distance_km }}k;
 {% endcapture %}
 {{ table_content | markdownify }}
 
-The alarm went off at 04:40 🌅😅. Yes, you read that right - 04:40am! Parking in Grenaa is limited and I wanted to secure a good spot before the race start at 09:00, so I had to be there before 08:00. Nothing like an early morning drive to get the legs going before they actually have to go for 6 hours! 😬
+The alarm went off at 04:40 🌅😅. Parking in Grenaa is limited and I wanted to secure a good spot before the race start at 09:00, so I had to be there before 08:00.
 
 The race started in race director Kenneth Pedersen's garden, which set the tone perfectly for the whole event - super relaxed, super cosy, and just a very welcoming atmosphere 🤗. Around **60 runners** had gathered to take on the challenge.
 
@@ -56,7 +56,7 @@ The race started in race director Kenneth Pedersen's garden, which set the tone 
 {% endcapture %}
 {{ table_content | markdownify }}
 
-The course itself was a blue forest route of 5.5 kilometers per loop. We were very lucky with the weather: mild temperatures, slightly cloudy at the start but gradually becoming more and more sunny throughout the day ☀️. Really ideal conditions for running long - no wind, no rain, no frozen anything. Just beautiful Danish forest vibes 🌲.
+The course itself was the blue forest route of 5.5 kilometers per loop. We were very lucky with the weather: mild temperatures, slightly cloudy at the start but gradually becoming more and more sunny throughout the day ☀️. Really ideal conditions for running long - no wind, no rain, no frozen anything.
 
 {% capture table_content %}
 |------------|------------|
@@ -86,7 +86,7 @@ I managed to successfully execute an **almost negative split** pace strategy �
 {% endcapture %}
 {{ table_content | markdownify }}
 
-I was slightly surprised to realize I could hold a sub-5:00/km pace in the 50-60 kilometer range 😲 I think my recent marathon training combined with building more running volume overall has had a genuinely positive effect on my ability to recruit and maintain power deep into a long effort.
+I was slightly surprised to realize I could hold a sub-5:00/km pace in the 50-60 kilometer range 😲. I think my recent marathon training combined with building more running volume overall has had a genuinely positive effect on my ability to recruit and maintain power deep into a long effort.
 
 Along the way I also set a new **50K PB of 4:06:56** 🎉🥳 - which was a very nice bonus!
 
@@ -96,7 +96,7 @@ Along the way I also set a new **50K PB of 4:06:56** 🎉🥳 - which was a very
 {% endcapture %}
 {{ table_content | markdownify }}
 
-After 6 hours on the clock, I crossed the finishline with **{{ page.distance_km }} kilometers** covered - finishing **2nd out of 60 finishers** 🥈! To say I'm happy with that result would be a massive understatement!
+After 6 hours on the clock, I crossed the finishline with **{{ page.distance_km }} kilometers** covered - finishing **2nd out of 60 finishers** 🥈! A result I am really really proud of 🤗
 
 {% capture table_content %}
 |------------|------------|
