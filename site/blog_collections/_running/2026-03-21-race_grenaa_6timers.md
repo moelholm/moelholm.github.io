@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Grenaa Halvmarathon - 6 timers ULTRA løb"
-description: "Race notes for Grenaa Halvmarathon - 6 timers ULTRA løb"
+title: "Grenaa Halvmarathon - 6 timers ULTRALØB"
+description: "Race notes for Grenaa Halvmarathon - 6 timers ULTRALØB"
 date: 2026-03-21 18:00:00 +0100
 race_date: 2026-03-14
 comments: true
@@ -13,10 +13,10 @@ race_results_strava: "https://www.strava.com/activities/17719811781/overview"
 race_website: "https://facebook.com/events/s/grenaa-halvmarathon-6-timers-u/1288865012330638/"
 ---
 
-Time to race Grenaa Halvmarathon - 6 timers ULTRA løb! A 6-hour endurance race where you simply run as far as you possibly can.
+Time to race Grenaa Halvmarathon - 6 timers ULTRALØB! A 6-hour endurance race where you simply run as far as you possibly can.
 
 {% capture rows %}
-Race|Grenaa Halvmarathon - 6 timers ULTRA løb;
+Race|Grenaa Halvmarathon - 6 timers ULTRALØB;
 Date|{{ page.race_date }};
 Www|[Facebook event]({{ page.race_website }});
 Type|Trail/Forest loop (5.5K per lap);

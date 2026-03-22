@@ -21,7 +21,7 @@ races:
     status: "cancelled"
   
   - date: "2026-03-14"
-    title: "Grenaa Halvmarathon – 6 timers ultraløb 2026"
+    title: "Grenaa Halvmarathon - 6 timers ULTRALØB 2026"
     distance: "6h"
     tags: ["ultra"]
     url: "https://ultralob.dk/grenaa-halvmarathon-6-timers-ultraloeb-2026/"
