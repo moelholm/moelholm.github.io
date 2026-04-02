@@ -39,24 +39,13 @@ The race started Friday at 20:00 — after sunset, so already completely dark. B
 {% capture table_content %}
 |------------|------------|
 | <img src="/img_running/2026-03-27/2026-03-27_001_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_001_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-27/2026-03-27_002_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_002_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-03-27/2026-03-27_003_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_003_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-27/2026-03-27_004_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_004_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
 Arriving early meant I could claim a good spot in the shared tent ⛺️ — something I had been lucky enough to book in advance. Lots of tables inside, so I just picked one. Each table was typically shared by 2-4 runners. And I struck gold when **Matti** decided to sit next to me 🤗. I knew Matti from a few other races, so having a familiar face right there from the start was absolutely brilliant.
 
-{% capture table_content %}
-|------------|
-| <img src="/img_running/2026-03-27/2026-03-27_003_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_003_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 600px" /> |
-{% endcapture %}
-{{ table_content | markdownify }}
-
 I also caught up with **Mads** — my colleague from LEGO 🥳. Almost a year ago I convinced him to sign up for this, his very first backyard ultra. So this was finally the moment of truth for him too 😄! He came prepared with his own tent, which he later put to very good use during the night hours and early morning when he needed to sleep.
-
-{% capture table_content %}
-|------------|
-| <img src="/img_running/2026-03-27/2026-03-27_004_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_004_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 600px" /> |
-{% endcapture %}
-{{ table_content | markdownify }}
 
 ### During the race
 
