@@ -21,7 +21,7 @@ Race|Wayout Backyard Ultra 2026;
 Date|{{ page.race_date }};
 Www|[sportstiming.dk/event/16176](https://www.sportstiming.dk/event/16176);
 Type|Backyard Ultra / Trail;
-Position|TBD;
+Position|12 of 235;
 Duration|{{ page.duration_formatted }};
 Distance|{{ page.distance_km }}k;
 Elevation|{{ page.elevation_gain_m }}m;
