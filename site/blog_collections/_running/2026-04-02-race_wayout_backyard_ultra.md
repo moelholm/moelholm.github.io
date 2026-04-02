@@ -76,7 +76,12 @@ During the night I was noticeably less chatty than usual. I think it was simply 
 
 Fun fact: with just a few minutes to go before race start, it began to rain 🌧️. Of course it did 🤣. The gentle rain then continued on and off throughout much of the night. Honestly, it wasn't terrible — just a bit wet and a few muddy patches on the trail, but nothing catastrophic.
 
-<!-- PHOTO PLACEHOLDER: Daylight running photos (2-4 photos as dawn arrived) -->
+{% capture table_content5 %}
+|------------|------------|
+| <img src="/img_running/2026-03-27/2026-03-27_017_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_017_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-27/2026-03-27_018_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_018_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-03-27/2026-03-27_019_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_019_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-27/2026-03-27_020_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_020_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+{% endcapture %}
+{{ table_content5 | markdownify }}
 
 At around 07:00, the long-awaited daylight finally arrived 🥳🤩. What an absolutely unbeatable feeling that is. Suddenly the whole route opened up — running along and around the lakes, the uphill hikes and downhills — all properly visible and glorious. The requirement to carefully watch every footstep became so much less demanding, and the whole experience just elevated instantly.
 
