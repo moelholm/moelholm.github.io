@@ -2,12 +2,12 @@
 layout: post
 title: "Wayout Backyard Ultra 2026"
 description: "Race notes for Wayout Backyard Ultra 2026"
-date: 2026-03-28 18:00:00 +0100
+date: 2026-04-02 18:00:00 +0100
 race_date: 2026-03-27
 comments: true
 tags: race running ultrarunning
-distance_km: 141
-elevation_gain_m: 2100
+distance_km: 140.7
+elevation_gain_m: 2045
 duration_formatted: '21h00m00s'
 race_results_official: "https://www.sportstiming.dk/event/16176/results"
 race_results_strava: "https://www.strava.com/activities/17892257575/overview"
@@ -42,7 +42,7 @@ The race started Friday at 20:00 — after sunset, so already completely dark. B
 {% endcapture %}
 {{ table_content | markdownify }}
 
-Arriving early meant I could claim a good spot in the shared tent ⛺️ — something I had been lucky enough to book in advance. Lots of tables inside, so I just picked one. Each table was typically shared by 2-4 runners. And I struck gold when Matti decided to sit next to me 🤗. I knew Matti from a few other races, so having a familiar face right there from the start was absolutely brilliant.
+Arriving early meant I could claim a good spot in the shared tent ⛺️ — something I had been lucky enough to book in advance. Lots of tables inside, so I just picked one. Each table was typically shared by 2-4 runners. And I struck gold when **Matti** decided to sit next to me 🤗. I knew Matti from a few other races, so having a familiar face right there from the start was absolutely brilliant.
 
 {% capture table_content %}
 |------------|
@@ -74,7 +74,7 @@ Fun fact: with just a few minutes to go before race start, it began to rain 🌧
 
 At around 07:00, the long-awaited daylight finally arrived 🥳🤩. What an absolutely unbeatable feeling that is. Suddenly the whole route opened up — running along and around the lakes, the uphill hikes and downhills — all properly visible and glorious. The requirement to carefully watch every footstep became so much less demanding, and the whole experience just elevated instantly.
 
-After **12 hours** (08:00) we celebrated **50 miles**. After **15 hours** (11:00) we celebrated **100K** 💪🏻. And by then I was definitely starting to feel the effort. The particularly tough thing about this route is the **100 meters of elevation gain and loss per loop** — that's 2100 meters total for 21 loops! The relentless cumulative downhill started leaving its mark on my quads, and I wasn't the only one noticing — I could hear fellow runners grumbling about exactly the same thing 😆. Honestly, I had completely forgotten that was such a challenge from the previous years. And to make it worse, I haven't done much elevation-focused training in the past six months, so it probably hit harder than it otherwise would have.
+After **12 hours** (08:00) we celebrated **50 miles**. After **15 hours** (11:00) we celebrated **100K** 💪🏻. And by then I was definitely starting to feel the effort. The particularly tough thing about this route is the **100 meters of elevation gain and loss per loop** — that's 2,045 meters total for 21 loops! The relentless cumulative downhill started leaving its mark on my quads, and I wasn't the only one noticing — I could hear fellow runners grumbling about exactly the same thing 😆. Honestly, I had completely forgotten that was such a challenge from the previous years. And to make it worse, I haven't done much elevation-focused training in the past six months, so it probably hit harder than it otherwise would have.
 
 <!-- PHOTO PLACEHOLDER: Running photos from a photographer (action shots) (2 photos) -->
 
