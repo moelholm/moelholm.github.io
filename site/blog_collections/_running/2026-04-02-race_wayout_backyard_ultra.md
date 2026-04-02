@@ -85,17 +85,34 @@ Fun fact: with just a few minutes to go before race start, it began to rain 🌧
 
 At around 07:00, the long-awaited daylight finally arrived 🥳🤩. What an absolutely unbeatable feeling that is. Suddenly the whole route opened up — running along and around the lakes, the uphill hikes and downhills — all properly visible and glorious. The requirement to carefully watch every footstep became so much less demanding, and the whole experience just elevated instantly.
 
+{% capture table_content6 %}
+|------------|------------|
+| <img src="/img_running/2026-03-27/2026-03-27_021_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_021_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-27/2026-03-27_022_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_022_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-03-27/2026-03-27_023_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_023_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-27/2026-03-27_024_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_024_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+{% endcapture %}
+{{ table_content6 | markdownify }}
+
 After **12 hours** (08:00) we celebrated **50 miles**. After **15 hours** (11:00) we celebrated **100K** 💪🏻. And by then I was definitely starting to feel the effort. The particularly tough thing about this route is the **100 meters of elevation gain and loss per loop** — that's 2,045 meters total for 21 loops! The relentless cumulative downhill started leaving its mark on my quads, and I wasn't the only one noticing — I could hear fellow runners grumbling about exactly the same thing 😆. Honestly, I had completely forgotten that was such a challenge from the previous years. And to make it worse, I haven't done much elevation-focused training in the past six months, so it probably hit harder than it otherwise would have.
 
-<!-- PHOTO PLACEHOLDER: Running photos from a photographer (action shots) (2 photos) -->
+{% capture table_content7 %}
+|------------|------------|
+| <img src="/img_running/2026-03-27/2026-03-27_025_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_025_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-27/2026-03-27_026_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_026_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-03-27/2026-03-27_027_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_027_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-27/2026-03-27_028_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_028_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+{% endcapture %}
+{{ table_content7 | markdownify }}
 
-After around **18 hours** I genuinely felt done. I actually texted my wife to say she could come and pick me up — I was ready to stop. But after talking it through with her, I decided I'd at least push to **round 20** to match my 2025 result. Every part of my legs was hurting and I honestly feared I wouldn't make the 60-minute cutoff in the later rounds.
+After around **18 hours** I genuinely felt done. I actually texted my wife to say she could come and pick me up — I was ready to stop. But after texting with her, I decided I'd at least push to **round 20** to match my 2025 result. Every part of my legs was hurting and I honestly feared I wouldn't make the 60-minute cutoff in the later rounds.
 
 I set off on round 20 … and somewhere along the way, a thought hit me: _"If this is going to be my last round anyway, I might as well just let go and run."_ So I did — I pushed through the pain and picked up the pace. And here's the bizarre thing: the faster I ran, the more the pain vanished. I came in **faster than any previous round** 😆🤣. Completely absurd.
 
 That left me with only one logical conclusion: if I could do *that*, then surely I could squeeze out one more round and set a new PB with **21 loops**. So that's exactly what I did. (Though I'll be honest — I ran round 21 slowly, with legs like bricks 😅.)
 
-<!-- PHOTO PLACEHOLDER: DNF medal and finish area (2 photos) -->
+{% capture table_content8 %}
+|------------|------------|
+| <img src="/img_running/2026-03-27/2026-03-27_029_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_029_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-27/2026-03-27_030_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_030_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-03-27/2026-03-27_031_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_031_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-27/2026-03-27_032_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_032_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+{% endcapture %}
+{{ table_content8 | markdownify }}
 
 I'm happy I walked away with a new backyard PB — **21 loops**, beating last year's 20 🎉. That said, I had bigger ambitions going in. But on the day, 21 was what I had. There was absolutely no doubt — I was done. Mentally and physically exhausted in equal measure.
 
