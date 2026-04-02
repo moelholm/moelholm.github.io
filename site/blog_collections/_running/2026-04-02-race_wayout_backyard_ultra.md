@@ -5,7 +5,7 @@ description: "Race notes for Wayout Backyard Ultra 2026"
 date: 2026-04-02 18:00:00 +0100
 race_date: 2026-03-27
 comments: true
-tags: race running ultrarunning
+tags: race running ultrarunning backyard-ultra
 distance_km: 140.7
 elevation_gain_m: 2045
 duration_formatted: '21h00m00s'
@@ -30,8 +30,6 @@ Elevation|{{ page.elevation_gain_m }}m;
 
 {% include blog_race_summary.html rows=rows_array %}
 
-<!-- PHOTO PLACEHOLDER: Strava summary screenshots (2 photos in table) -->
-
 ### Before the race
 
 The race started Friday at 20:00 — after sunset, so already completely dark. But since I arrived about **three hours early** I got to experience Fort Østerlund with some afternoon daylight still lingering 🌅. That was a nice bonus!
@@ -44,6 +42,13 @@ The race started Friday at 20:00 — after sunset, so already completely dark. B
 {{ table_content | markdownify }}
 
 Arriving early meant I could claim a good spot in the shared tent ⛺️ — something I had been lucky enough to book in advance. Lots of tables inside, so I just picked one. Each table was typically shared by 2-4 runners. And I struck gold when **Matti** decided to sit next to me 🤗. I knew Matti from a few other races, so having a familiar face right there from the start was absolutely brilliant.
+
+{% capture table_content2 %}
+|------------|------------|
+| <img src="/img_running/2026-03-27/2026-03-27_005_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_005_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-27/2026-03-27_006_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_006_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-03-27/2026-03-27_007_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_007_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-27/2026-03-27_008_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_008_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+{% endcapture %}
+{{ table_content2 | markdownify }}
 
 I also caught up with **Mads** — my colleague from LEGO 🥳. Almost a year ago I convinced him to sign up for this, his very first backyard ultra. So this was finally the moment of truth for him too 😄! He came prepared with his own tent, which he later put to very good use during the night hours and early morning when he needed to sleep.
 
