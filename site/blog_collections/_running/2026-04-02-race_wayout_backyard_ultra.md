@@ -52,11 +52,23 @@ Arriving early meant I could claim a good spot in the shared tent ⛺️ — som
 
 I also caught up with **Mads** — my colleague from LEGO 🥳. Almost a year ago I convinced him to sign up for this, his very first backyard ultra. So this was finally the moment of truth for him too 😄! He came prepared with his own tent, which he later put to very good use during the night hours and early morning when he needed to sleep.
 
+{% capture table_content3 %}
+|------------|------------|
+| <img src="/img_running/2026-03-27/2026-03-27_009_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_009_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-27/2026-03-27_010_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_010_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-03-27/2026-03-27_011_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_011_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-27/2026-03-27_012_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_012_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+{% endcapture %}
+{{ table_content3 | markdownify }}
+
 ### During the race
 
 At 19:30 the Race Director kicked off his pre-race briefing. He even made us take an oath — something along the lines of acknowledging we knew what we were getting into, and that yes, theoretically we could die from it 🤣. You know, the usual stuff 😆. Then, just before sending us off, he transformed into a full-on ultra-running music DJ 🎶🎵 … hip hop style 😎😉. Brilliant way to get the energy up!
 
-<!-- PHOTO PLACEHOLDER: Race about to start / start line energy (2 photos) -->
+{% capture table_content4 %}
+|------------|------------|
+| <img src="/img_running/2026-03-27/2026-03-27_013_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_013_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-27/2026-03-27_014_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_014_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-03-27/2026-03-27_015_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_015_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-27/2026-03-27_016_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_016_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+{% endcapture %}
+{{ table_content4 | markdownify }}
 
 And off we went — straight into the night on the 6.7K yard/loop. I ran with Mads for a while, but we got separated at some point when I had to make a bio break 🚽. The sheer number of runners out there was something else: **235 starters** — the biggest backyard crowd I've ever been part of. You might think that's chaotic, but it was actually great; fantastic energy, and everyone was mindful about not causing queues on the single-track trails.
 
@@ -80,9 +92,7 @@ That left me with only one logical conclusion: if I could do *that*, then surely
 
 <!-- PHOTO PLACEHOLDER: DNF medal and finish area (2 photos) -->
 
-I'm genuinely happy I walked away with a new backyard PB — **21 loops**, beating last year's 20 🎉. That said, I had bigger ambitions going in. But on the day, 21 was what I had. There was absolutely no doubt — I was done. Mentally and physically exhausted in equal measure. Sometimes that's just the honest answer.
-
-The race organization and volunteers at Wayout are simply outstanding 👏🏻🤩. Everything runs like clockwork. The aid station setup, the shared tent, the race info, the food served at intervals during the race — it's all just so well thought out and delivered with genuine warmth and enthusiasm.
+I'm happy I walked away with a new backyard PB — **21 loops**, beating last year's 20 🎉. That said, I had bigger ambitions going in. But on the day, 21 was what I had. There was absolutely no doubt — I was done. Mentally and physically exhausted in equal measure.
 
 ### Recommended?
 
