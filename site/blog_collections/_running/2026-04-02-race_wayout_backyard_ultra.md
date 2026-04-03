@@ -83,7 +83,7 @@ Fun fact: with just a few minutes to go before race start, it began to rain 🌧
 {% endcapture %}
 {{ table_content5 | markdownify }}
 
-At around 07:00, the long-awaited daylight finally arrived 🥳🤩. What an absolutely unbeatable feeling that is. Suddenly the whole route opened up — running along and around the lakes, the uphill hikes and downhills — all properly visible and glorious. The requirement to carefully watch every footstep became so much less demanding, and the whole experience just elevated instantly.
+At around 07:00, the long-awaited daylight finally arrived 🥳🤩. What an absolutely unbeatable feeling that is. Suddenly the whole route opened up — running along and around the lakes, the uphill hikes and downhills — all properly visible. The requirement to carefully watch every footstep became so much less demanding, and the whole experience just elevated instantly.
 
 {% capture table_content6 %}
 |------------|------------|
