@@ -5,7 +5,7 @@ description: "Race notes for Wayout Backyard Ultra 2026"
 date: 2026-04-03 08:00:00 +0100
 race_date: 2026-03-27
 comments: true
-tags: race running ultrarunning backyard-ultra
+tags: race running trailrunning ultrarunning backyard-ultra
 distance_km: 140.7
 elevation_gain_m: 2045
 duration_formatted: '21h00m00s'
