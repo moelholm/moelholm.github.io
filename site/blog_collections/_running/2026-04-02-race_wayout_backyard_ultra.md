@@ -46,7 +46,7 @@ Arriving early meant I could claim a good spot in the shared tent ⛺️ — som
 {% capture table_content2 %}
 |------------|------------|
 | <img src="/img_running/2026-03-27/2026-03-27_005_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_005_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-27/2026-03-27_006_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_006_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-03-27/2026-03-27_007_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_007_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-27/2026-03-27_008_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_008_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-03-27/2026-03-27_007_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_007_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-27/2026-03-27_034_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_034_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content2 | markdownify }}
 
@@ -83,7 +83,7 @@ Fun fact: with just a few minutes to go before race start, it began to rain 🌧
 {% endcapture %}
 {{ table_content5 | markdownify }}
 
-During the night (and throughout the rest of the race) my energy strategy was simple: a baseline of 40g carbs per hour, plus "whatever would go down" 🍬. Concretely, that meant either a SiS Energy Gel or half a bottle of SiS energy drink 🥤, plus some chocolate-fuelled bread and small cakes 😆. My electrolyte strategy was roughly 500mg sodium every two hours (plus some potassium, magnesium, etc.) ⚡. I believe the energy strategy was sufficient — but I may need to increase the electrolytes a bit in future races.
+Throughout the race my energy strategy was simple: a baseline of 40g carbs per hour, plus "whatever would go down" 🍬. Concretely, that meant either a SiS Energy Gel or half a bottle of SiS energy drink 🥤, plus some chocolate-fuelled bread and small cakes 😆. My electrolyte strategy was roughly 500mg sodium every two hours (plus some potassium, magnesium, etc.) ⚡. I believe the energy strategy was sufficient — but I may need to increase the electrolytes a bit in future races.
 
 At around 07:00, the long-awaited daylight finally arrived 🥳🤩. What an absolutely unbeatable feeling that is. Suddenly the whole route opened up — running along and around the lakes, the uphill hikes and downhills — all properly visible. The requirement to carefully watch every footstep became so much less demanding, and the whole experience just elevated instantly.
 
@@ -103,7 +103,7 @@ After **12 hours** (08:00) we celebrated **50 miles**. After **15 hours** (11:00
 {% endcapture %}
 {{ table_content7 | markdownify }}
 
-After around **18 hours** I genuinely felt done. I actually texted my wife to say she could come and pick me up — I was ready to stop. But after texting with her, I decided I'd at least push to **round 20** to match my 2025 result. Every part of my legs was hurting and I started to doubt that I would make the 60-minute cutoff in the later rounds.
+After around **18 hours** I genuinely felt done. I actually texted my wife to say she could come and pick me up — I was ready to stop. But after texting with her, I decided I'd at least push to **round 20** to match my 2025 result. Every part of my legs was trashed and I started to doubt that I would make the 60-minute cutoff in the later rounds.
 
 I set off on round 20 … and somewhere along the way, a thought hit me: _"If this is going to be my last round anyway, I might as well just let go and run."_ So I did — I pushed through the pain and picked up the pace. And here's the bizarre thing: the faster I ran, the more the pain vanished. I came in **faster than any previous round** 😆🤣. Completely absurd.
 
@@ -125,6 +125,8 @@ I started round 22 … but went straight from the starting line to collect my DN
 {{ table_content8 | markdownify }}
 
 I'm happy I walked away with a new backyard PB — **21 loops**, beating last year's 20 🎉. That said, I had bigger ambitions going in. But on the day, 21 was what I had. There was absolutely no doubt — I was done.
+
+After the race I went back to the shared tent, sat down on my camping chair, and closed my eyes for 30–50 minutes until my family came to pick me up and drive me home 🙏. Some fellow runners had leftover pizza slices that they generously donated to me — so that's what I was busy erasing from existence on the way home in the car 🍕😄.
 
 ### Recommended?
 
