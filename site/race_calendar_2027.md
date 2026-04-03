@@ -11,6 +11,13 @@ races:
     tags: ["ultra"]
     url: "https://facebook.com/events/s/grenaa-halvmarathon-6-timers-u/1252953832972654/"
     status: "pending"
+
+  - date: "2027-03-26"
+    title: "Wayout Backyard Ultra"
+    distance: "♾️"
+    tags: ["ultra", "backyard", "trail"]
+    url: "https://www.sportstiming.dk/event/18288"
+    status: "pending"
 ---
 
 <h1>Race Calendar 2027</h1>
