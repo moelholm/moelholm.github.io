@@ -83,6 +83,8 @@ Fun fact: with just a few minutes to go before race start, it began to rain 🌧
 {% endcapture %}
 {{ table_content5 | markdownify }}
 
+During the night (and throughout the rest of the race) my energy strategy was simple: a baseline of 40g carbs per hour, plus "whatever would go down" 🍬. Concretely, that meant either a SiS Energy Gel or half a bottle of SiS energy drink 🥤, plus some chocolate-fuelled bread and small cakes 😆. My electrolyte strategy was roughly 500mg sodium every two hours (plus some potassium, magnesium, etc.) ⚡. I believe the energy strategy was sufficient — but I may need to increase the electrolytes a bit in future races.
+
 At around 07:00, the long-awaited daylight finally arrived 🥳🤩. What an absolutely unbeatable feeling that is. Suddenly the whole route opened up — running along and around the lakes, the uphill hikes and downhills — all properly visible. The requirement to carefully watch every footstep became so much less demanding, and the whole experience just elevated instantly.
 
 {% capture table_content6 %}
@@ -92,7 +94,7 @@ At around 07:00, the long-awaited daylight finally arrived 🥳🤩. What an abs
 {% endcapture %}
 {{ table_content6 | markdownify }}
 
-After **12 hours** (08:00) we celebrated **50 miles**. After **15 hours** (11:00) we celebrated **100K** 💪🏻. And by then I was definitely starting to feel the effort. The particularly tough thing about this route is the **100 meters of elevation gain and loss per loop**. The relentless cumulative downhill started leaving its mark on my quads, and I wasn't the only one noticing — I could hear fellow runners grumbling about exactly the same thing 😆. Honestly, I had completely forgotten that was such a challenge from the previous years. And to make it worse, I haven't done much elevation-focused training in the past six months, so it probably hit harder than it otherwise would have.
+After **12 hours** (08:00) we celebrated **50 miles**. After **15 hours** (11:00) we celebrated **100K** 💪🏻. And by then I was definitely starting to feel the effort. The particularly tough thing about this route is the **100 meters of elevation gain and loss per loop**. The relentless cumulative downhill started leaving its mark on my quads, and I wasn't the only one noticing — I could hear fellow runners grumbling about exactly the same thing 😆. Honestly, I had completely forgotten that was such a challenge from the previous years. And to make it worse, I hadn't done much elevation-focused training in the past six months, so it probably hit harder than it otherwise would have.
 
 {% capture table_content7 %}
 |------------|------------|
