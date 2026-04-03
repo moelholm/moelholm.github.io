@@ -36,8 +36,8 @@ The race started Friday at 20:00 — after sunset, so already completely dark. B
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2026-03-27/2026-03-27_001_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_001_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-27/2026-03-27_002_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_002_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-03-27/2026-03-27_003_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_003_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-27/2026-03-27_004_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_004_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-04-03/2026-04-03_001_small.jpg" data-src="/img_running/2026-04-03/2026-04-03_001_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-03/2026-04-03_002_small.jpg" data-src="/img_running/2026-04-03/2026-04-03_002_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-04-03/2026-04-03_003_small.jpg" data-src="/img_running/2026-04-03/2026-04-03_003_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-03/2026-04-03_004_small.jpg" data-src="/img_running/2026-04-03/2026-04-03_004_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -45,8 +45,8 @@ Arriving early meant I could claim a good spot in the shared tent ⛺️ — som
 
 {% capture table_content2 %}
 |------------|------------|
-| <img src="/img_running/2026-03-27/2026-03-27_005_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_005_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-27/2026-03-27_006_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_006_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-03-27/2026-03-27_007_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_007_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-27/2026-03-27_034_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_034_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-04-03/2026-04-03_005_small.jpg" data-src="/img_running/2026-04-03/2026-04-03_005_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-03/2026-04-03_006_small.jpg" data-src="/img_running/2026-04-03/2026-04-03_006_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-04-03/2026-04-03_007_small.jpg" data-src="/img_running/2026-04-03/2026-04-03_007_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-03/2026-04-03_034_small.jpg" data-src="/img_running/2026-04-03/2026-04-03_034_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content2 | markdownify }}
 
@@ -54,8 +54,8 @@ I also caught up with **Mads** — my colleague from LEGO 🥳. Almost a year ag
 
 {% capture table_content3 %}
 |------------|------------|
-| <img src="/img_running/2026-03-27/2026-03-27_009_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_009_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-27/2026-03-27_010_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_010_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-03-27/2026-03-27_011_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_011_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-27/2026-03-27_012_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_012_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-04-03/2026-04-03_009_small.jpg" data-src="/img_running/2026-04-03/2026-04-03_009_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-03/2026-04-03_010_small.jpg" data-src="/img_running/2026-04-03/2026-04-03_010_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-04-03/2026-04-03_011_small.jpg" data-src="/img_running/2026-04-03/2026-04-03_011_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-03/2026-04-03_012_small.jpg" data-src="/img_running/2026-04-03/2026-04-03_012_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content3 | markdownify }}
 
@@ -65,8 +65,8 @@ At 19:30 the Race Director kicked off his pre-race briefing. He even made us tak
 
 {% capture table_content4 %}
 |------------|------------|
-| <img src="/img_running/2026-03-27/2026-03-27_013_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_013_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-27/2026-03-27_014_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_014_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-03-27/2026-03-27_015_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_015_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-27/2026-03-27_016_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_016_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-04-03/2026-04-03_013_small.jpg" data-src="/img_running/2026-04-03/2026-04-03_013_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-03/2026-04-03_014_small.jpg" data-src="/img_running/2026-04-03/2026-04-03_014_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-04-03/2026-04-03_015_small.jpg" data-src="/img_running/2026-04-03/2026-04-03_015_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-03/2026-04-03_016_small.jpg" data-src="/img_running/2026-04-03/2026-04-03_016_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content4 | markdownify }}
 
@@ -78,8 +78,8 @@ Fun fact: with just a few minutes to go before race start, it began to rain 🌧
 
 {% capture table_content5 %}
 |------------|------------|
-| <img src="/img_running/2026-03-27/2026-03-27_017_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_017_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-27/2026-03-27_018_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_018_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-03-27/2026-03-27_019_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_019_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-27/2026-03-27_020_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_020_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-04-03/2026-04-03_017_small.jpg" data-src="/img_running/2026-04-03/2026-04-03_017_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-03/2026-04-03_018_small.jpg" data-src="/img_running/2026-04-03/2026-04-03_018_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-04-03/2026-04-03_019_small.jpg" data-src="/img_running/2026-04-03/2026-04-03_019_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-03/2026-04-03_020_small.jpg" data-src="/img_running/2026-04-03/2026-04-03_020_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content5 | markdownify }}
 
@@ -89,8 +89,8 @@ At around 07:00, the long-awaited daylight finally arrived 🥳🤩. What an abs
 
 {% capture table_content6 %}
 |------------|------------|
-| <img src="/img_running/2026-03-27/2026-03-27_021_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_021_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-27/2026-03-27_022_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_022_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-03-27/2026-03-27_023_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_023_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-27/2026-03-27_024_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_024_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-04-03/2026-04-03_021_small.jpg" data-src="/img_running/2026-04-03/2026-04-03_021_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-03/2026-04-03_022_small.jpg" data-src="/img_running/2026-04-03/2026-04-03_022_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-04-03/2026-04-03_023_small.jpg" data-src="/img_running/2026-04-03/2026-04-03_023_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-03/2026-04-03_024_small.jpg" data-src="/img_running/2026-04-03/2026-04-03_024_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content6 | markdownify }}
 
@@ -98,8 +98,8 @@ After **12 hours** (08:00) we celebrated **50 miles**. After **15 hours** (11:00
 
 {% capture table_content7 %}
 |------------|------------|
-| <img src="/img_running/2026-03-27/2026-03-27_025_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_025_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-27/2026-03-27_026_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_026_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-03-27/2026-03-27_027_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_027_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-27/2026-03-27_028_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_028_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-04-03/2026-04-03_025_small.jpg" data-src="/img_running/2026-04-03/2026-04-03_025_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-03/2026-04-03_026_small.jpg" data-src="/img_running/2026-04-03/2026-04-03_026_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-04-03/2026-04-03_027_small.jpg" data-src="/img_running/2026-04-03/2026-04-03_027_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-03/2026-04-03_028_small.jpg" data-src="/img_running/2026-04-03/2026-04-03_028_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content7 | markdownify }}
 
@@ -109,7 +109,7 @@ I set off on round 20 … and somewhere along the way, a thought hit me: _"If th
 
 {% capture table_content9 %}
 |------------|
-| <img src="/img_running/2026-03-27/2026-03-27_033_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_033_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-04-03/2026-04-03_033_small.jpg" data-src="/img_running/2026-04-03/2026-04-03_033_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content9 | markdownify }}
 
@@ -119,8 +119,8 @@ I started round 22 … but went straight from the starting line to collect my DN
 
 {% capture table_content8 %}
 |------------|------------|
-| <img src="/img_running/2026-03-27/2026-03-27_029_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_029_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-27/2026-03-27_030_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_030_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-03-27/2026-03-27_031_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_031_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-03-27/2026-03-27_032_small.jpg" data-src="/img_running/2026-03-27/2026-03-27_032_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-04-03/2026-04-03_029_small.jpg" data-src="/img_running/2026-04-03/2026-04-03_029_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-03/2026-04-03_030_small.jpg" data-src="/img_running/2026-04-03/2026-04-03_030_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-04-03/2026-04-03_031_small.jpg" data-src="/img_running/2026-04-03/2026-04-03_031_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-03/2026-04-03_032_small.jpg" data-src="/img_running/2026-04-03/2026-04-03_032_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content8 | markdownify }}
 
