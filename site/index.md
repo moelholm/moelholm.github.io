@@ -52,7 +52,7 @@ stylesheets:
     {% include home/section_list.html title='Posts' emoji='📖' items=latest limit=2 kind='running' more_url='/running/' %}
 
   {% assign race_posts = site.running | where_exp: 'p','p.tags contains "race"' | sort: 'date' | reverse %}
-  {% include home/section_list.html title='Previous Races' emoji='🏁' items=race_posts limit=2 kind='previous_races' more_url='/races' grid='home-samples--two' %}
+  {% include home/section_list.html title='Previous Races' emoji='🏁' items=race_posts limit=2 kind='previous_races' more_url='/races-2026/' grid='home-samples--two' %}
 
   <div class="card position-relative">
       <div class="card-body">

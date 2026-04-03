@@ -33,7 +33,8 @@ races:
     distance: "♾️"
     tags: ["ultra", "backyard", "trail"]
     url: "https://www.wayout.dk/wbu"
-    status: "pending"
+    blog_url: "/blog/running/2026/04/03/race_wayout_backyard_ultra"
+    status: "completed"
   
   - date: "2026-04-12"
     title: "Skjern Bank Løbet"
