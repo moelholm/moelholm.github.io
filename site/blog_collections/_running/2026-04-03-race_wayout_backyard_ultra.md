@@ -2,7 +2,7 @@
 layout: post
 title: "Wayout Backyard Ultra 2026"
 description: "Race notes for Wayout Backyard Ultra 2026"
-date: 2026-04-03 18:00:00 +0100
+date: 2026-04-03 08:00:00 +0100
 race_date: 2026-03-27
 comments: true
 tags: race running ultrarunning backyard-ultra
