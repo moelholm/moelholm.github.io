@@ -92,7 +92,7 @@ At around 07:00, the long-awaited daylight finally arrived 🥳🤩. What an abs
 {% endcapture %}
 {{ table_content6 | markdownify }}
 
-After **12 hours** (08:00) we celebrated **50 miles**. After **15 hours** (11:00) we celebrated **100K** 💪🏻. And by then I was definitely starting to feel the effort. The particularly tough thing about this route is the **100 meters of elevation gain and loss per loop** — that's 2,045 meters total for 21 loops! The relentless cumulative downhill started leaving its mark on my quads, and I wasn't the only one noticing — I could hear fellow runners grumbling about exactly the same thing 😆. Honestly, I had completely forgotten that was such a challenge from the previous years. And to make it worse, I haven't done much elevation-focused training in the past six months, so it probably hit harder than it otherwise would have.
+After **12 hours** (08:00) we celebrated **50 miles**. After **15 hours** (11:00) we celebrated **100K** 💪🏻. And by then I was definitely starting to feel the effort. The particularly tough thing about this route is the **100 meters of elevation gain and loss per loop**. The relentless cumulative downhill started leaving its mark on my quads, and I wasn't the only one noticing — I could hear fellow runners grumbling about exactly the same thing 😆. Honestly, I had completely forgotten that was such a challenge from the previous years. And to make it worse, I haven't done much elevation-focused training in the past six months, so it probably hit harder than it otherwise would have.
 
 {% capture table_content7 %}
 |------------|------------|
