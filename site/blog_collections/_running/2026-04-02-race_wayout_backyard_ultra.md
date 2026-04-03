@@ -101,7 +101,7 @@ After **12 hours** (08:00) we celebrated **50 miles**. After **15 hours** (11:00
 {% endcapture %}
 {{ table_content7 | markdownify }}
 
-After around **18 hours** I genuinely felt done. I actually texted my wife to say she could come and pick me up — I was ready to stop. But after texting with her, I decided I'd at least push to **round 20** to match my 2025 result. Every part of my legs was hurting and I started to doubt that I wouldn't make the 60-minute cutoff in the later rounds.
+After around **18 hours** I genuinely felt done. I actually texted my wife to say she could come and pick me up — I was ready to stop. But after texting with her, I decided I'd at least push to **round 20** to match my 2025 result. Every part of my legs was hurting and I started to doubt that I would make the 60-minute cutoff in the later rounds.
 
 I set off on round 20 … and somewhere along the way, a thought hit me: _"If this is going to be my last round anyway, I might as well just let go and run."_ So I did — I pushed through the pain and picked up the pace. And here's the bizarre thing: the faster I ran, the more the pain vanished. I came in **faster than any previous round** 😆🤣. Completely absurd.
 
