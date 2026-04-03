@@ -130,6 +130,6 @@ As always: **130% yessir!!** 🤩
 
 Wayout Backyard Ultra is a wonderful, wonderful race. Everything is fantastic: race information, a beautiful (yet slightly tough) route, great facilities (toilets, camping, food, venue), an incredible atmosphere (party vibes, happy folks, shared tent energy), milestone celebrations, social media coverage … you name it. There's a reason I keep coming back year after year — it's just that damn amazing 🤩.
 
-I will absolutely be back next year. And who knows … maybe 22 loops? 👊🏻
+I will absolutely be back next year. And who knows … maybe 22+ loops? 👊🏻
 
 ⭐️⭐️⭐️⭐️⭐️
