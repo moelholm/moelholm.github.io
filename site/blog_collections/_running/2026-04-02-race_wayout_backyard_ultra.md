@@ -122,7 +122,7 @@ I started round 22 … but went straight from the starting line to collect my DN
 {% endcapture %}
 {{ table_content8 | markdownify }}
 
-I'm happy I walked away with a new backyard PB — **21 loops**, beating last year's 20 🎉. That said, I had bigger ambitions going in. But on the day, 21 was what I had. There was absolutely no doubt — I was done. Mentally and physically exhausted in equal measure.
+I'm happy I walked away with a new backyard PB — **21 loops**, beating last year's 20 🎉. That said, I had bigger ambitions going in. But on the day, 21 was what I had. There was absolutely no doubt — I was done.
 
 ### Recommended?
 
