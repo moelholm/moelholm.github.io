@@ -45,13 +45,13 @@ We started as almost 100 runners on the half marathon. Weather luck was max: mil
 
 <!-- photos2: start line, early race -->
 
-The route was super flat and easy to run. There was a short gravel section and a little grass stretch. The grass section I definitely should not have used to try and pass other runners… because my ASICS Metaspeed Sky+ (carbon plate) shoes slipped and slid all over the place, demanding an awkward and exhausting corrective push 🤦🏻‍♂️🙄.
+The route was super flat and easy to run. There was a short gravel section and a little grass stretch. The grass section I definitely should not have used to try and pass other runners… because my ASICS Magic Speed 4 shoes slipped and slid all over the place, demanding an awkward and exhausting corrective push 🤦🏻‍♂️🙄.
 
 <!-- photos3: route, mid-race -->
 
 I quickly locked in with a small lead group — 2 other runners. One runner in front of us was at a completely different level: comfortably cruising at 3:xx pace 🚀. With my group I was ticking off kilometer splits mostly around **04:0X**. At the windy sections I positioned myself to benefit from not having to break the wind alone — though a few times I went to the front and contributed my share of wind-breaking 💨.
 
-It all went really well, and honestly there were moments where it felt *weird* to be running this comfortably at these paces. No doubt the Runna Marathon training has taken my speed to the next level. Fast running didn't feel dangerous, and my heart rate was under control throughout: **167 bpm avg / 179 bpm max** — working right at my limit but not blowing a gasket 🤠🤗. And yes, I'm fairly sure the carbon plate shoes gave me a nudge too 😂.
+It all went really well, and honestly there were moments where it felt *weird* to be running this comfortably at these paces. No doubt the Runna Marathon training has taken my speed to the next level. Fast running didn't feel dangerous, and my heart rate was under control throughout: **167 bpm avg / 179 bpm max** — working right at my limit but not blowing a gasket 🤠🤗. And yes, I'm fairly sure the Magic Speed 4 shoes gave me a nudge too 😂.
 
 Despite the effort I actually got to enjoy the scenery. It's a nice, beautiful route around Bramming — not far from the Danish west coast — and I appreciated the landscape even at 04:0X pace 😊.
 
@@ -61,20 +61,18 @@ Despite the effort I actually got to enjoy the scenery. It's a nice, beautiful r
 
 I crossed the finish line **3rd** in an official **1:26:57** — that's a **04:07 /km** pace 🥳. Beating my previous 2024 PB from Bestseller Aarhus City Half (BACH) at 1:29:20 — so by **2 minutes 23 seconds**. Strava PB-wise a little less but still epic: going from 1:28:29 at BACH to 1:26:42 here — that's **1 minute 47 seconds** 🤗🤠.
 
-To be fair: BACH had more elevation, and back then I was also running at higher effort (171 bpm avg / 182 bpm max) and without carbon shoes. So comparing the two times directly is a bit tricky 🫣🤭. But you know what? I don't really care about that. Running *faster* at *less effort* on a course I genuinely enjoyed — that's a W in any book 🥳.
+To be fair: BACH had more elevation, and back then I was also running at higher effort (171 bpm avg / 182 bpm max) and without carbon shoes. So comparing the two times directly is a bit tricky 🫣🤭.
 
 The gel plan definitely helped too: 1 gel 60 min before, 1 gel 5 min before, 1 gel at 40 min, 1 gel at 65 min. All SiS 40g carb gels. I was NOT going to let carb depletion be the problem 🤣. Plus 1 cup of water along the route.
 
 My family — wife and Casper — came to cheer at the finish line. Couldn't have wished for a better end to a perfect race experience 🤗💛.
 
-### Volunteers and organization 👏🏻
+I feel I'm slowly getting nicely ready for the Copenhagen Marathon. Tapering starting soon! 🤗
+
+### Recommended? 👏🏻
 
 Very nice atmosphere overall. Well-arranged local race with a well-marked and beautiful route. The volunteers at the aid station had cups ready for personal handover for the front runners 🤗 (I know, I know — sounds a bit grand for a small local race … but hey, 3rd place 🤣). The finish area had free sausages (🇩🇰 "Pølser med brød"), fruits, water, and more. You get a LOT of value from the small entry fee at Skjern Bank Løbet 🤩.
 
-### Recommended?
-
 **100% yes.** This is a wonderfully run local race with a flat, fast, and beautiful route. Friendly atmosphere, well-organized, and you get treated well on-course and after 👌🏻. Whether you want to race hard or just enjoy a scenic half — Skjern Bank Løbet delivers.
-
-I feel I'm slowly getting nicely ready for the Copenhagen Marathon. Tapering starting soon! 🤗
 
 ⭐️⭐️⭐️⭐️
