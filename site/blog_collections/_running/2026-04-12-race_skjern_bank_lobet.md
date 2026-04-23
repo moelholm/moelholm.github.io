@@ -2,7 +2,7 @@
 layout: post
 title: "Skjern Bank Løbet 2026"
 description: "Race notes for Skjern Bank Løbet 2026"
-date: 2026-04-13 10:00:00 +0100
+date: 2026-04-23 10:00:00 +0100
 race_date: 2026-04-12
 comments: true
 tags: race running halfmarathon
@@ -49,7 +49,7 @@ The route was super flat and easy to run. There was a short gravel section and a
 
 <!-- photos3: route, mid-race -->
 
-I quickly locked in with a small lead group — 2 other runners. One runner in front of us was at a completely different level: comfortably cruising at 3:xx pace 🚀. With my group I was ticking off kilometer splits mostly around **04:0X**. At the windy sections I positioned myself to benefit from not having to alone break the wind — though a few times I went to the front and contributed my share of wind-breaking 💨.
+I quickly locked in with a small lead group — 2 other runners. One runner in front of us was at a completely different level: comfortably cruising at 3:xx pace 🚀. With my group I was ticking off kilometer splits mostly around **04:0X**. At the windy sections I positioned myself to benefit from not having to break the wind alone — though a few times I went to the front and contributed my share of wind-breaking 💨.
 
 It all went really well, and honestly there were moments where it felt *weird* to be running this comfortably at these paces. No doubt the Runna Marathon training has taken my speed to the next level. Fast running didn't feel dangerous, and my heart rate was under control throughout: **167 bpm avg / 179 bpm max** — working right at my limit but not blowing a gasket 🤠🤗. And yes, I'm fairly sure the carbon plate shoes gave me a nudge too 😂.
 
@@ -63,7 +63,7 @@ I crossed the finish line **3rd** in an official **1:26:57** — that's a **04:0
 
 To be fair: BACH had more elevation, and back then I was also running at higher effort (171 bpm avg / 182 bpm max) and without carbon shoes. So comparing the two times directly is a bit tricky 🫣🤭. But you know what? I don't really care about that. Running *faster* at *less effort* on a course I genuinely enjoyed — that's a W in any book 🥳.
 
-A gel fuel plan that definitely helped too: 1 gel 60 min before, 1 gel 5 min before, 1 gel at 40 min, 1 gel at 65 min. All SiS 40g carb gels. I was NOT going to let carb depletion be the problem 🤣. Plus 1 cup of water along the route.
+The gel plan definitely helped too: 1 gel 60 min before, 1 gel 5 min before, 1 gel at 40 min, 1 gel at 65 min. All SiS 40g carb gels. I was NOT going to let carb depletion be the problem 🤣. Plus 1 cup of water along the route.
 
 My family — wife and Casper — came to cheer at the finish line. Couldn't have wished for a better end to a perfect race experience 🤗💛.
 
