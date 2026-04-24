@@ -41,7 +41,8 @@ races:
     distance: "21 km"
     tags: ["half"]
     url: "https://www.sportstiming.dk/event/17237"
-    status: "pending"
+    blog_url: "/blog/running/2026/04/24/race_skjern_bank_lobet"
+    status: "completed"
   
   - date: "2026-05-10"
     title: "Copenhagen Marathon"
