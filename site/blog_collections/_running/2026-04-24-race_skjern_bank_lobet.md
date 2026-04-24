@@ -40,7 +40,6 @@ As part of the program Runna nudged me to fit in a half marathon B-race before t
 I arrived early (as always 🕐) to nail a good parking spot — success! — and ended up just in time to watch the children's race kick off an hour before mine. Seeing those kids charging for the finish line was genuinely inspiring and adorable 🤗.
 
 {% capture table_content %}
-|------------|------------|
 | <img src="/img_running/2026-04-24/2026-04-24_2221_small.jpg" data-src="/img_running/2026-04-24/2026-04-24_2221_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-24/2026-04-24_2223_small.jpg" data-src="/img_running/2026-04-24/2026-04-24_2223_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
@@ -48,7 +47,6 @@ I arrived early (as always 🕐) to nail a good parking spot — success! — an
 We started almost 100 runners on the half marathon. Weather luck was max: mild, a little wind but nothing that killed the pace work, and sunshine ☀️. I lined up at the front with the faster runners — not because I had a plan to race them, but so I wouldn't have to spend energy weaving through the field. I was 100% focused on my own plan: hit the target splits and not blow up 😂.
 
 {% capture table_content %}
-|------------|------------|
 | <img src="/img_running/2026-04-24/2026-04-24_2283_small.jpg" data-src="/img_running/2026-04-24/2026-04-24_2283_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-24/2026-04-24_2284_small.jpg" data-src="/img_running/2026-04-24/2026-04-24_2284_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
@@ -62,7 +60,6 @@ It all went really well, and honestly there were moments where it felt *weird* t
 Despite the effort I actually got to enjoy the scenery. It's a nice, beautiful route around Bramming — not far from the Danish west coast — and I appreciated the landscape even at a demanding pace 😊.
 
 {% capture table_content %}
-|------------|------------|
 | <img src="/img_running/2026-04-24/2026-04-24_0810_small.jpg" data-src="/img_running/2026-04-24/2026-04-24_0810_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-24/2026-04-24_0811_small.jpg" data-src="/img_running/2026-04-24/2026-04-24_0811_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
@@ -70,7 +67,6 @@ Despite the effort I actually got to enjoy the scenery. It's a nice, beautiful r
 ### Finish line 🥉
 
 {% capture table_content5a %}
-|------------|------------|
 | <img src="/img_running/2026-04-24/2026-04-24_2227_small.jpg" data-src="/img_running/2026-04-24/2026-04-24_2227_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-24/2026-04-24_2285_small.jpg" data-src="/img_running/2026-04-24/2026-04-24_2285_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content5a | markdownify }}
@@ -82,7 +78,6 @@ To be fair: BACH had more elevation, and back then I was also running at higher 
 My family — wife and Casper — came to cheer at the finish line. Couldn't have wished for a better end to a perfect race experience 🤗💛.
 
 {% capture table_content5b %}
-|------------|------------|
 | <img src="/img_running/2026-04-24/2026-04-24_2228_small.jpg" data-src="/img_running/2026-04-24/2026-04-24_2228_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-24/2026-04-24_2225_small.jpg" data-src="/img_running/2026-04-24/2026-04-24_2225_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content5b | markdownify }}
