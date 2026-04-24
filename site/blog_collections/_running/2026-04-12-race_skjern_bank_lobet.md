@@ -69,7 +69,17 @@ Despite the effort I actually got to enjoy the scenery. It's a nice, beautiful r
 
 ### Finish line 🥉
 
-<!-- photos5 -->
+{% capture table_content5a %}
+|------------|------------|
+| <img src="/img_running/2026-04-12/2026-04-12_2225_small.jpg" data-src="/img_running/2026-04-12/2026-04-12_2225_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-12/2026-04-12_2227_small.jpg" data-src="/img_running/2026-04-12/2026-04-12_2227_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+{% endcapture %}
+{{ table_content5a | markdownify }}
+
+{% capture table_content5b %}
+|------------|------------|
+| <img src="/img_running/2026-04-12/2026-04-12_2228_small.jpg" data-src="/img_running/2026-04-12/2026-04-12_2228_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-12/2026-04-12_2285_small.jpg" data-src="/img_running/2026-04-12/2026-04-12_2285_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+{% endcapture %}
+{{ table_content5b | markdownify }}
 
 I crossed the finish line **3rd** in an official **1:26:57** — that's a **04:07 /km** pace 🥳. Beating my previous 2024 PB from Bestseller Aarhus City Half (BACH) at 1:29:20 — so by **2 minutes 23 seconds**. Strava PB-wise a little less but still epic: going from 1:28:29 at BACH to 1:26:42 here — that's **1 minute 47 seconds** 🤗🤠.
 
