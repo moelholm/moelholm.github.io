@@ -37,7 +37,11 @@ As part of the program Runna nudged me to fit in a half marathon B-race before t
 
 I arrived early (as always 🕐) to nail a good parking spot — success! — and ended up just in time to watch the children's race kick off an hour before mine. Seeing those kids charging for the finish line was genuinely inspiring and adorable 🤗.
 
-<!-- photos1: pre-race arrival, children's race -->
+{% capture table_content %}
+|------------|------------|
+| <img src="/img_running/2026-04-12/2026-04-12_2221_small.jpg" data-src="/img_running/2026-04-12/2026-04-12_2221_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-12/2026-04-12_2223_small.jpg" data-src="/img_running/2026-04-12/2026-04-12_2223_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+{% endcapture %}
+{{ table_content | markdownify }}
 
 ### Race day ☀️
 
