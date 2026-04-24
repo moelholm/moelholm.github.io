@@ -95,6 +95,6 @@ I feel I'm slowly getting nicely ready for the Copenhagen Marathon. Tapering sta
 
 This is a wonderfully run local race with a flat, fast, and beautiful route. Friendly atmosphere, well-organized, and you get treated really well on-course and after 👌🏻. Whether you want to race hard or just enjoy a scenic half — Skjern Bank Løbet delivers.
 
-The volunteers at the aid station had cups ready for personal handover for the front runners 🤗 (I know, I know — sounds a bit grand for a small local race … but hey, 3rd place 🤣). The finish area had free sausages (🇩🇰 "Pølser med brød"), fruits, water, and more. You get a LOT of value from the small entry fee 🤩.
+The volunteers at the aid stations were *super nice* and even had cups ready for personal handover for the front runners 🤗 (I know, I know — Nicky-humble-brag-a-lot-cough-cough-🤭 … but hey, 3rd place 🤣). The finish area had free sausages (🇩🇰 "Pølser med brød"), fruits, water, and more. You get a LOT of value from the small entry fee 🤩.
 
 ⭐️⭐️⭐️⭐️
