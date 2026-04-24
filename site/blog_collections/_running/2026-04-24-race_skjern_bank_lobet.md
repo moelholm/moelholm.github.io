@@ -2,7 +2,7 @@
 layout: post
 title: "Skjern Bank Løbet 2026"
 description: "Race notes for Skjern Bank Løbet 2026"
-date: 2026-04-23 10:00:00 +0100
+date: 2026-04-24 13:00:00 +0200
 race_date: 2026-04-12
 comments: true
 tags: race running halfmarathon
@@ -41,7 +41,7 @@ I arrived early (as always 🕐) to nail a good parking spot — success! — an
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2026-04-12/2026-04-12_2221_small.jpg" data-src="/img_running/2026-04-12/2026-04-12_2221_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-12/2026-04-12_2223_small.jpg" data-src="/img_running/2026-04-12/2026-04-12_2223_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-04-24/2026-04-24_2221_small.jpg" data-src="/img_running/2026-04-24/2026-04-24_2221_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-24/2026-04-24_2223_small.jpg" data-src="/img_running/2026-04-24/2026-04-24_2223_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -49,7 +49,7 @@ We started almost 100 runners on the half marathon. Weather luck was max: mild, 
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2026-04-12/2026-04-12_2283_small.jpg" data-src="/img_running/2026-04-12/2026-04-12_2283_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-12/2026-04-12_2284_small.jpg" data-src="/img_running/2026-04-12/2026-04-12_2284_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-04-24/2026-04-24_2283_small.jpg" data-src="/img_running/2026-04-24/2026-04-24_2283_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-24/2026-04-24_2284_small.jpg" data-src="/img_running/2026-04-24/2026-04-24_2284_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -63,7 +63,7 @@ Despite the effort I actually got to enjoy the scenery. It's a nice, beautiful r
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2026-04-12/2026-04-12_0810_small.jpg" data-src="/img_running/2026-04-12/2026-04-12_0810_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-12/2026-04-12_0811_small.jpg" data-src="/img_running/2026-04-12/2026-04-12_0811_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-04-24/2026-04-24_0810_small.jpg" data-src="/img_running/2026-04-24/2026-04-24_0810_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-24/2026-04-24_0811_small.jpg" data-src="/img_running/2026-04-24/2026-04-24_0811_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -71,7 +71,7 @@ Despite the effort I actually got to enjoy the scenery. It's a nice, beautiful r
 
 {% capture table_content5a %}
 |------------|------------|
-| <img src="/img_running/2026-04-12/2026-04-12_2227_small.jpg" data-src="/img_running/2026-04-12/2026-04-12_2227_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-12/2026-04-12_2285_small.jpg" data-src="/img_running/2026-04-12/2026-04-12_2285_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-04-24/2026-04-24_2227_small.jpg" data-src="/img_running/2026-04-24/2026-04-24_2227_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-24/2026-04-24_2285_small.jpg" data-src="/img_running/2026-04-24/2026-04-24_2285_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content5a | markdownify }}
 
@@ -83,7 +83,7 @@ My family — wife and Casper — came to cheer at the finish line. Couldn't hav
 
 {% capture table_content5b %}
 |------------|------------|
-| <img src="/img_running/2026-04-12/2026-04-12_2228_small.jpg" data-src="/img_running/2026-04-12/2026-04-12_2228_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-12/2026-04-12_2225_small.jpg" data-src="/img_running/2026-04-12/2026-04-12_2225_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-04-24/2026-04-24_2228_small.jpg" data-src="/img_running/2026-04-24/2026-04-24_2228_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-24/2026-04-24_2225_small.jpg" data-src="/img_running/2026-04-24/2026-04-24_2225_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content5b | markdownify }}
 
