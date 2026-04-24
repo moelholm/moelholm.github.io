@@ -45,7 +45,7 @@ I arrived early (as always 🕐) to nail a good parking spot — success! — an
 
 ### Race day ☀️
 
-We started as almost 100 runners on the half marathon. Weather luck was max: mild, a little wind but nothing that killed the pace work, and sunshine ☀️. I lined up at the front with the faster runners — not because I had a plan to race them, but so I wouldn't have to spend energy weaving through the field. I was 100% focused on my own plan: hit the target splits and not blow up 😂.
+We started almost 100 runners on the half marathon. Weather luck was max: mild, a little wind but nothing that killed the pace work, and sunshine ☀️. I lined up at the front with the faster runners — not because I had a plan to race them, but so I wouldn't have to spend energy weaving through the field. I was 100% focused on my own plan: hit the target splits and not blow up 😂.
 
 {% capture table_content %}
 |------------|------------|
@@ -71,15 +71,9 @@ Despite the effort I actually got to enjoy the scenery. It's a nice, beautiful r
 
 {% capture table_content5a %}
 |------------|------------|
-| <img src="/img_running/2026-04-12/2026-04-12_2225_small.jpg" data-src="/img_running/2026-04-12/2026-04-12_2225_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-12/2026-04-12_2227_small.jpg" data-src="/img_running/2026-04-12/2026-04-12_2227_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-04-12/2026-04-12_2227_small.jpg" data-src="/img_running/2026-04-12/2026-04-12_2227_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-12/2026-04-12_2228_small.jpg" data-src="/img_running/2026-04-12/2026-04-12_2228_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content5a | markdownify }}
-
-{% capture table_content5b %}
-|------------|------------|
-| <img src="/img_running/2026-04-12/2026-04-12_2228_small.jpg" data-src="/img_running/2026-04-12/2026-04-12_2228_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-12/2026-04-12_2285_small.jpg" data-src="/img_running/2026-04-12/2026-04-12_2285_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-{% endcapture %}
-{{ table_content5b | markdownify }}
 
 I crossed the finish line **3rd** in an official **1:26:57** — that's a **04:07 /km** pace 🥳. Beating my previous 2024 PB from Bestseller Aarhus City Half (BACH) at 1:29:20 — so by **2 minutes 23 seconds**. Strava PB-wise a little less but still epic: going from 1:28:29 at BACH to 1:26:42 here — that's **1 minute 47 seconds** 🤗🤠.
 
@@ -88,6 +82,12 @@ To be fair: BACH had more elevation, and back then I was also running at higher 
 The gel plan definitely helped too: 1 gel 60 min before, 1 gel 5 min before, 1 gel at 40 min, 1 gel at 65 min. All SiS 40g carb gels. I was NOT going to let carb depletion be the problem 🤣. Plus 1 cup of water along the route.
 
 My family — wife and Casper — came to cheer at the finish line. Couldn't have wished for a better end to a perfect race experience 🤗💛.
+
+{% capture table_content5b %}
+|------------|------------|
+| <img src="/img_running/2026-04-12/2026-04-12_2225_small.jpg" data-src="/img_running/2026-04-12/2026-04-12_2225_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-12/2026-04-12_2285_small.jpg" data-src="/img_running/2026-04-12/2026-04-12_2285_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+{% endcapture %}
+{{ table_content5b | markdownify }}
 
 I feel I'm slowly getting nicely ready for the Copenhagen Marathon. Tapering starting soon! 🤗
 
