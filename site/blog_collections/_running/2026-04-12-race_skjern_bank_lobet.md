@@ -47,11 +47,13 @@ I arrived early (as always 🕐) to nail a good parking spot — success! — an
 
 We started as almost 100 runners on the half marathon. Weather luck was max: mild, a little wind but nothing that killed the pace work, and sunshine ☀️. I lined up at the front with the faster runners — not because I had a plan to race them, but so I wouldn't have to spend energy weaving through the field. I was 100% focused on my own plan: hit the target splits and not blow up 😂.
 
-<!-- photos2: start line, early race -->
+{% capture table_content %}
+|------------|------------|
+| <img src="/img_running/2026-04-12/2026-04-12_2283_small.jpg" data-src="/img_running/2026-04-12/2026-04-12_2283_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-04-12/2026-04-12_2284_small.jpg" data-src="/img_running/2026-04-12/2026-04-12_2284_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+{% endcapture %}
+{{ table_content | markdownify }}
 
 The route was super flat and easy to run. There was a short gravel section and a little grass stretch. The grass section I definitely should not have used to try and pass other runners… because my ASICS Magic Speed 4 shoes slipped and slid all over the place, demanding an awkward and exhausting corrective push 🤦🏻‍♂️🙄.
-
-<!-- photos3: route, mid-race -->
 
 I quickly locked in with a small lead group — 2 other runners. One runner in front of us was at a completely different level: comfortably cruising at 3:xx pace 🚀. With my group I was ticking off kilometer splits mostly around **04:0X**. At the windy sections I positioned myself to benefit from not having to break the wind alone — though a few times I went to the front and contributed my share of wind-breaking 💨.
 
