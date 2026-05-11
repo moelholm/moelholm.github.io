@@ -8,7 +8,7 @@ races:
   - date: "2026-01-10"
     title: "LNBK Ringkøbing Fjord - Winter Edition"
     distance: "100 km"
-    tags: ["ultra"]
+    tags: ["ultra", "trail"]
     url: "https://my.raceresult.com/351761/info"
     blog_url: "/blog/running/2026/01/11/race_ringkobingfjord"
     status: "completed"
@@ -68,7 +68,7 @@ races:
   - date: "2026-09-12"
     title: "Mors 100 miles"
     distance: "100 miles"
-    tags: ["ultra", "trail"]
+    tags: ["ultra"]
     url: "https://my.raceresult.com/365611/info"
     status: "maybe"
   
