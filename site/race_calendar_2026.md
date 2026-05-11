@@ -8,7 +8,7 @@ races:
   - date: "2026-01-10"
     title: "LNBK Ringkøbing Fjord - Winter Edition"
     distance: "100 km"
-    tags: ["ultra", "trail"]
+    tags: ["ultra"]
     url: "https://my.raceresult.com/351761/info"
     blog_url: "/blog/running/2026/01/11/race_ringkobingfjord"
     status: "completed"
@@ -16,7 +16,7 @@ races:
   - date: "2026-02-01"
     title: "Eventyrsport VinterTrail Mols Bjerge"
     distance: "46 km"
-    tags: ["ultra"]
+    tags: ["ultra", "trail"]
     url: "https://www.sportstiming.dk/event/17044"
     status: "cancelled"
   
