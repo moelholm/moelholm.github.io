@@ -5,6 +5,9 @@
 {% elsif include.status == 'cancelled' %}
   {% assign status_class = 'race-status-cancelled' %}
   {% assign status_icon = 'fa-regular fa-square-xmark' %}
+{% elsif include.status == 'maybe' %}
+  {% assign status_class = 'race-status-maybe' %}
+  {% assign status_icon = 'fa-regular fa-circle-question' %}
 {% endif %}
 {% assign date_obj = include.date | date: "%b-%d" | upcase %}
 {% capture title_html %}<span class="race-status {{ status_class }}"><i class="{{ status_icon }}"></i></span> <span class="race-date-prefix">{{ date_obj }}</span> | {{ include.title }}{% endcapture %}

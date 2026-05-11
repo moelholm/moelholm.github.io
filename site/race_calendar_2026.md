@@ -65,6 +65,13 @@ races:
     url: "https://www.aarhusmotion.dk/event/293"
     status: "pending"
   
+  - date: "2026-09-12"
+    title: "Mors 100 miles"
+    distance: "100 miles"
+    tags: ["ultra"]
+    url: "https://my.raceresult.com/365611/info"
+    status: "maybe"
+  
   - date: "2026-09-27"
     title: "HCA Marathon"
     distance: "42 km"
