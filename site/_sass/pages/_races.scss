@@ -569,8 +569,6 @@
 // race-tag styles are imported globally via components/race_tag
 
 // Compact race list (race calendar pages)
-$race-row-mobile-indent: 1.6rem;
-
 .race-compact-list {
     .race-row {
         border-bottom: 1px solid rgba(0, 0, 0, 0.07);
@@ -586,11 +584,12 @@ $race-row-mobile-indent: 1.6rem;
         .race-row__link {
             display: flex;
             align-items: baseline;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             gap: 0 0.35rem;
             padding: 0.38rem 0;
             text-decoration: none;
             color: inherit;
+            overflow: hidden;
 
             &:hover .race-row__title {
                 text-decoration: underline;
@@ -617,26 +616,17 @@ $race-row-mobile-indent: 1.6rem;
             color: $link-color;
             flex: 1 1 0;
             min-width: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .race-row__tags {
             display: inline-flex;
             gap: 0.2rem;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             align-items: center;
             flex-shrink: 0;
-        }
-
-        @media (max-width: $bp-phone-max) {
-            .race-row__title {
-                flex-basis: 100%;
-                padding-left: $race-row-mobile-indent; // indent under status icon + date
-            }
-
-            .race-row__tags {
-                padding-left: $race-row-mobile-indent;
-                flex-basis: 100%;
-            }
         }
     }
 }
