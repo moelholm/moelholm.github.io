@@ -569,6 +569,7 @@
 // race-tag styles are imported globally via components/race_tag
 
 // Compact race list (race calendar pages)
+// Column layout: [icon 1.3rem] [date 4rem] [pipe 0.6rem] [dist 5.4rem] [title 1fr] [tags auto]
 .race-compact-list {
     .race-row {
         border-bottom: 1px solid rgba(0, 0, 0, 0.07);
@@ -582,14 +583,13 @@
         }
 
         .race-row__link {
-            display: flex;
-            align-items: baseline;
-            flex-wrap: nowrap;
-            gap: 0 0.35rem;
-            padding: 0.38rem 0;
+            display: grid;
+            grid-template-columns: 1.3rem 4rem 0.6rem 5.4rem minmax(0, 1fr) minmax(0, auto);
+            align-items: center;
+            column-gap: 0.3rem;
+            padding: 0.4rem 0;
             text-decoration: none;
             color: inherit;
-            overflow: hidden;
 
             &:hover .race-row__title {
                 text-decoration: underline;
@@ -602,20 +602,22 @@
             color: $text-muted;
             font-variant-numeric: tabular-nums;
             white-space: nowrap;
-            flex-shrink: 0;
         }
 
         .race-row__pipe {
             color: rgba(0, 0, 0, 0.18);
-            flex-shrink: 0;
+            text-align: center;
+        }
+
+        .race-row__dist {
+            display: flex;
+            align-items: center;
         }
 
         .race-row__title {
-            font-size: 0.88rem;
+            font-size: clamp(0.68rem, 2.2vw, 0.88rem);
             font-weight: 500;
             color: $link-color;
-            flex: 1 1 0;
-            min-width: 0;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -626,7 +628,14 @@
             gap: 0.2rem;
             flex-wrap: nowrap;
             align-items: center;
-            flex-shrink: 0;
+            overflow: hidden;
+            min-width: 0;
+        }
+
+        @media (max-width: 479px) {
+            .race-row__tags {
+                display: none;
+            }
         }
     }
 }

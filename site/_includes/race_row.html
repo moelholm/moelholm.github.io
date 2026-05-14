@@ -24,9 +24,9 @@ Usage: {% include race_row.html date=race.date title=race.title distance=race.di
     <span class="race-status {{ status_class }}"><i class="{{ status_icon }}"></i></span>
     <span class="race-row__date">{{ date_label }}</span>
     <span class="race-row__pipe">|</span>
+    <span class="race-row__dist"><span class="race-tag">{{ include.distance }}</span></span>
     <span class="race-row__title">{{ include.title }}</span>
     <span class="race-row__tags">
-      <span class="race-tag">{{ include.distance }}</span>
       {% include home/race_calendar_tags.html tags=include.tags %}
     </span>
   </a>
