@@ -571,18 +571,17 @@
 // Compact race list (race calendar pages)
 // The outer container is the single shared grid; all rows use subgrid so their
 // columns align perfectly across every row (like a table).
-// The dist column is max-content: the browser sizes it to the widest chip
-// across all rows automatically — no fixed magic width needed.
+// Both the date and dist columns are max-content: the browser auto-sizes each
+// to the widest cell across all rows — no fixed magic widths, no dead space.
 $race-col-icon: 1.3rem;
-$race-col-date: 4rem;
-$race-col-pipe: 0.6rem;
+$race-col-pipe: 0.45rem;
 
 .race-compact-list {
     display: grid;
-    grid-template-columns: $race-col-icon $race-col-date $race-col-pipe max-content minmax(0, 1fr) auto;
-    column-gap: 0.3rem;
+    grid-template-columns: $race-col-icon max-content $race-col-pipe max-content $race-col-pipe minmax(0, 1fr) auto;
+    column-gap: 0.35rem;
 
-    // Each <a> row spans all 6 columns and uses subgrid so its cells
+    // Each <a> row spans all 7 columns and uses subgrid so its cells
     // share the parent's column tracks.
     .race-row {
         display: grid;
@@ -621,8 +620,11 @@ $race-col-pipe: 0.6rem;
     }
 
     .race-row__dist {
-        display: flex;
-        align-items: center;
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: $text-muted;
+        white-space: nowrap;
+        font-variant-numeric: tabular-nums;
     }
 
     // Title scales down on narrow viewports so more text is visible without wrapping.

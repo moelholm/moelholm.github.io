@@ -7,22 +7,20 @@ body_class: race-calendar-page
 races:
   - date: "2026-01-10"
     title: "LNBK Ringkøbing Fjord - Winter Edition"
-    distance: "100 km"
-    tags: ["ultra"]
-    url: "https://my.raceresult.com/351761/info"
+    distance: "100K"
     blog_url: "/blog/running/2026/01/11/race_ringkobingfjord"
     status: "completed"
   
   - date: "2026-02-01"
     title: "Eventyrsport VinterTrail Mols Bjerge"
-    distance: "46 km"
+    distance: "46K"
     tags: ["ultra", "trail"]
     url: "https://www.sportstiming.dk/event/17044"
     status: "cancelled"
   
   - date: "2026-03-14"
     title: "Grenaa Halvmarathon - 6 timers ULTRALØB 2026"
-    distance: "6h"
+    distance: "6H"
     tags: ["ultra"]
     url: "https://ultralob.dk/grenaa-halvmarathon-6-timers-ultraloeb-2026/"
     blog_url: "/blog/running/2026/03/21/race_grenaa_6timers"
@@ -38,7 +36,7 @@ races:
   
   - date: "2026-04-12"
     title: "Skjern Bank Løbet"
-    distance: "21 km"
+    distance: "21K"
     tags: ["half"]
     url: "https://www.sportstiming.dk/event/17237"
     blog_url: "/blog/running/2026/04/24/race_skjern_bank_lobet"
@@ -46,48 +44,48 @@ races:
   
   - date: "2026-05-10"
     title: "Copenhagen Marathon"
-    distance: "42 km"
+    distance: "42K"
     tags: ["marathon"]
     url: "https://copenhagenmarathon.dk"
     status: "pending"
   
   - date: "2026-05-30"
     title: "24 Timer ved Havet"
-    distance: "24h"
+    distance: "24H"
     tags: ["ultra"]
     url: "https://www.sportstiming.dk/event/16658"
     status: "pending"
   
   - date: "2026-06-14"
     title: "Bestseller Aarhus City Half"
-    distance: "21 km"
+    distance: "21K"
     tags: ["half"]
     url: "https://www.aarhusmotion.dk/event/293"
     status: "pending"
 
   - date: "2026-08-06"
     title: "Lindknud Løbet"
-    distance: "10 km"
+    distance: "10K"
     url: "https://www.sportstiming.dk/event/18173"
     status: "pending"
   
   - date: "2026-09-12"
     title: "Mors 100 miles"
-    distance: "100 miles"
+    distance: "160K"
     tags: ["ultra"]
     url: "https://my.raceresult.com/365611/info"
     status: "maybe"
   
   - date: "2026-09-27"
     title: "HCA Marathon"
-    distance: "42 km"
+    distance: "42K"
     tags: ["marathon"]
     url: "https://www.sportstiming.dk/event/16156"
     status: "pending"
   
   - date: "2026-10-30"
     title: "Kullamannen by UTMB"
-    distance: "160 km"
+    distance: "160K"
     tags: ["ultra", "trail"]
     url: "https://kullamannen.utmb.world/races/ultra-100-miles"
     status: "pending"

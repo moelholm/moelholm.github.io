@@ -7,7 +7,7 @@ body_class: race-calendar-page
 races:
   - date: "2027-03-13"
     title: "Grenaa Halvmarathon - 6 timers ULTRALØB"
-    distance: "6h"
+    distance: "6H"
     tags: ["ultra"]
     url: "https://facebook.com/events/s/grenaa-halvmarathon-6-timers-u/1252953832972654/"
     status: "pending"
