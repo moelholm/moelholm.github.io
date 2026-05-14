@@ -569,7 +569,12 @@
 // race-tag styles are imported globally via components/race_tag
 
 // Compact race list (race calendar pages)
-// Column layout: [icon 1.3rem] [date 4rem] [pipe 0.6rem] [dist 5.4rem] [title 1fr] [tags auto]
+// Grid columns: [icon] [date] [pipe] [dist] [title] [tags]
+$race-col-icon:  1.3rem;
+$race-col-date:  4rem;
+$race-col-pipe:  0.6rem;
+$race-col-dist:  5.4rem;
+
 .race-compact-list {
     .race-row {
         border-bottom: 1px solid rgba(0, 0, 0, 0.07);
@@ -584,7 +589,7 @@
 
         .race-row__link {
             display: grid;
-            grid-template-columns: 1.3rem 4rem 0.6rem 5.4rem minmax(0, 1fr) minmax(0, auto);
+            grid-template-columns: $race-col-icon $race-col-date $race-col-pipe $race-col-dist minmax(0, 1fr) minmax(0, auto);
             align-items: center;
             column-gap: 0.3rem;
             padding: 0.4rem 0;
@@ -614,6 +619,8 @@
             align-items: center;
         }
 
+        // Title scales down on narrow viewports so more text is visible without wrapping.
+        // min 0.68rem (≈10.9 px) keeps readability; max 0.88rem is the normal body-small size.
         .race-row__title {
             font-size: clamp(0.68rem, 2.2vw, 0.88rem);
             font-weight: 500;
@@ -632,7 +639,8 @@
             min-width: 0;
         }
 
-        @media (max-width: 479px) {
+        // Hide category tags on screens too narrow to show them without pushing the title out.
+        @media (max-width: $bp-compact-max) {
             .race-row__tags {
                 display: none;
             }
