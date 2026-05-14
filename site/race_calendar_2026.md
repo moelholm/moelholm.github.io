@@ -68,7 +68,6 @@ races:
   - date: "2026-08-06"
     title: "Lindknud Løbet"
     distance: "10 km"
-    tags: ["10k"]
     url: "https://www.sportstiming.dk/event/18173"
     status: "pending"
   
