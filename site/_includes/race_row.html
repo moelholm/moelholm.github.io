@@ -1,0 +1,33 @@
+{%- comment -%}
+Compact race row for the race calendar pages.
+Usage: {% include race_row.html date=race.date title=race.title distance=race.distance tags=race.tags url=race.url blog_url=race.blog_url status=race.status %}
+{%- endcomment -%}
+{% assign status_icon = 'fa-regular fa-square-check' %}
+{% assign status_class = 'race-status-pending' %}
+{% if include.status == 'completed' %}
+  {% assign status_class = 'race-status-completed' %}
+{% elsif include.status == 'cancelled' %}
+  {% assign status_class = 'race-status-cancelled' %}
+  {% assign status_icon = 'fa-regular fa-square-xmark' %}
+{% elsif include.status == 'maybe' %}
+  {% assign status_class = 'race-status-maybe' %}
+  {% assign status_icon = 'fa-regular fa-circle-question' %}
+{% endif %}
+{% assign date_label = include.date | date: "%b-%d" | upcase %}
+{% if include.blog_url %}
+  {% assign row_href = include.blog_url %}
+{% else %}
+  {% assign row_href = include.url %}
+{% endif %}
+<div class="race-row{% if include.status == 'cancelled' %} race-row--cancelled{% endif %}">
+  <a href="{{ row_href }}" class="race-row__link">
+    <span class="race-status {{ status_class }}"><i class="{{ status_icon }}"></i></span>
+    <span class="race-row__date">{{ date_label }}</span>
+    <span class="race-row__pipe">|</span>
+    <span class="race-row__title">{{ include.title }}</span>
+    <span class="race-row__tags">
+      <span class="race-tag">{{ include.distance }}</span>
+      {% include home/race_calendar_tags.html tags=include.tags %}
+    </span>
+  </a>
+</div>

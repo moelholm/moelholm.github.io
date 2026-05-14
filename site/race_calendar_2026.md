@@ -97,10 +97,8 @@ races:
 
 <p>Below are the races I plan to participate in during 2026.</p>
 
-<div class="races-container">
+<div class="race-compact-list">
   {% for race in page.races %}
-    <div style="margin-bottom: 1rem;">
-      {% include race_card.html date=race.date title=race.title distance=race.distance tags=race.tags url=race.url blog_url=race.blog_url status=race.status %}
-    </div>
+    {% include race_row.html date=race.date title=race.title distance=race.distance tags=race.tags url=race.url blog_url=race.blog_url status=race.status %}
   {% endfor %}
 </div>

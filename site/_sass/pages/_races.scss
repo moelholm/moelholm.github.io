@@ -567,3 +567,74 @@
 }
 
 // race-tag styles are imported globally via components/race_tag
+
+// Compact race list (race calendar pages)
+.race-compact-list {
+    .race-row {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        &--cancelled {
+            opacity: 0.45;
+        }
+
+        .race-row__link {
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0 0.35rem;
+            padding: 0.38rem 0;
+            text-decoration: none;
+            color: inherit;
+
+            &:hover .race-row__title {
+                text-decoration: underline;
+            }
+        }
+
+        .race-row__date {
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: $text-muted;
+            font-variant-numeric: tabular-nums;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .race-row__pipe {
+            color: rgba(0, 0, 0, 0.18);
+            flex-shrink: 0;
+        }
+
+        .race-row__title {
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: $link-color;
+            flex: 1 1 0;
+            min-width: 0;
+        }
+
+        .race-row__tags {
+            display: inline-flex;
+            gap: 0.2rem;
+            flex-wrap: wrap;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: $bp-phone-max) {
+            .race-row__title {
+                flex-basis: 100%;
+                padding-left: 1.6rem; // indent under status icon + date
+            }
+
+            .race-row__tags {
+                padding-left: 1.6rem;
+                flex-basis: 100%;
+            }
+        }
+    }
+}
