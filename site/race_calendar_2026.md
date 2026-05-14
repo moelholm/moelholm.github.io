@@ -64,6 +64,13 @@ races:
     tags: ["half"]
     url: "https://www.aarhusmotion.dk/event/293"
     status: "pending"
+
+  - date: "2026-08-06"
+    title: "Lindknud Løbet"
+    distance: "10 km"
+    tags: ["10k"]
+    url: "https://www.sportstiming.dk/event/18173"
+    status: "pending"
   
   - date: "2026-09-12"
     title: "Mors 100 miles"
