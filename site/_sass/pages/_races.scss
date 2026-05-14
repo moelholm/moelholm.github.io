@@ -569,6 +569,8 @@
 // race-tag styles are imported globally via components/race_tag
 
 // Compact race list (race calendar pages)
+$race-row-mobile-indent: 1.6rem;
+
 .race-compact-list {
     .race-row {
         border-bottom: 1px solid rgba(0, 0, 0, 0.07);
@@ -628,11 +630,11 @@
         @media (max-width: $bp-phone-max) {
             .race-row__title {
                 flex-basis: 100%;
-                padding-left: 1.6rem; // indent under status icon + date
+                padding-left: $race-row-mobile-indent; // indent under status icon + date
             }
 
             .race-row__tags {
-                padding-left: 1.6rem;
+                padding-left: $race-row-mobile-indent;
                 flex-basis: 100%;
             }
         }
