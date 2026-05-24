@@ -30,9 +30,9 @@ Distance|{{ page.distance_km }}k;
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2026-05-10/2026-05-10_2785_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2785_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2786_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2786_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-05-10/2026-05-10_2787_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2787_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2788_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2788_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-05-10/2026-05-10_2789_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2789_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2791_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2791_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-05-24/2026-05-10_2785_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2785_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-24/2026-05-10_2786_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2786_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-05-24/2026-05-10_2787_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2787_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-24/2026-05-10_2788_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2788_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-05-24/2026-05-10_2789_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2789_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-24/2026-05-10_2791_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2791_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -40,9 +40,9 @@ Mads and I drove to Copenhagen on Saturday (day before race), stayed at Hotel Be
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2026-05-10/2026-05-10_2793_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2793_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2796_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2796_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-05-10/2026-05-10_2797_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2797_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2798_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2798_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-05-10/2026-05-10_2799_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2799_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2800_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2800_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-05-24/2026-05-10_2793_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2793_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-24/2026-05-10_2796_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2796_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-05-24/2026-05-10_2797_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2797_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-24/2026-05-10_2798_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2798_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-05-24/2026-05-10_2799_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2799_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-24/2026-05-10_2800_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2800_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -50,10 +50,10 @@ Race day was pixel perfect: mild cloudy weather around 14–16°C and more than 
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2026-05-10/2026-05-10_2811_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2811_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2812_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2812_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-05-10/2026-05-10_2815_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2815_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2816_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2816_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-05-10/2026-05-10_2819_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2819_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2823_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2823_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-05-10/2026-05-10_2826_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2826_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2828_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2828_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-05-24/2026-05-10_2811_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2811_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-24/2026-05-10_2812_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2812_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-05-24/2026-05-10_2815_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2815_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-24/2026-05-10_2816_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2816_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-05-24/2026-05-10_2819_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2819_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-24/2026-05-10_2823_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2823_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-05-24/2026-05-10_2826_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2826_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-24/2026-05-10_2828_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2828_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -61,10 +61,10 @@ It actually went super well for most of the race. No real bonk, cardio stayed un
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2026-05-10/2026-05-10_2832_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2832_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2833_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2833_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-05-10/2026-05-10_2838_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2838_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2839_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2839_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-05-10/2026-05-10_2847_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2847_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2848_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2848_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-05-10/2026-05-10_2849_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2849_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2850_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2850_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-05-24/2026-05-10_2832_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2832_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-24/2026-05-10_2833_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2833_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-05-24/2026-05-10_2838_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2838_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-24/2026-05-10_2839_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2839_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-05-24/2026-05-10_2847_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2847_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-24/2026-05-10_2848_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2848_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-05-24/2026-05-10_2849_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2849_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-24/2026-05-10_2850_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2850_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -72,8 +72,8 @@ I grinded through and finished in `{{ page.duration_formatted }}` — `15 second
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2026-05-10/2026-05-10_2851_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2851_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2852_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2852_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-05-10/2026-05-10_2863_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2863_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2864_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2864_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-05-24/2026-05-10_2851_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2851_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-24/2026-05-10_2852_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2852_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-05-24/2026-05-10_2863_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2863_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-24/2026-05-10_2864_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2864_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -85,8 +85,8 @@ After finishing, I chilled in Fælledparken with Nico, Iana, and Mads, had a pro
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2026-05-10/2026-05-10_2857_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2857_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2858_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2858_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-05-10/2026-05-10_2859_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2859_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2862_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2862_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-05-24/2026-05-10_2857_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2857_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-24/2026-05-10_2858_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2858_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-05-24/2026-05-10_2859_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2859_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-24/2026-05-10_2862_small.jpg" data-src="/img_running/2026-05-24/2026-05-10_2862_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
