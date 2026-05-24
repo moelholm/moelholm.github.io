@@ -33,14 +33,18 @@ Distance|{{ page.distance_km }}k;
 | <img src="/img_running/2026-05-10/2026-05-10_2785_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2785_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2786_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2786_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 | <img src="/img_running/2026-05-10/2026-05-10_2787_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2787_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2788_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2788_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 | <img src="/img_running/2026-05-10/2026-05-10_2789_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2789_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2791_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2791_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-05-10/2026-05-10_2793_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2793_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2796_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2796_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-05-10/2026-05-10_2797_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2797_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2798_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2798_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
 Mads and I drove to Copenhagen on Saturday (day before race), stayed at Hotel Bella Sky, and picked up bibs at the expo. On race morning we met Nicolae and Iana at the start area just in time 👌🏻.
 
-(Photo table 2 here)
+{% capture table_content %}
+|------------|------------|
+| <img src="/img_running/2026-05-10/2026-05-10_2793_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2793_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2796_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2796_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-05-10/2026-05-10_2797_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2797_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2798_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2798_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-05-10/2026-05-10_2799_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2799_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2800_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2800_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+{% endcapture %}
+{{ table_content | markdownify }}
 
 Race day was pixel perfect: mild cloudy weather around 14–16°C and more than 22,000 runners. I started at 09:30, locked onto the 3-hour balloons 🎈, wore my ASICS Metaspeed Sky Tokyo Edge shoes 🥷, and took ~80g carbs/hour.
 
