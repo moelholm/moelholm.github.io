@@ -14,7 +14,7 @@ race_results_strava: "https://www.strava.com/activities/18450060216/overview"
 race_website: "https://copenhagenmarathon.dk"
 ---
 
-Short version: Copenhagen Marathon 2026 was epic 🤩 — and I missed sub-3 by only `15 seconds` 😅.
+Short version: Copenhagen Marathon 2026 was epic 🤩 — and I missed sub-3 by only `16 seconds` 😅.
 
 {% capture rows %}
 Race|Copenhagen Marathon 2026;
