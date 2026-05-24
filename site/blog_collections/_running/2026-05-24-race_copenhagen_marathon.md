@@ -14,7 +14,7 @@ race_results_strava: "https://www.strava.com/activities/18450060216/overview"
 race_website: "https://copenhagenmarathon.dk"
 ---
 
-Short version: Copenhagen Marathon 2026 was absolutely epic 🤩. Big city energy, perfect race weather, and *so* close to sub-3 😅.
+Short version: Copenhagen Marathon 2026 was epic 🤩 — and I missed sub-3 by only 15 seconds 😅.
 
 {% capture rows %}
 Race|Copenhagen Marathon 2026;
@@ -30,29 +30,31 @@ Distance|{{ page.distance_km }}k;
 
 (Photo table 1 here)
 
-I flew in Saturday with my colleague Mads, stayed at Hotel Bella Sky, and we grabbed bibs at the expo. On race morning we met Nicolae and Iana just before start — perfect timing 👌🏻.
+Mads and I drove to Copenhagen on Saturday (day before race), stayed at Hotel Bella Sky, and picked up bibs at the expo. On race morning we met Nicolae and Iana at the start area just in time 👌🏻.
 
 (Photo table 2 here)
 
-I started at 09:30 and locked onto the 3-hour balloons 🎈 in my new ASICS Metaspeed Sky Tokyo Edge shoes 🥷. Fuel plan was ~80g carbs/hour and it worked really well.
+Race day was pixel perfect: mild cloudy weather around 14–16°C and more than 22,000 runners. I started at 09:30, locked onto the 3-hour balloons 🎈, wore my ASICS Metaspeed Sky Tokyo Edge shoes 🥷, and took ~80g carbs/hour.
 
 (Photo table 3 here)
 
-Honestly I felt strong deep into the race. No real bonk, heart and breathing under control, and pace felt sustainable even with faster patches than 4:15/km. Then cramps hit at km 39 😬. I stopped, fixed it, caught the balloons again… and then got hammered by calf cramps in the final kilometer (while *seeing* the finish line 🤣😖).
+It actually went super well for most of the race. No real bonk, cardio stayed under control, and even the faster sections felt manageable. But at km 39 I got cramps 😬, stopped briefly, caught up again, and then got massive calf cramps in the final kilometer while seeing the finish line 🤣😖.
 
 (Photo table 4 here)
 
-I crossed 15 seconds over the magic mark. Still super satisfied — I gave it everything 💪🏻😅. Big lesson learned: I need more leg durability at marathon race pace.
+I grinded through and finished in {{ page.duration_formatted }} — 15 seconds over the magic mark. Still very satisfied 💪🏻😅. My main takeaway: I need more leg durability at race pace so the legs can handle the pounding all the way through the 40s.
 
 (Photo table 5 here)
 
-The route through Copenhagen is fantastic, the crowd is unreal 📣, and the whole city race setup is just world-class. Huge kudos to the organization and all volunteers 👏🏻🤗.
+The route through Copenhagen is amazing: major sights, music spots, and spectators everywhere singing and cheering 📣🤩. Huge kudos to the organization and volunteers 👏🏻🤗.
 
-I wrapped up in Fælledparken with the gang, a genuine Copenhagen durum roll, and a very slow walk to the metro before heading home to Jylland 🚇🥙🏠.
+Strava shows 42.75 km at 4:13/km average, plus an unofficial marathon PB (2:57:36), a new 30K PB (2:05:53), and 3rd fastest half (1:28:31) 🚀.
+
+After finishing, I chilled in Fælledparken with Nico, Iana, and Mads, had a proper Copenhagen durum, watched other runners, walked slowly to the metro, and then drove 3 hours back to Jylland 🥙🚇🏠.
 
 (Photo table 6 here)
 
-Nico and Mads also finished and looked proud + completely smashed — same as me 😂.
+Nico and Mads also finished and looked proud and exhausted — exactly like me 😂.
 
 ### Recommended?
 
