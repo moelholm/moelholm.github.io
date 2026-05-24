@@ -47,7 +47,8 @@ races:
     distance: "42K"
     tags: ["marathon"]
     url: "https://copenhagenmarathon.dk"
-    status: "pending"
+    blog_url: "/blog/running/2026/05/24/race_copenhagen_marathon"
+    status: "completed"
   
   - date: "2026-05-30"
     title: "24 Timer ved Havet"
