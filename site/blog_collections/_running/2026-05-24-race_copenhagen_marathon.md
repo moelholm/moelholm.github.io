@@ -14,7 +14,7 @@ race_results_strava: "https://www.strava.com/activities/18450060216/overview"
 race_website: "https://copenhagenmarathon.dk"
 ---
 
-Short version: Copenhagen Marathon 2026 was epic 🤩 — and I missed sub-3 by only 15 seconds 😅.
+Short version: Copenhagen Marathon 2026 was epic 🤩 — and I missed sub-3 by only `15 seconds` 😅.
 
 {% capture rows %}
 Race|Copenhagen Marathon 2026;
@@ -68,7 +68,7 @@ It actually went super well for most of the race. No real bonk, cardio stayed un
 {% endcapture %}
 {{ table_content | markdownify }}
 
-I grinded through and finished in {{ page.duration_formatted }} — 15 seconds over the magic mark. Still very satisfied 💪🏻😅. My main takeaway: I need more leg durability at race pace so the legs can handle the pounding all the way through the 40s.
+I grinded through and finished in `{{ page.duration_formatted }}` — `15 seconds` over the magic mark. Still very satisfied 💪🏻😅. My main takeaway: I need more leg durability at race pace so the legs can handle the pounding all the way through the 40s.
 
 {% capture table_content %}
 |------------|------------|
@@ -79,9 +79,9 @@ I grinded through and finished in {{ page.duration_formatted }} — 15 seconds o
 
 The route through Copenhagen is amazing: major sights, music spots, and spectators everywhere yelling and cheering 📣🤩. Huge kudos to the organization and volunteers 👏🏻🤗.
 
-Strava shows `42.75 km` at `4:13/km` average, plus an unofficial marathon PB (2:57:36), a new `30K` PB (2:05:53), and 3rd fastest half (1:28:31) 🚀.
+Strava shows `42.75 km` at `4:13/km` average, plus an unofficial marathon PB (`2:57:36`), a new `30K` PB (`2:05:53`), and 3rd fastest half (`1:28:31`) 🚀.
 
-After finishing, I chilled in Fælledparken with Nico, Iana, and Mads, had a proper Copenhagen durum, watched other runners, walked slowly to the metro, and then drove 3 hours back to Jylland 🥙🚇🏠.
+After finishing, I chilled in Fælledparken with Nico, Iana, and Mads, had a proper Copenhagen durum, watched other runners, walked slowly to the metro, and then drove `3 hours` back to Jylland 🥙🚇🏠.
 
 {% capture table_content %}
 |------------|------------|
@@ -96,6 +96,6 @@ Nico and Mads also finished and looked proud and exhausted — exactly like me �
 
 Absolutely yes. Top tier race experience, fast route, amazing crowd, and super smooth logistics 🤩.
 
-I’m already in the 2027 lottery and crossing my fingers for another shot — and for finally breaking 3 hours 🤞🏼🏃🏻‍♂️.
+I’m already in the 2027 lottery and crossing my fingers for another shot — and for finally breaking `3 hours` 🤞🏼🏃🏻‍♂️.
 
 ⭐️⭐️⭐️⭐️⭐️
