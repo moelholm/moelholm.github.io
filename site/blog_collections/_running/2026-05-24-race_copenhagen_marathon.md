@@ -79,7 +79,7 @@ I grinded through and finished in `{{ page.duration_formatted }}` — `15 second
 
 The route through Copenhagen is amazing: major sights, music spots, and spectators everywhere yelling and cheering 📣🤩. Huge kudos to the organization and volunteers 👏🏻🤗.
 
-Strava shows `42.75 km` at `4:13/km` average, plus an unofficial marathon PB (`2:57:36`), a new `30K` PB (`2:05:53`), and 3rd fastest half (`1:28:31`) 🚀.
+Strava shows `42.75K` at `4:13/km` average, plus an unofficial marathon PB (`2:57:36`), a new `30K` PB (`2:05:53`), and 3rd fastest half (`1:28:31`) 🚀.
 
 After finishing, I chilled in Fælledparken with Nico, Iana, and Mads, had a proper Copenhagen durum, watched other runners, walked slowly to the metro, and then drove `3 hours` back to Jylland 🥙🚇🏠.
 
