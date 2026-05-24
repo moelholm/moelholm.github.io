@@ -70,7 +70,12 @@ It actually went super well for most of the race. No real bonk, cardio stayed un
 
 I grinded through and finished in {{ page.duration_formatted }} — 15 seconds over the magic mark. Still very satisfied 💪🏻😅. My main takeaway: I need more leg durability at race pace so the legs can handle the pounding all the way through the 40s.
 
-(Photo table 5 here)
+{% capture table_content %}
+|------------|------------|
+| <img src="/img_running/2026-05-10/2026-05-10_2851_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2851_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2852_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2852_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-05-10/2026-05-10_2854_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2854_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2864_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2864_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+{% endcapture %}
+{{ table_content | markdownify }}
 
 The route through Copenhagen is amazing: major sights, music spots, and spectators everywhere singing and cheering 📣🤩. Huge kudos to the organization and volunteers 👏🏻🤗.
 
