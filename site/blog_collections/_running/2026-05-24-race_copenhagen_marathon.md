@@ -68,7 +68,7 @@ It actually went super well for most of the race. No real bonk, cardio stayed un
 {% endcapture %}
 {{ table_content | markdownify }}
 
-I grinded through and finished in `{{ page.duration_formatted }}` — `16 seconds` over the magic mark. Still very satisfied 💪🏻😅. My main takeaway: I need more leg durability at race pace so the legs can handle the pounding all the way through the 40s.
+I grinded through and finished in `{{ page.duration_formatted }}` — `15 seconds` over the magic mark. Still very satisfied 💪🏻😅. My main takeaway: I need more leg durability at race pace so the legs can handle the pounding all the way through the 40s.
 
 {% capture table_content %}
 |------------|------------|
