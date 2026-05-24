@@ -77,7 +77,7 @@ I grinded through and finished in {{ page.duration_formatted }} — 15 seconds o
 {% endcapture %}
 {{ table_content | markdownify }}
 
-The route through Copenhagen is amazing: major sights, music spots, and spectators everywhere singing and cheering 📣🤩. Huge kudos to the organization and volunteers 👏🏻🤗.
+The route through Copenhagen is amazing: major sights, music spots, and spectators everywhere yelling and cheering 📣🤩. Huge kudos to the organization and volunteers 👏🏻🤗.
 
 Strava shows 42.75 km at 4:13/km average, plus an unofficial marathon PB (2:57:36), a new 30K PB (2:05:53), and 3rd fastest half (1:28:31) 🚀.
 
