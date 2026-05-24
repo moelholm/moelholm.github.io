@@ -21,7 +21,7 @@ Race|Copenhagen Marathon 2026;
 Date|{{ page.race_date }};
 Www|[{{ page.race_website }}]({{ page.race_website }});
 Type|Road;
-Position|N/A of 22,000+ runners;
+Position|1967 of 22467 finishers (top 9%);
 Duration|{{ page.duration_formatted }};
 Distance|{{ page.distance_km }}k;
 {% endcapture %}
