@@ -48,7 +48,14 @@ Mads and I drove to Copenhagen on Saturday (day before race), stayed at Hotel Be
 
 Race day was pixel perfect: mild cloudy weather around 14–16°C and more than 22,000 runners. I started at 09:30, locked onto the 3-hour balloons 🎈, wore my ASICS Metaspeed Sky Tokyo Edge shoes 🥷, and took ~80g carbs/hour.
 
-(Photo table 3 here)
+{% capture table_content %}
+|------------|------------|
+| <img src="/img_running/2026-05-10/2026-05-10_2811_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2811_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2812_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2812_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-05-10/2026-05-10_2815_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2815_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2816_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2816_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-05-10/2026-05-10_2819_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2819_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2823_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2823_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-05-10/2026-05-10_2826_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2826_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2828_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2828_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+{% endcapture %}
+{{ table_content | markdownify }}
 
 It actually went super well for most of the race. No real bonk, cardio stayed under control, and even the faster sections felt manageable. But at km 39 I got cramps 😬, stopped briefly, caught up again, and then got massive calf cramps in the final kilometer while seeing the finish line 🤣😖.
 
