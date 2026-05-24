@@ -57,7 +57,7 @@ Race day was pixel perfect: mild cloudy weather around 14–16°C and more than 
 {% endcapture %}
 {{ table_content | markdownify }}
 
-It actually went super well for most of the race. No real bonk, cardio stayed under control, and even the faster sections felt manageable. But at km 39 I got cramps 😬, stopped briefly, caught up again, and then got massive calf cramps in the final kilometer while seeing the finish line 🤣😖.
+It actually went super well for most of the race. No real bonk, cardio stayed under control, and even the faster sections felt manageable. But at `km 39` I got cramps 😬, stopped briefly, caught up again, and then got massive calf cramps in the final kilometer while seeing the finish line 🤣😖.
 
 {% capture table_content %}
 |------------|------------|
@@ -79,7 +79,7 @@ I grinded through and finished in {{ page.duration_formatted }} — 15 seconds o
 
 The route through Copenhagen is amazing: major sights, music spots, and spectators everywhere yelling and cheering 📣🤩. Huge kudos to the organization and volunteers 👏🏻🤗.
 
-Strava shows 42.75 km at 4:13/km average, plus an unofficial marathon PB (2:57:36), a new 30K PB (2:05:53), and 3rd fastest half (1:28:31) 🚀.
+Strava shows `42.75 km` at `4:13/km` average, plus an unofficial marathon PB (2:57:36), a new `30K` PB (2:05:53), and 3rd fastest half (1:28:31) 🚀.
 
 After finishing, I chilled in Fælledparken with Nico, Iana, and Mads, had a proper Copenhagen durum, watched other runners, walked slowly to the metro, and then drove 3 hours back to Jylland 🥙🚇🏠.
 
