@@ -73,7 +73,7 @@ I grinded through and finished in {{ page.duration_formatted }} — 15 seconds o
 {% capture table_content %}
 |------------|------------|
 | <img src="/img_running/2026-05-10/2026-05-10_2851_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2851_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2852_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2852_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-05-10/2026-05-10_2854_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2854_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2864_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2864_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-05-10/2026-05-10_2863_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2863_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2864_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2864_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
