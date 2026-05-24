@@ -83,7 +83,12 @@ Strava shows 42.75 km at 4:13/km average, plus an unofficial marathon PB (2:57:3
 
 After finishing, I chilled in Fælledparken with Nico, Iana, and Mads, had a proper Copenhagen durum, watched other runners, walked slowly to the metro, and then drove 3 hours back to Jylland 🥙🚇🏠.
 
-(Photo table 6 here)
+{% capture table_content %}
+|------------|------------|
+| <img src="/img_running/2026-05-10/2026-05-10_2857_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2857_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2858_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2858_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-05-10/2026-05-10_2859_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2859_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2862_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2862_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+{% endcapture %}
+{{ table_content | markdownify }}
 
 Nico and Mads also finished and looked proud and exhausted — exactly like me 😂.
 
