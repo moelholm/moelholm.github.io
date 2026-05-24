@@ -28,7 +28,15 @@ Distance|{{ page.distance_km }}k;
 {% assign rows_array = rows | split: ";" %}
 {% include blog_race_summary.html rows=rows_array %}
 
-(Photo table 1 here)
+{% capture table_content %}
+|------------|------------|
+| <img src="/img_running/2026-05-10/2026-05-10_2785_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2785_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2786_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2786_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-05-10/2026-05-10_2787_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2787_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2788_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2788_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-05-10/2026-05-10_2789_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2789_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2791_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2791_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-05-10/2026-05-10_2793_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2793_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2796_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2796_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-05-10/2026-05-10_2797_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2797_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-05-10/2026-05-10_2798_small.jpg" data-src="/img_running/2026-05-10/2026-05-10_2798_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+{% endcapture %}
+{{ table_content | markdownify }}
 
 Mads and I drove to Copenhagen on Saturday (day before race), stayed at Hotel Bella Sky, and picked up bibs at the expo. On race morning we met Nicolae and Iana at the start area just in time 👌🏻.
 
