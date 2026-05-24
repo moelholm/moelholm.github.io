@@ -7,7 +7,7 @@ race_date: 2026-05-10
 comments: true
 tags: race running marathon
 distance_km: 42
-elevation_gain_m: 0
+elevation_gain_m: 82
 duration_formatted: '3h00m15s'
 race_results_official: "https://live.ultimate.dk/desktop/front/certificate.php?eventid=7143&amp;pid=15407&amp;language=us"
 race_results_strava: "https://www.strava.com/activities/18450060216/overview"
