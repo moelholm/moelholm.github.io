@@ -36,7 +36,7 @@ Distance|{{ page.distance_km }}k;
 {% endcapture %}
 {{ table_content | markdownify }}
 
-Mads and I drove to Copenhagen on Saturday (day before race), stayed at Hotel Bella Sky, and picked up bibs at the expo. On race morning we met our colleague Nicolae and Iana at the start area just in time 👌🏻.
+Mads and I drove to Copenhagen on Saturday (day before race), stayed at Hotel Bella Sky, and picked up bibs at the expo. On race morning we met our colleague Nicolae and his wife Iana at the start area just in time 👌🏻.
 
 {% capture table_content %}
 |------------|------------|
