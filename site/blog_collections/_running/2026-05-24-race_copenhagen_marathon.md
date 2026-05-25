@@ -46,7 +46,7 @@ Mads and I drove to Copenhagen on Saturday (day before race), stayed at Hotel Be
 {% endcapture %}
 {{ table_content | markdownify }}
 
-Race day was pixel perfect: mild cloudy weather around 14–16°C and more than 22,000 runners. I started at 09:30, locked onto the 3-hour balloons 🎈, wore my ASICS Metaspeed Sky Tokyo Edge shoes 🥷, and took ~80g carbs/hour.
+Race day was pixel perfect: mild cloudy weather around 14–16°C and more than 22,000 runners. I started at 09:30, locked onto the 3-hour balloons 🎈, wore my ASICS Metaspeed Edge Tokyo shoes 🥷, and took ~80g carbs/hour.
 
 {% capture table_content %}
 |------------|------------|
