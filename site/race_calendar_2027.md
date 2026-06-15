@@ -18,6 +18,13 @@ races:
     tags: ["ultra", "backyard", "trail"]
     url: "https://www.sportstiming.dk/event/18288"
     status: "pending"
+
+  - date: "2027-06-20"
+    title: "Bestseller Aarhus City Half"
+    distance: "21K"
+    tags: ["half"]
+    url: "https://www.aarhusmotion.dk/event/307"
+    status: "pending"
 ---
 
 <h1>Race Calendar 2027</h1>
