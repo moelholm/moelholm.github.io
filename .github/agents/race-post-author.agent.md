@@ -83,7 +83,7 @@ race_website: "URL"
   ```
   {% capture table_content %}
   |------------|------------|
-  | <img src="/img_running/YYYY-MM-DD/file1.jpg" data-src="/img_running/YYYY-MM-DD/file1.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px;" /> | <img src="/img_running/YYYY-MM-DD/file2.jpg" data-src="/img_running/YYYY-MM-DD/file2.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px;" /> |
+  | <img src="/img_running/YYYY-MM-DD/file1.jpg" data-src="/img_running/YYYY-MM-DD/file1.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px; max-height: 263px; object-fit: contain;" /> | <img src="/img_running/YYYY-MM-DD/file2.jpg" data-src="/img_running/YYYY-MM-DD/file2.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px; max-height: 263px; object-fit: contain;" /> |
   {% endcapture %}
   {{ table_content | markdownify }}
   ```
@@ -180,7 +180,7 @@ done
 - ❌ Don't assume star ratings - confirm with user
 - ❌ Don't use non-existent Jekyll include files (e.g., `race-table.html`, `race-photos.html`)
 - ❌ Don't declare job complete without testing the build locally
-- ❌ Don't leave portrait-orientation photos at their original tall dimensions — always re-resize them to height 263px (`convert photo.jpg -resize x263 -quality 95 photo.jpg`). Landscape photos (600×450) render at 263px tall after `max-width: 350px`; portrait photos are narrower than 350px so `max-width` never constrains them and they render at full physical height. CSS alone is not sufficient.
+- ❌ Don't leave portrait-orientation photos at their original tall dimensions — two fixes are required together: (1) physically re-resize them to height 263px (`convert photo.jpg -resize x263 -quality 95 photo.jpg`) so the physical file is correct; and (2) add `max-height: 263px; object-fit: contain;` to every `<img>` style (already in the template above). Reason: the `w-100` CSS class stretches any image to fill the full column width (~350px); a portrait photo (e.g. 198px wide, 263px tall) stretched to 350px renders at ~464px tall. `max-height: 263px` caps the rendered height. Both fixes together ensure consistent row heights at all viewport widths.
 
 ## Your Role
 
