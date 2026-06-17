@@ -72,7 +72,7 @@ race_website: "URL"
    - `--max-width 600 --max-height 600`
    - `--quality 95`
 4. Delete original large files after conversion
-5. After resizing, **check if any photos are portrait orientation** (height > width). If so, re-resize them so their height matches the landscape photo height (450px): `convert photo.jpg -resize x450 -quality 95 photo.jpg`. This physically normalizes the file so all photos have the same height in the browser without relying on CSS.
+5. After resizing, **check if any photos are portrait orientation** (height > width). If so, re-resize them to height 263px: `convert photo.jpg -resize x263 -quality 95 photo.jpg`. This is the rendered height of a landscape photo (600×450) after the `max-width: 350px` CSS is applied (350/600 × 450 = 263px). Because portrait photos are narrower than 350px, `max-width` never constrains them, so they display at their full physical height — physically capping at 263px ensures all rows have equal height.
 
 **Photo Placement:**
 - Check EXIF timestamps to place chronologically
@@ -100,13 +100,16 @@ done
 # Then delete originals from root
 rm IMG_*.jpeg
 
-# Re-resize any portrait photos (height > width) to match landscape height (450px)
+# Re-resize any portrait photos (height > width) to 263px height
+# (= rendered height of landscape 600×450 after max-width: 350px: 350/600×450 = 263px)
+# Portrait photos have width < 350px so max-width CSS never constrains them;
+# they display at full physical height unless physically resized to ≤ 263px.
 cd site/img_running/YYYY-MM-DD/
 for f in *.jpg; do
   w=$(identify -format "%w" "$f"); h=$(identify -format "%h" "$f")
   if [ "$h" -gt "$w" ]; then
-    convert "$f" -resize x450 -quality 95 "$f"
-    echo "Re-resized portrait: $f"
+    convert "$f" -resize x263 -quality 95 "$f"
+    echo "Re-resized portrait: $f → $(identify -format '%wx%h' $f)"
   fi
 done
 ```
@@ -177,7 +180,7 @@ done
 - ❌ Don't assume star ratings - confirm with user
 - ❌ Don't use non-existent Jekyll include files (e.g., `race-table.html`, `race-photos.html`)
 - ❌ Don't declare job complete without testing the build locally
-- ❌ Don't leave portrait-orientation photos at their original tall dimensions — always re-resize them to height 450px (`convert photo.jpg -resize x450 -quality 95 photo.jpg`) so all photos in a table row have the same height. CSS alone is not sufficient.
+- ❌ Don't leave portrait-orientation photos at their original tall dimensions — always re-resize them to height 263px (`convert photo.jpg -resize x263 -quality 95 photo.jpg`). Landscape photos (600×450) render at 263px tall after `max-width: 350px`; portrait photos are narrower than 350px so `max-width` never constrains them and they render at full physical height. CSS alone is not sufficient.
 
 ## Your Role
 
