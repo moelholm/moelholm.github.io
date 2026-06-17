@@ -81,7 +81,7 @@ During the night I began to struggle more and more. I ran much slower and had to
 
 After 24 hours I finally finished the race 🤩🤗. To my pleasant surprise I apparently did pretty well because I was 3rd in my age group (45-49) - podium performance 🥳. I ultimately ran 98 loops with a total official distance of 194K (197K on Strava) 🤠. That equated to 13.762 kilo calories spent 😂.
 
-Ultimately I am very satisfied with my performance: setting a personal PB with respect to distance (prev: ~173K) and also just for the first time ever being on such a runnable course for 24 hours. What could have been a death march actually ended up really well - and as a side effect this performance even placed me on the podium in my age group. That would not have happened if it wasn't for my rest experiments 🤠🤗.
+Ultimately I am very satisfied with my performance: setting a personal PB with respect to distance (prev: ~173K) and also just for the first time ever being on such a runnable course for 24 hours. What could have been a death march actually ended up really well — and that would not have happened if it wasn't for my rest experiments 🤠🤗.
 
 {% capture table_content %}
 |------------|------------|
@@ -92,12 +92,12 @@ Ultimately I am very satisfied with my performance: setting a personal PB with r
 
 After the race my wife and boys helped me wrap up the tent and get me safely to the car. We then drove towards Billund. Along the trip back home I convinced them all that we (I 🙃) needed a huge McDonald's menu 😂👌🏻 - so we had a quick pit stop there too 😆🍔🥤
 
-The volunteers were amazing. Their absolute positive and fun energy made a world of difference to us exhausted runners. Thank you volunteers - you made our day (and night ... and next day 😂🥳🙏🏻). And the race organization was perfect too: everything clicked.
-
-In short: a perfect experience on all accounts 🤠🙌🏻!
-
 ### Recommended?
 
-Absolutely yes 🤩. A flat, super-runnable course, incredible atmosphere, fantastic volunteers, and a perfectly organized event. Whether you go for the full 24 hours or one of the shorter distances - this race has it all.
+Absolutely yes 🤩. A flat, super-runnable course, incredible atmosphere, and a perfectly organized event — everything clicked.
+
+In danger of repeating myself: the volunteers were amazing. Their absolute positive and fun energy made a world of difference to us exhausted runners. Thank you volunteers — you made our day (and night ... and next day 😂🥳🙏🏻). In short: a perfect experience on all accounts 🤠🙌🏻!
+
+Whether you go for the full 24 hours or one of the shorter distances — this race has it all.
 
 ⭐️⭐️⭐️⭐️⭐️
