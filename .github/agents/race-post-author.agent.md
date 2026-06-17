@@ -72,18 +72,18 @@ race_website: "URL"
    - `--max-width 600 --max-height 600`
    - `--quality 95`
 4. Delete original large files after conversion
-5. After resizing, **check if any photos are portrait orientation** (height > width). If so, re-resize them with `--max-width 600 --max-height 450` to reduce their file height.
+5. After resizing, **check if any photos are portrait orientation** (height > width). If so, re-resize them so their height matches the landscape photo height (450px): `convert photo.jpg -resize x450 -quality 95 photo.jpg`. This physically normalizes the file so all photos have the same height in the browser without relying on CSS.
 
 **Photo Placement:**
 - Check EXIF timestamps to place chronologically
 - Arrange in 2-column tables using Jekyll capture blocks with markdown tables
 - Use inline markdown tables (NOT Jekyll includes like `race-photos.html`)
-- **Always use `style="max-width: 350px; max-height: 265px; object-fit: contain;"` on every photo `<img>` tag** — this ensures consistent row heights when portrait and landscape photos are mixed in the same table
+- Use `style="max-width: 350px;"` on every photo `<img>` tag
 - Format example:
   ```
   {% capture table_content %}
   |------------|------------|
-  | <img src="/img_running/YYYY-MM-DD/file1.jpg" data-src="/img_running/YYYY-MM-DD/file1.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px; max-height: 265px; object-fit: contain;" /> | <img src="/img_running/YYYY-MM-DD/file2.jpg" data-src="/img_running/YYYY-MM-DD/file2.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px; max-height: 265px; object-fit: contain;" /> |
+  | <img src="/img_running/YYYY-MM-DD/file1.jpg" data-src="/img_running/YYYY-MM-DD/file1.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px;" /> | <img src="/img_running/YYYY-MM-DD/file2.jpg" data-src="/img_running/YYYY-MM-DD/file2.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px;" /> |
   {% endcapture %}
   {{ table_content | markdownify }}
   ```
@@ -99,6 +99,16 @@ for f in IMG_*.jpeg; do
 done
 # Then delete originals from root
 rm IMG_*.jpeg
+
+# Re-resize any portrait photos (height > width) to match landscape height (450px)
+cd site/img_running/YYYY-MM-DD/
+for f in *.jpg; do
+  w=$(identify -format "%w" "$f"); h=$(identify -format "%h" "$f")
+  if [ "$h" -gt "$w" ]; then
+    convert "$f" -resize x450 -quality 95 "$f"
+    echo "Re-resized portrait: $f"
+  fi
+done
 ```
 
 #### Content Structure
@@ -167,7 +177,7 @@ rm IMG_*.jpeg
 - ❌ Don't assume star ratings - confirm with user
 - ❌ Don't use non-existent Jekyll include files (e.g., `race-table.html`, `race-photos.html`)
 - ❌ Don't declare job complete without testing the build locally
-- ❌ Don't omit `max-height: 265px; object-fit: contain;` from photo `<img>` tags — portrait photos mixed with landscape photos will appear with extraordinary height without it
+- ❌ Don't leave portrait-orientation photos at their original tall dimensions — always re-resize them to height 450px (`convert photo.jpg -resize x450 -quality 95 photo.jpg`) so all photos in a table row have the same height. CSS alone is not sufficient.
 
 ## Your Role
 
