@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "24 Timer ved Havet 2026"
-description: "Race notes for 24 Timer ved Havet 2026"
+title: "24 Timer Ved Havet | DM 24 Timer (Danish Championship)"
+description: "Race notes for 24 Timer Ved Havet | DM 24 Timer (Danish Championship)"
 date: 2026-06-17 10:00:00 +0200
 race_date: 2026-05-30
 comments: true
 tags: race running ultrarunning
-distance_km: 194
-elevation_gain_m: 300
-duration_formatted: '23h50m00s'
+distance_km: 197
+elevation_gain_m: 880
+duration_formatted: '24h00m00s'
 race_results_official: "https://www.sportstiming.dk/event/16658/results"
 race_results_strava: "https://www.strava.com/activities/18728302346/overview"
 race_website: "https://www.sportstiming.dk/event/16658"
@@ -17,13 +17,14 @@ race_website: "https://www.sportstiming.dk/event/16658"
 On May 30th I went to Sæby in Northern Denmark to participate in the 24 Hours Running Danish Championship 🤗. This was my second time in Sæby for this race - last time was in 2024 where I ran the 12 hour race...
 
 {% capture rows %}
-Race|24 Timer ved Havet 2026;
+Race|24 Timer Ved Havet | DM 24 Timer;
 Date|{{ page.race_date }};
 Www|[{{ page.race_website }}]({{ page.race_website }});
 Type|Road;
 Position|15 of 85 overall (🥉 3rd of 10 in age group);
 Duration|{{ page.duration_formatted }};
-Distance|{{ page.distance_km }}k;
+Distance|{{ page.distance_km }}k (Strava) / 194k (official);
+EG|{{ page.elevation_gain_m }}m;
 {% endcapture %}
 {% assign rows_array = rows | split: ";" %}
 {% include blog_race_summary.html rows=rows_array %}
@@ -34,9 +35,9 @@ On race day - Saturday - I arrived a few hours before start in order to get sett
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2026-06-17/2026-05-30_001_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_001_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-06-17/2026-05-30_002_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_002_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-06-17/2026-05-30_003_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_003_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-06-17/2026-05-30_004_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_004_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-06-17/2026-05-30_005_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_005_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | |
+| <img src="/img_running/2026-06-17/2026-05-30_001_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_001_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px; max-height: 265px; object-fit: contain;" /> | <img src="/img_running/2026-06-17/2026-05-30_002_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_002_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px; max-height: 265px; object-fit: contain;" /> |
+| <img src="/img_running/2026-06-17/2026-05-30_003_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_003_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px; max-height: 265px; object-fit: contain;" /> | <img src="/img_running/2026-06-17/2026-05-30_004_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_004_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px; max-height: 265px; object-fit: contain;" /> |
+| <img src="/img_running/2026-06-17/2026-05-30_005_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_005_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px; max-height: 265px; object-fit: contain;" /> | |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -44,8 +45,8 @@ We started the race at 12:00 PM Saturday. 80 ish runners on the 24 hour Danish C
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2026-06-17/2026-05-30_006_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_006_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-06-17/2026-05-30_007_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_007_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-06-17/2026-05-30_008_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_008_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-06-17/2026-05-30_009_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_009_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-06-17/2026-05-30_006_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_006_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px; max-height: 265px; object-fit: contain;" /> | <img src="/img_running/2026-06-17/2026-05-30_007_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_007_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px; max-height: 265px; object-fit: contain;" /> |
+| <img src="/img_running/2026-06-17/2026-05-30_008_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_008_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px; max-height: 265px; object-fit: contain;" /> | <img src="/img_running/2026-06-17/2026-05-30_009_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_009_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px; max-height: 265px; object-fit: contain;" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -55,9 +56,9 @@ There was an epic atmosphere out there on the route. On every major turn along t
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2026-06-17/2026-05-30_010_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_010_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-06-17/2026-05-30_011_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_011_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-06-17/2026-05-30_012_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_012_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-06-17/2026-05-30_013_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_013_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-06-17/2026-05-30_014_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_014_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-06-17/2026-05-30_015_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_015_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-06-17/2026-05-30_010_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_010_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px; max-height: 265px; object-fit: contain;" /> | <img src="/img_running/2026-06-17/2026-05-30_011_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_011_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px; max-height: 265px; object-fit: contain;" /> |
+| <img src="/img_running/2026-06-17/2026-05-30_012_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_012_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px; max-height: 265px; object-fit: contain;" /> | <img src="/img_running/2026-06-17/2026-05-30_013_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_013_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px; max-height: 265px; object-fit: contain;" /> |
+| <img src="/img_running/2026-06-17/2026-05-30_014_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_014_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px; max-height: 265px; object-fit: contain;" /> | <img src="/img_running/2026-06-17/2026-05-30_015_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_015_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px; max-height: 265px; object-fit: contain;" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
@@ -69,23 +70,23 @@ During the night I began to struggle more and more. I ran much slower and had to
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2026-06-17/2026-05-30_016_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_016_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-06-17/2026-05-30_017_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_017_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-06-17/2026-05-30_018_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_018_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-06-17/2026-05-30_019_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_019_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-06-17/2026-05-30_020_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_020_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-06-17/2026-05-30_021_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_021_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-06-17/2026-05-30_022_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_022_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-06-17/2026-05-30_023_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_023_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-06-17/2026-05-30_024_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_024_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-06-17/2026-05-30_025_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_025_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-06-17/2026-05-30_026_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_026_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-06-17/2026-05-30_027_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_027_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-06-17/2026-05-30_016_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_016_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px; max-height: 265px; object-fit: contain;" /> | <img src="/img_running/2026-06-17/2026-05-30_017_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_017_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px; max-height: 265px; object-fit: contain;" /> |
+| <img src="/img_running/2026-06-17/2026-05-30_018_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_018_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px; max-height: 265px; object-fit: contain;" /> | <img src="/img_running/2026-06-17/2026-05-30_019_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_019_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px; max-height: 265px; object-fit: contain;" /> |
+| <img src="/img_running/2026-06-17/2026-05-30_020_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_020_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px; max-height: 265px; object-fit: contain;" /> | <img src="/img_running/2026-06-17/2026-05-30_021_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_021_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px; max-height: 265px; object-fit: contain;" /> |
+| <img src="/img_running/2026-06-17/2026-05-30_022_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_022_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px; max-height: 265px; object-fit: contain;" /> | <img src="/img_running/2026-06-17/2026-05-30_023_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_023_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px; max-height: 265px; object-fit: contain;" /> |
+| <img src="/img_running/2026-06-17/2026-05-30_024_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_024_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px; max-height: 265px; object-fit: contain;" /> | <img src="/img_running/2026-06-17/2026-05-30_025_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_025_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px; max-height: 265px; object-fit: contain;" /> |
+| <img src="/img_running/2026-06-17/2026-05-30_026_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_026_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px; max-height: 265px; object-fit: contain;" /> | <img src="/img_running/2026-06-17/2026-05-30_027_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_027_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px; max-height: 265px; object-fit: contain;" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
-After 24 hours (well 23 hours and fifty something) I finally finished the race 🤩🤗. To my pleasant surprise I apparently did pretty well because I was 3rd in my age group (45-49) - podium performance 🥳. I ultimately ran 98 loops with a total distance of 194K 🤠. That equated to 13.762 kilo calories spent 😂.
+After 24 hours I finally finished the race 🤩🤗. To my pleasant surprise I apparently did pretty well because I was 3rd in my age group (45-49) - podium performance 🥳. I ultimately ran 98 loops with a total official distance of 194K (197K on Strava) 🤠. That equated to 13.762 kilo calories spent 😂.
 
 Ultimately I am very satisfied with my performance: setting a personal PB with respect to distance (prev: ~173K) and also just for the first time ever being on such a runnable course for 24 hours. What could have been a death march actually ended up really well - and as a side effect this performance even placed me on the podium in my age group. That would not have happened if it wasn't for my rest experiments 🤠🤗.
 
 {% capture table_content %}
 |------------|------------|
-| <img src="/img_running/2026-06-17/2026-05-30_028_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_028_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-06-17/2026-05-30_029_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_029_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
-| <img src="/img_running/2026-06-17/2026-05-30_030_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_030_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/2026-06-17/2026-05-30_031_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_031_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+| <img src="/img_running/2026-06-17/2026-05-30_028_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_028_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px; max-height: 265px; object-fit: contain;" /> | <img src="/img_running/2026-06-17/2026-05-30_029_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_029_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px; max-height: 265px; object-fit: contain;" /> |
+| <img src="/img_running/2026-06-17/2026-05-30_030_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_030_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px; max-height: 265px; object-fit: contain;" /> | <img src="/img_running/2026-06-17/2026-05-30_031_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_031_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px; max-height: 265px; object-fit: contain;" /> |
 {% endcapture %}
 {{ table_content | markdownify }}
 
