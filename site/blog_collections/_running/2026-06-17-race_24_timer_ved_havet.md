@@ -35,6 +35,13 @@ On race day - Saturday - I arrived a few hours before start in order to get sett
 
 {% capture table_content %}
 |------------|------------|
+| <img src="/img_running/2026-06-17/2026-05-30_032_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_032_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px;" /> | <img src="/img_running/2026-06-17/2026-05-30_033_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_033_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px;" /> |
+| <img src="/img_running/2026-06-17/2026-05-30_034_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_034_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px;" /> | |
+{% endcapture %}
+{{ table_content | markdownify }}
+
+{% capture table_content %}
+|------------|------------|
 | <img src="/img_running/2026-06-17/2026-05-30_001_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_001_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px;" /> | <img src="/img_running/2026-06-17/2026-05-30_002_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_002_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px;" /> |
 | <img src="/img_running/2026-06-17/2026-05-30_003_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_003_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px;" /> | <img src="/img_running/2026-06-17/2026-05-30_004_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_004_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px;" /> |
 | <img src="/img_running/2026-06-17/2026-05-30_005_small.jpg" data-src="/img_running/2026-06-17/2026-05-30_005_small.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px;" /> | |
