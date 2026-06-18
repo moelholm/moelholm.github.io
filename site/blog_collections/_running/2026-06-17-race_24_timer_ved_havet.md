@@ -17,7 +17,7 @@ race_website: "https://www.sportstiming.dk/event/16658"
 On May 30th I went to Sæby in Northern Denmark to participate in the 24 Hours Running Danish Championship 🤗. This was my second time in Sæby for this race - last time was in 2024 where I ran the 12 hour race...
 
 {% capture rows %}
-Race|24 Timer Ved Havet | DM 24 Timer;
+Race|24 Timer Ved Havet (DM 24 Timer);
 Date|{{ page.race_date }};
 Www|[{{ page.race_website }}]({{ page.race_website }});
 Type|Road;
@@ -45,7 +45,7 @@ On race day - Saturday - I arrived a few hours before start in order to get sett
 {% endcapture %}
 {% include blog_race_photo_table.html images=_photos %}
 
-We started the race at 12:00 PM Saturday. 80 ish runners on the 24 hour Danish Championships. At least as many on the open variant. Additionally many more runners on the 3h, 6h and 12h races. So we were hundreds at the starting line 🤠. Along the 24 hours other races started too: half and whole marathon distances - both Saturday and Sunday. Really amazing and energizing 🤩.
+We started the race at 12:00 PM Saturday. About 80 runners were in the 24 hour Danish Championship. At least as many were in the open race. Additionally many more runners took part in the 3h, 6h and 12h races. So we were hundreds at the starting line 🤠. During the 24 hours other races started too: half and full marathon distances - both Saturday and Sunday. Really amazing and energizing 🤩.
 
 {% capture _photos %}
 2026-05-30_006_small.jpg
@@ -69,11 +69,11 @@ There was an epic atmosphere out there on the route. On every major turn along t
 {% endcapture %}
 {% include blog_race_photo_table.html images=_photos %}
 
-For almost the entire race I ran my own thing. I didn't talk much with the other runners. Not because I didn't want to. But probably more because I needed to be in my own headspace to have focus on the tremendous task ahead (24 hours of running requires a bit of dedication). I think many runners (that appeared alone on the starting line like me) spent much time like this, in their own mind.
+For almost the entire race I did my own thing. I didn't talk much with the other runners. Not because I didn't want to, but probably more because I needed to stay in my own headspace and focus on the tremendous task ahead (24 hours of running requires a bit of dedication). I think many runners (who showed up alone on the starting line like me) spent a lot of time like this, in their own minds.
 
-Many of Denmark's finest ultra runners ran along us mortals. It was incredible to watch their epic endurance carry on as my own gave into the pain cave 😆. And it was also extremely rewarding to observe how everyone out there gave it their absolute best on various individual goals: everybody fought soooo *hard*.
+Many of Denmark's finest ultra runners ran among us mortals. It was incredible to watch their epic endurance carry on as my own gave in to the pain cave 😆. And it was also extremely rewarding to observe how everyone out there gave it their absolute best on various individual goals: everybody fought soooo *hard*.
 
-During the night I began to struggle more and more. I ran much slower and had to mix in more walking. It was quite frustrating so I decided to make an experiment: sleep 😴. Never tried that in a race before. Therefore after ~141K I went into my tent to sleep for ~60 minutes. That helped a lot. Pure magic - I was (and still am) so shocked over the reset power it had. I immediately was able to run normally again - in fact in the same pace as I started the race with. That worked super well - but after ~162K I had to repeat my trick (for the same reason). But this time I "only" slept for ~30 minutes. And again: same effect 🤯. From that point on I didn't need more pauses.
+During the night I began to struggle more and more. I ran much slower and had to mix in more walking. It was quite frustrating, so I decided to make an experiment: sleep 😴. I had never tried that in a race before. So after ~141K I went into my tent to sleep for ~60 minutes. That helped a lot. Pure magic - I was (and still am) so shocked by the reset power it had. I immediately was able to run normally again - in fact at the same pace I started the race with. That worked super well - but after ~162K I had to repeat the trick (for the same reason). But this time I "only" slept for ~30 minutes. And again: same effect 🤯. From that point on I didn't need more pauses.
 
 {% capture _photos %}
 2026-05-30_016_small.jpg
@@ -91,7 +91,7 @@ During the night I began to struggle more and more. I ran much slower and had to
 {% endcapture %}
 {% include blog_race_photo_table.html images=_photos %}
 
-After 24 hours I finally finished the race 🤩🤗. To my pleasant surprise I apparently did pretty well because I was 3rd in my age group (45-49) - podium performance 🥳. I ran 98 loops with a total official distance of 194K (197K on Strava) 🤠. That equated to 13.762 kilo calories spent 😂.
+After 24 hours I finally finished the race 🤩🤗. To my pleasant surprise I apparently did pretty well because I was 3rd in my age group (45-49) - podium performance 🥳. I ran 98 loops with a total official distance of 194K (197K on Strava) 🤠. That equated to 13,762 kilocalories spent 😂.
 
 Ultimately I am very satisfied with my performance: setting a personal PB with respect to distance (prev: ~173K) and also just for the first time ever being on such a runnable course for 24 hours. What could have been a death march actually ended up really well — and that would not have happened if it wasn't for my rest experiments 🤠🤗.
 

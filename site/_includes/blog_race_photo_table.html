@@ -1,6 +1,6 @@
 {%- assign _folder_date = page.date | date: "%Y-%m-%d" -%}
 {%- assign _img_prefix = "/img_running/" | append: _folder_date | append: "/" -%}
-{%- assign _lines = include.images | newline_to_br | split: "<br />" -%}
+{%- assign _lines = include.images | replace: "|", "<br />" | newline_to_br | split: "<br />" -%}
 
 {%- comment -%}Build a compact comma-separated list from the newline-separated input{%- endcomment -%}
 {%- assign _imgs = "" -%}
@@ -17,6 +17,7 @@
 {%- comment -%}Output a 2-column HTML table matching the markdownify'd markdown pipe table format{%- endcomment -%}
 {%- assign _style = "max-width: 350px; max-height: 263px; object-fit: contain;" -%}
 {%- assign _class = "spotlight w-100 pl-2 pr-2" -%}
+{%- if _imgs != "" -%}
 <table><tbody>
 {%- for _img in _img_arr -%}
   {%- assign _idx = forloop.index0 | modulo: 2 -%}
@@ -32,3 +33,4 @@
 <td></td></tr>
 {%- endif -%}
 </tbody></table>
+{%- endif -%}
