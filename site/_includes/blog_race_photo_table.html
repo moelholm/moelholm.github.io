@@ -1,11 +1,34 @@
-{% assign _folder_date = page.date | date: "%Y-%m-%d" %}
-{% assign _img_prefix = "/img_running/" | append: _folder_date | append: "/" %}
-{% assign _images = include.images | split: "|" %}
+{%- assign _folder_date = page.date | date: "%Y-%m-%d" -%}
+{%- assign _img_prefix = "/img_running/" | append: _folder_date | append: "/" -%}
+{%- assign _lines = include.images | newline_to_br | split: "<br />" -%}
 
-<div class="row">
-{% for _img in _images %}
-  <div class="col-6 mb-2 text-center">
-    <img src="{{ _img_prefix }}{{ _img }}" data-src="{{ _img_prefix }}{{ _img }}" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px;" />
-  </div>
-{% endfor %}
-</div>
+{%- comment -%}Build a compact comma-separated list from the newline-separated input{%- endcomment -%}
+{%- assign _imgs = "" -%}
+{%- for _line in _lines -%}
+  {%- assign _t = _line | strip -%}
+  {%- if _t != "" -%}
+    {%- unless _imgs == "" -%}{%- assign _imgs = _imgs | append: "," -%}{%- endunless -%}
+    {%- assign _imgs = _imgs | append: _t -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign _img_arr = _imgs | split: "," -%}
+{%- assign _count = _img_arr | size -%}
+
+{%- comment -%}Output a 2-column HTML table matching the markdownify'd markdown pipe table format{%- endcomment -%}
+{%- assign _style = "max-width: 350px; max-height: 263px; object-fit: contain;" -%}
+{%- assign _class = "spotlight w-100 pl-2 pr-2" -%}
+<table><tbody>
+{%- for _img in _img_arr -%}
+  {%- assign _idx = forloop.index0 | modulo: 2 -%}
+  {%- assign _src = _img_prefix | append: _img -%}
+  {%- if _idx == 0 -%}
+<tr><td><img src="{{ _src }}" data-src="{{ _src }}" alt="" class="{{ _class }}" style="{{ _style }}" /></td>
+  {%- else -%}
+<td><img src="{{ _src }}" data-src="{{ _src }}" alt="" class="{{ _class }}" style="{{ _style }}" /></td></tr>
+  {%- endif -%}
+{%- endfor -%}
+{%- assign _final_mod = _count | modulo: 2 -%}
+{%- if _final_mod == 1 -%}
+<td></td></tr>
+{%- endif -%}
+</tbody></table>
