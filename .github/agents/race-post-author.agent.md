@@ -72,16 +72,37 @@ race_website: "URL"
    - `--max-width 600 --max-height 600`
    - `--quality 95`
 4. Delete original large files after conversion
+5. After resizing, **check if any photos are portrait orientation** (height > width). If so, zoom-and-crop them to 600×450 landscape — do NOT use CSS to fix this. Use the following Python script:
+   ```python
+   from PIL import Image
+   import os
+   folder = 'site/img_running/YYYY-MM-DD/'
+   target_w, target_h = 600, 450
+   for fname in os.listdir(folder):
+       if not fname.endswith('.jpg'): continue
+       path = folder + fname
+       img = Image.open(path)
+       w, h = img.size
+       if h <= w: continue  # already landscape
+       scale = max(target_w / w, target_h / h)
+       img_scaled = img.resize((int(w*scale), int(h*scale)), Image.LANCZOS)
+       left = (img_scaled.width - target_w) // 2
+       top  = (img_scaled.height - target_h) // 2
+       img_scaled.crop((left, top, left+target_w, top+target_h)).save(path, 'JPEG', quality=95)
+       print(f'Cropped {fname}: {w}x{h} → {target_w}x{target_h}')
+   ```
+   This scales the portrait photo up so it covers 600×450, then center-crops, producing a landscape photo with the same dimensions as all others.
 
 **Photo Placement:**
 - Check EXIF timestamps to place chronologically
 - Arrange in 2-column tables using Jekyll capture blocks with markdown tables
 - Use inline markdown tables (NOT Jekyll includes like `race-photos.html`)
+- Use `style="max-width: 350px;"` on every photo `<img>` tag
 - Format example:
   ```
   {% capture table_content %}
   |------------|------------|
-  | <img src="/img_running/YYYY-MM-DD/file1.jpg" data-src="/img_running/YYYY-MM-DD/file1.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> | <img src="/img_running/YYYY-MM-DD/file2.jpg" data-src="/img_running/YYYY-MM-DD/file2.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px" /> |
+  | <img src="/img_running/YYYY-MM-DD/file1.jpg" data-src="/img_running/YYYY-MM-DD/file1.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px;" /> | <img src="/img_running/YYYY-MM-DD/file2.jpg" data-src="/img_running/YYYY-MM-DD/file2.jpg" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px;" /> |
   {% endcapture %}
   {{ table_content | markdownify }}
   ```
@@ -97,6 +118,26 @@ for f in IMG_*.jpeg; do
 done
 # Then delete originals from root
 rm IMG_*.jpeg
+
+# Zoom-and-crop any portrait photos (height > width) to 600×450 landscape
+python3 - << 'EOF'
+from PIL import Image
+import os
+folder = 'site/img_running/YYYY-MM-DD/'
+target_w, target_h = 600, 450
+for fname in sorted(os.listdir(folder)):
+    if not fname.endswith('.jpg'): continue
+    path = folder + fname
+    img = Image.open(path)
+    w, h = img.size
+    if h <= w: continue
+    scale = max(target_w / w, target_h / h)
+    img_scaled = img.resize((int(w*scale), int(h*scale)), Image.LANCZOS)
+    left = (img_scaled.width - target_w) // 2
+    top  = (img_scaled.height - target_h) // 2
+    img_scaled.crop((left, top, left+target_w, top+target_h)).save(path, 'JPEG', quality=95)
+    print(f'Cropped {fname}: {w}x{h} → {target_w}x{target_h}')
+EOF
 ```
 
 #### Content Structure
@@ -165,6 +206,7 @@ rm IMG_*.jpeg
 - ❌ Don't assume star ratings - confirm with user
 - ❌ Don't use non-existent Jekyll include files (e.g., `race-table.html`, `race-photos.html`)
 - ❌ Don't declare job complete without testing the build locally
+- ❌ Don't leave portrait-orientation photos — always zoom-and-crop them to 600×450 landscape (see step 5 in Photo Requirements above). The `w-100` CSS class stretches any image to fill the full column width (~350px); a portrait photo stretched this way renders far taller than landscape photos. CSS alone cannot fix this — only a physical zoom-and-crop to 600×450 ensures all photos display at equal height.
 
 ## Your Role
 

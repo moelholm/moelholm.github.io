@@ -55,7 +55,8 @@ races:
     distance: "24H"
     tags: ["ultra"]
     url: "https://www.sportstiming.dk/event/16658"
-    status: "pending"
+    blog_url: "/blog/running/2026/06/17/race_24_timer_ved_havet"
+    status: "completed"
   
   - date: "2026-06-14"
     title: "Bestseller Aarhus City Half"
