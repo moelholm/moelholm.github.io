@@ -1,8 +1,9 @@
 {%- assign _folder_date = page.date | date: "%Y-%m-%d" -%}
 {%- assign _img_prefix = "/img_running/" | append: _folder_date | append: "/" -%}
-{%- assign _lines = include.images | replace: "|", "<br />" | newline_to_br | split: "<br />" -%}
+{%- assign _raw_images = include.images | default: "" -%}
+{%- assign _lines = _raw_images | replace: "|", "<br />" | newline_to_br | split: "<br />" -%}
 
-{%- comment -%}Build a compact comma-separated list from the newline-separated input{%- endcomment -%}
+{%- comment -%}Build a compact comma-separated list from newline- or pipe-separated input{%- endcomment -%}
 {%- assign _imgs = "" -%}
 {%- for _line in _lines -%}
   {%- assign _t = _line | strip -%}
