@@ -1,0 +1,11 @@
+{% assign _folder_date = page.date | date: "%Y-%m-%d" %}
+{% assign _img_prefix = "/img_running/" | append: _folder_date | append: "/" %}
+{% assign _images = include.images | split: "|" %}
+
+<div class="row">
+{% for _img in _images %}
+  <div class="col-6 mb-2 text-center">
+    <img src="{{ _img_prefix }}{{ _img }}" data-src="{{ _img_prefix }}{{ _img }}" alt="" class="spotlight w-100 pl-2 pr-2" style="max-width: 350px;" />
+  </div>
+{% endfor %}
+</div>
