@@ -80,7 +80,7 @@ During the night I began to struggle more and more. I ran much slower and had to
 {% endcapture %}
 {{ table_content | markdownify }}
 
-After 24 hours I finally finished the race 🤩🤗. To my pleasant surprise I apparently did pretty well because I was 3rd in my age group (45-49) - podium performance 🥳. I ultimately ran 98 loops with a total official distance of 194K (197K on Strava) 🤠. That equated to 13.762 kilo calories spent 😂.
+After 24 hours I finally finished the race 🤩🤗. To my pleasant surprise I apparently did pretty well because I was 3rd in my age group (45-49) - podium performance 🥳. I ran 98 loops with a total official distance of 194K (197K on Strava) 🤠. That equated to 13.762 kilo calories spent 😂.
 
 Ultimately I am very satisfied with my performance: setting a personal PB with respect to distance (prev: ~173K) and also just for the first time ever being on such a runnable course for 24 hours. What could have been a death march actually ended up really well — and that would not have happened if it wasn't for my rest experiments 🤠🤗.
 
