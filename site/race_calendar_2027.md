@@ -19,6 +19,13 @@ races:
     url: "https://www.sportstiming.dk/event/18288"
     status: "pending"
 
+  - date: "2027-04-24"
+    title: "Julsø Ultra Ad Libitum"
+    distance: "100K"
+    tags: ["ultra", "trail"]
+    url: "https://www.sportstiming.dk/event/17780"
+    status: "pending"
+
   - date: "2027-06-20"
     title: "Bestseller Aarhus City Half"
     distance: "21K"
