@@ -76,7 +76,7 @@ races:
     distance: "160K"
     tags: ["ultra"]
     url: "https://my.raceresult.com/365611/info"
-    status: "maybe"
+    status: "pending"
   
   - date: "2026-09-27"
     title: "HCA Marathon"
