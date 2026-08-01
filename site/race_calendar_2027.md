@@ -32,6 +32,13 @@ races:
     tags: ["half"]
     url: "https://www.aarhusmotion.dk/event/307"
     status: "pending"
+
+  - date: "2027-09-03"
+    title: "GOMU 48 hour World Championship"
+    distance: "48H"
+    tags: ["ultra"]
+    url: "https://my.raceresult.com/341254/info"
+    status: "pending"
 ---
 
 <h1>Race Calendar 2027</h1>
