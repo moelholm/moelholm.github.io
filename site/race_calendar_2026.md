@@ -69,7 +69,7 @@ races:
     title: "Lindknud Løbet"
     distance: "10K"
     url: "https://www.sportstiming.dk/event/18173"
-    status: "pending"
+    status: "cancelled"
   
   - date: "2026-09-12"
     title: "Mors 100 miles"
