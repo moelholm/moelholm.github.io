@@ -63,7 +63,8 @@ races:
     distance: "21K"
     tags: ["half"]
     url: "https://www.aarhusmotion.dk/event/293"
-    status: "pending"
+    blog_url: "/blog/running/2026/08/29/race_bestseller_aarhus_city_half"
+    status: "completed"
 
   - date: "2026-08-06"
     title: "Lindknud Løbet"

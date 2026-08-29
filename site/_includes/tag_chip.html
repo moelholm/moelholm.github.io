@@ -15,6 +15,8 @@
   {% assign race_tag_classes = 'race-tag-marathon' %}
 {% elsif tag_name == 'backyard-ultra' %}
   {% assign race_tag_classes = 'race-tag-backyard' %}
+{% elsif tag_name == 'nano-race-note' or tag_name == 'nano-race-notes' %}
+  {% assign race_tag_classes = 'race-tag-nano' %}
 {% endif %}
 {%- assign all_classes = 'race-tag ' | append: size_class -%}
 {%- if race_tag_classes != '' -%}{%- assign all_classes = all_classes | append: ' ' | append: race_tag_classes -%}{%- endif -%}
