@@ -2,7 +2,7 @@
 layout: post
 title: "Bestseller Aarhus City Half 2026"
 description: "Race notes for Bestseller Aarhus City Half 2026"
-date: 2026-08-29 06:00:00 +0000
+date: 2026-08-29 06:00:00 +0200
 race_date: 2026-06-14
 comments: true
 tags: race running halfmarathon nano-race-notes
@@ -29,13 +29,13 @@ Distance|{{ page.distance_km }}k;
 
 ### Lightning Summary ⚡️
 
-This half was as always *amazing* in terms of route events (musicians, performances, DJs) and crowd support 🥳🤩. In 2024 I set my lifetime best half time there (`1:29:20` official ↔️ `1:28:29` Strava), and I didn’t beat it until this year — 2 years later — at [Skjern Bank Løbet](/blog/running/2026/04/24/race_skjern_bank_lobet). Not even at this Aarhus half in 2025 did I manage to beat it (`2024` must have been one of those everything-was-perfect days 😅).
+This half was as always *amazing* in terms of route events (musicians, performances, DJs) and crowd support 🥳🤩. In 2024 I set my lifetime best half time there (`1:29:20` official ↔️ `1:28:29` Strava), and I didn’t beat it again until earlier this year at [Skjern Bank Løbet](/blog/running/2026/04/24/race_skjern_bank_lobet). Not even at this Aarhus half in 2025 did I manage to beat it (`2024` must have been one of those everything-was-perfect days 😅).
 
-But this time I beat my 2024 time 🚀😎 — `1:28:32` official ↔️ `1:27:36` Strava. Granted, I brought my carbon shoes this time (`ASICS Metaspeed Edge Tokyo`) … 🤫 … but hey, 2 weeks prior I had run [24 Timer Ved Havet — DM 24 Timer](/blog/running/2026/06/17/race_24_timer_ved_havet) in Sæby, so I think it evens out, don’t you? 😅
+But this time I improved on my 2024 race 🚀😎 with an official `1:28:32` plus a Strava half in `1:27:36`. Granted, I brought my carbon shoes this time (`ASICS Metaspeed Edge Tokyo`) … 🤫 … but hey, 2 weeks prior I had run [24 Timer Ved Havet — DM 24 Timer](/blog/running/2026/06/17/race_24_timer_ved_havet) in Sæby, so I think it evens out, don’t you? 😅
 
 ### Impressions 📸
 
-Race morning energy and the pre-race mood were already top tier 🤩.
+**🚌 Pre-race:** Race morning energy and the pre-race mood were already top tier 🤩.
 
 {% capture _photos %}
 2026-06-14_3502_small.jpg
@@ -47,7 +47,7 @@ Race morning energy and the pre-race mood were already top tier 🤩.
 {% endcapture %}
 {% include blog_race_photo_table.html images=_photos %}
 
-Out on the route and around the finish area, the atmosphere was exactly as epic as I had hoped for 🚀.
+**🚀 Race:** Out on the route and around the finish area, the atmosphere was exactly as epic as I had hoped for.
 
 {% capture _photos %}
 2026-06-14_3522_small.jpg
@@ -59,7 +59,7 @@ Out on the route and around the finish area, the atmosphere was exactly as epic 
 {% endcapture %}
 {% include blog_race_photo_table.html images=_photos %}
 
-And afterwards: medal, smiles, and all the good post-race vibes 🥳.
+**🏅 Post-race:** Medal, smiles, and all the good post-race vibes 🥳.
 
 {% capture _photos %}
 2026-06-14_3534_small.jpg
@@ -73,12 +73,6 @@ And afterwards: medal, smiles, and all the good post-race vibes 🥳.
 
 Absolutely yes 🤩.
 
-This race remains one of my absolute favorites.
-
-- The atmosphere along the route is amazing: music, performances, DJs, and crowd support all over Aarhus 🥳
-- The route through Aarhus is lovely and beautiful.
-- The entire experience feels very professional and streamlined.
-- The race bag is super generous with all sorts of goodies: snacks, drinks, and more.
-- The race t-shirt is really nice too 👌🏻
+This race remains one of my absolute favorites. The atmosphere along the route is amazing, with music, performances, DJs, and crowd support all over Aarhus 🥳, and the route through the city is lovely and beautiful. The whole experience feels very professional and streamlined, the race bag is graciously packed with all sorts of goodies like snacks and drinks, and the race t-shirt is really nice too 👌🏻.
 
 This one gets my top rating again: ⭐️⭐️⭐️⭐️⭐️
