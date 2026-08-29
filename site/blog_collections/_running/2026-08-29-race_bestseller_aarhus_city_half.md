@@ -5,7 +5,7 @@ description: "Race notes for Bestseller Aarhus City Half 2026"
 date: 2026-08-29 06:00:00 +0200
 race_date: 2026-06-14
 comments: true
-tags: race running halfmarathon nano-race-notes
+tags: race running halfmarathon nano-race-note
 distance_km: 21
 duration_formatted: '1h28m32s'
 race_results_official: "https://www.aarhusmotion.dk/event/293/resultater/1409181?round=1334&amp;page=1&amp;Search=Nicky"
@@ -27,7 +27,7 @@ Distance|{{ page.distance_km }}k;
 {% assign rows_array = rows | split: ";" %}
 {% include blog_race_summary.html rows=rows_array %}
 
-### Lightning Summary ⚡️
+### Nano Summary ⚡️
 
 This half was as always *amazing* in terms of route events (musicians, performances, DJs) and crowd support 🥳🤩. In 2024 I set my lifetime best half time there (`1:29:20` official ↔️ `1:28:29` Strava), and I didn’t beat it again until earlier this year at [Skjern Bank Løbet](/blog/running/2026/04/24/race_skjern_bank_lobet). Not even at this Aarhus half in 2025 did I manage to beat it (`2024` must have been one of those everything-was-perfect days 😅).
 
@@ -35,7 +35,7 @@ But this time I improved on my 2024 race 🚀😎 with an official `1:28:32` plu
 
 ### Impressions 📸
 
-**🚌 Pre-race:** Race morning energy and the pre-race mood were already top tier 🤩.
+<strong>🚌 Pre-race...</strong>
 
 {% capture _photos %}
 2026-06-14_3502_small.jpg
@@ -47,7 +47,7 @@ But this time I improved on my 2024 race 🚀😎 with an official `1:28:32` plu
 {% endcapture %}
 {% include blog_race_photo_table.html images=_photos %}
 
-**🚀 Race:** Out on the route and around the finish area, the atmosphere was exactly as epic as I had hoped for.
+<strong>🚀 Race...</strong>
 
 {% capture _photos %}
 2026-06-14_3522_small.jpg
@@ -59,7 +59,7 @@ But this time I improved on my 2024 race 🚀😎 with an official `1:28:32` plu
 {% endcapture %}
 {% include blog_race_photo_table.html images=_photos %}
 
-**🏅 Post-race:** Medal, smiles, and all the good post-race vibes 🥳.
+<strong>🏅 Post-race...</strong>
 
 {% capture _photos %}
 2026-06-14_3534_small.jpg
@@ -75,4 +75,4 @@ Absolutely yes 🤩.
 
 This race remains one of my absolute favorites. The atmosphere along the route is amazing, with music, performances, DJs, and crowd support all over Aarhus 🥳, and the route through the city is lovely and beautiful. The whole experience feels very professional and streamlined, the race bag is graciously packed with all sorts of goodies like snacks and drinks, and the race t-shirt is really nice too 👌🏻.
 
-This one gets my top rating again: ⭐️⭐️⭐️⭐️⭐️
+This one gets my top rating: ⭐️⭐️⭐️⭐️⭐️
