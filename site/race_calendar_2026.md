@@ -92,6 +92,13 @@ races:
     tags: ["ultra", "trail"]
     url: "https://kullamannen.utmb.world/races/ultra-100-miles"
     status: "pending"
+  
+  - date: "2026-11-07"
+    title: "Trollrun 6H"
+    distance: "6H"
+    tags: ["ultra"]
+    url: "https://www.sportstiming.dk/event/17984"
+    status: "pending"
 ---
 
 <h1>Race Calendar 2026</h1>
