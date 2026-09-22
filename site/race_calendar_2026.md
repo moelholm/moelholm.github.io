@@ -88,9 +88,9 @@ races:
   
   - date: "2026-10-30"
     title: "Kullamannen by UTMB"
-    distance: "160K"
+    distance: "53K"
     tags: ["ultra", "trail"]
-    url: "https://kullamannen.utmb.world/races/ultra-100-miles"
+    url: "https://kullamannen.utmb.world/races/seventh-seal"
     status: "pending"
   
   - date: "2026-11-07"
