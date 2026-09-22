@@ -86,7 +86,7 @@ races:
     url: "https://www.sportstiming.dk/event/16156"
     status: "pending"
   
-  - date: "2026-10-30"
+  - date: "2026-10-31"
     title: "Kullamannen by UTMB"
     distance: "53K"
     tags: ["ultra", "trail"]
