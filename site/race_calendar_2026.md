@@ -77,7 +77,8 @@ races:
     distance: "160K"
     tags: ["ultra"]
     url: "https://my.raceresult.com/365611/info"
-    status: "pending"
+    blog_url: "/blog/running/2026/10/24/race_mors_100_miles"
+    status: "completed"
   
   - date: "2026-09-27"
     title: "HCA Marathon"

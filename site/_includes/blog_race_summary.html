@@ -9,7 +9,7 @@
     {% assign columns = row | split: "|" %}
     <tr>
       <td style="word-wrap: break-word; word-break: break-word; overflow-wrap: break-word;">{{ columns[0] | markdownify }}</td>
-      <td style="word-wrap: break-word; word-break: break-word; overflow-wrap: break-word;">{{ columns[1] | markdownify }}</td>
+      <td style="word-wrap: break-word; word-break: break-word; overflow-wrap: break-word;">{{ columns[1] | markdownify | replace: '<a href="http', '<a target="_new" rel="noopener" href="http' }}</td>
     </tr>
     {% endfor %}
     {%- assign official = page.race_results_official -%}
