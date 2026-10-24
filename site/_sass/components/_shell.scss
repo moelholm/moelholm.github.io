@@ -122,6 +122,7 @@ a:focus-visible { outline: 3px solid #7851b0; outline-offset: 4px; }
   background: none;
   box-shadow: none;
   font-family: var(--ui-font);
+  overflow-wrap: anywhere;
   animation: none;
   &::before { content: none; }
 }
@@ -145,7 +146,7 @@ a:focus-visible { outline: 3px solid #7851b0; outline-offset: 4px; }
   &.race::before, h2::before { content: none; }
 }
 .main-content .blog-item .card { transition: border-color 0.15s ease; }
-.main-content .stretched-link { position: static; }
+.main-content .blog-item .stretched-link { position: static; }
 .main-content .blog-item .card:hover { border-color: #93b5a2; }
 .main-content .home-post__title { font-size: 1.15rem; line-height: 1.35; }
 .main-content .blog-item .toot-content { margin-top: 0.75rem; }

@@ -105,6 +105,20 @@ Both are stored under `blog_collections/_activities` and `blog_collections/_toot
 * **Draft Management:** Uses Jekyll's built-in `published: false` support
 * **Likes / Applause:** Uses Cloudflare Worker + D1 (`tools/cloudflare-likes/`)
 
+=== Website UI
+
+The site uses a responsive editorial layout with local SCSS and system fonts; Bootstrap,
+jQuery, and Popper are not required. The navigation's race menu is a native HTML disclosure
+and works without JavaScript.
+
+* Shared page structure: `site/_layouts/default.html` and the header/footer includes.
+* Shared design and reading layouts: `site/_sass/components/_shell.scss`.
+* Existing content's grid and spacing helpers: `site/_sass/components/_utilities.scss`.
+* Homepage layout: `site/index.md` and `site/_sass/pages/_home.scss`.
+
+Keep content utility classes compatible with existing posts. Preserve the stretched-link
+layering so card titles, tags, and photo links remain independently clickable.
+
 === Photos
 
 For the running blogs; 600x600 jpg square format. Converted and downscaled automatically with the Python script in `tools/convert_heic_photos.py`.
