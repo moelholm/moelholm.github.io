@@ -5,37 +5,38 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navBar">
+    {%- assign _u = page.url -%}
+    {%- assign _races_urls = "/races/,/races-2026/,/race-calendar-2026/,/race-calendar-2027/" | split: "," -%}
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item">
-        <a class="nav-link" href="/activities">activities</a>
+      <li class="nav-item{% if _u == '/activities/' %} active{% endif %}">
+        <a class="nav-link" href="/activities/"{% if _u == '/activities/' %} aria-current="page"{% endif %}>activities</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/toots">updates</a>
-      </li>      
-      <li class="nav-item">
-        <a class="nav-link" href="/running/">posts</a>
+      <li class="nav-item{% if _u == '/toots/' %} active{% endif %}">
+        <a class="nav-link" href="/toots/"{% if _u == '/toots/' %} aria-current="page"{% endif %}>updates</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/races">races 2025</a>
+      <li class="nav-item{% if _u == '/running/' or page.collection == 'running' %} active{% endif %}">
+        <a class="nav-link" href="/running/"{% if _u == '/running/' %} aria-current="page"{% endif %}>posts</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/races-2026">races 2026</a>
+      <li class="nav-item dropdown{% if _races_urls contains _u %} active{% endif %}">
+        <a class="nav-link dropdown-toggle" href="#" id="racesDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">races</a>
+        <div class="dropdown-menu" aria-labelledby="racesDropdown">
+          <a class="dropdown-item{% if _u == '/races-2026/' %} active{% endif %}" href="/races-2026/">races 2026</a>
+          <a class="dropdown-item{% if _u == '/races/' %} active{% endif %}" href="/races/">races 2025</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item{% if _u == '/race-calendar-2026/' %} active{% endif %}" href="/race-calendar-2026/">race calendar 2026</a>
+          <a class="dropdown-item{% if _u == '/race-calendar-2027/' %} active{% endif %}" href="/race-calendar-2027/">race calendar 2027</a>
+        </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/race-calendar-2026">race calendar 2026</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/race-calendar-2027">race calendar 2027</a>
-      </li>      
       {% if site.features.show_software_engineering %}
-      <li class="nav-item">
+      <li class="nav-item{% if _u == '/software_engineering.html' or page.collection == 'software_engineering' %} active{% endif %}">
         <a class="nav-link" href="/software_engineering">software engineering</a>
       </li>
       {% endif %}
-      <li class="nav-item">
+      <li class="nav-item{% if _u == '/tags.html' or _u == '/tags/' %} active{% endif %}">
         <a class="nav-link" href="/tags">tags</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item{% if _u == '/about.html' or _u == '/about/' %} active{% endif %}">
         <a class="nav-link" href="/about">about</a>
       </li>
     </ul>
