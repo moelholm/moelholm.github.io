@@ -2,7 +2,7 @@
 layout: post
 title: "HCA Marathon 2026"
 description: "Race notes for HCA Marathon 2026"
-date: 2026-10-24 14:00:00 +0200
+date: 2026-10-24 10:00:00 +0200
 race_date: 2026-09-27
 comments: true
 tags: race running marathon nano-race-note

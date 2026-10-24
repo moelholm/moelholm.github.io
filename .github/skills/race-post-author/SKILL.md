@@ -50,6 +50,7 @@ In `site/race_calendar_YYYY.md`, update the race entry:
 
 - **File path**: `site/blog_collections/_running/<blog-post-date>-race_name.md` (e.g. `2026-10-24-race_mors_100_miles.md`)
 - Use the blog post publication `date` in the filename (which determines the permalink `/blog/running/YYYY/MM/DD/race_name`).
+- The `date` time must already be in the past (convert to UTC) when the PR is merged. Jekyll skips future-dated posts, but the calendar's `blog_url` still links to them, which gives a 404 on the live site.
 
 #### Front Matter Structure
 
