@@ -1,11 +1,13 @@
 ---
 layout: default
 ---
+<header class="post-header">
+<a class="eyebrow" href="{% if page.collection == 'software_engineering' %}/software_engineering{% else %}/running/{% endif %}">← Back to {% if page.collection == 'software_engineering' %}software engineering{% else %}the journal{% endif %}</a>
 <h1>
   {% if page.published == false %}<span class="badge badge-warning">DRAFT</span> {% endif %}{{ page.title }}
 </h1>
 <div class="post-metadata d-flex align-items-center justify-content-between flex-wrap mb-2">
-  <span>{{ page.date | date_to_string }}</span>
+  <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
   <button type="button" class="like-chip like-btn like-btn--top js-like-button" data-like-slug="{{ page.url }}" aria-pressed="false" title="Give applause to this post" disabled>
     <span class="like-chip__icon">👏</span><span class="js-like-count">0</span>
   </button>
@@ -27,10 +29,12 @@ layout: default
   {% endfor %}
   </div>
 {% endif %}
-
+</header>
+<article>
 <div class="post spotlight-group">
   {{ content }}
 </div>
+</article>
 <div class="post-applause-box">
   <button type="button" class="like-chip like-btn like-btn--hero js-like-button" data-like-slug="{{ page.url }}" aria-pressed="false" title="Give applause to this post" disabled>
     <span class="like-chip__icon">👏</span><span class="js-like-count">0</span>

@@ -3,30 +3,73 @@
 // Home hero and grid
 .home-hero {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-  margin-bottom: 1.25rem;
-  align-items: start;
-  .home-hero__img { width: 100%; border-radius: 10px; box-shadow: 0 2px 14px rgba(0,0,0,0.08); object-fit: cover; max-height: 340px; }
-  .home-hero__text { h1 { margin: 0 0 0.25rem 0; } p { margin: 0 0 0.75rem 0; color: $text-muted; } }
-  .home-hero__cta { margin-top: 0.25rem; }
-  @media (min-width: $bp-desktop-min) { grid-template-columns: 5fr 4fr; .home-hero__img { max-height: 420px; } }
+  grid-template-columns: 1.15fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  padding: 2rem 0 3rem;
+  .home-hero__text h1 { font-size: clamp(2.8rem, 5vw, 4.4rem); letter-spacing: -0.065em; margin: 1.2rem 0 1.5rem; }
+  .home-hero__text h1 span { color: #63704c; }
+  .home-hero__text > p:not(.eyebrow) { color: $text-muted; max-width: 38ch; font-size: 1.05rem; }
 }
-
-// Tablet adjustments
-@media (min-width: $bp-ipad-min) and (max-width: $bp-ipad-max) {
-  .home-hero { grid-template-columns: 6fr 5fr; gap: 0.75rem; }
-  .home-hero .home-hero__img { max-height: 380px; }
-  .home-hero .home-hero__text h1 { font-size: 2.25rem; line-height: 1.15; }
+.home-hero__photo {
+  position: relative;
+  margin: 0;
+  padding: 0 0 1rem 1rem;
+  &::before { content: ""; position: absolute; inset: 1rem 1rem 0 0; background: var(--mint); border-radius: 6rem 1.5rem 1.5rem 1.5rem; }
+  figcaption { position: absolute; bottom: 2.5rem; left: 2.5rem; padding: 0.7rem 1rem; background: #fff; border-radius: 0.7rem; font-size: 0.8rem; color: var(--ink); }
 }
+.home-hero__img { position: relative; width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 6rem 1.5rem 1.5rem 1.5rem; }
+.home-hero__sticker { position: absolute; right: -0.6rem; top: 1.5rem; padding: 1.1rem; border-radius: 50%; background: var(--sun); font-size: 0.8rem; font-weight: 700; line-height: 1.4; transform: rotate(9deg); }
+.home-hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-top: 2rem; }
+.main-content .journal-button { display: inline-flex; align-items: center; gap: 1.5rem; padding: 0.9rem 1.3rem; background: var(--ink); color: #fff; border-radius: 2rem; font-size: 0.85rem; font-weight: 600; }
+.main-content .journal-button:hover { background: #0c4439; color: #fff; text-decoration: none; }
+.home-hero__about { padding: 0.5rem 0; font-size: 0.85rem; }
+.runner-links { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 1rem 0; margin-bottom: 3rem; }
+.runner-links .eyebrow { margin-right: auto; color: var(--muted); }
+.runner-links a { font-size: 0.85rem; padding: 0.5rem 0; }
 
-// Front-page badges layout on tablets
-@media (min-width: $bp-ipad-min) and (max-width: $bp-ipad-max) {
-  .home-hero .external-race-links { display: grid; grid-template-columns: repeat(2, max-content); gap: 0.5rem 0.6rem; align-items: center; }
-  .home-hero .external-race-links .result-badge { margin: 0 !important; }
+.home-grid { display: grid; grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr); gap: 2.5rem; }
+.home-grid__journal, .home-grid__sidebar { min-width: 0; }
+.home-section { margin-bottom: 2.5rem; }
+.home-section__heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  h2 { display: flex; align-items: center; gap: 0.6rem; margin: 0; font-size: 1.3rem; }
+  > a { flex-shrink: 0; font-size: 0.75rem; padding: 0.4rem 0; }
 }
+.home-section__icon { display: inline-flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; background: var(--mint); border-radius: 50%; font-size: 0.95rem; }
+.home-section--activities .home-section__icon { background: var(--sun); }
+.home-section--toots .home-section__icon { background: var(--lilac); }
+.home-grid__sidebar .home-section { padding: 1.25rem; border-radius: 1.25rem; background: var(--mint); }
+.home-grid__sidebar .home-section--previous_races { background: var(--lilac); }
+.home-grid__sidebar .home-section__heading h2 { font-size: 1.1rem; }
+.home-grid__sidebar .home-section__icon { display: none; }
+.home-grid__sidebar .home-samples { grid-template-columns: 1fr; }
+.home-about { padding: 1.5rem; border: 1px solid var(--line); border-radius: 1.25rem; }
+.home-about h2 { margin: 0.75rem 0; }
+.home-about p { color: var(--muted); font-size: 0.9rem; }
+.home-about > a { font-size: 0.85rem; }
 
-.home-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; .home-post { margin-bottom: 0.5rem; } }
+@media (max-width: 900px) {
+  .home-grid { grid-template-columns: 1fr; }
+  .home-hero { gap: 1.5rem; }
+  .home-grid__sidebar { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+  .home-grid__sidebar .home-section { margin-bottom: 0; }
+  .home-about { grid-column: 1 / -1; }
+}
+@media (max-width: 600px) {
+  .home-hero { grid-template-columns: 1fr; padding-top: 0; gap: 2rem; }
+  .home-hero .home-hero__text h1 { font-size: clamp(2.6rem, 10vw, 3.6rem); }
+  .home-hero__photo { max-width: 460px; }
+  .home-hero__sticker { right: 0; }
+  .runner-links { gap: 0.5rem 1.5rem; margin-bottom: 2rem; }
+  .runner-links .eyebrow { width: 100%; }
+  .home-grid__sidebar { grid-template-columns: 1fr; }
+}
 
 // Compact variants for homepage
 .home-post--compact .card-body { padding: 0.6rem 0.75rem; }
@@ -94,10 +137,10 @@
   position: relative;
   background: #fff;
   // unified border style (same as distance)
-  border: 1px dashed rgba(255, 106, 51, 0.22);
+  border: 1px solid var(--line);
   border-radius: 8px;
   padding: 0.22rem 0.4rem; // ultra tight
-  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  box-shadow: none;
   width: 100%;
   align-self: stretch;
   min-height: 2rem; // equalize heights, still compact

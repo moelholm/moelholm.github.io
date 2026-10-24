@@ -1,0 +1,54 @@
+// Small compatibility layer for utility classes used in existing Markdown and includes.
+[hidden] { display: none !important; }
+body { margin: 0; }
+main, header, footer, nav, section, article, aside { display: block; }
+h1, h2, h3, h4, h5, h6, p { margin-top: 0; }
+p { margin-bottom: 1rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.1rem; }
+h6, .h6 { font-size: 1rem; }
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; }
+img { vertical-align: middle; }
+svg { overflow: hidden; vertical-align: middle; }
+summary { display: list-item; }
+pre, code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+pre { margin: 0 0 1rem; overflow: auto; }
+hr { border: 0; border-top: 1px solid #dce3d8; }
+th { text-align: left; }
+
+.row { display: flex; flex-wrap: wrap; margin-right: -0.75rem; margin-left: -0.75rem; }
+.col-6, .col-12, .col-md-12 { position: relative; width: 100%; min-width: 0; padding: 0 0.75rem; }
+.col-6 { flex: 0 0 50%; max-width: 50%; }
+.col-12, .col-md-12 { flex: 0 0 100%; max-width: 100%; }
+.d-flex { display: flex !important; }
+.flex-wrap { flex-wrap: wrap !important; }
+.align-items-center { align-items: center !important; }
+.align-items-baseline { align-items: baseline !important; }
+.justify-content-between { justify-content: space-between !important; }
+.justify-content-center { justify-content: center !important; }
+.position-relative { position: relative !important; }
+.text-right { text-align: right !important; }
+.text-center { text-align: center !important; }
+.text-muted { color: $text-muted !important; }
+.w-100 { width: 100% !important; }
+.img-fluid { max-width: 100%; height: auto; }
+
+@each $step, $space in (0: 0, 1: 0.25rem, 2: 0.5rem, 3: 1rem, 4: 1.5rem) {
+  .mt-#{$step} { margin-top: $space !important; }
+  .mb-#{$step} { margin-bottom: $space !important; }
+  .ml-#{$step} { margin-left: $space !important; }
+  .mr-#{$step} { margin-right: $space !important; }
+  .py-#{$step} { padding-top: $space !important; padding-bottom: $space !important; }
+  .pl-#{$step} { padding-left: $space !important; }
+  .pr-#{$step} { padding-right: $space !important; }
+}
+
+.card { display: flex; flex-direction: column; min-width: 0; position: relative; }
+.card-body { flex: 1 1 auto; min-width: 0; }
+.btn { display: inline-block; text-align: center; vertical-align: middle; }
+.badge { display: inline-block; padding: 0.25em 0.5em; border-radius: 0.3rem; font-size: 0.75em; font-weight: 700; line-height: 1.2; vertical-align: baseline; }
+.stretched-link::after { content: ""; position: absolute; inset: 0; z-index: 1; }
+.table-responsive { display: block; width: 100%; overflow-x: auto; }
+.table .thead-light th { background: #eef2eb; color: $heading-secondary; }

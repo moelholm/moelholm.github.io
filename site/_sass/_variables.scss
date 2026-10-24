@@ -1,23 +1,23 @@
 // Theme variables and breakpoints
 
-$page-background-color: #fff9f4; // warm, light background
-$link-color: #ff6a33; // primary warm accent
-$link-hover-color: #ff4f12; // deeper warm on hover
-$nav-bg-color: #111827; // charcoal for strong contrast
+$page-background-color: #f7f8f2;
+$link-color: #146454;
+$link-hover-color: #0c4439;
+$nav-bg-color: #193b32;
 
 // Calmer colors for normal/content links
-$content-link-color: #374151; // slate 700
-$content-link-hover-color: #1f2937; // slate 800
+$content-link-color: #146454;
+$content-link-hover-color: #0c4439;
 
 // Heading colors
-$heading-primary: #1f2937; // slate 800 for h1
-$heading-secondary: #374151; // slate 700 for h2-h6
-$text-muted: #6b7280; // gray for secondary text
+$heading-primary: #193b32;
+$heading-secondary: #274b41;
+$text-muted: #5b6a64;
 
 // Theme palette (keep variable names for compatibility)
-$trail-green: #ff6a33;      // primary accent (warm)
-$trail-forest: #e4500c;     // deeper warm
-$trail-accent: #ffe9df;     // light warm tint
+$trail-green: #146454;
+$trail-forest: #0c4439;
+$trail-accent: #e0f1d8;
 
 // Breakpoints
 // Very small phones (iPhone SE and similar)

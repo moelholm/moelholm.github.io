@@ -3,6 +3,7 @@
 
 // Import shared variables and components
 @import "variables";
+@import "components/utilities";
 @import "components/race_tag";
 @import "components/table_card";
 @import "components/engagement_badge";
@@ -733,4 +734,4 @@ tbody + tbody {
   pointer-events: none;
 }
 
-// (intentional)
+@import "components/shell";

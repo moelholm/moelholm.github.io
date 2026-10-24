@@ -1,44 +1,45 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/">moelholm.com</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navBar" aria-controls="navBar"
-    aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navBar">
+<header class="site-header">
+  <a class="site-brand" href="/" aria-label="moelholm.com home">
+    <span class="site-brand__mark" aria-hidden="true">m<span>↗</span></span>
+    <span>moelholm<span class="site-brand__domain">.com</span></span>
+  </a>
+  <nav class="site-nav" aria-label="Main navigation">
     {%- assign _u = page.url -%}
     {%- assign _races_urls = "/races/,/races-2026/,/race-calendar-2026/,/race-calendar-2027/" | split: "," -%}
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+    <ul class="site-nav__links">
       <li class="nav-item{% if _u == '/activities/' %} active{% endif %}">
-        <a class="nav-link" href="/activities/"{% if _u == '/activities/' %} aria-current="page"{% endif %}>activities</a>
+        <a class="nav-link" href="/activities/"{% if _u == '/activities/' %} aria-current="page"{% endif %}>Activities</a>
       </li>
       <li class="nav-item{% if _u == '/toots/' %} active{% endif %}">
-        <a class="nav-link" href="/toots/"{% if _u == '/toots/' %} aria-current="page"{% endif %}>updates</a>
+        <a class="nav-link" href="/toots/"{% if _u == '/toots/' %} aria-current="page"{% endif %}>Updates</a>
       </li>
       <li class="nav-item{% if _u == '/running/' or page.collection == 'running' %} active{% endif %}">
-        <a class="nav-link" href="/running/"{% if _u == '/running/' %} aria-current="page"{% endif %}>posts</a>
+        <a class="nav-link" href="/running/"{% if _u == '/running/' %} aria-current="page"{% endif %}>Journal</a>
       </li>
-      <li class="nav-item dropdown{% if _races_urls contains _u %} active{% endif %}">
-        <a class="nav-link dropdown-toggle" href="#" id="racesDropdown" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">races</a>
-        <div class="dropdown-menu" aria-labelledby="racesDropdown">
-          <a class="dropdown-item{% if _u == '/races-2026/' %} active{% endif %}" href="/races-2026/">races 2026</a>
-          <a class="dropdown-item{% if _u == '/races/' %} active{% endif %}" href="/races/">races 2025</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item{% if _u == '/race-calendar-2026/' %} active{% endif %}" href="/race-calendar-2026/">race calendar 2026</a>
-          <a class="dropdown-item{% if _u == '/race-calendar-2027/' %} active{% endif %}" href="/race-calendar-2027/">race calendar 2027</a>
-        </div>
+      <li class="nav-item{% if _races_urls contains _u %} active{% endif %}">
+        <details class="race-menu">
+          <summary>Races <span aria-hidden="true">⌄</span></summary>
+          <div class="race-menu__links">
+            <span class="eyebrow">Finish lines</span>
+            <a href="/races-2026/"{% if _u == '/races-2026/' %} aria-current="page"{% endif %}>Races 2026</a>
+            <a href="/races/"{% if _u == '/races/' %} aria-current="page"{% endif %}>Races 2025</a>
+            <span class="eyebrow">On the horizon</span>
+            <a href="/race-calendar-2026/"{% if _u == '/race-calendar-2026/' %} aria-current="page"{% endif %}>Calendar 2026</a>
+            <a href="/race-calendar-2027/"{% if _u == '/race-calendar-2027/' %} aria-current="page"{% endif %}>Calendar 2027</a>
+          </div>
+        </details>
       </li>
       {% if site.features.show_software_engineering %}
       <li class="nav-item{% if _u == '/software_engineering.html' or page.collection == 'software_engineering' %} active{% endif %}">
-        <a class="nav-link" href="/software_engineering">software engineering</a>
+        <a class="nav-link" href="/software_engineering">Software engineering</a>
       </li>
       {% endif %}
       <li class="nav-item{% if _u == '/tags.html' or _u == '/tags/' %} active{% endif %}">
-        <a class="nav-link" href="/tags">tags</a>
+        <a class="nav-link" href="/tags"{% if _u == '/tags.html' or _u == '/tags/' %} aria-current="page"{% endif %}>Tags</a>
       </li>
       <li class="nav-item{% if _u == '/about.html' or _u == '/about/' %} active{% endif %}">
-        <a class="nav-link" href="/about">about</a>
+        <a class="nav-link" href="/about"{% if _u == '/about.html' or _u == '/about/' %} aria-current="page"{% endif %}>About</a>
       </li>
     </ul>
-  </div>
-</nav>
+  </nav>
+</header>

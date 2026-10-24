@@ -1,7 +1,9 @@
 
-<div class="card{% if include.kind != 'toots' %} mb-3{% endif %}">
-  <div class="card-body">
-    <h5 class="mb-2 d-flex align-items-center gap-1">{{ include.title }}{% if include.emoji %} <span class="emoji-badge ml-1">{{ include.emoji }}</span>{% endif %}</h5>
+<section class="home-section home-section--{{ include.kind }}">
+    <div class="home-section__heading">
+      <h2>{% if include.emoji %}<span class="home-section__icon" aria-hidden="true">{{ include.emoji }}</span> {% endif %}{{ include.title }}</h2>
+      {% if include.more_url %}<a href="{{ include.more_url }}" aria-label="View all: {{ include.title }}">View all <span aria-hidden="true">↗</span></a>{% endif %}
+    </div>
     {%- assign list = include.items -%}
     {%- if list and list.size > 0 -%}
       <div class="home-samples{% if include.grid %} {{ include.grid }}{% endif %}">
@@ -163,11 +165,7 @@
           {%- endif -%}
         {%- endfor -%}
       </div>
-      {%- if include.more_url -%}
-      <div class="text-right"><a class="btn btn-sm" href="{{ include.more_url }}">More</a></div>
-      {%- endif -%}
     {%- else -%}
   <p>No {% if include.kind == 'toots' %}updates{% elsif include.kind == 'activities' %}activities{% elsif include.kind == 'running' %}posts{% elsif include.kind == 'upcoming_races' %}upcoming races{% elsif include.kind == 'previous_races' %}previous races{% else %}results{% endif %} found.</p>
     {%- endif -%}
-  </div>
-</div>
+</section>
