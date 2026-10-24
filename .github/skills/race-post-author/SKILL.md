@@ -16,6 +16,12 @@ Create engaging, enthusiastic running race blog posts (either compact `nano-race
 
 ## Step-by-Step Procedure
 
+### 0. Start the Dev Server First
+
+Always make sure the Jekyll dev server is running at the start of a race-post session, without being asked:
+- Check `lsof -i :4000 -sTCP:LISTEN -t`; if nothing is listening, start `./tools/dev-server.sh` in async mode.
+- Give the user the preview path (`/blog/running/YYYY/MM/DD/race_name`) as soon as the draft exists.
+
 ### 1. Proactively Gather Race Data (Before Asking the User)
 
 Automatically extract the race details from the repository before asking the user for missing information:
@@ -140,7 +146,7 @@ Keep the structure tight and punchy:
 1. **Image Folder**: Store images in `site/img_running/<blog-post-date>/` using the post `date` (NOT `race_date`), because `site/_includes/blog_race_photo_table.html` resolves `/img_running/{{ page.date | date: "%Y-%m-%d" }}/`.
 2. **Convert everything to exactly 600×450** (HEIC/PNG/JPG; do NOT rely on CSS to equalize heights):
    - **Landscape photos** (`w >= h`): cover-crop (scale to fill, center-crop).
-   - **Portrait photos and screenshots** (`h > w`): never crop — keep the whole photo (contain-fit) centered on a blurred cover-crop of itself. Cropping portraits cuts off heads and screenshot content.
+   - **Portrait photos and screenshots** (any orientation): never crop — keep the whole image (contain-fit) centered on a blurred cover-crop of itself. Cropping portraits cuts off heads and screenshot content. Screenshots are detected as PNGs or images without an EXIF camera `Make`.
    ```python
    import os, re
    from PIL import Image, ImageOps, ImageFilter
@@ -149,23 +155,33 @@ Keep the structure tight and punchy:
 
    src_dir = '<upload_folder>'
    out_dir = 'site/img_running/<blog-post-date>/'
+   race_date = '<race_date>'
    tw, th = 600, 450
+   os.makedirs(out_dir, exist_ok=True)
+   written = set()
    for f in sorted(os.listdir(src_dir)):
        if f.startswith('.'):
            continue
-       im = ImageOps.exif_transpose(Image.open(os.path.join(src_dir, f))).convert('RGB')
+       src = Image.open(os.path.join(src_dir, f))
+       is_screenshot = f.lower().endswith('.png') or not src.getexif().get(271)
+       im = ImageOps.exif_transpose(src).convert('RGB')
        w, h = im.size
        s = max(tw / w, th / h)
        cover = im.resize((round(w * s), round(h * s)), Image.Resampling.LANCZOS)
        l, t = (cover.width - tw) // 2, (cover.height - th) // 2
        out = cover.crop((l, t, l + tw, t + th))
-       if h > w:
+       if h > w or is_screenshot:
            out = out.filter(ImageFilter.GaussianBlur(18))
            fg = im.copy()
            fg.thumbnail((tw, th), Image.Resampling.LANCZOS)
            out.paste(fg, ((tw - fg.width) // 2, (th - fg.height) // 2))
-       ident = re.search(r'\d+', f).group()
-       out.save(os.path.join(out_dir, f'<race_date>_{ident}_small.jpg'), 'JPEG', quality=95, optimize=True, progressive=True)
+       stem = re.sub(r'^img_?', '', os.path.splitext(f)[0].lower())
+       stem = re.sub(r'[^a-z0-9_-]+', '_', stem)
+       name = f'{race_date}_{stem}_small.jpg'
+       if name in written or os.path.exists(os.path.join(out_dir, name)):
+           raise SystemExit(f'Refusing to overwrite {name} (from {f})')
+       written.add(name)
+       out.save(os.path.join(out_dir, name), 'JPEG', quality=95, optimize=True, progressive=True)
    ```
 3. **Flag questionable photos — ask, don't decide silently**: Before placing photos, review EXIF date/GPS and a contact sheet, then present a short list of photos that may not belong and let the user answer yes/no per photo. Flag:
    - Photos taken outside the race trip (e.g. at home, the day before departure) by EXIF timestamp/GPS
