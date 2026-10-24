@@ -18,15 +18,16 @@
 {%- comment -%}Output a 2-column HTML table matching the markdownify'd markdown pipe table format{%- endcomment -%}
 {%- assign _style = "max-width: 350px; max-height: 263px; object-fit: contain;" -%}
 {%- assign _class = "spotlight w-100 pl-2 pr-2" -%}
+{%- assign _alt = "Photo from " | append: page.title -%}
 {%- if _imgs != "" -%}
 <table><tbody>
 {%- for _img in _img_arr -%}
   {%- assign _idx = forloop.index0 | modulo: 2 -%}
   {%- assign _src = _img_prefix | append: _img -%}
   {%- if _idx == 0 -%}
-<tr><td><img src="{{ _src }}" data-src="{{ _src }}" alt="" class="{{ _class }}" style="{{ _style }}" /></td>
+<tr><td><img src="{{ _src }}" data-src="{{ _src }}" alt="{{ _alt | escape }}" loading="lazy" class="{{ _class }}" style="{{ _style }}" /></td>
   {%- else -%}
-<td><img src="{{ _src }}" data-src="{{ _src }}" alt="" class="{{ _class }}" style="{{ _style }}" /></td></tr>
+<td><img src="{{ _src }}" data-src="{{ _src }}" alt="{{ _alt | escape }}" loading="lazy" class="{{ _class }}" style="{{ _style }}" /></td></tr>
   {%- endif -%}
 {%- endfor -%}
 {%- assign _final_mod = _count | modulo: 2 -%}
