@@ -1,0 +1,187 @@
+{%- assign _default_api = "https://likes-and-more.moelholm.workers.dev" -%}
+<script>
+(() => {
+  const configuredApiUrl = {{ site.likes.api_url | default: _default_api | jsonify }};
+  const isLocalhost = ['localhost', '127.0.0.1'].includes(location.hostname);
+  const apiBaseUrl = isLocalhost
+    ? `http://${location.hostname}:8787`
+    : configuredApiUrl.replace(/\/+$/, '');
+
+  const POST_PATH_PATTERN = /^\/blog\/(running|software_engineering)\/\d{4}\/\d{2}\/\d{2}\/[a-z0-9_-]+$/i;
+  const CARD_LINK_SELECTOR = [
+    '.blog-item a[href*="/blog/"]',
+    '.table-card a[href*="/blog/"]',
+    'a.race-row[href*="/blog/"]',
+    'a.post-nav__link[href*="/blog/"]',
+  ].join(', ');
+
+  // Normalize any link/path to a canonical post slug like "/blog/running/2026/10/24/race_mors_100_miles"
+  function toPostSlug(href) {
+    if (!href) return null;
+    try {
+      const url = new URL(href, location.origin);
+      const path = url.pathname.replace(/\.html$/i, '').replace(/\/+$/, '');
+      return POST_PATH_PATTERN.test(path) ? path : null;
+    } catch {
+      return null;
+    }
+  }
+
+  // Update the count and visual state of a single badge or button element
+  function renderLikeElement(element, count, isLiked = false) {
+    const safeCount = Number(count) || 0;
+    const countSpan = element.querySelector('.js-like-count');
+    if (countSpan) {
+      countSpan.textContent = safeCount;
+    }
+
+    element.classList.toggle('is-liked', Boolean(isLiked));
+    element.setAttribute('aria-pressed', isLiked ? 'true' : 'false');
+
+    const shouldHideZero = element.hasAttribute('data-like-hide-zero');
+    element.hidden = shouldHideZero && safeCount <= 0;
+  }
+
+  // Update every badge/button on the page that points to the given post slug
+  function updateBadgesForSlug(slug, count, isLiked = false) {
+    const elements = document.querySelectorAll(`[data-like-slug="${slug}"]`);
+    for (const element of elements) {
+      renderLikeElement(element, count, isLiked);
+    }
+  }
+
+  // Insert a read-only "👏 N" chip inside a card or calendar row
+  function insertChipIntoCard(cardElement, slug) {
+    const chip = document.createElement('span');
+    chip.className = 'like-chip like-badge-readonly';
+    chip.dataset.likeSlug = slug;
+    chip.dataset.likeHideZero = 'true';
+    chip.hidden = true;
+    chip.title = 'Applause on this post';
+    chip.innerHTML = '<span class="like-chip__icon">👏</span><span class="js-like-count">0</span>';
+
+    if (cardElement.matches('a.race-row')) {
+      const tagsContainer = cardElement.querySelector('.race-row__tags') || cardElement;
+      tagsContainer.prepend(chip);
+      return;
+    }
+
+    if (cardElement.matches('a.post-nav__link')) {
+      const label = cardElement.querySelector('.post-nav__label');
+      if (label) label.append(' ', chip);
+      return;
+    }
+
+    if (cardElement.matches('.table-card')) {
+      const header = cardElement.querySelector('.table-card__head');
+      if (header) header.append(chip);
+      return;
+    }
+
+    // Standard blog cards (front page and /running/)
+    const headerRow = cardElement.querySelector(
+      '.card-body > .d-flex.justify-content-between, .card-body > .text-right'
+    );
+    if (headerRow) {
+      chip.classList.add('mr-2');
+      headerRow.prepend(chip);
+    }
+  }
+
+  // Find all cards/rows linking to blog posts, attach hidden chips, and fetch all counts in 1 request
+  async function loadCardLikeCounts() {
+    const links = document.querySelectorAll(CARD_LINK_SELECTOR);
+    const slugsOnPage = new Set();
+
+    for (const link of links) {
+      const slug = toPostSlug(link.getAttribute('href'));
+      if (!slug) continue;
+
+      slugsOnPage.add(slug);
+      const card = link.closest('.blog-item, .table-card, a.race-row, a.post-nav__link');
+      if (card && !card.querySelector('[data-like-slug]')) {
+        insertChipIntoCard(card, slug);
+      }
+    }
+
+    if (slugsOnPage.size === 0) return;
+
+    try {
+      const response = await fetch(`${apiBaseUrl}/likes`);
+      if (!response.ok) return;
+      const { counts = {} } = await response.json();
+
+      for (const slug of slugsOnPage) {
+        const readOnlyChips = document.querySelectorAll(
+          `.like-badge-readonly[data-like-slug="${slug}"]`
+        );
+        for (const chip of readOnlyChips) {
+          renderLikeElement(chip, counts[slug] || 0, false);
+        }
+      }
+    } catch {
+      // Silently ignore network errors so the static site always works normally
+    }
+  }
+
+  // Wire up the interactive top + bottom applause buttons on an individual blog post page
+  async function initPostLikeButtons() {
+    const buttons = document.querySelectorAll('.js-like-button[data-like-slug]');
+    if (buttons.length === 0) return;
+
+    const slug = toPostSlug(buttons[0].dataset.likeSlug);
+    if (!slug) return;
+
+    for (const button of buttons) {
+      button.dataset.likeSlug = slug;
+    }
+
+    try {
+      const response = await fetch(`${apiBaseUrl}/likes?slug=${encodeURIComponent(slug)}`);
+      if (response.ok) {
+        const data = await response.json();
+        updateBadgesForSlug(slug, data.likes, data.liked);
+      }
+    } catch {
+      // Ignore offline/network errors
+    }
+
+    let isRequestInFlight = false;
+
+    async function handleLikeClick(event) {
+      event.preventDefault();
+      if (isRequestInFlight) return;
+      isRequestInFlight = true;
+
+      try {
+        const response = await fetch(`${apiBaseUrl}/likes?slug=${encodeURIComponent(slug)}`, {
+          method: 'POST',
+        });
+        if (response.ok) {
+          const data = await response.json();
+          updateBadgesForSlug(slug, data.likes, data.liked);
+        }
+      } catch {
+        // Ignore network errors
+      } finally {
+        isRequestInFlight = false;
+      }
+    }
+
+    for (const button of buttons) {
+      button.addEventListener('click', handleLikeClick);
+    }
+  }
+
+  function init() {
+    initPostLikeButtons();
+    loadCardLikeCounts();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
