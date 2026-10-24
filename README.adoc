@@ -107,9 +107,12 @@ Both are stored under `blog_collections/_activities` and `blog_collections/_toot
 
 === Website UI
 
-The site uses a responsive editorial layout with local SCSS and system fonts; Bootstrap,
+The site uses a compact, monochrome layout with local SCSS and system fonts; Bootstrap,
 jQuery, and Popper are not required. The navigation's race menu is a native HTML disclosure
 and works without JavaScript.
+
+The homepage is a date-first post index with activity, upcoming-race, and update lists.
+Use plain headings, thin separators, and neutral surfaces rather than promotional panels.
 
 * Shared page structure: `site/_layouts/default.html` and the header/footer includes.
 * Shared design and reading layouts: `site/_sass/components/_shell.scss`.

@@ -1,7 +1,6 @@
 <header class="site-header">
   <a class="site-brand" href="/" aria-label="moelholm.com home">
-    <span class="site-brand__mark" aria-hidden="true">m<span>↗</span></span>
-    <span>moelholm<span class="site-brand__domain">.com</span></span>
+    moelholm.com
   </a>
   <nav class="site-nav" aria-label="Main navigation">
     {%- assign _u = page.url -%}
@@ -14,16 +13,14 @@
         <a class="nav-link" href="/toots/"{% if _u == '/toots/' %} aria-current="page"{% endif %}>Updates</a>
       </li>
       <li class="nav-item{% if _u == '/running/' or page.collection == 'running' %} active{% endif %}">
-        <a class="nav-link" href="/running/"{% if _u == '/running/' %} aria-current="page"{% endif %}>Journal</a>
+        <a class="nav-link" href="/running/"{% if _u == '/running/' %} aria-current="page"{% endif %}>Posts</a>
       </li>
       <li class="nav-item{% if _races_urls contains _u %} active{% endif %}">
         <details class="race-menu">
           <summary>Races <span aria-hidden="true">⌄</span></summary>
           <div class="race-menu__links">
-            <span class="eyebrow">Finish lines</span>
             <a href="/races-2026/"{% if _u == '/races-2026/' %} aria-current="page"{% endif %}>Races 2026</a>
             <a href="/races/"{% if _u == '/races/' %} aria-current="page"{% endif %}>Races 2025</a>
-            <span class="eyebrow">On the horizon</span>
             <a href="/race-calendar-2026/"{% if _u == '/race-calendar-2026/' %} aria-current="page"{% endif %}>Calendar 2026</a>
             <a href="/race-calendar-2027/"{% if _u == '/race-calendar-2027/' %} aria-current="page"{% endif %}>Calendar 2027</a>
           </div>
