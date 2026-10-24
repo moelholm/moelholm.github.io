@@ -7,17 +7,23 @@ echo "🚀 Setting up blog development environment..."
 
 # Install Python dependencies for photo processing
 echo "📸 Installing photo processing dependencies..."
-pip install -r tools/requirements.txt
+pip install -q -r tools/requirements.txt
 
-# Install AWS CLI
-echo "☁️ Installing AWS CLI..."
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-unzip awscliv2.zip
-sudo ./aws/install
-rm -rf awscliv2.zip aws/
+# Install Ruby dependencies for Jekyll
+echo "💎 Installing Jekyll dependencies..."
+(cd site && (bundle check || bundle install))
+
+# Install AWS CLI (if not already installed)
+if ! command -v aws >/dev/null 2>&1; then
+	echo "☁️ Installing AWS CLI..."
+	curl -sSL "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+	unzip -q awscliv2.zip
+	sudo ./aws/install --update
+	rm -rf awscliv2.zip aws/
+fi
 
 echo "✅ Environment setup complete!"
-echo "🌐 To start Jekyll with drafts: ./dev-server.sh"
+echo "🌐 To start Jekyll with drafts: ./tools/dev-server.sh"
 
 echo "🔧 Generating AWS SSO configuration dynamically..."
 
