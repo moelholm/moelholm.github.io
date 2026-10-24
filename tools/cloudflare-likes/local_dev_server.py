@@ -10,7 +10,10 @@ from urllib.parse import parse_qs, urlparse
 
 DB_PATH = Path(__file__).parent / ".local-likes.sqlite3"
 SCHEMA_PATH = Path(__file__).parent / "schema.sql"
-SLUG_RE = re.compile(r"^/blog/(running|software_engineering)/[a-z0-9/_-]+$", re.I)
+SLUG_RE = re.compile(
+    r"^/blog/(running|software_engineering)/\d{4}/\d{2}/\d{2}/[a-z0-9_-]{2,90}$",
+    re.I,
+)
 
 conn = sqlite3.connect(DB_PATH, check_same_thread=False)
 conn.executescript(SCHEMA_PATH.read_text())
@@ -21,9 +24,11 @@ def norm_slug(raw: str | None) -> str | None:
     if not raw:
         return None
     s = re.sub(r"\.html$", "", raw.strip(), flags=re.I).rstrip("/")
-    if not (10 <= len(s) <= 140):
-        return None
     return s if SLUG_RE.match(s) else None
+
+
+class ReusableHTTPServer(HTTPServer):
+    allow_reuse_address = True
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -39,8 +44,7 @@ class Handler(BaseHTTPRequestHandler):
 
     def _voter_hash(self) -> str:
         ip = self.client_address[0]
-        ua = (self.headers.get("User-Agent") or "")[:120]
-        return hashlib.sha256(f"{ip}:{ua}:local-salt".encode()).hexdigest()
+        return hashlib.sha256(f"{ip}:local-salt".encode()).hexdigest()
 
     def do_OPTIONS(self):
         self._headers(204)
@@ -107,5 +111,5 @@ class Handler(BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    print("Local likes API running on http://0.0.0.0:8787/likes")
-    HTTPServer(("0.0.0.0", 8787), Handler).serve_forever()
+    print("👏 Local Cloudflare likes mock running on http://localhost:8787/likes", flush=True)
+    ReusableHTTPServer(("0.0.0.0", 8787), Handler).serve_forever()

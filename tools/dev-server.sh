@@ -16,6 +16,12 @@ fi
 echo "🧹 Cleaning site/_site for a fresh build..."
 rm -rf "$SITE_DIR/_site"
 
+# Start local Cloudflare likes mock server on port 8787 (cleaned up when dev-server stops)
+pkill -f "cloudflare-likes/local_dev_server.py" 2>/dev/null || true
+python3 "$SCRIPT_DIR/cloudflare-likes/local_dev_server.py" &
+LIKES_MOCK_PID=$!
+trap 'kill "$LIKES_MOCK_PID" 2>/dev/null || true' EXIT INT TERM
+
 echo "Press Ctrl+C to stop the server"
 
 cd "$SITE_DIR"
