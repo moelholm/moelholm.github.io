@@ -10,5 +10,9 @@ CREATE TABLE IF NOT EXISTS post_voters (
   PRIMARY KEY (slug, voter_hash)
 );
 
-CREATE INDEX IF NOT EXISTS idx_post_voters_rate_limit
-  ON post_voters (voter_hash, created_at);
+-- One row per voter: counts every toggle request in the current 1-minute window
+CREATE TABLE IF NOT EXISTS rate_limits (
+  voter_hash TEXT PRIMARY KEY,
+  window_start INTEGER NOT NULL,
+  request_count INTEGER NOT NULL
+);

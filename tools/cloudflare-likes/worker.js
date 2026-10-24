@@ -99,75 +99,75 @@ async function handleGetSinglePost(request, env, slug, voterHash) {
   return jsonResponse({ slug, likes, liked }, 200, request);
 }
 
+const MAX_TOGGLES_PER_MINUTE = 10;
+
+// D1 runs a batch as one transaction, so concurrent requests cannot both slip under the limit
+async function isRateLimited(env, voterHash) {
+  const currentWindow = Math.floor(Date.now() / 60000);
+  const [, countResult] = await env.DB.batch([
+    env.DB.prepare(
+      `INSERT INTO rate_limits (voter_hash, window_start, request_count) VALUES (?1, ?2, 1)
+       ON CONFLICT(voter_hash) DO UPDATE SET
+         request_count = CASE WHEN window_start = excluded.window_start THEN request_count + 1 ELSE 1 END,
+         window_start = excluded.window_start`
+    ).bind(voterHash, currentWindow),
+    env.DB.prepare('SELECT request_count FROM rate_limits WHERE voter_hash = ?1').bind(voterHash),
+  ]);
+
+  return (countResult.results?.[0]?.request_count ?? 0) > MAX_TOGGLES_PER_MINUTE;
+}
+
+// Recompute the total from voter rows, so it can never drift from the actual votes
+async function recountLikes(env, slug) {
+  const [, countResult] = await env.DB.batch([
+    env.DB.prepare(
+      `INSERT INTO post_likes (slug, likes)
+         VALUES (?1, (SELECT COUNT(*) FROM post_voters WHERE slug = ?1))
+       ON CONFLICT(slug) DO UPDATE SET likes = excluded.likes`
+    ).bind(slug),
+    env.DB.prepare('SELECT likes FROM post_likes WHERE slug = ?1').bind(slug),
+  ]);
+
+  return countResult.results?.[0]?.likes ?? 0;
+}
+
 async function handleToggleLike(request, env, slug, voterHash) {
   const origin = request.headers.get('Origin') || '';
   if (!isAllowedOrigin(origin)) {
     return jsonResponse({ error: 'Forbidden origin' }, 403, request);
   }
 
-  // Throttle: max 10 likes/toggles per IP across the site within the last 60 seconds
-  const recentVotes = await env.DB.prepare(
-    "SELECT COUNT(*) AS cnt FROM post_voters WHERE voter_hash = ?1 AND created_at >= datetime('now', '-60 seconds')"
-  )
-    .bind(voterHash)
-    .first();
-
-  if ((recentVotes?.cnt ?? 0) >= 10) {
+  if (await isRateLimited(env, voterHash)) {
     return jsonResponse({ error: 'Too many requests' }, 429, request);
   }
 
-  const existingVote = await env.DB.prepare(
-    'SELECT 1 AS liked FROM post_voters WHERE slug = ?1 AND voter_hash = ?2'
-  )
-    .bind(slug, voterHash)
-    .first();
-
-  let liked;
-
-  if (!existingVote) {
-    // If this post has never been liked before, confirm the URL is a real published post on moelholm.com
-    const knownPost = await env.DB.prepare(
-      'SELECT 1 FROM post_likes WHERE slug = ?1'
-    )
-      .bind(slug)
-      .first();
-
-    if (!knownPost && !(await postExistsOnSite(slug))) {
-      return jsonResponse({ error: 'Unknown post' }, 404, request);
-    }
-
-    await env.DB.batch([
-      env.DB.prepare(
-        'INSERT OR IGNORE INTO post_voters (slug, voter_hash) VALUES (?1, ?2)'
-      ).bind(slug, voterHash),
-      env.DB.prepare(
-        'INSERT INTO post_likes (slug, likes) VALUES (?1, 1) ON CONFLICT(slug) DO UPDATE SET likes = likes + 1'
-      ).bind(slug),
-    ]);
-    liked = true;
-  } else {
-    await env.DB.batch([
-      env.DB.prepare(
-        'DELETE FROM post_voters WHERE slug = ?1 AND voter_hash = ?2'
-      ).bind(slug, voterHash),
-      env.DB.prepare(
-        'UPDATE post_likes SET likes = MAX(0, likes - 1) WHERE slug = ?1'
-      ).bind(slug),
-    ]);
-    liked = false;
-  }
-
-  const updatedRow = await env.DB.prepare(
-    'SELECT likes FROM post_likes WHERE slug = ?1'
-  )
+  // Only verify against moelholm.com the first time a post is ever liked
+  const knownPost = await env.DB.prepare('SELECT 1 FROM post_likes WHERE slug = ?1')
     .bind(slug)
     .first();
 
-  return jsonResponse(
-    { slug, likes: updatedRow?.likes ?? 0, liked },
-    200,
-    request
-  );
+  if (!knownPost && !(await postExistsOnSite(slug))) {
+    return jsonResponse({ error: 'Unknown post' }, 404, request);
+  }
+
+  // The primary key decides the toggle: the insert succeeds only if this voter had not liked yet
+  const insertResult = await env.DB.prepare(
+    'INSERT OR IGNORE INTO post_voters (slug, voter_hash) VALUES (?1, ?2)'
+  )
+    .bind(slug, voterHash)
+    .run();
+
+  let liked = insertResult.meta.changes === 1;
+
+  if (!liked) {
+    await env.DB.prepare('DELETE FROM post_voters WHERE slug = ?1 AND voter_hash = ?2')
+      .bind(slug, voterHash)
+      .run();
+  }
+
+  const likes = await recountLikes(env, slug);
+
+  return jsonResponse({ slug, likes, liked }, 200, request);
 }
 
 export default {
