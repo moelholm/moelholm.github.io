@@ -7,9 +7,13 @@ const ALLOWED_ORIGINS = new Set([
   'https://www.moelholm.com',
 ]);
 
+// PR previews (pr-123--...) and deploy URLs (<id>--...) of this site's own Netlify project only
+const NETLIFY_PREVIEW_ORIGIN = /^https:\/\/([a-z0-9-]+--)?aesthetic-gumption-80abac\.netlify\.app$/;
+
 function isAllowedOrigin(origin) {
   if (!origin) return false;
   if (ALLOWED_ORIGINS.has(origin)) return true;
+  if (NETLIFY_PREVIEW_ORIGIN.test(origin)) return true;
   return (
     origin.startsWith('http://localhost:') ||
     origin.startsWith('http://127.0.0.1:')
@@ -118,17 +122,15 @@ async function isRateLimited(env, voterHash) {
 }
 
 // Recompute the total from voter rows, so it can never drift from the actual votes
-async function recountLikes(env, slug) {
-  const [, countResult] = await env.DB.batch([
+function recountStatements(env, slug) {
+  return [
     env.DB.prepare(
       `INSERT INTO post_likes (slug, likes)
          VALUES (?1, (SELECT COUNT(*) FROM post_voters WHERE slug = ?1))
        ON CONFLICT(slug) DO UPDATE SET likes = excluded.likes`
     ).bind(slug),
     env.DB.prepare('SELECT likes FROM post_likes WHERE slug = ?1').bind(slug),
-  ]);
-
-  return countResult.results?.[0]?.likes ?? 0;
+  ];
 }
 
 async function handleToggleLike(request, env, slug, voterHash) {
@@ -150,22 +152,25 @@ async function handleToggleLike(request, env, slug, voterHash) {
     return jsonResponse({ error: 'Unknown post' }, 404, request);
   }
 
-  // The primary key decides the toggle: the insert succeeds only if this voter had not liked yet
-  const insertResult = await env.DB.prepare(
-    'INSERT OR IGNORE INTO post_voters (slug, voter_hash) VALUES (?1, ?2)'
-  )
-    .bind(slug, voterHash)
-    .run();
+  // Each batch is one D1 transaction, so a vote change is never stored without its recount.
+  // The primary key decides the toggle: the insert succeeds only if this voter had not liked yet.
+  let results = await env.DB.batch([
+    env.DB.prepare('INSERT OR IGNORE INTO post_voters (slug, voter_hash) VALUES (?1, ?2)')
+      .bind(slug, voterHash),
+    ...recountStatements(env, slug),
+  ]);
 
-  let liked = insertResult.meta.changes === 1;
+  const liked = results[0].meta.changes === 1;
 
   if (!liked) {
-    await env.DB.prepare('DELETE FROM post_voters WHERE slug = ?1 AND voter_hash = ?2')
-      .bind(slug, voterHash)
-      .run();
+    results = await env.DB.batch([
+      env.DB.prepare('DELETE FROM post_voters WHERE slug = ?1 AND voter_hash = ?2')
+        .bind(slug, voterHash),
+      ...recountStatements(env, slug),
+    ]);
   }
 
-  const likes = await recountLikes(env, slug);
+  const likes = results[2].results?.[0]?.likes ?? 0;
 
   return jsonResponse({ slug, likes, liked }, 200, request);
 }
