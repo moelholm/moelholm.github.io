@@ -85,6 +85,11 @@ class Handler(BaseHTTPRequestHandler):
             self.wfile.write(b'{"error":"Invalid slug"}')
             return
         vh = self._voter_hash()
+        known = conn.execute("SELECT 1 FROM post_likes WHERE slug = ?", (slug,)).fetchone()
+        if not should_like and not known:
+            self._headers(200)
+            self.wfile.write(json.dumps({"slug": slug, "likes": 0, "liked": False}).encode())
+            return
         if should_like:
             conn.execute("INSERT OR IGNORE INTO post_voters (slug, voter_hash) VALUES (?, ?)", (slug, vh))
         else:

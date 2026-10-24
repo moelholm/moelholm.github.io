@@ -145,13 +145,17 @@ async function handleSetLike(request, env, slug, voterHash, shouldLike) {
     return jsonResponse({ error: 'Too many requests' }, 429, request);
   }
 
-  if (shouldLike) {
-    // Only verify against moelholm.com the first time a post is ever liked
-    const knownPost = await env.DB.prepare('SELECT 1 FROM post_likes WHERE slug = ?1')
-      .bind(slug)
-      .first();
+  // A post_likes row exists only for posts verified against moelholm.com on their first like
+  const knownPost = await env.DB.prepare('SELECT 1 FROM post_likes WHERE slug = ?1')
+    .bind(slug)
+    .first();
 
-    if (!knownPost && !(await postExistsOnSite(slug))) {
+  if (!knownPost) {
+    if (!shouldLike) {
+      // Nothing to unlike; must not write, or the row would mark an unverified slug as known
+      return jsonResponse({ slug, likes: 0, liked: false }, 200, request);
+    }
+    if (!(await postExistsOnSite(slug))) {
       return jsonResponse({ error: 'Unknown post' }, 404, request);
     }
   }

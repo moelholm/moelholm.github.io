@@ -2,6 +2,7 @@
 <script>
 (() => {
   const configuredApiUrl = {{ site.likes.api_url | default: _default_api | jsonify }};
+  // Dev mock is reached via VS Code port forwarding on localhost; Codespaces *.app.github.dev URLs are not supported
   const isLocalhost = ['localhost', '127.0.0.1'].includes(location.hostname);
   const apiBaseUrl = isLocalhost
     ? `http://${location.hostname}:8787`
