@@ -2,7 +2,7 @@
   "name": "Jekyll Blog Development",
   "image": "mcr.microsoft.com/devcontainers/universal:2",
   "postCreateCommand": ".devcontainer/postCreateCommand.sh",
-  "forwardPorts": [4000, 35729],
+  "forwardPorts": [4000, 35729, 8787],
   "portsAttributes": {
     "4000": {
       "label": "Jekyll Server",
@@ -10,6 +10,10 @@
     },
     "35729": {
       "label": "LiveReload", 
+      "onAutoForward": "silent"
+    },
+    "8787": {
+      "label": "Likes API mock",
       "onAutoForward": "silent"
     }
   },

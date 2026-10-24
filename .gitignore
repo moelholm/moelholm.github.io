@@ -19,3 +19,11 @@ __pycache__/
 
 # Local env for fetch-toots.sh
 .env.local
+
+# Local Wrangler / Cloudflare D1 state
+.wrangler/
+tools/cloudflare-likes/.wrangler/
+tools/cloudflare-likes/.wrangler.deploy.toml
+tools/cloudflare-likes/.dev.vars
+tools/cloudflare-likes/node_modules/
+tools/cloudflare-likes/.local-likes.sqlite3

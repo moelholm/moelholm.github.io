@@ -4,7 +4,12 @@ layout: default
 <h1>
   {% if page.published == false %}<span class="badge badge-warning">DRAFT</span> {% endif %}{{ page.title }}
 </h1>
-<p class="post-metadata">{{ page.date | date_to_string }}</p>
+<div class="post-metadata d-flex align-items-center justify-content-between flex-wrap mb-2">
+  <span>{{ page.date | date_to_string }}</span>
+  <button type="button" class="like-chip like-btn like-btn--top js-like-button" data-like-slug="{{ page.url }}" aria-pressed="false" title="Give applause to this post" disabled>
+    <span class="like-chip__icon">👏</span><span class="js-like-count">0</span>
+  </button>
+</div>
 
 
 
@@ -26,6 +31,11 @@ layout: default
 <div class="post spotlight-group">
   {{ content }}
 </div>
+<div class="post-applause-box">
+  <button type="button" class="like-chip like-btn like-btn--hero js-like-button" data-like-slug="{{ page.url }}" aria-pressed="false" title="Give applause to this post" disabled>
+    <span class="like-chip__icon">👏</span><span class="js-like-count">0</span>
+  </button>
+</div>
 {% if page.previous or page.next %}
 <nav class="post-nav" aria-label="More posts">
   {% if page.previous %}
@@ -41,7 +51,4 @@ layout: default
   </a>
   {% endif %}
 </nav>
-{% endif %}
-{% if page.comments %}
-{% include giscus.html %}
 {% endif %}
