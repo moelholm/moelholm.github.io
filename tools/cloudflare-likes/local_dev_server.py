@@ -38,7 +38,7 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header("Content-Type", "application/json;charset=UTF-8")
         self.send_header("Cache-Control", "no-store")
         self.send_header("Access-Control-Allow-Origin", origin)
-        self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+        self.send_header("Access-Control-Allow-Methods", "GET, POST, DELETE, OPTIONS")
         self.send_header("Access-Control-Allow-Headers", "Content-Type")
         self.end_headers()
 
@@ -77,7 +77,7 @@ class Handler(BaseHTTPRequestHandler):
             json.dumps({"slug": slug, "likes": row[0] if row else 0, "liked": bool(liked)}).encode()
         )
 
-    def do_POST(self):
+    def _set_like(self, should_like: bool):
         u = urlparse(self.path)
         slug = norm_slug(parse_qs(u.query).get("slug", [None])[0])
         if u.path != "/likes" or not slug:
@@ -85,26 +85,27 @@ class Handler(BaseHTTPRequestHandler):
             self.wfile.write(b'{"error":"Invalid slug"}')
             return
         vh = self._voter_hash()
-        exists = conn.execute(
-            "SELECT 1 FROM post_voters WHERE slug = ? AND voter_hash = ?", (slug, vh)
-        ).fetchone()
-        if not exists:
+        if should_like:
             conn.execute("INSERT OR IGNORE INTO post_voters (slug, voter_hash) VALUES (?, ?)", (slug, vh))
-            conn.execute(
-                "INSERT INTO post_likes (slug, likes) VALUES (?, 1) ON CONFLICT(slug) DO UPDATE SET likes = likes + 1",
-                (slug,),
-            )
-            liked = True
         else:
             conn.execute("DELETE FROM post_voters WHERE slug = ? AND voter_hash = ?", (slug, vh))
-            conn.execute("UPDATE post_likes SET likes = MAX(0, likes - 1) WHERE slug = ?", (slug,))
-            liked = False
+        conn.execute(
+            "INSERT INTO post_likes (slug, likes) VALUES (?1, (SELECT COUNT(*) FROM post_voters WHERE slug = ?1)) "
+            "ON CONFLICT(slug) DO UPDATE SET likes = excluded.likes",
+            (slug,),
+        )
         conn.commit()
         row = conn.execute("SELECT likes FROM post_likes WHERE slug = ?", (slug,)).fetchone()
         self._headers(200)
         self.wfile.write(
-            json.dumps({"slug": slug, "likes": row[0] if row else 0, "liked": liked}).encode()
+            json.dumps({"slug": slug, "likes": row[0] if row else 0, "liked": should_like}).encode()
         )
+
+    def do_POST(self):
+        self._set_like(True)
+
+    def do_DELETE(self):
+        self._set_like(False)
 
     def log_message(self, format, *args):
         return

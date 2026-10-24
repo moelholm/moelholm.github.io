@@ -6,7 +6,7 @@ layout: default
 </h1>
 <div class="post-metadata d-flex align-items-center justify-content-between flex-wrap mb-2">
   <span>{{ page.date | date_to_string }}</span>
-  <button type="button" class="like-chip like-btn like-btn--top js-like-button" data-like-slug="{{ page.url }}" aria-pressed="false" title="Give applause to this post">
+  <button type="button" class="like-chip like-btn like-btn--top js-like-button" data-like-slug="{{ page.url }}" aria-pressed="false" title="Give applause to this post" disabled>
     <span class="like-chip__icon">👏</span><span class="js-like-count">0</span>
   </button>
 </div>
@@ -32,7 +32,7 @@ layout: default
   {{ content }}
 </div>
 <div class="post-applause-box">
-  <button type="button" class="like-chip like-btn like-btn--hero js-like-button" data-like-slug="{{ page.url }}" aria-pressed="false" title="Give applause to this post">
+  <button type="button" class="like-chip like-btn like-btn--hero js-like-button" data-like-slug="{{ page.url }}" aria-pressed="false" title="Give applause to this post" disabled>
     <span class="like-chip__icon">👏</span><span class="js-like-count">0</span>
   </button>
 </div>

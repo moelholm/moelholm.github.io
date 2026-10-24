@@ -37,8 +37,9 @@ echo "4) Deploying Worker 'likes-and-more'..."
 npx --yes wrangler deploy --config "$TMP_CONFIG"
 
 echo "5) Ensuring random LIKE_SALT secret is set in Cloudflare (never stored in git)..."
-SECRET_LIST=$(npx --yes wrangler secret list --config "$TMP_CONFIG" 2>/dev/null || echo "")
-if ! echo "$SECRET_LIST" | grep -q '"LIKE_SALT"'; then
+# Must not swallow errors: a failed list would otherwise overwrite the salt and invalidate all stored votes
+SECRET_LIST=$(npx --yes wrangler secret list --config "$TMP_CONFIG")
+if ! echo "$SECRET_LIST" | grep -q 'LIKE_SALT'; then
   openssl rand -hex 32 | npx --yes wrangler secret put LIKE_SALT --config "$TMP_CONFIG"
 fi
 

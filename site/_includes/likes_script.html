@@ -136,14 +136,16 @@
       button.dataset.likeSlug = slug;
     }
 
+    // Buttons stay disabled until we know whether this visitor has already liked the post
+    let isLiked;
     try {
       const response = await fetch(`${apiBaseUrl}/likes?slug=${encodeURIComponent(slug)}`);
-      if (response.ok) {
-        const data = await response.json();
-        updateBadgesForSlug(slug, data.likes, data.liked);
-      }
+      if (!response.ok) return;
+      const data = await response.json();
+      isLiked = data.liked;
+      updateBadgesForSlug(slug, data.likes, data.liked);
     } catch {
-      // Ignore offline/network errors
+      return;
     }
 
     let isRequestInFlight = false;
@@ -153,12 +155,14 @@
       if (isRequestInFlight) return;
       isRequestInFlight = true;
 
+      // Ask for the wanted state (like or unlike) instead of a toggle, so repeated requests are harmless
+      const method = isLiked ? 'DELETE' : 'POST';
+
       try {
-        const response = await fetch(`${apiBaseUrl}/likes?slug=${encodeURIComponent(slug)}`, {
-          method: 'POST',
-        });
+        const response = await fetch(`${apiBaseUrl}/likes?slug=${encodeURIComponent(slug)}`, { method });
         if (response.ok) {
           const data = await response.json();
+          isLiked = data.liked;
           updateBadgesForSlug(slug, data.likes, data.liked);
         }
       } catch {
@@ -170,6 +174,7 @@
 
     for (const button of buttons) {
       button.addEventListener('click', handleLikeClick);
+      button.disabled = false;
     }
   }
 

@@ -26,7 +26,7 @@ function buildCorsHeaders(request) {
 
   return {
     'Access-Control-Allow-Origin': allowedOrigin,
-    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+    'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Vary': 'Origin',
   };
@@ -103,7 +103,7 @@ async function handleGetSinglePost(request, env, slug, voterHash) {
   return jsonResponse({ slug, likes, liked }, 200, request);
 }
 
-const MAX_TOGGLES_PER_MINUTE = 10;
+const MAX_REQUESTS_PER_MINUTE = 10;
 
 // D1 runs a batch as one transaction, so concurrent requests cannot both slip under the limit
 async function isRateLimited(env, voterHash) {
@@ -118,7 +118,7 @@ async function isRateLimited(env, voterHash) {
     env.DB.prepare('SELECT request_count FROM rate_limits WHERE voter_hash = ?1').bind(voterHash),
   ]);
 
-  return (countResult.results?.[0]?.request_count ?? 0) > MAX_TOGGLES_PER_MINUTE;
+  return (countResult.results?.[0]?.request_count ?? 0) > MAX_REQUESTS_PER_MINUTE;
 }
 
 // Recompute the total from voter rows, so it can never drift from the actual votes
@@ -133,7 +133,9 @@ function recountStatements(env, slug) {
   ];
 }
 
-async function handleToggleLike(request, env, slug, voterHash) {
+// POST sets and DELETE removes the vote. Both are idempotent, so duplicate or overlapping
+// requests always end in the state the visitor asked for.
+async function handleSetLike(request, env, slug, voterHash, shouldLike) {
   const origin = request.headers.get('Origin') || '';
   if (!isAllowedOrigin(origin)) {
     return jsonResponse({ error: 'Forbidden origin' }, 403, request);
@@ -143,36 +145,30 @@ async function handleToggleLike(request, env, slug, voterHash) {
     return jsonResponse({ error: 'Too many requests' }, 429, request);
   }
 
-  // Only verify against moelholm.com the first time a post is ever liked
-  const knownPost = await env.DB.prepare('SELECT 1 FROM post_likes WHERE slug = ?1')
-    .bind(slug)
-    .first();
+  if (shouldLike) {
+    // Only verify against moelholm.com the first time a post is ever liked
+    const knownPost = await env.DB.prepare('SELECT 1 FROM post_likes WHERE slug = ?1')
+      .bind(slug)
+      .first();
 
-  if (!knownPost && !(await postExistsOnSite(slug))) {
-    return jsonResponse({ error: 'Unknown post' }, 404, request);
+    if (!knownPost && !(await postExistsOnSite(slug))) {
+      return jsonResponse({ error: 'Unknown post' }, 404, request);
+    }
   }
 
-  // Each batch is one D1 transaction, so a vote change is never stored without its recount.
-  // The primary key decides the toggle: the insert succeeds only if this voter had not liked yet.
-  let results = await env.DB.batch([
-    env.DB.prepare('INSERT OR IGNORE INTO post_voters (slug, voter_hash) VALUES (?1, ?2)')
-      .bind(slug, voterHash),
+  const voteStatement = shouldLike
+    ? env.DB.prepare('INSERT OR IGNORE INTO post_voters (slug, voter_hash) VALUES (?1, ?2)')
+    : env.DB.prepare('DELETE FROM post_voters WHERE slug = ?1 AND voter_hash = ?2');
+
+  // One D1 transaction, so a vote change is never stored without its recount
+  const results = await env.DB.batch([
+    voteStatement.bind(slug, voterHash),
     ...recountStatements(env, slug),
   ]);
 
-  const liked = results[0].meta.changes === 1;
-
-  if (!liked) {
-    results = await env.DB.batch([
-      env.DB.prepare('DELETE FROM post_voters WHERE slug = ?1 AND voter_hash = ?2')
-        .bind(slug, voterHash),
-      ...recountStatements(env, slug),
-    ]);
-  }
-
   const likes = results[2].results?.[0]?.likes ?? 0;
 
-  return jsonResponse({ slug, likes, liked }, 200, request);
+  return jsonResponse({ slug, likes, liked: shouldLike }, 200, request);
 }
 
 export default {
@@ -206,8 +202,8 @@ export default {
       return handleGetSinglePost(request, env, slug, voterHash);
     }
 
-    if (request.method === 'POST') {
-      return handleToggleLike(request, env, slug, voterHash);
+    if (request.method === 'POST' || request.method === 'DELETE') {
+      return handleSetLike(request, env, slug, voterHash, request.method === 'POST');
     }
 
     return jsonResponse({ error: 'Method not allowed' }, 405, request);
