@@ -85,7 +85,8 @@ races:
     distance: "42K"
     tags: ["marathon"]
     url: "https://www.sportstiming.dk/event/16156"
-    status: "pending"
+    blog_url: "/blog/running/2026/10/24/race_hca_marathon"
+    status: "completed"
   
   - date: "2026-10-31"
     title: "Kullamannen by UTMB"
