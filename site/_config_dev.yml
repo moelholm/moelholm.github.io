@@ -15,3 +15,7 @@ incremental: false
 
 # Optional: Different base URL for local development
 # baseurl: ""
+
+# Local likes mock started by tools/dev-server.sh
+likes:
+  api_url: "http://localhost:8787"

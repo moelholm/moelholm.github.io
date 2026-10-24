@@ -53,8 +53,7 @@ function parsePostSlug(rawSlug) {
 // Hash only CF-Connecting-IP (set by Cloudflare's edge, cannot be spoofed by the client)
 async function computeVoterHash(request, env) {
   const clientIp = request.headers.get('CF-Connecting-IP') || '127.0.0.1';
-  const secretSalt = env.LIKE_SALT || 'default-fallback-salt-override-in-secret';
-  const bytes = new TextEncoder().encode(`${clientIp}:${secretSalt}`);
+  const bytes = new TextEncoder().encode(`${clientIp}:${env.LIKE_SALT}`);
   const digest = await crypto.subtle.digest('SHA-256', bytes);
 
   return Array.from(new Uint8Array(digest))
@@ -198,6 +197,11 @@ export default {
     const slug = parsePostSlug(rawSlug);
     if (!slug) {
       return jsonResponse({ error: 'Invalid post slug' }, 400, request);
+    }
+
+    // Without the secret, voter hashes would not match those stored once it is set
+    if (!env.LIKE_SALT) {
+      return jsonResponse({ error: 'Service unavailable' }, 503, request);
     }
 
     const voterHash = await computeVoterHash(request, env);

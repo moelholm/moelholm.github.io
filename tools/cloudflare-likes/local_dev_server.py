@@ -95,9 +95,9 @@ class Handler(BaseHTTPRequestHandler):
         else:
             conn.execute("DELETE FROM post_voters WHERE slug = ? AND voter_hash = ?", (slug, vh))
         conn.execute(
-            "INSERT INTO post_likes (slug, likes) VALUES (?1, (SELECT COUNT(*) FROM post_voters WHERE slug = ?1)) "
+            "INSERT INTO post_likes (slug, likes) VALUES (?, (SELECT COUNT(*) FROM post_voters WHERE slug = ?)) "
             "ON CONFLICT(slug) DO UPDATE SET likes = excluded.likes",
-            (slug,),
+            (slug, slug),
         )
         conn.commit()
         row = conn.execute("SELECT likes FROM post_likes WHERE slug = ?", (slug,)).fetchone()

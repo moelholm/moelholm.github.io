@@ -729,6 +729,8 @@ tbody + tbody {
 .like-badge-readonly {
   position: relative;
   z-index: 2;
+  // Let clicks fall through to the card's stretched link
+  pointer-events: none;
 }
 
 // (intentional)
