@@ -16,3 +16,6 @@ CREATE TABLE IF NOT EXISTS rate_limits (
   window_start INTEGER NOT NULL,
   request_count INTEGER NOT NULL
 );
+
+-- Left over from the first deploy; no longer used
+DROP INDEX IF EXISTS idx_post_voters_rate_limit;
