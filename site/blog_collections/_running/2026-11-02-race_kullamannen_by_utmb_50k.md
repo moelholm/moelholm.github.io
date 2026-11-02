@@ -38,7 +38,7 @@ Casper, my son, ran the kids race while I was out on the course, so we both got 
 
 <strong>🚌 Pre-race...</strong>
 
-We drove to Båstad on Thursday after work and school 🚗. Friday was race bib pickup 🎟️, and then a family trip to Gekås Ullared for some Sweden shopping 🛒😂.
+We drove to Båstad on Thursday, straight after work and school 🚗. On Friday I picked up my race bib 🎟️, and then the whole family headed to Gekås Ullared for some proper Swedish shopping 🛒😂.
 
 {% capture _photos %}
 2026-10-31_6590_small.jpg
@@ -48,7 +48,7 @@ We drove to Båstad on Thursday after work and school 🚗. Friday was race bib 
 {% endcapture %}
 {% include blog_race_photo_table.html images=_photos %}
 
-Then race day at the tennis arena 🎾: the Kullamannen knight 🐴 who leads every race out, Casper ready for his kids race, and my daughter with me at the start 🤩.
+On race day the tennis arena was buzzing 🎾. The Kullamannen knight 🐴, who leads every race out, was there, Casper got ready for his kids race, and my daughter joined me at the start 🤩.
 
 {% capture _photos %}
 2026-10-31_6613_small.jpg
@@ -76,7 +76,7 @@ Then race day at the tennis arena 🎾: the Kullamannen knight 🐴 who leads ev
 
 <strong>🚀 Race...</strong>
 
-Hills, cows 🐄 and stone walls along the Swedish west coast, the evil beach segments with stone hell 🪨, The Last Outpost, and the family cheering from the car 🚗.
+The route took us over hills, past grazing cows 🐄 and old stone walls along the Swedish west coast, before the evil beach segments with stone hell 🪨. Near the end the family was waiting by the car to cheer me on 🚗🥳, and right after I left them my hamstrings cramped up one last time 😅.
 
 {% capture _photos %}
 2026-10-31_6649_1_small.jpg
