@@ -38,54 +38,40 @@ Casper, my son, ran the kids race while I was out on the course, so we both got 
 
 <strong>🚌 Pre-race...</strong>
 
-We arrived in Båstad the day before: a long race bib queue 🎟️, and then a family trip to Gekås Ullared for some Sweden things 🛒😂. Race morning at the tennis arena had knights on horseback 🐴, Casper getting ready for his kids race, and my daughter with me at the start 🤩.
+We drove to Båstad on Thursday after work and school 🚗. Friday was race bib pickup 🎟️, and then a family trip to Gekås Ullared for some Sweden shopping 🛒😂.
 
 {% capture _photos %}
 2026-10-31_6590_small.jpg
 2026-10-31_6593_small.jpg
 2026-10-31_6596_small.jpg
-2026-10-31_6600_small.jpg
 2026-10-31_6601_small.jpg
-2026-10-31_6612_small.jpg
 {% endcapture %}
 {% include blog_race_photo_table.html images=_photos %}
+
+Then race day at the tennis arena 🎾: the Kullamannen knight 🐴 who leads every race out, Casper ready for his kids race, and my daughter with me at the start 🤩.
 
 {% capture _photos %}
 2026-10-31_6613_small.jpg
 2026-10-31_6615_small.jpg
 2026-10-31_6618_small.jpg
-2026-10-31_6619_small.jpg
-2026-10-31_6620_small.jpg
 2026-10-31_6621_small.jpg
+2026-10-31_6623_small.jpg
+2026-10-31_6626_small.jpg
 {% endcapture %}
 {% include blog_race_photo_table.html images=_photos %}
 
 {% capture _photos %}
-2026-10-31_6622_small.jpg
-2026-10-31_6623_small.jpg
-2026-10-31_6624_small.jpg
-2026-10-31_6626_small.jpg
 2026-10-31_6627_small.jpg
 2026-10-31_6629_small.jpg
-{% endcapture %}
-{% include blog_race_photo_table.html images=_photos %}
-
-{% capture _photos %}
 2026-10-31_6630_small.jpg
 2026-10-31_6631_small.jpg
-2026-10-31_6632_small.jpg
-2026-10-31_6635_small.jpg
-2026-10-31_6636_small.jpg
-2026-10-31_6637_small.jpg
 {% endcapture %}
 {% include blog_race_photo_table.html images=_photos %}
 
 {% capture _photos %}
-2026-10-31_6638_small.jpg
+2026-10-31_6632_small.jpg
+2026-10-31_6636_small.jpg
 2026-10-31_6639_small.jpg
-2026-10-31_6641_small.jpg
-2026-10-31_6642_small.jpg
-2026-10-31_6645_small.jpg
 2026-10-31_6646_small.jpg
 {% endcapture %}
 {% include blog_race_photo_table.html images=_photos %}
