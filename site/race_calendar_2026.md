@@ -93,7 +93,8 @@ races:
     distance: "53K"
     tags: ["ultra", "trail"]
     url: "https://kullamannen.utmb.world/races/seventh-seal"
-    status: "pending"
+    blog_url: "/blog/running/2026/11/02/race_kullamannen_by_utmb_50k"
+    status: "completed"
   
   - date: "2026-11-07"
     title: "Trollrun 6H"
