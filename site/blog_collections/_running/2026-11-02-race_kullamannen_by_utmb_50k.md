@@ -146,6 +146,6 @@ Finisher medal and a well-deserved beer 🍺. My daughter was the only one who m
 
 Absolutely yes 🤩.
 
-Kullamannen is a superbly organized UTMB event with a fantastic route along the Swedish west coast — forest trails, cliffs, mud, stairs and those brutal stony beaches 🌊. The 50K gives you the full Kullamannen flavour in a single (long) day, and it's a perfect family trip too, with a kids race and plenty to explore in the area while you're out running 🇸🇪.
+Kullamannen is a superbly organized UTMB event with a fantastic route along the Swedish west coast — forest trails, cliffs, mud, stairs and those brutal stony beaches 🌊. The 50K gives you the full Kullamannen flavour in a single (long) day, and it's a perfect family trip too, with a kids race and plenty in the area for the family to explore while you're out running 🇸🇪.
 
 This one gets my top rating: ⭐️⭐️⭐️⭐️⭐️
