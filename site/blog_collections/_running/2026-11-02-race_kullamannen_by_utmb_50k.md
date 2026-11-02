@@ -21,7 +21,7 @@ Race|Kullamannen by UTMB 2026 - 50K;
 Date|{{ page.race_date }};
 Www|[{{ page.race_website }}]({{ page.race_website }});
 Type|Trail;
-Position|73 of 486 finishers (AG: 8 of 51);
+Position|74 of 488 finishers (AG: 8 of 51);
 Duration|{{ page.duration_formatted }};
 Distance|{{ page.distance_km }}k;
 {% endcapture %}
@@ -36,7 +36,117 @@ Casper, my son, ran the kids race while I was out on the course, so we both got 
 
 ### Impressions 📸
 
-<!-- TODO: photos pending upload -->
+<strong>🎟️ Pre-race: bib queue in Båstad, and a quick trip to Gekås Ullared for the family's Sweden things 😂...</strong>
+
+{% capture _photos %}
+2026-10-31_6593_small.jpg
+2026-10-31_6596_small.jpg
+{% endcapture %}
+{% include blog_race_photo_table.html images=_photos %}
+
+{% capture _photos %}
+2026-10-31_6600_small.jpg
+2026-10-31_6613_small.jpg
+{% endcapture %}
+{% include blog_race_photo_table.html images=_photos %}
+
+<strong>🐴 Race morning: knights on horseback, live tracking, and Casper ready for his kids race...</strong>
+
+{% capture _photos %}
+2026-10-31_6621_small.jpg
+2026-10-31_6627_small.jpg
+{% endcapture %}
+{% include blog_race_photo_table.html images=_photos %}
+
+{% capture _photos %}
+2026-10-31_6630_small.jpg
+2026-10-31_6631_small.jpg
+{% endcapture %}
+{% include blog_race_photo_table.html images=_photos %}
+
+<strong>🚦 At the start with my daughter, and waiting to go...</strong>
+
+{% capture _photos %}
+2026-10-31_6632_small.jpg
+2026-10-31_6639_small.jpg
+{% endcapture %}
+{% include blog_race_photo_table.html images=_photos %}
+
+{% capture _photos %}
+2026-10-31_6646_small.jpg
+2026-10-31_6650_small.jpg
+{% endcapture %}
+{% include blog_race_photo_table.html images=_photos %}
+
+<strong>🚀 Race: hills, cows and stone walls along the Kullaberg coast 🐄...</strong>
+
+{% capture _photos %}
+2026-10-31_6653_small.jpg
+2026-10-31_6655_small.jpg
+{% endcapture %}
+{% include blog_race_photo_table.html images=_photos %}
+
+{% capture _photos %}
+2026-10-31_6657_small.jpg
+2026-10-31_6660_small.jpg
+{% endcapture %}
+{% include blog_race_photo_table.html images=_photos %}
+
+{% capture _photos %}
+2026-10-31_6667_small.jpg
+2026-10-31_6672_small.jpg
+{% endcapture %}
+{% include blog_race_photo_table.html images=_photos %}
+
+<strong>🪨 Stone hell on the beach, The Last Outpost, and the family cheering from the car...</strong>
+
+{% capture _photos %}
+2026-10-31_6668_small.jpg
+2026-10-31_6671_small.jpg
+{% endcapture %}
+{% include blog_race_photo_table.html images=_photos %}
+
+{% capture _photos %}
+2026-10-31_6673_small.jpg
+2026-10-31_6675_small.jpg
+{% endcapture %}
+{% include blog_race_photo_table.html images=_photos %}
+
+<strong>🏅 Post-race: finisher medal, my daughter at the finish line, and a well-deserved beer 🍺...</strong>
+
+{% capture _photos %}
+2026-10-31_6678_small.jpg
+2026-10-31_6680_small.jpg
+{% endcapture %}
+{% include blog_race_photo_table.html images=_photos %}
+
+{% capture _photos %}
+2026-10-31_6681_small.jpg
+2026-10-31_6683_small.jpg
+{% endcapture %}
+{% include blog_race_photo_table.html images=_photos %}
+
+<strong>🥳 The rest of the family arriving, and medals for both Casper and me...</strong>
+
+{% capture _photos %}
+2026-10-31_6685_small.jpg
+2026-10-31_6688_small.jpg
+{% endcapture %}
+{% include blog_race_photo_table.html images=_photos %}
+
+{% capture _photos %}
+2026-10-31_6689_small.jpg
+2026-10-31_6691_small.jpg
+{% endcapture %}
+{% include blog_race_photo_table.html images=_photos %}
+
+<strong>📊 The official result...</strong>
+
+{% capture _photos %}
+2026-10-31_6692_small.jpg
+2026-10-31_6707_small.jpg
+{% endcapture %}
+{% include blog_race_photo_table.html images=_photos %}
 
 ### Recommended? 👏🏻
 
