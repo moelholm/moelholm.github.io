@@ -103,7 +103,7 @@ Keep the structure tight and punchy:
 1. **Intro sentence**: 1–2 sentences introducing the race and linking to previous year(s) if applicable.
 2. **Race summary include**: `{% include blog_race_summary.html rows=rows_array %}`
 3. **`### Nano Summary ⚡️`**: 1–2 short paragraphs covering the official time/PB comparison, weather/bonks, volunteer appreciation, and friend/family surprises.
-4. **`### Impressions 📸`**: Short bold emoji-first lead-ins with photo tables split into even 2-image rows:
+4. **`### Impressions 📸`**: Exactly **three** sections — `🚌 Pre-race...`, `🚀 Race...`, `🏅 Post-race...` — never more sub-sections (no extra bold lead-ins for bib pickup, start, finish, etc.). Put any extra context in a short 1–2 sentence preface paragraph under each lead-in instead. Include as many photos as possible (exclude only near-duplicates, blurry/accidental shots and off-topic photos), and split large sections into several consecutive photo tables of ~4–6 images each (even counts), like `2026-10-24-race_mors_100_miles.md`:
    ```liquid
    ### Impressions 📸
 
