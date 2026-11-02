@@ -30,7 +30,7 @@ Distance|{{ page.distance_km }}k;
 
 ### Nano Summary ⚡️
 
-I went in with mixed feelings 😟😅, as part of me felt I was missing out on the "real" 100 mile experience. But the 50K let me balance my training with Lifting+WOD, and going all in on a faster race was a blast 🔥. I paid for it though 😂: hamstring cramps forced me to a full stop several times, I slipped big time in the mud and tumbled down a few stairs, knocking all the air out of my lungs 🤕. And AGAIN the evil stony beaches drained my speed 🪨, though this year I kept jogging through them 😎. I finished in `{{ page.duration_formatted }}`, and it was so nice not being completely smashed like the previous years 🥳.
+I went in with mixed feelings 😟😅, as part of me felt I was missing out on the "real" 100 mile experience. But the 50K let me balance my training with Lifting+WOD, and going all in on a faster race was a blast 🔥. I paid for it though 😂: hamstring cramps forced me to a full stop several times, I slipped big time in the mud and tumbled down a few stairs, knocking all the air out of my lungs 🤕. As in previous years, the evil stony beaches drained my speed 🪨, though this time I kept jogging through them 😎. I finished in `{{ page.duration_formatted }}`, and it was so nice not being completely smashed like the previous years 🥳.
 
 Casper, my son, ran the kids race while I was out on the course, so we both got medals 🏅🏅 (I actually like this year's medal a lot 🤩). The family cheered for me — though they missed me at Hovs Hallar (too fast while they were shopping 😂), and only my daughter made it to the finish line in time. My wife now says I'm not allowed to run the 50K anymore, because I'm too fast for her to get her shopping done 😆.
 
