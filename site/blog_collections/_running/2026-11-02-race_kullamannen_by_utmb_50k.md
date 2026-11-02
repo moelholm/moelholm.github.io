@@ -120,7 +120,7 @@ Hills, cows 🐄 and stone walls along the Kullaberg coast, the evil beach segme
 
 <strong>🏅 Post-race...</strong>
 
-Finisher medal, my daughter at the finish line, and a well-deserved beer 🍺. Then the rest of the family arrived, Casper and I compared medals 🏅🏅, and the official result came in 📊. Back home, the new medal joined the wall 🤠.
+Finisher medal and a well-deserved beer 🍺. My daughter was the only one who made it to the finish line in time to see me 🤩. It took the rest of the family a while to get there from the parking lot 😅. When they arrived, Casper and I compared medals 🏅🏅, and the official result came in 📊. Back home, the new medal joined the wall 🤠.
 
 {% capture _photos %}
 2026-10-31_6678_small.jpg
