@@ -76,7 +76,7 @@ Then race day at the tennis arena 🎾: the Kullamannen knight 🐴 who leads ev
 
 <strong>🚀 Race...</strong>
 
-Hills, cows 🐄 and stone walls along the Kullaberg coast, the evil beach segments with stone hell 🪨, The Last Outpost, and the family cheering from the car 🚗.
+Hills, cows 🐄 and stone walls along the Swedish west coast, the evil beach segments with stone hell 🪨, The Last Outpost, and the family cheering from the car 🚗.
 
 {% capture _photos %}
 2026-10-31_6649_1_small.jpg
@@ -146,6 +146,6 @@ Finisher medal and a well-deserved beer 🍺. My daughter was the only one who m
 
 Absolutely yes 🤩.
 
-Kullamannen is a superbly organized UTMB event with a fantastic route along the Kullaberg coast — forest trails, cliffs, mud, stairs and those brutal stony beaches 🌊. The 50K gives you the full Kullamannen flavour in a single (long) day, and it's a perfect family trip too, with a kids race and plenty of Sweden things to do while you're out running 🇸🇪.
+Kullamannen is a superbly organized UTMB event with a fantastic route along the Swedish west coast — forest trails, cliffs, mud, stairs and those brutal stony beaches 🌊. The 50K gives you the full Kullamannen flavour in a single (long) day, and it's a perfect family trip too, with a kids race and plenty of Sweden things to do while you're out running 🇸🇪.
 
 This one gets my top rating: ⭐️⭐️⭐️⭐️⭐️
