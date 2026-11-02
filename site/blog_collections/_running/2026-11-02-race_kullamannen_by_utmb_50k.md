@@ -53,16 +53,14 @@ Then race day at the tennis arena 🎾: the Kullamannen knight 🐴 who leads ev
 {% capture _photos %}
 2026-10-31_6613_small.jpg
 2026-10-31_6615_small.jpg
-2026-10-31_6618_small.jpg
 2026-10-31_6621_small.jpg
 2026-10-31_6623_small.jpg
-2026-10-31_6626_small.jpg
 {% endcapture %}
 {% include blog_race_photo_table.html images=_photos %}
 
 {% capture _photos %}
+2026-10-31_6626_small.jpg
 2026-10-31_6627_small.jpg
-2026-10-31_6629_small.jpg
 2026-10-31_6630_small.jpg
 2026-10-31_6631_small.jpg
 {% endcapture %}
