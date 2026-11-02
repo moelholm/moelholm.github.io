@@ -14,7 +14,7 @@ race_results_strava: "https://www.strava.com/activities/20805831217/overview"
 race_website: "https://kullamannen.utmb.world/races/seventh-seal"
 ---
 
-On October 31st I was back in Sweden 🇸🇪 for Kullamannen by UTMB — my 3rd year in a row 🤩. But unlike the 100 milers in 2024 and [2025](/blog/running/2025/11/18/kullamannen_by_utmb_2025), this time I ran the 50K (Seventh Seal) — and I ran it as fast as I could 🚀😂.
+On October 31st I was back in Sweden 🇸🇪 for Kullamannen by UTMB for the 3rd year in a row 🤩. After the 100 milers in 2024 and [2025](/blog/running/2025/11/18/kullamannen_by_utmb_2025), this time I ran the 50K (Seventh Seal), and I ran it as fast as I could 🚀😂.
 
 {% capture rows %}
 Race|Kullamannen by UTMB 2026 - 50K;
@@ -30,9 +30,9 @@ Distance|{{ page.distance_km }}k;
 
 ### Nano Summary ⚡️
 
-I had mixed feelings going in 😟😅: part of me felt like I was missing out on the "real" tough 100 mile experience. But choosing the 50K let me split my training with serious Lifting+WOD, and going all in on a faster race was a blast 🔥. I got punished for it though 😂: severe hamstring cramps forced me to full stops several times, I slipped big time in the mud, and I fell down some stairs (3–4 steps), emptying all the air in my lungs 🤕. And AGAIN the evil beach segments with stone hell took out all my speed 🪨 — but this year I kept running (well, jogging 😎) through them. I finished in `{{ page.duration_formatted }}` — and it was so nice not being completely smashed like the previous years 🥳.
+I went in with mixed feelings 😟😅, as part of me felt I was missing out on the "real" 100 mile experience. But the 50K let me balance my training with serious Lifting+WOD, and going all in on a faster race was a blast 🔥. I paid for it though 😂: hamstring cramps forced me to a full stop several times, I slipped big time in the mud and tumbled down a few stairs, knocking all the air out of my lungs 🤕. And AGAIN the evil stony beaches drained my speed 🪨, though this year I kept jogging through them 😎. I finished in `{{ page.duration_formatted }}`, and it was so nice not being completely smashed like the previous years 🥳.
 
-Casper, my son, ran the kids race while I was out on the course, so we both got medals 🏅🏅 (I actually like this year's medal a lot 🤩). The family cheered for me — though they missed me at Hovs Hallar (too fast while they were shopping 😂), and only my daughter made it to the finish line in time. My wife now says I'm not allowed to run the 50K anymore, because I'm too fast for her to do her Sweden things 😆.
+Casper, my son, ran the kids race while I was out on the course, so we both got medals 🏅🏅 (I actually like this year's medal a lot 🤩). The family cheered for me — though they missed me at Hovs Hallar (too fast while they were shopping 😂), and only my daughter made it to the finish line in time. My wife now says I'm not allowed to run the 50K anymore, because I'm too fast for her to get her shopping done 😆.
 
 ### Impressions 📸
 
@@ -146,6 +146,6 @@ Finisher medal and a well-deserved beer 🍺. My daughter was the only one who m
 
 Absolutely yes 🤩.
 
-Kullamannen is a superbly organized UTMB event with a fantastic route along the Swedish west coast — forest trails, cliffs, mud, stairs and those brutal stony beaches 🌊. The 50K gives you the full Kullamannen flavour in a single (long) day, and it's a perfect family trip too, with a kids race and plenty of Sweden things to do while you're out running 🇸🇪.
+Kullamannen is a superbly organized UTMB event with a fantastic route along the Swedish west coast — forest trails, cliffs, mud, stairs and those brutal stony beaches 🌊. The 50K gives you the full Kullamannen flavour in a single (long) day, and it's a perfect family trip too, with a kids race and plenty to explore in the area while you're out running 🇸🇪.
 
 This one gets my top rating: ⭐️⭐️⭐️⭐️⭐️
