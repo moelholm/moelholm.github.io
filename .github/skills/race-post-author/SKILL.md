@@ -151,7 +151,7 @@ Keep the structure tight and punchy:
    ```
    Then download and unzip it in the agent environment, skipping the Live Photo `.MP4` clips:
    ```bash
-   mkdir -p /tmp/kp && cd /tmp/kp && gh release download <race>-photos-tmp --repo moelholm/moelholm.github.io --clobber && unzip -q -o *.zip -d src
+   (mkdir -p /tmp/kp && cd /tmp/kp && gh release download <race>-photos-tmp --repo moelholm/moelholm.github.io --clobber && unzip -q -o *.zip -d src -x '*.MP4' '*.mp4')
    ```
    Keep the release until the photo selection is final, so originals can be fetched again for swaps. The agent token can't delete releases (HTTP 403), so remind the user to delete it afterwards: `gh release delete <race>-photos-tmp --repo moelholm/moelholm.github.io --yes --cleanup-tag`.
    If `pip install` is blocked (PEP 668), install Pillow/pillow-heif into a venv: `python3 -m venv /tmp/venv && /tmp/venv/bin/pip install -q pillow pillow-heif`.
