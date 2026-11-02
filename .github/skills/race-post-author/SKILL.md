@@ -103,7 +103,7 @@ Keep the structure tight and punchy:
 1. **Intro sentence**: 1–2 sentences introducing the race and linking to previous year(s) if applicable.
 2. **Race summary include**: `{% include blog_race_summary.html rows=rows_array %}`
 3. **`### Nano Summary ⚡️`**: 1–2 short paragraphs covering the official time/PB comparison, weather/bonks, volunteer appreciation, and friend/family surprises.
-4. **`### Impressions 📸`**: Short bold emoji-first lead-ins with photo tables split into even 2-image rows:
+4. **`### Impressions 📸`**: Exactly **three** sections — `🚌 Pre-race...`, `🚀 Race...`, `🏅 Post-race...` — never more sub-sections (no extra bold lead-ins for bib pickup, start, finish, etc.). Put any extra context in a short 1–2 sentence preface paragraph under each lead-in instead. Include as many photos as possible (exclude only near-duplicates, blurry/accidental shots and off-topic photos), and split large sections into several consecutive photo tables of ~4–6 images each (even counts), like `2026-10-24-race_mors_100_miles.md`:
    ```liquid
    ### Impressions 📸
 
@@ -144,6 +144,17 @@ Keep the structure tight and punchy:
 
 ### 5. Photo Processing Workflow
 
+0. **Getting the photos into the agent environment**: Chat attachments (5 at a time, not saved as files) and PR comment uploads (25 MB limit) don't work for a full photo set. Instead, have the user zip the originals (HEIC + PNG; keep EXIF) and upload the zip as a **draft release** asset from their own machine (2 GB limit, only visible to collaborators):
+   ```bash
+   gh release create <race>-photos-tmp --draft --repo moelholm/moelholm.github.io \
+     --title "tmp: <race> photos" "/path/to/Photos.zip"
+   ```
+   Then download and unzip it in the agent environment, skipping the Live Photo `.MP4` clips:
+   ```bash
+   (mkdir -p /tmp/kp && cd /tmp/kp && gh release download <race>-photos-tmp --repo moelholm/moelholm.github.io --clobber && unzip -q -o *.zip -d src -x '*.MP4' '*.mp4')
+   ```
+   Keep the release until the photo selection is final, so originals can be fetched again for swaps. The agent token can't delete releases (HTTP 403), so remind the user to delete it afterwards: `gh release delete <race>-photos-tmp --repo moelholm/moelholm.github.io --yes --cleanup-tag`.
+   If `pip install` is blocked (PEP 668), install Pillow/pillow-heif into a venv: `python3 -m venv /tmp/venv && /tmp/venv/bin/pip install -q pillow pillow-heif`.
 1. **Image Folder**: Store images in `site/img_running/<blog-post-date>/` using the post `date` (NOT `race_date`), because `site/_includes/blog_race_photo_table.html` resolves `/img_running/{{ page.date | date: "%Y-%m-%d" }}/`.
 2. **Convert everything to exactly 600×450** (HEIC/PNG/JPG; do NOT rely on CSS to equalize heights):
    - **Landscape photos** (`w >= h`): cover-crop (scale to fill, center-crop).
@@ -200,4 +211,5 @@ Keep the structure tight and punchy:
 ### 6. Writing Style & Validation
 
 - Casual, happy, enthusiastic first-person tone with liberal emoji use (🤩👏🏻🥳🚀🌧️🥶☕️🙏🏻🤠😅).
+- Keep prose fluent and natural in the author's first-person voice. Avoid all-caps emphasis, awkward note-like fragments, and referring to the author in the third person.
 - Verify the site builds cleanly (`cd site && bundle exec jekyll build --config _config.yml,_config_dev.yml`) or verify via the running dev server (`./tools/dev-server.sh`).
