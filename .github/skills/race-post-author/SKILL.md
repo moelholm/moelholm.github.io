@@ -211,4 +211,5 @@ Keep the structure tight and punchy:
 ### 6. Writing Style & Validation
 
 - Casual, happy, enthusiastic first-person tone with liberal emoji use (🤩👏🏻🥳🚀🌧️🥶☕️🙏🏻🤠😅).
+- Keep prose fluent and natural in the author's first-person voice. Avoid all-caps emphasis, awkward note-like fragments, and referring to the author in the third person.
 - Verify the site builds cleanly (`cd site && bundle exec jekyll build --config _config.yml,_config_dev.yml`) or verify via the running dev server (`./tools/dev-server.sh`).
