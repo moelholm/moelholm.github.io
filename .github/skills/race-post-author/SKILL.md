@@ -144,6 +144,17 @@ Keep the structure tight and punchy:
 
 ### 5. Photo Processing Workflow
 
+0. **Getting the photos into the agent environment**: Chat attachments (5 at a time, not saved as files) and PR comment uploads (25 MB limit) don't work for a full photo set. Instead, have the user zip the originals (HEIC + PNG; keep EXIF) and upload the zip as a **draft release** asset from their own machine (2 GB limit, only visible to collaborators):
+   ```bash
+   gh release create <race>-photos-tmp --draft --repo moelholm/moelholm.github.io \
+     --title "tmp: <race> photos" "/path/to/Photos.zip"
+   ```
+   Then download and unzip it in the agent environment, skipping the Live Photo `.MP4` clips:
+   ```bash
+   mkdir -p /tmp/kp && cd /tmp/kp && gh release download <race>-photos-tmp --repo moelholm/moelholm.github.io --clobber && unzip -q -o *.zip -d src
+   ```
+   Keep the release until the photo selection is final, so originals can be fetched again for swaps. The agent token can't delete releases (HTTP 403), so remind the user to delete it afterwards: `gh release delete <race>-photos-tmp --repo moelholm/moelholm.github.io --yes --cleanup-tag`.
+   If `pip install` is blocked (PEP 668), install Pillow/pillow-heif into a venv: `python3 -m venv /tmp/venv && /tmp/venv/bin/pip install -q pillow pillow-heif`.
 1. **Image Folder**: Store images in `site/img_running/<blog-post-date>/` using the post `date` (NOT `race_date`), because `site/_includes/blog_race_photo_table.html` resolves `/img_running/{{ page.date | date: "%Y-%m-%d" }}/`.
 2. **Convert everything to exactly 600×450** (HEIC/PNG/JPG; do NOT rely on CSS to equalize heights):
    - **Landscape photos** (`w >= h`): cover-crop (scale to fill, center-crop).
