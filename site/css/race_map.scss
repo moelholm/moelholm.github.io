@@ -140,6 +140,8 @@
 .race-map__swatch--ultra { background: #f97316; }
 .race-map__swatch--road { background: #2563eb; }
 .race-map__swatch--backyard { background: #8b5cf6; }
+.race-map__swatch--halfmarathon { background: #4682B4; }
+.race-map__swatch--marathon { background: #8B008B; }
 
 .race-map__popup-title {
   color: $link-color;
@@ -162,6 +164,8 @@
 .race-map__marker--ultra { background: #f97316; }
 .race-map__marker--road { background: #2563eb; }
 .race-map__marker--backyard { background: #8b5cf6; }
+.race-map__marker--halfmarathon { background: #4682B4; }
+.race-map__marker--marathon { background: #8B008B; }
 .race-map__marker--trail-ultra { background: conic-gradient(#16a34a 0 50%, #f97316 50% 100%); }
 .race-map__marker--backyard-ultra { background: conic-gradient(#8b5cf6 0 50%, #f97316 50% 100%); }
 .race-map__marker--backyard-trail-ultra {

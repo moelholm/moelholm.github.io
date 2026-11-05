@@ -6,6 +6,8 @@
     if (race.tags.includes("backyard-ultra")) types.push("backyard");
     if (race.tags.includes("trailrunning")) types.push("trail");
     if (race.tags.includes("ultrarunning") || Number(race.distance) >= 50) types.push("ultra");
+    if (race.tags.includes("halfmarathon")) types.push("halfmarathon");
+    if (race.tags.includes("marathon")) types.push("marathon");
     if (!types.length) types.push("road");
     return types;
   }
@@ -13,7 +15,14 @@
   function addOption(select, value) {
     var option = document.createElement("option");
     option.value = value;
-    option.textContent = value;
+    option.textContent = {
+      backyard: "Backyard",
+      halfmarathon: "Half marathon",
+      marathon: "Marathon",
+      road: "Road",
+      trail: "Trail",
+      ultra: "Ultra"
+    }[value] || value;
     select.appendChild(option);
   }
 
