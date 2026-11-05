@@ -6,6 +6,10 @@ date: 2025-05-21 18:45:00 +0200
 race_date: 2025-05-18
 comments: true
 tags: race running halfmarathon
+race_location: "Odense"
+race_country: "Denmark"
+race_latitude: 55.4038
+race_longitude: 10.4024
 distance_km: 21
 elevation_gain_m: 90
 duration_formatted: '1h31m00s'

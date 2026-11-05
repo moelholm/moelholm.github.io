@@ -6,6 +6,10 @@ date: 2025-08-24 10:00:00 +0200
 race_date: 2025-08-21
 comments: true
 tags: race running road relay
+race_location: "Aarhus"
+race_country: "Denmark"
+race_latitude: 56.1629
+race_longitude: 10.2039
 distance_km: 10
 elevation_gain_m: 129
 duration_formatted: '40m42s'

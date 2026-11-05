@@ -6,6 +6,10 @@ date: 2025-11-18 05:00:00 +0100
 race_date: 2025-10-31
 comments: true
 tags: race running trailrunning ultrarunning
+race_location: "Höganäs"
+race_country: "Sweden"
+race_latitude: 56.1991
+race_longitude: 12.5575
 distance_km: 172.7
 elevation_gain_m: 2585
 duration_formatted: '26h41m18s'

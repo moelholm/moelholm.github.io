@@ -6,6 +6,10 @@ date: 2025-06-21 13:30:00 +0200
 race_date: 2025-06-07
 comments: true
 tags: race running trailrunning ultrarunning
+race_location: "Salzburg"
+race_country: "Austria"
+race_latitude: 47.8095
+race_longitude: 13.0550
 distance_km: 120
 elevation_gain_m: 5309
 duration_formatted: '18h47m44s'

@@ -6,6 +6,10 @@ date: 2026-05-24 10:14:58 +0200
 race_date: 2026-05-10
 comments: true
 tags: race running marathon
+race_location: "Copenhagen"
+race_country: "Denmark"
+race_latitude: 55.6761
+race_longitude: 12.5683
 distance_km: 42
 elevation_gain_m: 82
 duration_formatted: '3h00m15s'

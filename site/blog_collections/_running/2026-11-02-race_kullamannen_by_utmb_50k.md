@@ -6,6 +6,10 @@ date: 2026-11-02 17:00:00 +0100
 race_date: 2026-10-31
 comments: true
 tags: race running trailrunning ultrarunning nano-race-note
+race_location: "Mölle, Kullaberg"
+race_country: "Sweden"
+race_latitude: 56.2825
+race_longitude: 12.5006
 distance_km: 53
 elevation_gain_m: 848
 duration_formatted: '5h23m43s'

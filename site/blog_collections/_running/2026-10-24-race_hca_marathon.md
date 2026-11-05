@@ -6,6 +6,10 @@ date: 2026-10-24 10:00:00 +0200
 race_date: 2026-09-27
 comments: true
 tags: race running marathon nano-race-note
+race_location: "Odense"
+race_country: "Denmark"
+race_latitude: 55.4038
+race_longitude: 10.4024
 distance_km: 42
 elevation_gain_m: 162
 duration_formatted: '3h23m02s'

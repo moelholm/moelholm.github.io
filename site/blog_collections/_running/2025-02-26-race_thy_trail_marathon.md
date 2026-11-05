@@ -6,6 +6,10 @@ date: 2025-02-26 19:20:00 +0100
 race_date: 2025-02-22
 comments: true
 tags: race running trailrunning
+race_location: "Thy National Park"
+race_country: "Denmark"
+race_latitude: 56.9581
+race_longitude: 8.4163
 distance_km: 42
 elevation_gain_m: 321
 duration_formatted: '4h12m14s'

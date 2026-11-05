@@ -6,6 +6,10 @@ date: 2026-04-24 13:00:00 +0200
 race_date: 2026-04-12
 comments: true
 tags: race running halfmarathon
+race_location: "Bramming"
+race_country: "Denmark"
+race_latitude: 55.4662
+race_longitude: 8.7000
 distance_km: 21
 elevation_gain_m: 100
 duration_formatted: '1h26m57s'

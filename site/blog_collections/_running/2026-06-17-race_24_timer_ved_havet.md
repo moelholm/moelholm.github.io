@@ -6,6 +6,10 @@ date: 2026-06-17 10:00:00 +0200
 race_date: 2026-05-30
 comments: true
 tags: race running ultrarunning
+race_location: "Sæby"
+race_country: "Denmark"
+race_latitude: 57.3340
+race_longitude: 10.5230
 distance_km: 194
 elevation_gain_m: 880
 duration_formatted: '24h00m00s'

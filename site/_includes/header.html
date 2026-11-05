@@ -6,7 +6,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navBar">
     {%- assign _u = page.url -%}
-    {%- assign _races_urls = "/races/,/races-2026/,/race-calendar-2026/,/race-calendar-2027/" | split: "," -%}
+    {%- assign _races_urls = "/race-map/,/races/,/races-2026/,/race-calendar-2026/,/race-calendar-2027/" | split: "," -%}
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item{% if _u == '/activities/' %} active{% endif %}">
         <a class="nav-link" href="/activities/"{% if _u == '/activities/' %} aria-current="page"{% endif %}>activities</a>
@@ -21,6 +21,8 @@
         <a class="nav-link dropdown-toggle" href="#" id="racesDropdown" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">races</a>
         <div class="dropdown-menu" aria-labelledby="racesDropdown">
+          <a class="dropdown-item{% if _u == '/race-map/' %} active{% endif %}" href="/race-map/">race map</a>
+          <div class="dropdown-divider"></div>
           <a class="dropdown-item{% if _u == '/races-2026/' %} active{% endif %}" href="/races-2026/">races 2026</a>
           <a class="dropdown-item{% if _u == '/races/' %} active{% endif %}" href="/races/">races 2025</a>
           <div class="dropdown-divider"></div>

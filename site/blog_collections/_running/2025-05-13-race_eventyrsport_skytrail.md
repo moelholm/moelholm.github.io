@@ -6,6 +6,10 @@ date: 2025-05-13 17:50:00 +0200
 race_date: 2025-05-10
 comments: true
 tags: race running trailrunning
+race_location: "Himmelbjerget, Ry"
+race_country: "Denmark"
+race_latitude: 56.1025
+race_longitude: 9.6981
 distance_km: 42
 elevation_gain_m: 2557
 duration_formatted: '6h06m38s'

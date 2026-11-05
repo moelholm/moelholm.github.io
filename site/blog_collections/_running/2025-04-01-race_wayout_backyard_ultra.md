@@ -6,6 +6,10 @@ date: 2025-04-01 19:30:00 +0200
 race_date: 2025-03-28
 comments: true
 tags: race running trailrunning backyard-ultra ultrarunning
+race_location: "Fort Østerlund, Silkeborg"
+race_country: "Denmark"
+race_latitude: 56.1596
+race_longitude: 9.5680
 distance_km: 134
 elevation_gain_m: 1637
 duration_formatted: '20h'

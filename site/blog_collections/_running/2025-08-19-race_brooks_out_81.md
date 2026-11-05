@@ -6,6 +6,10 @@ date: 2025-08-19 18:00:00 +0200
 race_date: 2025-08-16
 comments: true
 tags: race running trailrunning ultrarunning
+race_location: "Harrild Hede, Bryrup"
+race_country: "Denmark"
+race_latitude: 55.9388
+race_longitude: 8.8623
 distance_km: 81
 elevation_gain_m: 1361
 duration_formatted: '8h53m05s'

@@ -6,6 +6,10 @@ date: 2025-09-16 05:00:00 +0200
 race_date: 2025-09-06
 comments: true
 tags: race running ultrarunning
+race_location: "Nykøbing Mors"
+race_country: "Denmark"
+race_latitude: 56.7930
+race_longitude: 8.8570
 distance_km: 160
 elevation_gain_m: 1309
 duration_formatted: '18h11m00s'

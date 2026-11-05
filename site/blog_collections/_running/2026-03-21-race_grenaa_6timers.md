@@ -6,6 +6,10 @@ date: 2026-03-21 18:00:00 +0100
 race_date: 2026-03-14
 comments: true
 tags: race running ultrarunning
+race_location: "Grenaa"
+race_country: "Denmark"
+race_latitude: 56.4158
+race_longitude: 10.8783
 distance_km: 71
 duration_formatted: '6h00m00s'
 race_results_official: "https://facebook.com/events/s/grenaa-halvmarathon-6-timers-u/1288865012330638/"
