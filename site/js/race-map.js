@@ -3,13 +3,19 @@
 
   function raceTypes(race) {
     var types = [];
+    var isTrail = race.tags.includes("trailrunning");
     if (race.tags.includes("backyard-ultra")) types.push("backyard");
-    if (race.tags.includes("trailrunning")) types.push("trail");
+    if (isTrail) types.push("trail");
     if (race.tags.includes("ultrarunning") || Number(race.distance) >= 50) types.push("ultra");
     if (race.tags.includes("halfmarathon")) types.push("halfmarathon");
     if (race.tags.includes("marathon")) types.push("marathon");
-    if (!types.length) types.push("road");
+    if (!isTrail) types.push("road");
     return types;
+  }
+
+  function markerTypes(race) {
+    var types = raceTypes(race).filter(function (type) { return type !== "road"; });
+    return types.length ? types : ["road"];
   }
 
   function addOption(select, value) {
@@ -211,7 +217,7 @@
       });
 
       visible.forEach(function (race) {
-        var typeClass = raceTypes(race).join("-");
+        var typeClass = markerTypes(race).join("-");
         var base = L.latLng(Number(race.latitude), Number(race.longitude));
         var marker = L.marker(base, {
           title: race.title,

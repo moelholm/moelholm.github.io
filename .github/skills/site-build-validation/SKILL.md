@@ -24,4 +24,4 @@ Use this skill when validating changes to the site or its pull-request preview.
 
 ## Git operations
 
-Only stage, commit, or push when the user explicitly asks for those operations. Use a focused commit and preserve the repository's required commit trailers.
+For routine autonomous cloud tasks (such as blog-post additions) and explicitly requested PR creation or updates, commit and push the requested work to the task branch unless the user says otherwise. During interactive feature development with the user, leave commits and pushes under their control unless explicitly asked. Use a focused commit and preserve the repository's required commit trailers.

@@ -53,6 +53,7 @@ In `site/race_calendar_YYYY.md`, update the race entry:
 - Use the blog post publication `date` in the filename (which determines the permalink `/blog/running/YYYY/MM/DD/race_name`).
 - The `date` time must already be in the past (convert to UTC) when the PR is merged. Jekyll skips future-dated posts, but the calendar's `blog_url` still links to them, which gives a 404 on the live site.
 - Add `race_location`, `race_country`, `race_latitude`, and `race_longitude` for every mapped race. Use the actual race start city or venue (not a broad nearby region); the race maps use these fields for marker placement.
+- Map type filters are derived from race tags: races without `trailrunning` are classified as road, while trail races retain trail classification. Do not maintain a hard-coded list of road races.
 
 #### Front Matter Structure
 
