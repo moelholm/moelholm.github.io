@@ -154,6 +154,12 @@
       maxClusterRadius: function (zoom) { return zoom < 10 ? 60 : 2; }
     });
     map.addLayer(markers);
+    var popupIsOpen = false;
+    map.on("popupopen", function () {
+      popupIsOpen = true;
+      markers.eachLayer(function (marker) { marker.closeTooltip(); });
+    });
+    map.on("popupclose", function () { popupIsOpen = false; });
     var markerEntries = [];
 
     function updateMarkerSpread() {
@@ -227,15 +233,17 @@
         });
         marker.bindPopup(popupContent(race));
         marker.bindTooltip(tooltipContent(race), { direction: "top", offset: [0, -7], opacity: 0.95 });
-        marker.on("popupopen", function () { marker.closeTooltip(); });
+        marker.on("tooltipopen", function () {
+          if (popupIsOpen) marker.closeTooltip();
+        });
         markers.addLayer(marker);
         markerEntries.push({ marker: marker, base: base, offset: offsets.get(race.url) });
       });
       updateMarkerSpread();
 
+      var countryCount = new Set(visible.map(function (race) { return race.country; })).size;
       summary.textContent = visible.length + (visible.length === 1 ? " race" : " races") +
-        " in " + new Set(visible.map(function (race) { return race.country; })).size +
-        (visible.length === 1 ? " country" : " countries");
+        " in " + countryCount + (countryCount === 1 ? " country" : " countries");
 
       if (results) {
         results.replaceChildren();
