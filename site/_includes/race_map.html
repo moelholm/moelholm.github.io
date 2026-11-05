@@ -26,9 +26,6 @@
     <button type="button" class="race-map__legend-filter" data-legend-filter="road" aria-pressed="false"><i class="race-map__swatch race-map__swatch--road"></i>Road</button>
     <button type="button" class="race-map__legend-filter" data-legend-filter="backyard" aria-pressed="false"><i class="race-map__swatch race-map__swatch--backyard"></i>Backyard</button>
   </div>
-  {% if include.list %}
-  <div class="race-map__results" data-map-results aria-live="polite"></div>
-  {% endif %}
   <script type="application/json" data-race-map-data>[
     {% assign first_race = true %}
     {% for post in map_races %}

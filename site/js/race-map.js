@@ -1,11 +1,13 @@
 (function () {
   "use strict";
 
-  function raceType(race) {
-    if (race.tags.includes("backyard-ultra")) return "backyard";
-    if (race.tags.includes("ultrarunning") || Number(race.distance) >= 50) return "ultra";
-    if (race.tags.includes("trailrunning")) return "trail";
-    return "road";
+  function raceTypes(race) {
+    var types = [];
+    if (race.tags.includes("backyard-ultra")) types.push("backyard");
+    if (race.tags.includes("trailrunning")) types.push("trail");
+    if (race.tags.includes("ultrarunning") || Number(race.distance) >= 50) types.push("ultra");
+    if (!types.length) types.push("road");
+    return types;
   }
 
   function addOption(select, value) {
@@ -70,36 +72,15 @@
     return container;
   }
 
-  function resultCard(race) {
-    var article = document.createElement("article");
-    article.className = "race-map__result";
-
-    var link = document.createElement("a");
-    link.href = race.url;
-    link.textContent = race.title;
-    link.className = "race-map__result-title";
-    article.appendChild(link);
-
-    var details = document.createElement("p");
-    details.textContent = raceDetails(race);
-    article.appendChild(details);
-
-    var badge = document.createElement("span");
-    badge.className = "race-map__type race-map__type--" + raceType(race);
-    badge.textContent = raceType(race);
-    article.appendChild(badge);
-    appendRaceLinks(article, race);
-    return article;
-  }
-
   document.querySelectorAll("[data-race-map]").forEach(function (element) {
     var races = JSON.parse(element.querySelector("[data-race-map-data]").textContent);
     var canvas = element.querySelector("[data-map-canvas]");
     var summary = element.querySelector("[data-map-summary]");
-    var results = element.querySelector("[data-map-results]");
     var timeline = element.querySelector("[data-timeline]");
     var timelineDate = element.querySelector("[data-timeline-date]");
     var legendFilters = Array.from(element.querySelectorAll("[data-legend-filter]"));
+    var raceRows = Array.from(document.querySelectorAll("[data-race-map-row]"));
+    var emptyMessage = document.querySelector("[data-map-empty]");
     var filters = {};
     var selectedType = "";
     element.querySelectorAll("[data-filter]").forEach(function (input) {
@@ -129,7 +110,9 @@
       if (key === "search") return;
       var values;
       if (key === "type") {
-        values = Array.from(new Set(races.map(raceType))).sort();
+        values = Array.from(new Set(races.reduce(function (allTypes, race) {
+          return allTypes.concat(raceTypes(race));
+        }, []))).sort();
       } else {
         values = Array.from(new Set(races.map(function (race) { return race[key]; }))).sort();
       }
@@ -184,7 +167,7 @@
       return races.filter(function (race) {
         return (!filters.year || !filters.year.value || race.year === filters.year.value) &&
           (!filters.country || !filters.country.value || race.country === filters.country.value) &&
-          (!selectedType || raceType(race) === selectedType) &&
+          (!selectedType || raceTypes(race).includes(selectedType)) &&
           (!timeline || race.date <= throughDate) &&
           (!query || [race.title, race.location, race.country].join(" ").toLowerCase().includes(query));
       });
@@ -219,13 +202,13 @@
       });
 
       visible.forEach(function (race) {
-        var type = raceType(race);
+        var typeClass = raceTypes(race).join("-");
         var base = L.latLng(Number(race.latitude), Number(race.longitude));
         var marker = L.marker(base, {
           title: race.title,
           alt: race.title,
           icon: L.divIcon({
-            className: "race-map__marker race-map__marker--" + type,
+            className: "race-map__marker race-map__marker--" + typeClass,
             iconSize: [18, 18],
             iconAnchor: [9, 9],
             popupAnchor: [0, -9]
@@ -245,15 +228,9 @@
       summary.textContent = visible.length + (visible.length === 1 ? " race" : " races") +
         " in " + countryCount + (countryCount === 1 ? " country" : " countries");
 
-      if (results) {
-        results.replaceChildren();
-        visible.forEach(function (race) { results.appendChild(resultCard(race)); });
-        if (!visible.length) {
-          var empty = document.createElement("p");
-          empty.textContent = "No races match these filters.";
-          results.appendChild(empty);
-        }
-      }
+      var visibleUrls = new Set(visible.map(function (race) { return race.url; }));
+      raceRows.forEach(function (row) { row.hidden = !visibleUrls.has(row.dataset.raceUrl); });
+      if (emptyMessage) emptyMessage.hidden = visible.length > 0;
 
       if (visible.length) {
         var bounds = L.latLngBounds(visible.map(function (race) {
