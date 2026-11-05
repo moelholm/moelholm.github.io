@@ -97,7 +97,11 @@
     var canvas = element.querySelector("[data-map-canvas]");
     var summary = element.querySelector("[data-map-summary]");
     var results = element.querySelector("[data-map-results]");
+    var timeline = element.querySelector("[data-timeline]");
+    var timelineDate = element.querySelector("[data-timeline-date]");
+    var legendFilters = Array.from(element.querySelectorAll("[data-legend-filter]"));
     var filters = {};
+    var selectedType = "";
     element.querySelectorAll("[data-filter]").forEach(function (input) {
       filters[input.dataset.filter] = input;
     });
@@ -113,6 +117,14 @@
       return;
     }
 
+    var chronologicalRaces = races.slice().sort(function (a, b) {
+      return a.date.localeCompare(b.date) || a.title.localeCompare(b.title);
+    });
+    if (timeline) {
+      timeline.max = String(chronologicalRaces.length);
+      timeline.value = String(chronologicalRaces.length);
+    }
+
     Object.keys(filters).forEach(function (key) {
       if (key === "search") return;
       var values;
@@ -124,6 +136,13 @@
       values.forEach(function (value) { addOption(filters[key], value); });
     });
 
+    function syncTypeFilters() {
+      if (filters.type) filters.type.value = selectedType;
+      legendFilters.forEach(function (button) {
+        button.setAttribute("aria-pressed", String(button.dataset.legendFilter === selectedType));
+      });
+    }
+
     var map = L.map(canvas, { scrollWheelZoom: false });
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -132,26 +151,71 @@
     var markers = L.markerClusterGroup({
       showCoverageOnHover: false,
       spiderfyOnMaxZoom: true,
-      maxClusterRadius: 35
+      maxClusterRadius: function (zoom) { return zoom < 10 ? 60 : 2; }
     });
     map.addLayer(markers);
+    var markerEntries = [];
+
+    function updateMarkerSpread() {
+      var spread = map.getZoom() >= 10;
+      markerEntries.forEach(function (entry) {
+        var position = entry.base;
+        if (spread && entry.offset) {
+          var point = map.latLngToLayerPoint(entry.base).add([entry.offset.x, entry.offset.y]);
+          position = map.layerPointToLatLng(point);
+        }
+        entry.marker.setLatLng(position);
+      });
+    }
+
+    map.on("zoomend", updateMarkerSpread);
 
     function filteredRaces() {
       var query = filters.search ? filters.search.value.trim().toLowerCase() : "";
+      var throughDate = timeline
+        ? chronologicalRaces[Number(timeline.value) - 1].date
+        : "";
       return races.filter(function (race) {
         return (!filters.year || !filters.year.value || race.year === filters.year.value) &&
           (!filters.country || !filters.country.value || race.country === filters.country.value) &&
-          (!filters.type || !filters.type.value || raceType(race) === filters.type.value) &&
+          (!selectedType || raceType(race) === selectedType) &&
+          (!timeline || race.date <= throughDate) &&
           (!query || [race.title, race.location, race.country].join(" ").toLowerCase().includes(query));
       });
     }
 
     function render() {
       var visible = filteredRaces();
+      if (timeline) {
+        var selectedIndex = Number(timeline.value);
+        var selectedDate = chronologicalRaces[selectedIndex - 1].date;
+        var timelineLabel = selectedIndex === chronologicalRaces.length
+          ? "All races · " + selectedDate
+          : (selectedIndex === 1 ? "First race · " : "Through ") + selectedDate;
+        timelineDate.textContent = timelineLabel;
+        timeline.setAttribute("aria-valuetext", timelineLabel);
+      }
       markers.clearLayers();
+      markerEntries = [];
+      var places = new Map();
+      visible.forEach(function (race) {
+        var key = [race.country, race.latitude, race.longitude].join("|");
+        if (!places.has(key)) places.set(key, []);
+        places.get(key).push(race);
+      });
+      var offsets = new Map();
+      places.forEach(function (placeRaces) {
+        if (placeRaces.length < 2) return;
+        placeRaces.forEach(function (race, index) {
+          var angle = 2 * Math.PI * index / placeRaces.length;
+          offsets.set(race.url, { x: Math.cos(angle) * 20, y: Math.sin(angle) * 20 });
+        });
+      });
+
       visible.forEach(function (race) {
         var type = raceType(race);
-        var marker = L.marker([Number(race.latitude), Number(race.longitude)], {
+        var base = L.latLng(Number(race.latitude), Number(race.longitude));
+        var marker = L.marker(base, {
           title: race.title,
           alt: race.title,
           icon: L.divIcon({
@@ -163,8 +227,11 @@
         });
         marker.bindPopup(popupContent(race));
         marker.bindTooltip(tooltipContent(race), { direction: "top", offset: [0, -7], opacity: 0.95 });
+        marker.on("popupopen", function () { marker.closeTooltip(); });
         markers.addLayer(marker);
+        markerEntries.push({ marker: marker, base: base, offset: offsets.get(race.url) });
       });
+      updateMarkerSpread();
 
       summary.textContent = visible.length + (visible.length === 1 ? " race" : " races") +
         " in " + new Set(visible.map(function (race) { return race.country; })).size +
@@ -191,8 +258,22 @@
     }
 
     Object.keys(filters).forEach(function (key) {
-      filters[key].addEventListener(key === "search" ? "input" : "change", render);
+      filters[key].addEventListener(key === "search" ? "input" : "change", function () {
+        if (key === "type") {
+          selectedType = filters.type.value;
+          syncTypeFilters();
+        }
+        render();
+      });
     });
+    legendFilters.forEach(function (button) {
+      button.addEventListener("click", function () {
+        selectedType = selectedType === button.dataset.legendFilter ? "" : button.dataset.legendFilter;
+        syncTypeFilters();
+        render();
+      });
+    });
+    if (timeline) timeline.addEventListener("input", render);
     render();
   });
 }());

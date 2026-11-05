@@ -57,6 +57,44 @@
   min-height: 390px;
 }
 
+.race-map__timeline {
+  margin: 0.9rem 0 0.75rem;
+}
+
+.race-map__timeline-heading,
+.race-map__timeline-ends {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  color: $text-muted;
+  font-size: 0.8rem;
+}
+
+.race-map__timeline-heading label {
+  margin: 0;
+  color: $heading-secondary;
+  font-weight: 700;
+}
+
+.race-map__timeline-heading output {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.race-map__timeline input[type="range"] {
+  display: block;
+  width: 100%;
+  min-height: 2.75rem;
+  margin: 0;
+  accent-color: $link-color;
+  cursor: pointer;
+  touch-action: pan-y;
+}
+
+.race-map__timeline-ends {
+  font-size: 0.72rem;
+}
+
 .race-map__legend {
   display: flex;
   flex-wrap: wrap;
@@ -70,6 +108,31 @@
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
+}
+
+.race-map__legend-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.4rem;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.race-map__legend-filter:hover,
+.race-map__legend-filter[aria-pressed="true"] {
+  border-color: #e6ebf2;
+  background: #f3f5f8;
+  color: $heading-primary;
+}
+
+.race-map__legend-filter:focus-visible {
+  outline: 2px solid $link-color;
+  outline-offset: 2px;
 }
 
 .race-map__swatch {

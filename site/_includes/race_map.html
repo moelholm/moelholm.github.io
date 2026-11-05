@@ -10,11 +10,21 @@
   {% endif %}
   <div class="race-map__summary" data-map-summary aria-live="polite"></div>
   <div class="race-map__canvas" data-map-canvas role="region" aria-label="Interactive map of race locations"></div>
-  <div class="race-map__legend" aria-label="Race type legend">
-    <span><i class="race-map__swatch race-map__swatch--trail"></i>Trail</span>
-    <span><i class="race-map__swatch race-map__swatch--ultra"></i>Ultra</span>
-    <span><i class="race-map__swatch race-map__swatch--road"></i>Road</span>
-    <span><i class="race-map__swatch race-map__swatch--backyard"></i>Backyard</span>
+  {% if include.timeline %}
+  <div class="race-map__timeline">
+    <div class="race-map__timeline-heading">
+      <label for="race-map-timeline">Race timeline</label>
+      <output data-timeline-date for="race-map-timeline"></output>
+    </div>
+    <input id="race-map-timeline" type="range" min="1" step="1" data-timeline aria-label="Show races through the selected date">
+    <div class="race-map__timeline-ends"><span>First race</span><span>All races</span></div>
+  </div>
+  {% endif %}
+  <div class="race-map__legend" role="group" aria-label="Filter races by type">
+    <button type="button" class="race-map__legend-filter" data-legend-filter="trail" aria-pressed="false"><i class="race-map__swatch race-map__swatch--trail"></i>Trail</button>
+    <button type="button" class="race-map__legend-filter" data-legend-filter="ultra" aria-pressed="false"><i class="race-map__swatch race-map__swatch--ultra"></i>Ultra</button>
+    <button type="button" class="race-map__legend-filter" data-legend-filter="road" aria-pressed="false"><i class="race-map__swatch race-map__swatch--road"></i>Road</button>
+    <button type="button" class="race-map__legend-filter" data-legend-filter="backyard" aria-pressed="false"><i class="race-map__swatch race-map__swatch--backyard"></i>Backyard</button>
   </div>
   {% if include.list %}
   <div class="race-map__results" data-map-results aria-live="polite"></div>
