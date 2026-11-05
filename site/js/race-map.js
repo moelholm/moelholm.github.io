@@ -188,7 +188,7 @@
       });
     }
 
-    function render(preserveView) {
+    function render() {
       var visible = filteredRaces();
       if (timeline) {
         var selectedIndex = Number(timeline.value);
@@ -247,15 +247,13 @@
       raceRows.forEach(function (row) { row.hidden = !visibleUrls.has(row.dataset.raceUrl); });
       if (emptyMessage) emptyMessage.hidden = visible.length > 0;
 
-      if (!preserveView) {
-        if (visible.length) {
-          var bounds = L.latLngBounds(visible.map(function (race) {
-            return [Number(race.latitude), Number(race.longitude)];
-          }));
-          map.fitBounds(bounds, { padding: [28, 28], maxZoom: 11 });
-        } else {
-          map.setView([30, 10], 2);
-        }
+      if (visible.length) {
+        var bounds = L.latLngBounds(visible.map(function (race) {
+          return [Number(race.latitude), Number(race.longitude)];
+        }));
+        map.fitBounds(bounds, { padding: [28, 28], maxZoom: 11 });
+      } else {
+        map.setView([30, 10], 2);
       }
     }
 
@@ -275,7 +273,7 @@
         render();
       });
     });
-    if (timeline) timeline.addEventListener("input", function () { render(true); });
+    if (timeline) timeline.addEventListener("input", render);
     render();
   });
 }());
