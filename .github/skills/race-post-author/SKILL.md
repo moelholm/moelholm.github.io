@@ -1,6 +1,6 @@
 ---
 name: race-post-author
-description: "Create and edit running race blog posts (full race reports and nano-race-note posts) for moelholm.github.io, including gathering race data from Strava/Mastodon/calendar, updating race_calendar, and resizing/cropping race photos. Use when: writing a new race blog post, creating a nano/mini race note, processing race photos, or updating race results."
+description: "Create and edit running race blog posts (full race reports and nano-race-note posts) for moelholm.github.io, including gathering race data from Strava/Mastodon/calendar, maintaining race-map location metadata, updating race_calendar, and resizing/cropping race photos. Use when: writing a new race blog post, creating a nano/mini race note, processing race photos, updating race results, or maintaining race locations."
 argument-hint: "Specify the race name and whether it should be a nano-race-note or full post"
 ---
 
@@ -13,6 +13,7 @@ Create engaging, enthusiastic running race blog posts (either compact `nano-race
 - The user asks to create a new running race blog post, mini post, or nano post (`nano-race-note`)
 - The user uploads race photos to be converted, cropped, and placed into a race post
 - The user wants to update race metadata or mark a race as completed in `site/race_calendar_YYYY.md`
+- The user wants to update race locations used by the maps
 
 ## Step-by-Step Procedure
 
@@ -51,6 +52,8 @@ In `site/race_calendar_YYYY.md`, update the race entry:
 - **File path**: `site/blog_collections/_running/<blog-post-date>-race_name.md` (e.g. `2026-10-24-race_mors_100_miles.md`)
 - Use the blog post publication `date` in the filename (which determines the permalink `/blog/running/YYYY/MM/DD/race_name`).
 - The `date` time must already be in the past (convert to UTC) when the PR is merged. Jekyll skips future-dated posts, but the calendar's `blog_url` still links to them, which gives a 404 on the live site.
+- Add `race_location`, `race_country`, `race_latitude`, and `race_longitude` for every mapped race. Use the actual race start city or venue (not a broad nearby region); the race maps use these fields for marker placement.
+- Map type filters are derived from race tags: races without `trailrunning` are classified as road, while trail races retain trail classification. Do not maintain a hard-coded list of road races.
 
 #### Front Matter Structure
 
@@ -69,6 +72,10 @@ duration_formatted: '17h47m18s'  # official / elapsed time, NEVER moving time
 race_results_official: "URL"
 race_results_strava: "https://www.strava.com/activities/<strava_id>/overview"
 race_website: "URL"
+race_location: "City or race venue"
+race_country: "Country"
+race_latitude: 55.6761
+race_longitude: 12.5683
 ---
 ```
 
@@ -212,4 +219,6 @@ Keep the structure tight and punchy:
 
 - Casual, happy, enthusiastic first-person tone with liberal emoji use (🤩👏🏻🥳🚀🌧️🥶☕️🙏🏻🤠😅).
 - Keep prose fluent and natural in the author's first-person voice. Avoid all-caps emphasis, awkward note-like fragments, and referring to the author in the third person.
-- Verify the site builds cleanly (`cd site && bundle exec jekyll build --config _config.yml,_config_dev.yml`) or verify via the running dev server (`./tools/dev-server.sh`).
+- For pull-request changes, push the branch and let `.github/workflows/pr-preview.yml` run its Ruby 3.1 build (`cd site && bundle install && bundle exec jekyll build --drafts --future`). This is the canonical preview validation.
+- A local build is optional. If the machine's Ruby is incompatible with locked gems, do not change `Gemfile.lock` just to make the local build work; use the PR action, or an ephemeral Ruby 3.1 container if immediate local validation is useful.
+- For interactive local review, use `./tools/dev-server.sh`.

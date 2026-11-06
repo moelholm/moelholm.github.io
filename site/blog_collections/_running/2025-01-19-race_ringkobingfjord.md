@@ -6,6 +6,10 @@ date: 2025-01-19 14:00:00 +0100
 race_date: 2025-01-11
 comments: true
 tags: race running ultrarunning
+race_location: "Ringkøbing"
+race_country: "Denmark"
+race_latitude: 56.0905
+race_longitude: 8.2436
 distance_km: 100
 elevation_gain_m: 319
 duration_formatted: '10h18m29s'

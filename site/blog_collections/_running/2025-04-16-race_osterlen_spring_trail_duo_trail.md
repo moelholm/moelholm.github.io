@@ -6,6 +6,10 @@ date: 2025-04-16 15:30:00 +0200
 race_date: 2025-04-12
 comments: true
 tags: race running trailrunning sweden relay
+race_location: "Brösarp, Österlen"
+race_country: "Sweden"
+race_latitude: 55.7204
+race_longitude: 14.0922
 distance_km: 34
 elevation_gain_m: 406
 duration_formatted: '2h54m34s'

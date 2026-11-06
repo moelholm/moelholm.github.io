@@ -26,7 +26,25 @@
   .home-hero .external-race-links .result-badge { margin: 0 !important; }
 }
 
-.home-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; .home-post { margin-bottom: 0.5rem; } }
+.home-grid { display: grid; grid-template-columns: 1fr; gap: $panel-gap; .home-post { margin-bottom: 0.5rem; } }
+
+.home-grid__main {
+  display: grid;
+  gap: $panel-gap;
+  align-content: start;
+}
+
+.home-grid__main > .race-map,
+.home-grid__main > .card {
+  margin: 0;
+}
+
+.home-grid__main > .card {
+  border: 1px solid $panel-border-color;
+  border-radius: $panel-border-radius;
+  background: #fff;
+  box-shadow: $panel-shadow;
+}
 
 // Compact variants for homepage
 .home-post--compact .card-body { padding: 0.6rem 0.75rem; }

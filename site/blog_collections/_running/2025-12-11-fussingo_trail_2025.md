@@ -6,6 +6,10 @@ date: 2025-12-11 08:00:00 +0100
 race_date: 2025-12-07
 comments: true
 tags: race running trailrunning ultrarunning
+race_location: "Fussingø, Randers"
+race_country: "Denmark"
+race_latitude: 56.5221
+race_longitude: 9.8129
 distance_km: 48
 elevation_gain_m: 1166
 duration_formatted: '4h33m27s'

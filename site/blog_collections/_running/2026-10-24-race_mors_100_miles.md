@@ -6,6 +6,10 @@ date: 2026-10-24 09:00:00 +0200
 race_date: 2026-09-12
 comments: true
 tags: race running ultrarunning nano-race-note
+race_location: "Nykøbing Mors"
+race_country: "Denmark"
+race_latitude: 56.7930
+race_longitude: 8.8570
 distance_km: 160
 elevation_gain_m: 1423
 duration_formatted: '17h47m18s'

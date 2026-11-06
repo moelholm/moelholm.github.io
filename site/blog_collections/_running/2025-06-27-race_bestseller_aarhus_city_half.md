@@ -6,6 +6,10 @@ date: 2025-06-27 18:55:00 +0200
 race_date: 2025-06-15
 comments: true
 tags: race running halfmarathon
+race_location: "Aarhus"
+race_country: "Denmark"
+race_latitude: 56.1629
+race_longitude: 10.2039
 distance_km: 21
 elevation_gain_m: 190
 duration_formatted: '1h30m37s'

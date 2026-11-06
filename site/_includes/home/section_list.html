@@ -1,5 +1,5 @@
 
-<div class="card{% if include.kind != 'toots' %} mb-3{% endif %}">
+<div class="card">
   <div class="card-body">
     <h5 class="mb-2 d-flex align-items-center gap-1">{{ include.title }}{% if include.emoji %} <span class="emoji-badge ml-1">{{ include.emoji }}</span>{% endif %}</h5>
     {%- assign list = include.items -%}

@@ -6,6 +6,10 @@ date: 2026-08-29 06:00:00 +0200
 race_date: 2026-06-14
 comments: true
 tags: race running halfmarathon nano-race-note
+race_location: "Aarhus"
+race_country: "Denmark"
+race_latitude: 56.1629
+race_longitude: 10.2039
 distance_km: 21
 duration_formatted: '1h28m32s'
 race_results_official: "https://www.aarhusmotion.dk/event/293/resultater/1409181?round=1334&amp;page=1&amp;Search=Nicky"

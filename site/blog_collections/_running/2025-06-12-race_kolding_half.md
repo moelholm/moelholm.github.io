@@ -6,6 +6,10 @@ date: 2025-06-12 06:45:00 +0200
 race_date: 2025-06-01
 comments: true
 tags: race running halfmarathon
+race_location: "Kolding"
+race_country: "Denmark"
+race_latitude: 55.4904
+race_longitude: 9.4722
 distance_km: 21
 elevation_gain_m: 161
 duration_formatted: '1h32m58s'

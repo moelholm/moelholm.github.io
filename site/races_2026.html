@@ -2,9 +2,12 @@
 layout: default
 title: Races 2026 - moelholm.com
 permalink: /races-2026/
-stylesheets: ["/css/races.css"]
+stylesheets: ["/css/races.css", "/css/race_map.css"]
+race_map: true
 ---
 
 <h1>Races · Running 2026</h1>
+
+{% include race_map.html year="2026" %}
 
 {% include race_calendar.html year="2026" %}

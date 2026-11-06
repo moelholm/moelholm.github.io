@@ -3,6 +3,8 @@ layout: default
 title: moelholm.com
 stylesheets:
   - /css/home.css
+  - /css/race_map.css
+race_map: true
 ---
 
 <!-- Hero / intro -->
@@ -33,6 +35,8 @@ stylesheets:
 <!-- Main: latest posts + sidebar -->
 <section class="home-grid">
   <div class="home-grid__main">
+  {% include race_map.html %}
+
   {% comment %}Get upcoming races from race calendar{% endcomment %}
   {% assign race_calendar_page = site.pages | where: "name", "race_calendar_2026.md" | first %}
   {% if race_calendar_page and race_calendar_page.races %}

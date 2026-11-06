@@ -14,7 +14,7 @@ Inputs:
       {% for post in race_posts %}
         {% assign race_date = post.race_date | default: post.date %}
         {% assign post_year = race_date | date: "%Y" %}
-        {% if post_year == calendar_year %}
+        {% if calendar_year == "all" or post_year == calendar_year %}
           {% if post.distance_km %}
             {% assign current_distance = post.distance_km | plus: 0 %}
             {% if current_distance > max_distance %}{% assign max_distance = current_distance %}{% endif %}
@@ -34,7 +34,7 @@ Inputs:
       {% for post in race_posts %}
         {% assign race_date = post.race_date | default: post.date %}
         {% assign post_year = race_date | date: "%Y" %}
-        {% if post_year == calendar_year %}
+        {% if calendar_year == "all" or post_year == calendar_year %}
           {% assign current_distance = post.distance_km | plus: 0 %}
           {% assign current_elevation = post.elevation_gain_m | plus: 0 %}
           {% assign current_duration = 0 %}
@@ -64,7 +64,7 @@ Inputs:
           {% if is_highest_elevation %}{% assign row_classes = row_classes | append: 'highest-elevation ' %}{% endif %}
           {% if is_longest_duration %}{% assign row_classes = row_classes | append: 'longest-duration ' %}{% endif %}
 
-          <tr{% if row_classes != '' %} class="{{ row_classes | strip }}"{% endif %}>
+          <tr data-race-map-row data-race-url="{{ post.url | escape }}"{% if post.race_country %} data-race-country="{{ post.race_country | escape }}"{% endif %}{% if row_classes != '' %} class="{{ row_classes | strip }}"{% endif %}>
             <td class="race-details-cell" colspan="2">
               {% capture title_html %}{{ post.title }}{% endcapture %}
               {% capture body_html %}
@@ -118,13 +118,15 @@ Inputs:
                       {% for tag in tag_array %}
                         {% if tag != '' %}
                           {% assign filter_for = '' %}
-                          {% if tag == 'ultra' %}
+                          {% if calendar_year != 'all' and tag == 'ultra' %}
                             {% assign filter_for = 'filter-ultra-' | append: calendar_year %}
-                          {% elsif tag == 'trail' %}
+                          {% elsif calendar_year != 'all' and tag == 'trail' %}
                             {% assign filter_for = 'filter-trail-' | append: calendar_year %}
-                          {% elsif tag == 'backyard' %}
+                          {% elsif calendar_year != 'all' and tag == 'backyard' %}
                             {% assign filter_for = 'filter-backyard-' | append: calendar_year %}
-                          {% elsif tag == 'half' or tag == 'marathon' %}
+                          {% elsif calendar_year != 'all' and tag == 'half' %}
+                            {% assign filter_for = 'filter-road-' | append: calendar_year %}
+                          {% elsif calendar_year != 'all' and tag == 'marathon' %}
                             {% assign filter_for = 'filter-road-' | append: calendar_year %}
                           {% endif %}
                           {% if filter_for != '' %}

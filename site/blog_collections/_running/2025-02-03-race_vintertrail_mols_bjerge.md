@@ -6,6 +6,10 @@ date: 2025-02-03 17:00:00 +0100
 race_date: 2025-02-02
 comments: true
 tags: race running trailrunning
+race_location: "Mols Bjerge"
+race_country: "Denmark"
+race_latitude: 56.2008
+race_longitude: 10.5602
 distance_km: 28
 elevation_gain_m: 883
 duration_formatted: '2h43m07s'

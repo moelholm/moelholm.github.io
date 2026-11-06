@@ -1,0 +1,60 @@
+{% assign map_races = site.running | where_exp: "post", "post.tags contains 'race'" | sort: "date" | reverse %}
+<section class="race-map{% if include.size == 'large' %} race-map--large{% endif %}" data-race-map>
+  {% if include.filters %}
+  <div class="race-map__filters" aria-label="Filter races">
+    <label>Search <input type="search" data-filter="search" placeholder="Race or city"></label>
+    <label>Year <select data-filter="year"><option value="">All years</option></select></label>
+    <label>Country <select data-filter="country"><option value="">All countries</option></select></label>
+    <label>Type <select data-filter="type"><option value="">All types</option></select></label>
+  </div>
+  {% endif %}
+  <div class="race-map__summary" data-map-summary aria-live="polite"></div>
+  <div class="race-map__canvas" data-map-canvas role="region" aria-label="Interactive map of race locations"></div>
+  <div class="race-map__timeline">
+    <div class="race-map__timeline-heading">
+      <label for="race-map-timeline">Race timeline</label>
+      <output data-timeline-date for="race-map-timeline"></output>
+    </div>
+    <input id="race-map-timeline" type="range" min="1" step="1" data-timeline aria-label="Show races through the selected date">
+    <div class="race-map__timeline-ends"><span>First race</span><span>All races</span></div>
+  </div>
+  <div class="race-map__legend" role="group" aria-label="Filter races by type">
+    <button type="button" class="race-map__legend-filter" data-legend-filter="trail" aria-pressed="false"><i class="race-map__swatch race-map__swatch--trail"></i>Trail</button>
+    <button type="button" class="race-map__legend-filter" data-legend-filter="ultra" aria-pressed="false"><i class="race-map__swatch race-map__swatch--ultra"></i>Ultra</button>
+    <button type="button" class="race-map__legend-filter" data-legend-filter="road" aria-pressed="false"><i class="race-map__swatch race-map__swatch--road"></i>Road</button>
+    <button type="button" class="race-map__legend-filter" data-legend-filter="backyard" aria-pressed="false"><i class="race-map__swatch race-map__swatch--backyard"></i>Backyard</button>
+    <button type="button" class="race-map__legend-filter" data-legend-filter="halfmarathon" aria-pressed="false"><i class="race-map__swatch race-map__swatch--halfmarathon"></i>Half marathon</button>
+    <button type="button" class="race-map__legend-filter" data-legend-filter="marathon" aria-pressed="false"><i class="race-map__swatch race-map__swatch--marathon"></i>Marathon</button>
+  </div>
+  <script type="application/json" data-race-map-data>[
+    {% assign first_race = true %}
+    {% for post in map_races %}
+      {% assign race_date = post.race_date | default: post.date %}
+      {% assign race_year = race_date | date: "%Y" %}
+      {% assign race_website = post.race_website | default: "" | replace: "&amp;", "&" %}
+      {% assign results_url = post.race_results_official | default: "" | replace: "&amp;", "&" %}
+      {% if post.race_location and post.race_country and post.race_latitude and post.race_longitude %}
+        {% if include.year == nil or include.year == race_year %}
+          {% unless first_race %},{% endunless %}
+          {
+            "title": {{ post.title | jsonify }},
+            "url": {{ post.url | jsonify }},
+            "date": {{ race_date | date: "%Y-%m-%d" | jsonify }},
+            "year": {{ race_year | jsonify }},
+            "location": {{ post.race_location | jsonify }},
+            "country": {{ post.race_country | jsonify }},
+            "latitude": {{ post.race_latitude | jsonify }},
+            "longitude": {{ post.race_longitude | jsonify }},
+            "distance": {{ post.distance_km | default: "" | jsonify }},
+            "elevation": {{ post.elevation_gain_m | default: "" | jsonify }},
+            "duration": {{ post.duration_formatted | default: "" | jsonify }},
+            "race_website": {{ race_website | jsonify }},
+            "results_url": {{ results_url | jsonify }},
+            "tags": {{ post.tags | jsonify }}
+          }
+          {% assign first_race = false %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  ]</script>
+</section>

@@ -6,6 +6,10 @@ date: 2025-12-31 08:00:00 +0100
 race_date: 2025-12-31
 comments: true
 tags: race running trailrunning
+race_location: "Frederikshåb Plantage, Billund"
+race_country: "Denmark"
+race_latitude: 55.6748
+race_longitude: 9.0872
 distance_km: 22
 elevation_gain_m: 160
 duration_formatted: '1h49m20s'

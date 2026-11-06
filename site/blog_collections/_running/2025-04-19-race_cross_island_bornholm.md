@@ -6,6 +6,10 @@ date: 2025-04-19 20:00:00 +0200
 race_date: 2025-04-18
 comments: true
 tags: race running bornholm halfmarathon
+race_location: "Rø, Bornholm"
+race_country: "Denmark"
+race_latitude: 55.1884
+race_longitude: 14.9082
 distance_km: 21
 elevation_gain_m: 119
 duration_formatted: '1h30m10s'

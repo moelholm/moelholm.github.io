@@ -6,6 +6,10 @@ date: 2026-01-11 14:00:00 +0100
 race_date: 2026-01-10
 comments: true
 tags: race running ultrarunning
+race_location: "Ringkøbing"
+race_country: "Denmark"
+race_latitude: 56.0905
+race_longitude: 8.2436
 distance_km: 102
 elevation_gain_m: 236
 duration_formatted: '11h03m10s'
