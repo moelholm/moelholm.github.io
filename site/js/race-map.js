@@ -60,8 +60,7 @@
 
   function appendRaceLinks(container, race) {
     [
-      ["Race website", race.race_website],
-      ["Official results", race.results_url]
+      ["Race website", race.race_website]
     ].forEach(function (item) {
       if (!item[1]) return;
       var link = document.createElement("a");
