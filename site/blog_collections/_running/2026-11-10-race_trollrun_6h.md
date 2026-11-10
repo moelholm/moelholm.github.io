@@ -42,7 +42,7 @@ Trollrun was a lovely, low-key event, with a 6-hour race, marathon, half maratho
 
 <strong>🚌 Pre-race...</strong>
 
-I chose my ASICS Magic Speed 5s because I wanted a good tempo road shoe. The race started at 09:00.
+I chose my ASICS Magic Speed 5s because I wanted a good tempo road shoe. I also brought plenty of Tailwind energy drink and SiS gels in my box for the supplies table. The race started at 09:00.
 
 {% capture _photos %}
 2026-11-07_6764_small.jpg
