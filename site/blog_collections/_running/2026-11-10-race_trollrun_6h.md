@@ -12,7 +12,7 @@ race_latitude: 55.4761
 race_longitude: 9.1362
 distance_km: 68
 elevation_gain_m: 344
-duration_formatted: '5h59m57s'
+duration_formatted: '6h00m00s'
 race_results_official: "https://www.sportstiming.dk/event/17984/results"
 race_results_strava: "https://www.strava.com/activities/20895548044/overview"
 race_website: "https://www.sportstiming.dk/event/17984"
@@ -25,6 +25,7 @@ Race|Trollrun 6H - 2026;
 Date|{{ page.race_date }};
 Www|[{{ page.race_website }}]({{ page.race_website }});
 Type|Road;
+Position|Tied 3rd of 39 starters;
 Duration|{{ page.duration_formatted }};
 Distance|{{ page.distance_km }}k;
 {% endcapture %}
@@ -35,7 +36,7 @@ Distance|{{ page.distance_km }}k;
 
 We finished with 68.365 km after six hours of running, chatting and enjoying an unexpectedly sunny day 🥳. We held a quick rhythm for the first 42 kilometers, then eased off while keeping our feet moving all the way to the finish. I was tired at times, but we crossed the line feeling hugely proud and happy 💪🏼.
 
-Trollrun was a wonderfully low-key, no-fuss event, with several different races sharing the day and a friendly 5.3 km loop of road, gravel and a little grass. Running every step alongside Kasper made the day even better 🤗. The official results are linked below; I’ve left my placing out of this note.
+Trollrun was a wonderfully low-key, no-fuss event, with several different races sharing the day and a friendly 5.3 km loop of road, gravel and a little grass. Running every step alongside Kasper made the day even better 🤗. We were both listed at 68 and jointly third in the results, among 39 starters — an amazing result for a day we ran side by side 🥳.
 
 ### Impressions 📸
 
