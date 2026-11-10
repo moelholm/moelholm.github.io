@@ -34,7 +34,7 @@ Distance|{{ page.distance_km }}k;
 
 ### Nano Summary ⚡️
 
-We covered 68.365 km in six hours. It was sunny, and at times the race was tough. We were tired at the finish, but extremely happy and proud 🤩👌🏻👏🏻.
+It was sunny, but the race was tough at times. We were tired at the finish, but extremely happy and proud of what we had done 🤩👌🏻👏🏻.
 
 Trollrun was a low-key event with several race distances: a 6-hour race, marathon, half marathon, 10 km and 5 km. The 5.3 km loop was mostly road and gravel, with a little grass. Kasper and I shared 3rd place among 39 starters, both listed with 68 in the results.
 
