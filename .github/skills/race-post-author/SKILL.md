@@ -151,7 +151,9 @@ Keep the structure tight and punchy:
 
 ### 5. Photo Processing Workflow
 
-0. **Getting the photos into the agent environment**: Chat attachments (5 at a time, not saved as files) and PR comment uploads (25 MB limit) don't work for a full photo set. Instead, have the user zip the originals (HEIC + PNG; keep EXIF) and upload the zip as a **draft release** asset from their own machine (2 GB limit, only visible to collaborators):
+0. **Getting the photos into the agent environment**: Chat attachments (5 at a time, not saved as files) and PR comment uploads (25 MB limit) don't work for a full photo set. Instead, have the user zip the originals (HEIC + PNG; keep EXIF) and upload the zip as a **draft release** asset from their own machine (2 GB limit, only visible to collaborators). Give them the direct link to create a draft release: [Draft a new release](https://github.com/moelholm/moelholm.github.io/releases/new). On the release form, tell them to attach the ZIP in the **Attach binaries** area (the dashed upload area), not **Add files** beside the Markdown release notes; that control attaches files to the description and has a 25 MB limit. Save the release as a draft, not as a published release. They can do this in a mobile browser too.
+
+   From a computer with the GitHub CLI, the alternative is:
    ```bash
    gh release create <race>-photos-tmp --draft --repo moelholm/moelholm.github.io \
      --title "tmp: <race> photos" "/path/to/Photos.zip"
