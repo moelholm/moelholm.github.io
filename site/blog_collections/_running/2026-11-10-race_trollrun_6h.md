@@ -18,7 +18,7 @@ race_results_strava: "https://www.strava.com/activities/20895548044/overview"
 race_website: "https://www.sportstiming.dk/event/17984"
 ---
 
-On November 7th, I ran the Trollrun 6H in Vejen with Kasper Halkjær. We ran together for all six hours and covered 68.365 km.
+On November 7th, I ran the Trollrun 6H in Vejen with Kasper Halkjær. We ran together for all six hours 🥳🤗🤠 and covered 68.365 km.
 
 {% capture rows %}
 Race|Trollrun 6H - 2026;
