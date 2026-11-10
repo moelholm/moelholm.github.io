@@ -66,7 +66,7 @@ Kasper and I ran the whole race together and talked a lot. I only got to take a 
 
 <strong>🏅 Post-race...</strong>
 
-We finished at 15:00 with 68.365 km. We were very proud of our result 🤩👌🏻👏🏻.
+We finished at 15:00 with 68.365 km. We were both very proud of our result 🤩👌🏻👏🏻.
 
 {% capture _photos %}
 2026-11-07_6777_small.jpg
