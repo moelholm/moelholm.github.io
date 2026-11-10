@@ -18,7 +18,7 @@ race_results_strava: "https://www.strava.com/activities/20895548044/overview"
 race_website: "https://www.sportstiming.dk/event/17984"
 ---
 
-On November 7th, I spent six very happy hours at Trollrun in Vejen with my running buddy Kasper Halkjær 🤩🏃🏻‍♂️. We ran the whole race together and covered more than 68 kilometers!
+On November 7th, I ran the Trollrun 6H in Vejen with Kasper Halkjær. We ran together for all six hours and covered 68.365 km.
 
 {% capture rows %}
 Race|Trollrun 6H - 2026;
@@ -34,15 +34,15 @@ Distance|{{ page.distance_km }}k;
 
 ### Nano Summary ⚡️
 
-We finished with 68.365 km after six hours of running, chatting and enjoying an unexpectedly sunny day 🥳. We held a quick rhythm for the first 42 kilometers, then eased off while keeping our feet moving all the way to the finish. I was tired at times, but we crossed the line feeling hugely proud and happy 💪🏼.
+We covered 68.365 km in six hours. It was sunny, and at times the race was tough. We were tired at the finish but happy with the result.
 
-Trollrun was a wonderfully low-key, no-fuss event, with several different races sharing the day and a friendly 5.3 km loop of road, gravel and a little grass. Running every step alongside Kasper made the day even better 🤗. We were both listed at 68 and jointly third in the results, among 39 starters — an amazing result for a day we ran side by side 🥳.
+Trollrun was a low-key event with several race distances and a 5.3 km loop on road, gravel and some grass. Kasper and I were both listed with 68 in the results, tying for third among 39 starters.
 
 ### Impressions 📸
 
 <strong>🚌 Pre-race...</strong>
 
-I chose my ASICS Magic Speed 5s for the day, aiming for an efficient tempo road shoe. It was a relaxed start to a lovely day out in Vejen, with the six-hour race getting underway at 09:00.
+I chose my ASICS Magic Speed 5s because I wanted a good tempo road shoe. The race started at 09:00.
 
 {% capture _photos %}
 2026-11-07_6764_small.jpg
@@ -56,7 +56,7 @@ I chose my ASICS Magic Speed 5s for the day, aiming for an efficient tempo road 
 
 <strong>🚀 Race...</strong>
 
-Kasper and I spent the whole race together, talking as we went around the loop. I barely took any photos because I was too busy chatting with him to think about the camera 😅. The sunshine and easygoing atmosphere made those six hours fly by ☀️.
+Kasper and I ran the whole race together and talked a lot. I took few photos because I was busy talking 😅. We ran the first 42 km at about 5:00–5:10 per km, then slowed down but kept running.
 
 {% capture _photos %}
 2026-11-07_6774_small.jpg
@@ -66,7 +66,7 @@ Kasper and I spent the whole race together, talking as we went around the loop. 
 
 <strong>🏅 Post-race...</strong>
 
-At 15:00, we were done: 68 kilometers in the legs and big smiles all around 🤠🥳.
+We finished at 15:00 with 68.365 km. We were proud of the result.
 
 {% capture _photos %}
 2026-11-07_6777_small.jpg
@@ -88,6 +88,6 @@ At 15:00, we were done: 68 kilometers in the legs and big smiles all around 🤠
 
 ### Recommended? 👏🏻
 
-Absolutely! Trollrun is a great choice if you like a friendly, low-key timed race, a simple loop and the freedom to settle into your own day. I had a brilliant time sharing the miles with Kasper and would happily come back 🤩.
+Yes. Trollrun is a relaxed six-hour race with a simple loop. I enjoyed running it with Kasper and recommend it.
 
-This one gets my top rating: ⭐️⭐️⭐️⭐️⭐️
+⭐️⭐️⭐️⭐️⭐️
