@@ -34,9 +34,9 @@ Distance|{{ page.distance_km }}k;
 
 ### Nano Summary ⚡️
 
-We covered 68.365 km in six hours. It was sunny, and at times the race was tough. We were tired at the finish but happy with the result.
+We covered 68.365 km in six hours. It was sunny, and at times the race was tough. We were tired at the finish, but extremely happy and proud 🤩👌🏻👏🏻.
 
-Trollrun was a low-key event with several race distances and a 5.3 km loop on road, gravel and some grass. Kasper and I shared 3rd place among 39 starters, both listed with 68 in the results.
+Trollrun was a low-key event with several race distances: a 6-hour race, marathon, half marathon, 10 km and 5 km. The 5.3 km loop was mostly road and gravel, with a little grass. Kasper and I shared 3rd place among 39 starters, both listed with 68 in the results.
 
 ### Impressions 📸
 
@@ -66,7 +66,7 @@ Kasper and I ran the whole race together and talked a lot. I took few photos bec
 
 <strong>🏅 Post-race...</strong>
 
-We finished at 15:00 with 68.365 km. We were proud of the result.
+We finished at 15:00 with 68.365 km. We were very proud of our result 🤩👌🏻👏🏻.
 
 {% capture _photos %}
 2026-11-07_6777_small.jpg
