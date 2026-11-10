@@ -42,7 +42,7 @@ Trollrun was a wonderfully low-key, no-fuss event, with several different races 
 
 <strong>🚌 Pre-race...</strong>
 
-It was a relaxed start to a lovely day out in Vejen, with the six-hour race getting underway at 09:00.
+I chose my ASICS Magic Speed 5s for the day, aiming for an efficient tempo road shoe. It was a relaxed start to a lovely day out in Vejen, with the six-hour race getting underway at 09:00.
 
 {% capture _photos %}
 2026-11-07_6764_small.jpg
