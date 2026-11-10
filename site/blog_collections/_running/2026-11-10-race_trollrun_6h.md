@@ -88,6 +88,8 @@ We finished at 15:00 with 68.365 km. We were both very proud of our result 🤩�
 
 ### Recommended? 👏🏻
 
-Yes. The loop is lovely, and the aid station has nice snacks and drinks. The organizers are fun, cheerful and charming. I also liked the unique Trollrun medal and the table where I could leave my own box of drinks and energy supplies. I enjoyed the race and recommend it.
+Yes. The loop is lovely, and the aid station has nice snacks and drinks. I also liked being able to leave my own box of drinks and energy supplies on the table.
+
+The organizers are fun, cheerful and charming, and the Trollrun medal is unique. I really enjoyed the race and recommend it.
 
 ⭐️⭐️⭐️⭐️⭐️
