@@ -56,7 +56,7 @@ I chose my ASICS Magic Speed 5s for the day, aiming for an efficient tempo road 
 
 <strong>🚀 Race...</strong>
 
-Kasper and I spent the whole race together, talking as we went around the loop. The sunshine and easygoing atmosphere made those six hours fly by ☀️.
+Kasper and I spent the whole race together, talking as we went around the loop. I barely took any photos because I was too busy chatting with him to think about the camera 😅. The sunshine and easygoing atmosphere made those six hours fly by ☀️.
 
 {% capture _photos %}
 2026-11-07_6774_small.jpg
