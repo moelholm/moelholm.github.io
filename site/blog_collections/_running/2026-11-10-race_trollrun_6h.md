@@ -42,13 +42,47 @@ Trollrun was a wonderfully low-key, no-fuss event, with several different races 
 
 It was a relaxed start to a lovely day out in Vejen, with the six-hour race getting underway at 09:00.
 
+{% capture _photos %}
+2026-11-07_6764_small.jpg
+2026-11-07_6766_small.jpg
+2026-11-07_6768_small.jpg
+2026-11-07_6770_small.jpg
+2026-11-07_6771_small.jpg
+2026-11-07_6772_small.jpg
+{% endcapture %}
+{% include blog_race_photo_table.html images=_photos %}
+
 <strong>🚀 Race...</strong>
 
 Kasper and I spent the whole race together, talking as we went around the loop. The sunshine and easygoing atmosphere made those six hours fly by ☀️.
 
+{% capture _photos %}
+2026-11-07_6774_small.jpg
+2026-11-07_6775_small.jpg
+{% endcapture %}
+{% include blog_race_photo_table.html images=_photos %}
+
 <strong>🏅 Post-race...</strong>
 
 At 15:00, we were done: 68 kilometers in the legs and big smiles all around 🤠🥳.
+
+{% capture _photos %}
+2026-11-07_6777_small.jpg
+2026-11-07_6778_small.jpg
+2026-11-07_6779_small.jpg
+2026-11-07_6780_small.jpg
+2026-11-07_6781_small.jpg
+2026-11-07_6783_small.jpg
+{% endcapture %}
+{% include blog_race_photo_table.html images=_photos %}
+
+{% capture _photos %}
+2026-11-07_6784_small.jpg
+2026-11-07_6785_small.jpg
+2026-11-07_6787_small.jpg
+2026-11-07_6788_small.jpg
+{% endcapture %}
+{% include blog_race_photo_table.html images=_photos %}
 
 ### Recommended? 👏🏻
 
