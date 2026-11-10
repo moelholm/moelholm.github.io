@@ -34,7 +34,7 @@ Distance|{{ page.distance_km }}k;
 
 ### Nano Summary ⚡️
 
-It was sunny, but the race was tough at times. We were tired at the finish, but extremely happy and proud of what we had done 🤩👌🏻👏🏻.
+We had amazing weather: sunny and mild. It got a bit windier as the hours went by, but it was still lovely.
 
 Trollrun was a lovely, low-key event, with a 6-hour race, marathon, half marathon, 10 km and 5 km. I really enjoyed the 5.3 km loop, mostly road and gravel with a little grass. Kasper and I both finished with 68 in the results, sharing 3rd place among 39 starters. We were very happy with that result 🤩🥳.
 
