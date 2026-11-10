@@ -25,7 +25,7 @@ Race|Trollrun 6H - 2026;
 Date|{{ page.race_date }};
 Www|[{{ page.race_website }}]({{ page.race_website }});
 Type|Road;
-Position|Tied 3rd of 39 starters;
+Position|3rd of 39 starters (tied with Kasper);
 Duration|{{ page.duration_formatted }};
 Distance|{{ page.distance_km }}k;
 {% endcapture %}
@@ -36,7 +36,7 @@ Distance|{{ page.distance_km }}k;
 
 We covered 68.365 km in six hours. It was sunny, and at times the race was tough. We were tired at the finish but happy with the result.
 
-Trollrun was a low-key event with several race distances and a 5.3 km loop on road, gravel and some grass. Kasper and I were both listed with 68 in the results, tying for third among 39 starters.
+Trollrun was a low-key event with several race distances and a 5.3 km loop on road, gravel and some grass. Kasper and I shared 3rd place among 39 starters, both listed with 68 in the results.
 
 ### Impressions 📸
 
