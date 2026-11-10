@@ -56,7 +56,7 @@ I chose my ASICS Magic Speed 5s because I wanted a good tempo road shoe. The rac
 
 <strong>🚀 Race...</strong>
 
-Kasper and I ran the whole race together and talked a lot. I took few photos because I was busy talking 😅. We ran the first 42 km at about 5:00–5:10 per km, then slowed down but kept running.
+Kasper and I ran the whole race together and talked a lot. I only got to take a few photos during the actual race because I was busy chatting with him 😅. We ran the first 42 km at about 5:00–5:10 per km, then slowed down but kept running.
 
 {% capture _photos %}
 2026-11-07_6774_small.jpg
