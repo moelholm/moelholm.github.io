@@ -101,7 +101,8 @@ races:
     distance: "6H"
     tags: ["ultra"]
     url: "https://www.sportstiming.dk/event/17984"
-    status: "pending"
+    blog_url: "/blog/running/2026/11/10/race_trollrun_6h"
+    status: "completed"
 ---
 
 <h1>Race Calendar 2026</h1>
