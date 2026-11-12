@@ -24,11 +24,24 @@ jobs:
         with:
           ruby-version: '3.1'
           bundler-cache: false
-      
+
       - name: Install Jekyll dependencies
         run: |
           cd site
           bundle install
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Cache npm packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-netlify-cli-v1
+          restore-keys: |
+            ${{ runner.os }}-npm-netlify-cli-
       
       - name: Build Jekyll site with drafts and future posts
         run: |
@@ -38,7 +51,7 @@ jobs:
           JEKYLL_ENV: preview
       
       - name: Install Netlify CLI
-        run: npm install -g netlify-cli
+        run: npm install -g netlify-cli --prefer-offline --no-audit --no-fund
       
       - name: Deploy to Netlify
         id: netlify-deploy
