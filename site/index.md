@@ -37,12 +37,21 @@ race_map: true
   <div class="home-grid__main">
   {% include race_map.html %}
 
-  {% comment %}Get upcoming races from race calendar{% endcomment %}
-  {% assign race_calendar_page = site.pages | where: "name", "race_calendar_2026.md" | first %}
-  {% if race_calendar_page and race_calendar_page.races %}
-    {% assign upcoming_races = race_calendar_page.races | where: "status", "pending" | sort: "date" %}
-    {% include home/section_list.html title='Upcoming Races' emoji='🏁' items=upcoming_races limit=2 kind='upcoming_races' more_url='/race-calendar-2026/' grid='home-samples--two' %}
-  {% endif %}
+  {% comment %}Get upcoming races by joining current + next year calendars and filtering future races{% endcomment %}
+  {% assign current_year = site.time | date: "%Y" %}
+  {% assign next_year = current_year | plus: 1 %}
+  {% assign today = site.time | date: "%Y-%m-%d" %}
+  {% assign empty_races = '' | split: '' %}
+  {% assign current_calendar_name = 'race_calendar_' | append: current_year | append: '.md' %}
+  {% assign next_calendar_name = 'race_calendar_' | append: next_year | append: '.md' %}
+  {% assign current_calendar = site.pages | where: "name", current_calendar_name | first %}
+  {% assign next_calendar = site.pages | where: "name", next_calendar_name | first %}
+  {% assign current_races = current_calendar.races | default: empty_races %}
+  {% assign next_races = next_calendar.races | default: empty_races %}
+  {% assign merged_races = current_races | concat: next_races %}
+  {% assign upcoming_races = merged_races | where: "status", "pending" | where_exp: "race", "race.date >= today" | sort: "date" %}
+  {% assign upcoming_more_url = '/race-calendar-' | append: current_year | append: '/' %}
+  {% include home/section_list.html title='Upcoming Races' emoji='🏁' items=upcoming_races limit=2 kind='upcoming_races' more_url=upcoming_more_url grid='home-samples--two' %}
 
   {% assign activities = site.activities | where_exp: 'a', 'a.is_meta != true' | sort: 'date' | reverse %}
   {% include home/section_list.html title='Activities' emoji='🏃' items=activities limit=2 kind='activities' more_url='/activities/' grid='home-samples--two' %}
