@@ -20,7 +20,7 @@ race_map: true
       <a class="badge result-badge result-badge--utmb mr-1" href="https://utmb.world/en/runner/4879951.nicky.bassmolholm" target="_new" rel="noopener">
         <i class="fa-solid fa-mountain"></i> UTMB
       </a>
-      <a class="badge result-badge result-badge--itra mr-1" href="https://itra.run/api/RunnerSpace/GetRunnerSpace?memberString=mWeU4v%2B0oGPGf9LMOe6wgw%3D%3D" target="_new" rel="noopener">
+      <a class="badge result-badge result-badge--itra mr-1" href="https://itra.run/RunnerSpace/m%C3%B8lholm.nicky.4633878" target="_new" rel="noopener">
         <i class="fa-solid fa-shield"></i> ITRA
       </a>
       <a class="badge result-badge result-badge--duv mr-1" href="https://statistik.d-u-v.org/getresultperson.php?runner=2012387" target="_new" rel="noopener">
