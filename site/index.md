@@ -50,7 +50,8 @@ race_map: true
   {% assign next_races = next_calendar.races | default: empty_races %}
   {% assign merged_races = current_races | concat: next_races %}
   {% assign upcoming_races = merged_races | where: "status", "pending" | where_exp: "race", "race.date >= today" | sort: "date" %}
-  {% assign upcoming_more_url = '/race-calendar-' | append: current_year | append: '/' %}
+  {% assign upcoming_race_year = upcoming_races | map: "date" | first | date: "%Y" | default: current_year %}
+  {% assign upcoming_more_url = '/race-calendar-' | append: upcoming_race_year | append: '/' %}
   {% include home/section_list.html title='Upcoming Races' emoji='🏁' items=upcoming_races limit=2 kind='upcoming_races' more_url=upcoming_more_url grid='home-samples--two' %}
 
   {% assign activities = site.activities | where_exp: 'a', 'a.is_meta != true' | sort: 'date' | reverse %}
